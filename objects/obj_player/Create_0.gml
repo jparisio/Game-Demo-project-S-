@@ -357,7 +357,7 @@ fsm
 		step: function(){
 			//move
 			get_input_and_move();
-			determine_facing();
+			//determine_facing();
 			
 			//hit enemy details
 			if(animation_hit_frame(2)){

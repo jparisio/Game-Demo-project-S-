@@ -111,7 +111,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.0.98",
+    "IDEVersion": "2023.8.2.108",
   },
   "resources": [
     {"id":{"name":"__scribble_config_colours","path":"scripts/__scribble_config_colours/__scribble_config_colours.yy",},},
@@ -218,6 +218,7 @@
     {"id":{"name":"input_gamepad_get_type","path":"scripts/input_gamepad_get_type/input_gamepad_get_type.yy",},},
     {"id":{"name":"TGMX_Documentation","path":"notes/TGMX_Documentation/TGMX_Documentation.yy",},},
     {"id":{"name":"__shdBulbHardShadows","path":"shaders/__shdBulbHardShadows/__shdBulbHardShadows.yy",},},
+    {"id":{"name":"spr_attack","path":"sprites/spr_attack/spr_attack.yy",},},
     {"id":{"name":"input_source_detect_new","path":"scripts/input_source_detect_new/input_source_detect_new.yy",},},
     {"id":{"name":"input_gamepad_constant_get_name","path":"scripts/input_gamepad_constant_get_name/input_gamepad_constant_get_name.yy",},},
     {"id":{"name":"__input_global","path":"scripts/__input_global/__input_global.yy",},},
@@ -284,7 +285,6 @@
     {"id":{"name":"__input_macros","path":"scripts/__input_macros/__input_macros.yy",},},
     {"id":{"name":"input_check_opposing_repeat","path":"scripts/input_check_opposing_repeat/input_check_opposing_repeat.yy",},},
     {"id":{"name":"spr_clouds","path":"sprites/spr_clouds/spr_clouds.yy",},},
-    {"id":{"name":"spr_attack","path":"sprites/spr_attack/spr_attack.yy",},},
     {"id":{"name":"__input_gamepad_type_swap_ab","path":"scripts/__input_gamepad_type_swap_ab/__input_gamepad_type_swap_ab.yy",},},
     {"id":{"name":"spr_sign","path":"sprites/spr_sign/spr_sign.yy",},},
     {"id":{"name":"__shdBulbPassThrough","path":"shaders/__shdBulbPassThrough/__shdBulbPassThrough.yy",},},

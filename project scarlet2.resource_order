@@ -241,6 +241,7 @@
     {"name":"__input_macros","order":17,"path":"scripts/__input_macros/__input_macros.yy",},
     {"name":"input_check_opposing_repeat","order":8,"path":"scripts/input_check_opposing_repeat/input_check_opposing_repeat.yy",},
     {"name":"spr_clouds","order":7,"path":"sprites/spr_clouds/spr_clouds.yy",},
+    {"name":"spr_attack","order":11,"path":"sprites/spr_attack/spr_attack.yy",},
     {"name":"__input_gamepad_type_swap_ab","order":9,"path":"scripts/__input_gamepad_type_swap_ab/__input_gamepad_type_swap_ab.yy",},
     {"name":"spr_sign","order":13,"path":"sprites/spr_sign/spr_sign.yy",},
     {"name":"__shdBulbPassThrough","order":4,"path":"shaders/__shdBulbPassThrough/__shdBulbPassThrough.yy",},

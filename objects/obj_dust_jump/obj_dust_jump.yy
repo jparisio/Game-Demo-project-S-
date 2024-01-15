@@ -28,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_jump_dust3",
-    "path": "sprites/spr_jump_dust3/spr_jump_dust3.yy",
+    "name": "spr_jump_dust4",
+    "path": "sprites/spr_jump_dust4/spr_jump_dust4.yy",
   },
   "spriteMaskId": null,
   "visible": true,

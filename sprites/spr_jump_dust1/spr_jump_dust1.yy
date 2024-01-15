@@ -40,8 +40,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "effects",
-    "path": "folders/Sprites/effects.yy",
+    "name": "dust",
+    "path": "folders/Sprites/effects/dust.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

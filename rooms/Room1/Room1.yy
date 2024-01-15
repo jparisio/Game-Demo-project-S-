@@ -22,7 +22,6 @@
     {"name":"inst_196C41A8","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_12A49768","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_7A557A0A","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_1742CA59","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_141C4C80","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_3F86D46","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_303FC4F9","path":"rooms/Room1/Room1.yy",},
@@ -41,6 +40,7 @@
     {"name":"inst_53174514","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_7DC447C7","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_1DF2DD39","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_2297FEAE","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -137,7 +137,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_593BCD14","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_hurtbox","path":"objects/obj_hurtbox/obj_hurtbox.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":285.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1EE2DD34","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_paralax","path":"objects/obj_paralax/obj_paralax.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":350.0,"y":5.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3DBE3F21","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall_surface_controller","path":"objects/obj_wall_surface_controller/obj_wall_surface_controller.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":380.0,"y":5.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1742CA59","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_warrior_slime","path":"objects/obj_warrior_slime/obj_warrior_slime.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1408.0,"y":288.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1FA1FFB0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_text_initialize","path":"objects/obj_text_initialize/obj_text_initialize.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":431.0,"y":5.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_52632AEB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"propertyId":{"name":"text_id","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"value":"katana",},
@@ -147,6 +146,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_53174514","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_warrior_slime","path":"objects/obj_warrior_slime/obj_warrior_slime.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":288.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7DC447C7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_warrior_slime","path":"objects/obj_warrior_slime/obj_warrior_slime.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":768.0,"y":224.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1DF2DD39","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_warrior_slime","path":"objects/obj_warrior_slime/obj_warrior_slime.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":288.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2297FEAE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_assassin","path":"objects/obj_assassin/obj_assassin.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1408.0,"y":288.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Grass","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":{"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":214,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Rocks","assets":[

@@ -26,10 +26,10 @@ function game_script(_text_id){
 		break;
 		
 		case "katana":
-			scr_text("hey new protag")
-			scr_text("i like the design");
-			scr_text("fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck")
-			scr_text("ill take over now[ended]");
+			scr_text("This is a demo")
+			scr_text("testing out the dialogue system");
+			scr_text("Long strings seem to work and everything looks fluid")
+			scr_text("heres teh finish[ended]");
 		break;
 		
 		

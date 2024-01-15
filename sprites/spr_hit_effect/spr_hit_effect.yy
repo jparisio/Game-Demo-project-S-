@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "effects",
-    "path": "folders/Sprites/effects.yy",
+    "name": "hit effects and slashes",
+    "path": "folders/Sprites/effects/hit effects and slashes.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

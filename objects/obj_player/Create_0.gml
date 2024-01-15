@@ -360,7 +360,7 @@ fsm
 			//determine_facing();
 			
 			//hit enemy details
-			if(animation_hit_frame(2)){
+			if(animation_hit_frame(1)){
 				create_hitbox("player", x, y, facing, spr_hitbox, 1, damage);
 			}
 				

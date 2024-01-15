@@ -25,7 +25,8 @@ if(creator == "player"){
 		_slash.image_angle = random_range(20, -20);
 		//create blood and blood angle
 		var _angled = random(2)
-		if(_angled <= 1) repeat(30) create_blood(facing, other.x -10, other.y-40, true) else repeat(30) create_blood(facing, other.x -10, other.y-40, false)
+		//TODO: I set both to false set one to true to make it angled
+		if(_angled <= 1) repeat(30) create_blood(facing, other.x -10, other.y-40, false) else repeat(30) create_blood(facing, other.x -10, other.y-40, false)
 		//hit pause
 		hit_pause(20)
 	}

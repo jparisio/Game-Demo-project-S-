@@ -9,6 +9,7 @@
     {"name":"spr_jump_dust2","order":2,"path":"sprites/spr_jump_dust2/spr_jump_dust2.yy",},
     {"name":"spr_jump_dust1","order":1,"path":"sprites/spr_jump_dust1/spr_jump_dust1.yy",},
     {"name":"spr_attack","order":1,"path":"sprites/spr_attack/spr_attack.yy",},
+    {"name":"spr_jump_fall_start","order":4,"path":"sprites/spr_jump_fall_start/spr_jump_fall_start.yy",},
     {"name":"spr_assassin_run_to_idle","order":2,"path":"sprites/spr_assassin_run_to_idle/spr_assassin_run_to_idle.yy",},
     {"name":"spr_slash","order":1,"path":"sprites/spr_slash/spr_slash.yy",},
     {"name":"spr_jump_dust3","order":3,"path":"sprites/spr_jump_dust3/spr_jump_dust3.yy",},
@@ -16,7 +17,9 @@
     {"name":"spr_assassin_idle_to_run","order":3,"path":"sprites/spr_assassin_idle_to_run/spr_assassin_idle_to_run.yy",},
     {"name":"obj_assassin","order":1,"path":"objects/obj_assassin/obj_assassin.yy",},
     {"name":"spr_jump_dust4","order":4,"path":"sprites/spr_jump_dust4/spr_jump_dust4.yy",},
+    {"name":"Sprite69","order":3,"path":"sprites/Sprite69/Sprite69.yy",},
     {"name":"spr_blood_spray","order":1,"path":"sprites/spr_blood_spray/spr_blood_spray.yy",},
     {"name":"spr_assassin_run","order":1,"path":"sprites/spr_assassin_run/spr_assassin_run.yy",},
+    {"name":"spr_jump_start","order":2,"path":"sprites/spr_jump_start/spr_jump_start.yy",},
   ],
 }

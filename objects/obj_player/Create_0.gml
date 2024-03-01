@@ -298,7 +298,7 @@ fsm
 	.add("jump", {
 		
 		enter: function(){
-			sprite_index = spr_jump;
+			sprite_index = spr_jump_start;
 			image_index = 0;
 			can_jump = false;
 		},
@@ -308,11 +308,24 @@ fsm
 			get_input_and_move();
 			determine_facing();
 			
+			//change animations
+			if(sprite_index == spr_jump_start and animation_end()){
+				sprite_index = spr_jump;
+				image_index = 0;
+			}
+			
 			//variable jump
 			if(!input_check("jump")) vsp = max(vsp, -2);
 			
 			//animations
-			if vsp >= 0.5 sprite_index = spr_jump_fall;
+			if (vsp >= 0.5 and vsp <= 1){ //this is because we dont want it to be stuck on index 0 for forever we want it to only activate at the turn  around point
+				sprite_index = spr_jump_fall_start;
+				image_index = 0;
+			}
+			if(sprite_index == spr_jump_fall_start and animation_end()){
+				sprite_index = spr_jump_fall;
+				image_index = 0;
+			}
 			
 			//check if colliding with bottom of wall
 			if(place_meeting(x, y - 1, obj_wall)) vsp = 1;

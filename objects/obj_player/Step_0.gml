@@ -39,3 +39,4 @@ if (on_ground) can_dash = true;
 //	}
 //	dash_timer = dash_timer_max;
 //}
+

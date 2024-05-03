@@ -422,7 +422,9 @@ fsm
 	.add("dash", {
 		
 		enter: function(){
-			image_speed = 0;
+			sprite_index = spr_dash;
+			image_index = 0;
+			image_speed = 1;
 			grv = 0;
 			dash_length = dash_length_max;
 			dash_x = 0;
@@ -437,6 +439,7 @@ fsm
 			} else dash_direction = point_direction(0, 0, facing, down - up);
 			//create screenshake
 			instance_create_layer(x, y, "Instances", obj_screenshake);
+			instance_destroy(obj_hurtbox)
 		},
 		
 		step: function(){
@@ -470,6 +473,7 @@ fsm
 				image_speed = 1;
 				grv = global_grv;
 				can_dash = false;
+				instance_create_layer(x, y, "Instances", obj_hurtbox);
 				if(place_meeting(x, y + 1, obj_wall)) fsm.change("idle") else fsm.change("jump");
 			}
 		}

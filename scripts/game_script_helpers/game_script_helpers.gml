@@ -29,7 +29,7 @@ function game_script(_text_id){
 			scr_text("This is a demo")
 			scr_text("testing out the dialogue system");
 			scr_text("Long strings seem to work and everything looks fluid")
-			scr_text("heres teh finish[ended]");
+			scr_text("heres the finish[ended]");
 		break;
 		
 		

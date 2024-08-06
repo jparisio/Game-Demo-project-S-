@@ -3,6 +3,7 @@ end_text = function(){
 	obj_text.ended = true
 }
 
+//choose what object to create he speech bubble above
 speech_bubble_target = function(_element, _parameter_array, _character_index){
 	var _t = asset_get_index(string_trim(_parameter_array[0]))
 	obj_text.create_above = _t; 

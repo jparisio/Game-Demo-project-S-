@@ -425,6 +425,11 @@ fsm
 			sprite_index = spr_dash;
 			image_index = 0;
 			image_speed = 1;
+			with(instance_create_layer(x, y, "Instances", obj_dust_jump)){
+				sprite_index = spr_jump_dust3
+				image_index = 0;
+				image_speed = 1;
+			}
 			grv = 0;
 			dash_length = dash_length_max;
 			dash_x = 0;

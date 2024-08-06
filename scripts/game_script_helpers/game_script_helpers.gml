@@ -32,8 +32,6 @@ function game_script(_text_id){
 			scr_text("heres the finish[ended]");
 		break;
 		
-		
-		
 	}
 	
 }

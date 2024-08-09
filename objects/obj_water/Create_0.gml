@@ -1,5 +1,5 @@
 // Spacing between points
-point_spacing = 10;
+point_spacing = 5;
 
 // Number of points in the wave
 num_points = round(sprite_width/point_spacing);

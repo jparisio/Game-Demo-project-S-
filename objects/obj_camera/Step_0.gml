@@ -20,3 +20,8 @@ y = clamp(y, 260 , 270);
 camera_set_view_pos(view_camera[0], _x, _y);
 camera_set_view_size(view_camera[0],global.cam_width, global.cam_height);
 
+if (snap_to){
+	x = obj_player.x;
+	y = obj_player.y;
+	snap_to = false;
+}

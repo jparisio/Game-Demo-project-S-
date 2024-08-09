@@ -29,6 +29,10 @@ if (instance_place(x, y, obj_player) != noone) {
 // Update the wave points using the same spring mechanics as before
 for (var i = 0; i < num_points; i++) {
     var point = points[i];
+	
+	//add a small constant wave to the water so it isnt sitting still
+	point.velocity += sin((i * point_spacing) * 0.1 + current_time * 0.5) * 0.2;
+	point.velocity += sin((i * point_spacing) * 0.15 - current_time * 0.5) * 0.15;
     
     // Calculate the force based on Hooke's law
     var force = -spring_constant * (point.y_current - point.y_rest);

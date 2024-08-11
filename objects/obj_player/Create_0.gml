@@ -86,7 +86,7 @@ get_input_and_move = function() {
 	hsp += move * walksp;
 	hsp = lerp(hsp, 0, .2);
 	if(abs(hsp) <= .1) hsp = 0;
-	hsp = min(abs(hsp), 4) * sign(hsp)
+	hsp = min(abs(hsp), max_walksp) * sign(hsp)
 	
 	//add gravity
 	vsp+=grv;
@@ -506,7 +506,7 @@ fsm
 					if(!instance_exists(obj_text) and timer <= 0 and obj_player.talking == true){
 						with(instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_text)){
 							//create script with the id retrieved from this
-							game_script(other.text_id)
+							current_dialogue_id = other.text_id;
 						}
 					}
 				}

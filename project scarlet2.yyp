@@ -106,6 +106,7 @@
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllertypes.csv","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"dialogue.json","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"licenses.txt","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"sdl2.txt","CopyToMask":-1,"filePath":"datafiles",},
   ],
@@ -485,6 +486,7 @@
     {"id":{"name":"spr_tinytree","path":"sprites/spr_tinytree/spr_tinytree.yy",},},
     {"id":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},},
     {"id":{"name":"__input_config_verb_groups","path":"scripts/__input_config_verb_groups/__input_config_verb_groups.yy",},},
+    {"id":{"name":"obj_grapple_controller","path":"objects/obj_grapple_controller/obj_grapple_controller.yy",},},
     {"id":{"name":"input_xy","path":"scripts/input_xy/input_xy.yy",},},
     {"id":{"name":"input_accessibility_global_toggle_get","path":"scripts/input_accessibility_global_toggle_get/input_accessibility_global_toggle_get.yy",},},
     {"id":{"name":"scribble_anim_reset","path":"scripts/scribble_anim_reset/scribble_anim_reset.yy",},},
@@ -509,7 +511,6 @@
     {"id":{"name":"input_profile_exists","path":"scripts/input_profile_exists/input_profile_exists.yy",},},
     {"id":{"name":"draw_text_scribble_ext","path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},},
     {"id":{"name":"__scribble_effects_maps_initialize","path":"scripts/__scribble_effects_maps_initialize/__scribble_effects_maps_initialize.yy",},},
-    {"id":{"name":"game_script_helpers","path":"scripts/game_script_helpers/game_script_helpers.yy",},},
     {"id":{"name":"spr_idle_to_run","path":"sprites/spr_idle_to_run/spr_idle_to_run.yy",},},
     {"id":{"name":"__input_source_relinquish","path":"scripts/__input_source_relinquish/__input_source_relinquish.yy",},},
     {"id":{"name":"spr_light2","path":"sprites/spr_light2/spr_light2.yy",},},

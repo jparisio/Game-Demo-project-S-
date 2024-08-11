@@ -21,13 +21,34 @@ typist.character_delay_add(".", 150)
 
 //vars
 ended = false;
-index = 0;
+//index = 0;
 page = 0;
 dialogue_length = 0;
 //script
 game_dialogue[0] = ""
 //dialogue
 //game_script("test");
+
+// Load the JSON file
+// Create Event
+
+// Create Event
+
+// Load the JSON file
+var json_string = file_text_open_read("dialogue.json");
+var json_content = "";
+while (!file_text_eof(json_string)) {
+    json_content += file_text_read_string(json_string);
+    file_text_readln(json_string);
+}
+file_text_close(json_string);
+
+// Parse the JSON string into a struct
+dialogue_data = json_parse(json_content);
+
+//Store the current dialogue ID
+current_dialogue_id = "";
+
 
 //box
 rec_width = 0;

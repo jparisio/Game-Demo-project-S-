@@ -1,0 +1,24 @@
+{
+    "test": [
+        "hello",
+        "helloooooo",
+        "is anyone gonna [shake_screen][c_red]ANSWER[c_red]",
+        "this is a [wave][rainbow]test[rainbow][wave] and im trying to see things[ended]"
+    ],
+    "test2": [
+        "oh shit",
+        "sprayed blood all over there",
+        "[switch, obj_shop][shake_screen]HEY",
+        "you got [c_red][shake]blood[/shake] [c_white]all over my [shake_screen]SHOP",
+        "YOU GOTTA CLEAN THIS. [shake_screen]NOW",
+        "[switch, obj_player]my bad, ill get on that sir...",
+        "or maam...",
+        "[shake]sorry[/shake][ended]"
+    ],
+    "katana":[
+        "This is a demo",
+        "testing out the dialogue system",
+        "Long strings seem to work and everything looks fluid",
+        "heres the finish[ended]"
+    ]
+}

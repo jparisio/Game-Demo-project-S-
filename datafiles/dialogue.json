@@ -3,7 +3,7 @@
         "hello",
         "helloooooo",
         "is anyone gonna [shake_screen][c_red]ANSWER[c_red]",
-        "this is a [wave][rainbow]test[rainbow][wave] and im trying to see things[ended]"
+        "this is a [wave][rainbow]test[/rainbow][/wave] and im trying to see things[ended]"
     ],
     "test2": [
         "oh shit",

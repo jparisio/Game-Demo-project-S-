@@ -55,9 +55,9 @@ rec_width = 0;
 rec_height = 0;
 
 //player distance
-create_above = obj_player
-player_x_dis = create_above .x;
-player_y_dis = create_above .y - 50;
+create_above = undefined;
+player_x_dis = 0;
+player_y_dis = 0;
 
 //max width
 max_width = 130;

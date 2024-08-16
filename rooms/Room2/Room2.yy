@@ -14,7 +14,7 @@
     {"name":"inst_DEBDE97","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_45CF2DC0","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_5C4EB737","path":"rooms/Room2/Room2.yy",},
-    {"name":"inst_3C006A37","path":"rooms/Room2/Room2.yy",},
+    {"name":"inst_1566D1D2","path":"rooms/Room2/Room2.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -51,10 +51,10 @@
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Shop","depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5C4EB737","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_lamp","path":"objects/obj_lamp/obj_lamp.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1152.0,"y":256.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3C006A37","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"propertyId":{"name":"text_id","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"value":"gunslinger",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"propertyId":{"name":"create_above","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"value":"obj_boss_gunslinger",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":864.0,"y":288.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1566D1D2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"propertyId":{"name":"create_above","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"value":"obj_boss_gunslinger",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"propertyId":{"name":"text_id","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"value":"gunslinger",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":7.095238,"x":832.0,"y":288.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Sign","assets":[],"depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Trees_fground","assets":[

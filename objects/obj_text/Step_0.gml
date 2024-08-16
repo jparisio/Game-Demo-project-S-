@@ -1,6 +1,8 @@
 //create at position so i can switch who the text is created above
-player_x_dis = create_above .x;
-player_y_dis = create_above .y - 50;
+if(create_above != undefined){
+	player_x_dis = create_above .x;
+	player_y_dis = create_above .y - 50;
+}
 
 // Step Event
 

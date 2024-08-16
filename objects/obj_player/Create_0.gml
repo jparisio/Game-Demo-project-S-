@@ -216,6 +216,7 @@ fsm
 				fsm.change("finisher");
 				instance_destroy(obj_finisher_circle);
 			}
+			
 	   }
   })
   
@@ -289,6 +290,8 @@ fsm
 			
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
+			
+			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
 			
 	  }
 })
@@ -496,12 +499,18 @@ fsm
 		step: function(){
 			
 			//stop animation from looping
-			if (sprite_index == spr_run_to_idle and animation_end()) sprite_index = spr_idle;
+			if (sprite_index == spr_run) sprite_index = spr_run_to_idle;
+			if(sprite_index == spr_idle_to_run) sprite_index = spr_run_to_idle;
+			if (sprite_index == spr_run_to_idle and animation_end()) sprite_index = spr_idle; //just leave this line too
 			
-			var _dialogue_box = instance_place(x, y, obj_dialogue_collision);
+			var _dialogue_box = instance_place(x, y, obj_dialogue_collision); //and this and chance target to _dialogue box
 			
-			if(_dialogue_box != noone){
-				with(_dialogue_box){
+			var _cutscene_box = instance_place(x, y, obj_cutscene_collision); //probably move this shit to another state tbh
+			
+			var _target = _dialogue_box == noone? _cutscene_box: _dialogue_box //that includes this
+			
+			if(_target != noone){
+				with(_target){
 					//show_debug_message(_self)
 					if(!instance_exists(obj_text) and timer <= 0 and obj_player.talking == true){
 						with(instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_text)){

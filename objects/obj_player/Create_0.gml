@@ -507,6 +507,7 @@ fsm
 						with(instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_text)){
 							//create script with the id retrieved from this
 							current_dialogue_id = other.text_id;
+							create_above = other.create_above;
 						}
 					}
 				}

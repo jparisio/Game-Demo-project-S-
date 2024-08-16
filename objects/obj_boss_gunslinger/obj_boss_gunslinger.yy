@@ -1,16 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_dialogue_collision",
+  "name": "obj_boss_gunslinger",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "text",
-    "path": "folders/Objects/text.yy",
+    "name": "bosses",
+    "path": "folders/Objects/enemies/bosses.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -26,16 +27,12 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"text_id","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":2,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"timer","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"5","varType":1,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"create_above","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"obj_player","varType":5,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_hurtbox",
-    "path": "sprites/spr_hurtbox/spr_hurtbox.yy",
+    "name": "spr_boss_gunslinger",
+    "path": "sprites/spr_boss_gunslinger/spr_boss_gunslinger.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

@@ -22,6 +22,8 @@
     {"name":"Tilesets","order":16,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":17,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":18,"path":"folders/TweenGMX.yy",},
+    {"name":"bosses","order":2,"path":"folders/Sprites/enemies/bosses.yy",},
+    {"name":"bosses","order":2,"path":"folders/Objects/enemies/bosses.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_jump_dust2","order":2,"path":"sprites/spr_jump_dust2/spr_jump_dust2.yy",},

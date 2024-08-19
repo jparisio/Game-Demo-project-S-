@@ -13,3 +13,4 @@ timer = 0;
 target_angle = 0;
 move_speed = 0;
 radius = 200;
+damage = 10;

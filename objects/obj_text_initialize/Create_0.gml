@@ -15,12 +15,17 @@ camera_target = function(_element, _parameter_array, _character_index){
 	obj_camera.follow = _t;
 }
 
+boss_start = function(){
+	global.boss_fight = true;
+}
+
 
 //add the shake event
 scribble_typists_add_event("shake_screen", create_shake);
 scribble_typists_add_event("ended", end_text);
 scribble_typists_add_event("switch", speech_bubble_target);
 scribble_typists_add_event("cam", camera_target);
+scribble_typists_add_event("boss", boss_start);
 
 //set fonts
 scribble_font_set_default("text_font");

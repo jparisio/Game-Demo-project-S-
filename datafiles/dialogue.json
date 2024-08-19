@@ -26,6 +26,6 @@
         "first boss test dialogue",
         "[c_red][shake_screen] EVIL [/c_red]dialogue blah, blah...",
         "[switch, obj_player][cam, obj_player]gotta win yay",
-        "this is end[ended]"
+        "this is end[boss][ended]"
     ]
 }

@@ -58,6 +58,9 @@ pushback = 2;
 dialogue_buffer = 10
 talking = false
 
+//bosses
+global.boss_fight = false;
+
 
 //6B9199
 //this is code for bg colour

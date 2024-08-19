@@ -53,7 +53,6 @@
     {"name":"inst_4326ADD4","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_3784FC71","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_68429EA5","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_23F1342F","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -93,7 +92,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_52632AEB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_dialogue_collision","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"propertyId":{"name":"text_id","path":"objects/obj_dialogue_collision/obj_dialogue_collision.yy",},"value":"katana",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1472.0,"y":288.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_23F1342F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_rocket_controller","path":"objects/obj_rocket_controller/obj_rocket_controller.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":192.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Enemies","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_53174514","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_warrior_slime","path":"objects/obj_warrior_slime/obj_warrior_slime.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":288.0,},

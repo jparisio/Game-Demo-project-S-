@@ -22,10 +22,10 @@
         "heres the finish[ended]"
     ],
     "gunslinger":[
-        "[switch, obj_boss_gunslinger]yo",
+        "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger]yo",
         "first boss test dialogue",
         "[c_red][shake_screen] EVIL [/c_red]dialogue blah, blah...",
-        "[switch, obj_player]gotta win yay",
+        "[switch, obj_player][cam, obj_player]gotta win yay",
         "this is end[ended]"
     ]
 }

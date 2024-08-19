@@ -363,11 +363,11 @@ fsm
 	.add("attack", {
 		
 		enter: function(){
-			sprite_index = spr_attack;
-			image_index = 0;
+			//sprite_index = spr_attack;
+			//image_index = 0;
 			//create the hitbox
-			//create_hitbox("player", x, y, facing, spr_hitbox, 1, damage);
-			//instance_create_layer(x, y, "Instances", obj_slash).image_xscale = facing;
+			create_hitbox("player", x, y, facing, spr_hitbox, 1, damage);
+			instance_create_layer(x, y, "Instances", obj_slash).image_xscale = facing;
 		},
 		
 		step: function(){
@@ -376,17 +376,24 @@ fsm
 			//determine_facing();
 			
 			//hit enemy details
-			if(animation_hit_frame(1)){
-				create_hitbox("player", x, y, facing, spr_hitbox, 1, damage);
-			}
+			//if(animation_hit_frame(1)){
+			//	create_hitbox("player", x, y, facing, spr_hitbox, 1, damage);
+			//}
 				
 		
 			//switch back to idle on ground or air in air
-			if(animation_end()){
+			//if(animation_end()){
+			//	if place_meeting(x, y + 1, obj_wall){
+			//		fsm.change("idle")
+			//	} else fsm.change("jump")
+			//}
+			
+			if(!instance_exists(obj_slash)){
 				if place_meeting(x, y + 1, obj_wall){
 					fsm.change("idle")
 				} else fsm.change("jump")
 			}
+			
 			
 		}
 })

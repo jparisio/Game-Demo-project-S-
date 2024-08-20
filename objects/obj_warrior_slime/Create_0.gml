@@ -158,7 +158,7 @@ fsm
 			//create the hitbox on slash frame
 			if(animation_hit_frame(5)){
 				//create hitbox
-				create_hitbox("enemy",x, y, image_xscale, spr_warrior_slime_attack1_hitbox, 1, 3)
+				create_hitbox("enemy", self, x, y, image_xscale, spr_warrior_slime_attack1_hitbox, 1, 3)
 			}
 			
 			//switch to idle
@@ -187,7 +187,7 @@ fsm
 			//create the hitbox on slash frame
 			if(animation_hit_frame(10)){
 				//create hitbox
-				create_hitbox("enemy",x, y, image_xscale, spr_warrior_slime_attack2_hitbox, 5, 10)
+				create_hitbox("enemy", self, x, y, image_xscale, spr_warrior_slime_attack2_hitbox, 5, 10)
 			}
 			
 			//switch to idle

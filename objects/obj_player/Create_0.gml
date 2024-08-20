@@ -166,6 +166,12 @@ fsm
 				image_index = 0;
 			}
 			
+			//return after jump !TODO: this is a temp landing animation
+			if(fsm.get_previous_state() == "jump"){
+				sprite_index = spr_run_to_idle
+				image_index = 0;
+			}
+			
 		},
 		step: function() {
 			
@@ -369,7 +375,7 @@ fsm
 			//sprite_index = spr_attack;
 			//image_index = 0;
 			//create the hitbox
-			create_hitbox("player", x, y, facing, spr_hitbox, 1, damage);
+			create_hitbox("player", obj_player, x, y, facing, spr_hitbox, 1, damage);
 			instance_create_layer(x, y, "Instances", obj_slash).image_xscale = facing;
 		},
 		
@@ -457,7 +463,9 @@ fsm
 			} else dash_direction = point_direction(0, 0, facing, down - up);
 			//create screenshake
 			instance_create_layer(x, y, "Instances", obj_screenshake);
-			instance_destroy(obj_hurtbox)
+			if instance_exists(obj_hurtbox) {
+			    instance_destroy(obj_hurtbox);
+			}
 		},
 		
 		step: function(){
@@ -491,7 +499,9 @@ fsm
 				image_speed = 1;
 				grv = global_grv;
 				can_dash = false;
-				instance_create_layer(x, y, "Instances", obj_hurtbox);
+				if !instance_exists(obj_hurtbox) {
+				    instance_create_layer(x, y, "Player", obj_hurtbox);
+				}
 				if(place_meeting(x, y + 1, obj_wall)) fsm.change("idle") else fsm.change("jump");
 			}
 		}

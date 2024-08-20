@@ -8,3 +8,5 @@ create_shake();
 hit_pause(120)
 //destroy so it doesnt infinately collide with the player
 instance_destroy(obj_hurtbox);
+
+instance_destroy();

@@ -8,7 +8,7 @@ function animation_end(){
     return (image_index + image_speed*sprite_get_speed(sprite_index)/(sprite_get_speed_type(sprite_index) == spritespeed_framespergameframe? 1 : game_get_speed(gamespeed_fps)) >= image_number);   
 }
 
-function create_hitbox(_creator, _x, _y, _facing, _sprite, _lifespan, _damage){
+function create_hitbox(_creator, _follow, _x, _y, _facing, _sprite, _lifespan, _damage){
 	var _hitbox = instance_create_layer(_x, _y, "Instances", obj_hitbox)
 	_hitbox.sprite_index = _sprite;
 	_hitbox.facing = _facing
@@ -16,6 +16,7 @@ function create_hitbox(_creator, _x, _y, _facing, _sprite, _lifespan, _damage){
 	_hitbox.creator = _creator;
 	_hitbox.lifespan = _lifespan;
 	_hitbox.damage = _damage;
+	_hitbox.follow = _follow;
 
 }
 

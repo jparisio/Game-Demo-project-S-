@@ -383,6 +383,10 @@ fsm
 			//create the hitbox
 			create_hitbox("player", obj_player, x, y, facing, spr_hitbox, 1, damage);
 			instance_create_layer(x, y, "Instances", obj_slash).image_xscale = facing;
+			//website for sound effects
+			//https://artlist.io/sfx/search?terms=juicy
+			//https://artlist.io/sfx/search?terms=hit&terms=juicy
+			//https://artlist.io/sfx/track/cartoonish---ninja-sword-swing-squishy-hit/66937
 		},
 		
 		step: function(){
@@ -509,6 +513,7 @@ fsm
 				    instance_create_layer(x, y, "Player", obj_hurtbox);
 				}
 				if(place_meeting(x, y + 1, obj_wall)) fsm.change("idle") else fsm.change("jump");
+				if(place_meeting(x, y, obj_cutscene_collision)) fsm.change("dialogue");
 			}
 		}
 })
@@ -529,7 +534,7 @@ fsm
 			if (sprite_index == spr_run) sprite_index = spr_run_to_idle;
 			if (sprite_index == spr_idle_to_run) sprite_index = spr_run_to_idle;
 			if (sprite_index == spr_run_to_idle and animation_end()) sprite_index = spr_idle; //just leave this line too
-			if(sprite_index == spr_jump_fall or sprite_index == spr_jump_fall_start or sprite_index == spr_jump and place_meeting(x , y + 1, obj_wall)) sprite_index = spr_run_to_idle;
+			if(sprite_index == spr_jump_fall or sprite_index == spr_jump_fall_start or sprite_index == spr_jump or sprite_index = spr_jump_start and place_meeting(x , y + 1, obj_wall)) sprite_index = spr_run_to_idle;
 			
 			var _dialogue_box = instance_place(x, y, obj_dialogue_collision); //and this and chance target to _dialogue box
 			

@@ -53,6 +53,9 @@ fsm
 			//also create the grenadew to throw
 			instance_create_layer(x, y - 30, "Instances", obj_grenade);
 			
+			
+			//play this sound at 1:16 https://www.youtube.com/watch?v=FlU4mEjvkz8
+			
 		},
 		step: function() {
 			//if animation is over sit on last frame
@@ -74,6 +77,7 @@ fsm
 			//sprite_index = spr_fire
 			//image_index = 0;
 			//rand = irandom_range(0,2);
+			//play this sound https://artlist.io/sfx/track/black-powder-guns---pistol-the-lone-ranger/62778
 		},
 		step: function() {
 			

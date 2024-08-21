@@ -27,10 +27,12 @@
         "[c_red][shake_screen][shake][wave] HA HA HA HA [c_red][shake_screen]HA",
         "you actually came all this way...",
         "I have waited...",
-        "soooooooo [shake_screen][c_red]LONG[c_white] for this moment",
+        "[wave]soooooooo[/wave] [shake_screen][c_red]LONG[c_white] for this moment",
         "[wave][shake]ahhhhh[/wave]",
         "finally.",
         "[switch, obj_player]enough.",
         "get on it with it[cam, obj_temp_camera_anchor][boss][ended]"
     ]
 }
+
+

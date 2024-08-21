@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_boss_gunslinger",
-    "path": "sprites/spr_boss_gunslinger/spr_boss_gunslinger.yy",
+    "name": "spr_boss_gunslinger_idle",
+    "path": "sprites/spr_boss_gunslinger_idle/spr_boss_gunslinger_idle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

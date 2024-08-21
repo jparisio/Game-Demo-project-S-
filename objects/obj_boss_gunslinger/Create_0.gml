@@ -26,7 +26,8 @@ fsm = new SnowState("idle")
 fsm
 	.add("idle", {
 		enter: function() {
-			
+			sprite_index = spr_boss_gunslinger_idle;
+			image_index = 0;
 		},
 		step: function() {
 			//timer minus and switch state
@@ -113,6 +114,8 @@ fsm
   
    .add("reappear", {
 		enter: function() {
+			sprite_index = spr_boss_gunslinger_idle;
+			image_index = 0;
 			state_timer = state_timer_max/4;
 			dust = instance_create_layer(target_x, y, "Instances", obj_dust_bomb);
 		},
@@ -160,6 +163,8 @@ fsm
   
   	.add("rockets", {
 		enter: function() {
+			sprite_index = spr_boss_gunslinger_idle;
+			image_index = 0;
 			var center_x = obj_player.x; // Use the player's x position as the center
 			var center_y = obj_player.y; // Use the player's y position as the center
 			var max_radius = 300;

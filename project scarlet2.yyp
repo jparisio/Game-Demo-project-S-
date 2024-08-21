@@ -123,7 +123,7 @@
     {"id":{"name":"input_cursor_limit_circle","path":"scripts/input_cursor_limit_circle/input_cursor_limit_circle.yy",},},
     {"id":{"name":"__input_define_gamepad_types","path":"scripts/__input_define_gamepad_types/__input_define_gamepad_types.yy",},},
     {"id":{"name":"__input_get_previous_time","path":"scripts/__input_get_previous_time/__input_get_previous_time.yy",},},
-    {"id":{"name":"spr_boss_gunslinger","path":"sprites/spr_boss_gunslinger/spr_boss_gunslinger.yy",},},
+    {"id":{"name":"spr_boss_gunslinger_idle","path":"sprites/spr_boss_gunslinger_idle/spr_boss_gunslinger_idle.yy",},},
     {"id":{"name":"__input_trace","path":"scripts/__input_trace/__input_trace.yy",},},
     {"id":{"name":"__input_config_keyboard","path":"scripts/__input_config_keyboard/__input_config_keyboard.yy",},},
     {"id":{"name":"spr_jump_dust2","path":"sprites/spr_jump_dust2/spr_jump_dust2.yy",},},

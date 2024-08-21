@@ -22,10 +22,15 @@
         "heres the finish[ended]"
     ],
     "gunslinger":[
-        "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger]yo",
-        "first boss test dialogue",
-        "[c_red][shake_screen] EVIL [/c_red]dialogue blah, blah...",
-        "[switch, obj_player][cam, obj_player]gotta win yay",
-        "this is end[cam, obj_temp_camera_anchor][boss][ended]"
+        "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger]hm?",
+        "[cam, obj_player]he...",
+        "[c_red][shake_screen][shake][wave] HA HA HA HA [c_red][shake_screen]HA",
+        "you actually came all this way...",
+        "I have waited...",
+        "soooooooo [shake_screen][c_red]LONG[c_white] for this moment",
+        "[wave][shake]ahhhhh[/wave]",
+        "finally.",
+        "[switch, obj_player]enough.",
+        "get on it with it[cam, obj_temp_camera_anchor][boss][ended]"
     ]
 }

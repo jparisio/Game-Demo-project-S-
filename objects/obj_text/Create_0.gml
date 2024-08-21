@@ -2,7 +2,7 @@
 typist = scribble_typist();
 typist.in(.5, 5);
 typist.character_delay_add(",", 100)
-typist.character_delay_add(".", 150)
+typist.character_delay_add(".", 300)
 
 //moved these to initalize
 

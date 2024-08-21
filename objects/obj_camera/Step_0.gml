@@ -4,6 +4,14 @@ if follow != noone {
 	//follow only at if moving up greater distances
 	//if(abs(follow.y - y) >= 25 or obj_player.on_ground) y += (follow.y - y)/30
 }
+
+//anchor specifics 
+//if(follow == obj_temp_camera_anchor){
+//	global.x_offset  = lerp(global.x_offset, 0, 0.1);
+//} else {
+//	global.x_offset = 0.35;
+//}
+
 //move the camera offset depending on if the player is facing left or right
 if(follow == obj_player and follow.facing == 1){
 	global.x_offset = lerp(global.x_offset, 0.35, 0.0025);

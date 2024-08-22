@@ -1,1 +1,3 @@
-renderer = new BulbRenderer(c_dkgray, BULB_MODE.HARD_BM_MAX, false);
+///Create Event for objLightController
+
+renderer = new BulbRenderer(c_gray, BULB_MODE.HARD_BM_MAX, true);

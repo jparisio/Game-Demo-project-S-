@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "lighting",
-    "path": "folders/Objects/lighting.yy",
+    "name": "bulb",
+    "path": "folders/Objects/lighting/bulb.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -27,10 +27,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_light",
-    "path": "sprites/spr_light/spr_light.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

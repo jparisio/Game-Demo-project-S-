@@ -1,4 +1,5 @@
 ///Draw End Event for objLightController
-
-renderer.Update(0, 0, room_width, room_height);
-renderer.Draw(0, 0);
+var vx = obj_camera.x - global.cam_width * global.x_offset
+var vy = obj_camera.y - global.cam_height * global.y_offset
+renderer.Update(vx, vy,  global.cam_width, global.cam_height);
+renderer.Draw(vx, vy);

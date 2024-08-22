@@ -40,6 +40,7 @@ if (on_ground) can_dash = true;
 //	dash_timer = dash_timer_max;
 //}
 
-
+//occluder.x = x;
+//occluder.y = y;
 
 show_debug_message(self.hp);

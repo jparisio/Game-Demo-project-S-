@@ -1,11 +1,16 @@
 {
   "FolderOrderSettings": [
+    {"name":"Bulb","order":19,"path":"folders/Bulb.yy",},
+    {"name":"(System)","order":1,"path":"folders/Bulb/(System).yy",},
+    {"name":"(Pay no attention to that man behind the curtain)","order":1,"path":"folders/Bulb/(System)/(Pay no attention to that man behind the curtain).yy",},
     {"name":"Extensions","order":1,"path":"folders/Extensions.yy",},
     {"name":"Fonts","order":2,"path":"folders/Fonts.yy",},
     {"name":"Input","order":3,"path":"folders/Input.yy",},
     {"name":"Notes","order":4,"path":"folders/Notes.yy",},
     {"name":"Objects","order":5,"path":"folders/Objects.yy",},
     {"name":"bosses","order":2,"path":"folders/Objects/enemies/bosses.yy",},
+    {"name":"bulb","order":2,"path":"folders/Objects/lighting/bulb.yy",},
+    {"name":"old_lighting","order":3,"path":"folders/Objects/lighting/old_lighting.yy",},
     {"name":"Particle Systems","order":6,"path":"folders/Particle Systems.yy",},
     {"name":"Paths","order":7,"path":"folders/Paths.yy",},
     {"name":"Rooms","order":8,"path":"folders/Rooms.yy",},
@@ -25,11 +30,6 @@
     {"name":"Tilesets","order":16,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":17,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":18,"path":"folders/TweenGMX.yy",},
-    {"name":"Bulb","order":19,"path":"folders/Bulb.yy",},
-    {"name":"(System)","order":1,"path":"folders/Bulb/(System).yy",},
-    {"name":"(Pay no attention to that man behind the curtain)","order":1,"path":"folders/Bulb/(System)/(Pay no attention to that man behind the curtain).yy",},
-    {"name":"bulb","order":2,"path":"folders/Objects/lighting/bulb.yy",},
-    {"name":"old_lighting","order":3,"path":"folders/Objects/lighting/old_lighting.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_jump_dust2","order":2,"path":"sprites/spr_jump_dust2/spr_jump_dust2.yy",},

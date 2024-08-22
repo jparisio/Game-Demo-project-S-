@@ -62,8 +62,8 @@ fsm
 			//if animation_end() image_index = image_number - 1
 			state_timer--;
 			//if the animation ends fire the bullet
-			if state_timer<=0  and rand >= .5 fsm.change("rockets")
-			if state_timer<=0  and rand <= .5 fsm.change("teleport")
+			if state_timer<=0  and rand >= 1 fsm.change("rockets")
+			if state_timer<=0  and rand < 1 fsm.change("teleport")
 			
 			
 		}
@@ -83,7 +83,7 @@ fsm
 			
 			//if the animation ends fire the bullet
 			if (animation_end()){
-				if(rand <= .5){
+				if(rand <= 1){
 					fsm.change("rockets")
 				} else {
 					fsm.change("teleport")

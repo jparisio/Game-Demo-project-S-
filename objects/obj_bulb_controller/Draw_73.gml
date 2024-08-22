@@ -5,6 +5,6 @@
 //renderer.Update(vx, vy,  global.cam_width, global.cam_height);
 //renderer.Draw(vx, vy);
 
-//this way is muhc cleaner
+//this way is much cleaner
 renderer.UpdateFromCamera(view_camera[0]);
 renderer.DrawOnCamera(view_camera[0], 1);

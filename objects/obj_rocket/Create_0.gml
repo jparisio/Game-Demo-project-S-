@@ -6,6 +6,10 @@ alarm[0] = 150;
 
 alarm[1] = 120;
 
+//this is a buffer alarm after they become inactive to make sure the particles finish their animations
+//kinda hacky and I wanna change later
+alarm[2] = -1;
+
 val = 0;
 fade_alpha = 0;
 timer = 0;

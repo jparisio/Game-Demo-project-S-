@@ -21,7 +21,7 @@ damping = 0.98;
 spread = 0.2
 
 //magnitude at contact point
-magnitude = 5;
+magnitude = 2;
 
 // Initialize the array of points
 points = array_create(num_points);
@@ -32,6 +32,7 @@ for (var i = 0; i < num_points; i++) {
         y_current: base_y_position,
         y_rest: base_y_position,
         velocity: 0,
-		force_applied: false
+		force_applied: false,
+		player_colliding: false
     };
 }

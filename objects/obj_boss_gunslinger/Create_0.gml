@@ -78,6 +78,7 @@ fsm
 			//image_index = 0;
 			//rand = irandom_range(0,2);
 			//play this sound https://artlist.io/sfx/track/black-powder-guns---pistol-the-lone-ranger/62778
+			// hit impact for this https://kiddolink.itch.io/vfx-fx-hit-impact-pixel-art
 		},
 		step: function() {
 			

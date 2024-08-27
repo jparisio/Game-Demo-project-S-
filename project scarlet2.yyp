@@ -110,6 +110,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gunslinger","folderPath":"folders/Objects/enemies/bosses/gunslinger.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},
@@ -326,6 +327,7 @@
     {"id":{"name":"BulbSunlight","path":"scripts/BulbSunlight/BulbSunlight.yy",},},
     {"id":{"name":"input_player_ghost_get","path":"scripts/input_player_ghost_get/input_player_ghost_get.yy",},},
     {"id":{"name":"input_direction","path":"scripts/input_direction/input_direction.yy",},},
+    {"id":{"name":"spr_empty","path":"sprites/spr_empty/spr_empty.yy",},},
     {"id":{"name":"input_cursor_gyro_params_set","path":"scripts/input_cursor_gyro_params_set/input_cursor_gyro_params_set.yy",},},
     {"id":{"name":"spr_blood2","path":"sprites/spr_blood2/spr_blood2.yy",},},
     {"id":{"name":"scribble_color_get","path":"scripts/scribble_color_get/scribble_color_get.yy",},},

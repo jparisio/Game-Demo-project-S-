@@ -7,6 +7,10 @@ create_shake();
 //hit pause
 hit_pause(120)
 //destroy so it doesnt infinately collide with the player
-instance_destroy(obj_hurtbox);
+if(instance_exists(obj_hurtbox)){
+	instance_destroy(obj_hurtbox);
+}
 
-instance_destroy();
+sprite_index = spr_empty;
+alarm[2] = 30;
+instance_create_layer(x, y, "Instances", obj_explosion);

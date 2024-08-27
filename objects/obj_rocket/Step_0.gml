@@ -12,7 +12,7 @@ if(alarm[1] >= 0){
 	y = lerp(y, y_pos, move_speed * 0.01);
 }
 
-if(speed < 0) part_particles_create(particle_system, x, y, particle_trail, 1);
+if(speed < 0 and sprite_index != spr_empty) part_particles_create(particle_system, x, y, particle_trail, 1);
 
 //// Check for collision with obj_player or obj_wall
 //if (place_meeting(x, y, obj_hurtbox)) {

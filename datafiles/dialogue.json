@@ -26,7 +26,7 @@
         "[cam, obj_player]he...",
         "[c_red][shake_screen][shake][wave] HA HA HA HA [c_red][shake_screen]HA",
         "you actually came all this way...",
-        "I have waited [delay,400][wave]soooooooo[/wave][delay,700][shake_screen][c_red] LONG[delay,700][c_white] for this moment",
+        "I have waited [delay,400]soooooooo[delay,700][shake_screen][c_red] LONG[delay,700][c_white] for this moment",
         "[wave][shake]ahhhhh[/wave]",
         "finally.",
         "[switch, obj_player]enough.",

@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "bosses",
-    "path": "folders/Sprites/enemies/bosses.yy",
+    "name": "gunslinger",
+    "path": "folders/Sprites/enemies/bosses/gunslinger.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

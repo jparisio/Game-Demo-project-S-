@@ -59,6 +59,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"effects","folderPath":"folders/Objects/effects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"enemies","folderPath":"folders/Objects/enemies.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bosses","folderPath":"folders/Objects/enemies/bosses.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gunslinger","folderPath":"folders/Objects/enemies/bosses/gunslinger.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"environment","folderPath":"folders/Objects/environment.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"lighting","folderPath":"folders/Objects/lighting.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bulb","folderPath":"folders/Objects/lighting/bulb.yy",},
@@ -110,7 +111,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gunslinger","folderPath":"folders/Objects/enemies/bosses/gunslinger.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gunslinger","folderPath":"folders/Sprites/enemies/bosses/gunslinger.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"slime","folderPath":"folders/Objects/enemies/slime.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},

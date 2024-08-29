@@ -281,6 +281,11 @@ fsm
 			image_index = 0;
 			//FIX what deosnt fall and collide if in mid air since it has no collision mask
 			mask_index = spr_warrior_slime_dead_mask
+			var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
+			_sprayer.facing = obj_player.facing;
+			_sprayer.create_at = self;
+			//hit pause
+			hit_pause(20)
 			
 		},
 		step: function() {

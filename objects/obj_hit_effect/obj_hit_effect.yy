@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "effects",
-    "path": "folders/Objects/effects.yy",
+    "name": "slashes",
+    "path": "folders/Objects/effects/slashes.yy",
   },
   "parentObjectId": null,
   "persistent": false,

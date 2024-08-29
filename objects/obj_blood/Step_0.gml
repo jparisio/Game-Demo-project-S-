@@ -9,4 +9,4 @@
 
 lifetime--;
 
-if lifetime <= 0 instance_destroy()
+if animation_end() instance_destroy()

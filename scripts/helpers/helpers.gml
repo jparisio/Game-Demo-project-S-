@@ -1,12 +1,4 @@
-function animation_hit_frame(frame){
-	var frame_range = image_speed * sprite_get_speed(sprite_index) / game_get_speed(gamespeed_fps)
-	return image_index >= frame and image_index < frame + frame_range;
-}
 
-
-function animation_end(){
-    return (image_index + image_speed*sprite_get_speed(sprite_index)/(sprite_get_speed_type(sprite_index) == spritespeed_framespergameframe? 1 : game_get_speed(gamespeed_fps)) >= image_number);   
-}
 
 function create_hitbox(_creator, _follow, _x, _y, _facing, _sprite, _lifespan, _damage){
 	var _hitbox = instance_create_layer(_x, _y, "Instances", obj_hitbox)
@@ -21,20 +13,48 @@ function create_hitbox(_creator, _follow, _x, _y, _facing, _sprite, _lifespan, _
 }
 
 
-function create_blood(_facing, _x, _y, _angled){
-	var _blood = instance_create_layer(_x, _y, "Instances", obj_blood)
-	//random starting index
-	_blood.image_index = random(5);
-	//random lifetime 
-	_blood.lifetime = random(12)
-	_blood.image_speed = 1;
-	//determine if the blood is angled or sideways
-	if(_angled){	if sign(_facing) > 0 _blood.image_angle = random_range(20, 50) else _blood.image_angle = random_range( 120 , 150)}
-	else { if sign(_facing) > 0 _blood.image_angle = random_range(30, 0) else _blood.image_angle = random_range( 160 , 190)}
-	_blood.direction = _blood.image_angle;
-	//speed
-	_blood.speed = random_range(7, 10);
+//function create_blood(_facing, _x, _y, _angled){
+//	var _blood = instance_create_layer(_x, _y, "Instances", obj_blood)
+//	//random starting index
+//	_blood.image_index = random(5);
+//	//random lifetime 
+//	_blood.lifetime = random(12)
+//	_blood.image_speed = 1;
+//	//determine if the blood is angled or sideways
+//	if(_angled){	if sign(_facing) > 0 _blood.image_angle = random_range(20, 50) else _blood.image_angle = random_range( 120 , 150)}
+//	else { if sign(_facing) > 0 _blood.image_angle = random_range(30, 0) else _blood.image_angle = random_range( 160 , 190)}
+//	_blood.direction = _blood.image_angle;
+//	//speed
+//	_blood.speed = random_range(7, 10);
+//}
+
+
+function create_blood(_facing, _x, _y) {
+    var _blood = instance_create_layer(_x, _y, "Instances", obj_blood);
+    
+    // Set a random image index for variety (ensure your sprite has multiple subimages)
+    _blood.image_index = irandom_range(0, sprite_get_number(obj_blood.sprite_index) - 1);
+    
+    // Set a random lifetime for the blood particle
+    _blood.lifetime = random_range(10, 20); // You can adjust this range to your liking
+    
+    // Control the speed of the blood animation
+    _blood.image_speed = 1;
+
+    // Initialize blood velocity and angle
+    var _speed = random_range(4, 6); // Initial speed of the blood particles
+    var angle = _facing < 0? random_range( 160 , 190): random_range(30, 0)
+    
+    // Set the velocity of the blood particles
+    _blood.hspeed = lengthdir_x(_speed, angle); // Horizontal speed
+    _blood.vspeed = lengthdir_y(_speed, angle); // Vertical speed
+
+    // Apply gravity to the blood particles
+    _blood.gravity = 0.2; // Gravity value, tweak as needed for realistic effect
+    _blood.gravity_direction = 270; // Downwards direction
 }
+
+
 
 function hit_pause(_time){
 	
@@ -45,19 +65,4 @@ function hit_pause(_time){
 
 function create_shake(){
 	instance_create_layer(x, y, "Instances", obj_screenshake_large)
-}
-
-
-function approach(_start, _end, _shift){
-
-	/****************************************
-	 Increments a value by a given shift but 
-	 never beyond the end value
-	 ****************************************/
-
-	if (_start < _end)
-	    return min(_start + _shift, _end); 
-	else
-	    return max(_start - _shift, _end);
-	
 }

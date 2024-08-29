@@ -26,7 +26,10 @@ if(creator == "player"){
 		//create blood and blood angle
 		var _angled = random(2)
 		//TODO: I set both to false set one to true to make it angled
-		if(_angled <= 1) repeat(30) create_blood(facing, other.x -10, other.y-40, false) else repeat(30) create_blood(facing, other.x -10, other.y-40, false)
+		//if(_angled <= 1) repeat(30) create_blood(facing, other.x -10, other.y-40, false) else repeat(30) create_blood(facing, other.x -10, other.y-40, false)
+		var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
+		_sprayer.facing = facing;
+		_sprayer.create_at = other;
 		//hit pause
 		hit_pause(20)
 	}

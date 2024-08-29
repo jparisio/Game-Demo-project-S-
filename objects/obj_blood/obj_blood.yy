@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "effects",
-    "path": "folders/Objects/effects.yy",
+    "name": "blood",
+    "path": "folders/Objects/effects/blood.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,9 +29,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_blood",
-    "path": "sprites/spr_blood/spr_blood.yy",
+    "name": "spr_blood3",
+    "path": "sprites/spr_blood3/spr_blood3.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

@@ -35,3 +35,9 @@ if(ended) and input_check_pressed("accept"){
 //skip line animation if space pressed else turn page
 if (typist.get_state() < 1 and input_check_pressed("accept")) typist.skip() else if (page != dialogue_length - 1 and input_check_pressed("accept")) page++;
 
+
+//if create_above == obj_boss_gunslinger {
+//	typist.sound_per_char([snd_error], .7, .9, [""], .6);
+//} else {
+//		typist.sound_per_char([snd_speak4], .7, .1, [""], .6);
+//}

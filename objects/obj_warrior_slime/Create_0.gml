@@ -284,6 +284,8 @@ fsm
 			var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
 			_sprayer.facing = obj_player.facing;
 			_sprayer.create_at = self;
+			//shake
+			create_shake();
 			//hit pause
 			hit_pause(20)
 			

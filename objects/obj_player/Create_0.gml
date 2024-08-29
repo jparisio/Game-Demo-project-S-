@@ -387,6 +387,12 @@ fsm
 			//https://artlist.io/sfx/search?terms=juicy
 			//https://artlist.io/sfx/search?terms=hit&terms=juicy
 			//https://artlist.io/sfx/track/cartoonish---ninja-sword-swing-squishy-hit/66937
+			var slash_sound = random(2)
+			if(slash_sound > 1) {
+				audio_play_sound(snd_slash1, 1, 0);
+			} else {
+				audio_play_sound(snd_slash2, 1, 0);
+			}
 		},
 		
 		step: function(){

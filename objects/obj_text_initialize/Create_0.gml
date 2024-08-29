@@ -27,6 +27,9 @@ scribble_typists_add_event("switch", speech_bubble_target);
 scribble_typists_add_event("cam", camera_target);
 scribble_typists_add_event("boss", boss_start);
 
+//set sounds
+if (!scribble_external_sound_exists("snd_shake")) scribble_external_sound_add(snd_error, "snd_shake")
+
 //set fonts
 scribble_font_set_default("text_font");
 scribble_font_scale("text_font", .5)

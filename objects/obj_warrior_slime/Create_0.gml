@@ -286,7 +286,7 @@ fsm
 			_sprayer.create_at = self;
 			//sound
 			audio_play_sound(snd_crunch, 1, 0, 0.1);
-			audio_play_sound(snd_speak8, 1, 0, 5, 0 , .5);
+			audio_play_sound(snd_dash, 1, 0, 0.1, 0, 4);
 			//shake
 			create_shake();
 			//hit pause

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_rocket",
+  "name": "snd_explosion2",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 2.261937,
+  "duration": 2.488125,
   "parent": {
     "name": "boss",
     "path": "folders/Sounds/boss.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_rocket.wav",
+  "soundFile": "snd_explosion2.wav",
   "type": 0,
   "volume": 1.0,
 }

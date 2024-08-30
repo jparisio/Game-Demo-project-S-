@@ -109,6 +109,7 @@
     {"name":"obj_cone_light","order":3,"path":"objects/obj_cone_light/obj_cone_light.yy",},
     {"name":"BulbStaticOccluder","order":9,"path":"scripts/BulbStaticOccluder/BulbStaticOccluder.yy",},
     {"name":"spr_crosshair","order":1,"path":"sprites/spr_crosshair/spr_crosshair.yy",},
+    {"name":"snd_temp_song","order":8,"path":"sounds/snd_temp_song/snd_temp_song.yy",},
     {"name":"snd_rocket_startup","order":3,"path":"sounds/snd_rocket_startup/snd_rocket_startup.yy",},
     {"name":"obj_warrior_slime","order":1,"path":"objects/obj_warrior_slime/obj_warrior_slime.yy",},
     {"name":"snd_thunder","order":1,"path":"sounds/snd_thunder/snd_thunder.yy",},

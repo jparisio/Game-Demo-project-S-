@@ -32,6 +32,7 @@ fsm
 		step: function() {
 			//timer minus and switch state
 			if(global.boss_fight and !instance_exists(obj_text)){
+				audio_play_sound(snd_temp_song, 10, 1, 0.5);
 				fsm.change("steady");
 			}
 			

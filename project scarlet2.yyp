@@ -479,6 +479,7 @@
     {"id":{"name":"__input_restart_set","path":"scripts/__input_restart_set/__input_restart_set.yy",},},
     {"id":{"name":"spr_tree_dark","path":"sprites/spr_tree_dark/spr_tree_dark.yy",},},
     {"id":{"name":"__input_class_gamepad","path":"scripts/__input_class_gamepad/__input_class_gamepad.yy",},},
+    {"id":{"name":"snd_temp_song","path":"sounds/snd_temp_song/snd_temp_song.yy",},},
     {"id":{"name":"__input_exception_handler","path":"scripts/__input_exception_handler/__input_exception_handler.yy",},},
     {"id":{"name":"__scribble_font_add_msdf_from_project","path":"scripts/__scribble_font_add_msdf_from_project/__scribble_font_add_msdf_from_project.yy",},},
     {"id":{"name":"__scribble_get_krutidev_matra_lookup_map","path":"scripts/__scribble_get_krutidev_matra_lookup_map/__scribble_get_krutidev_matra_lookup_map.yy",},},

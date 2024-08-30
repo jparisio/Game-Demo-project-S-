@@ -32,4 +32,4 @@ part_type_size(particle_trail, 1, 1.2, 0, 0);
 
 
 //sound
-audio_play_sound(snd_rocket_startup, 1, 0, 0.1)
+audio_play_sound(snd_rocket_startup, 1, 0, 0.05, 0, 0.5)

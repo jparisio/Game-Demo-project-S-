@@ -10,6 +10,6 @@ if(creator == "player"){
 	_slash.image_xscale = image_xscale;
 	_slash.image_angle = random_range(20, -20);
 	
-	audio_play_sound(snd_hit_enemy2, 1, 0, 5);
+	audio_play_sound(snd_hit_enemy2, 1, 0, 3);
 }
 

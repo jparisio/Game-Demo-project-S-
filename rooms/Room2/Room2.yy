@@ -66,7 +66,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1566D1D2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"propertyId":{"name":"create_above","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"value":"obj_boss_gunslinger",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"propertyId":{"name":"text_id","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"value":"gunslinger",},
-          ],"rotation":0.0,"scaleX":5.0,"scaleY":7.095238,"x":864.0,"y":288.0,},
+          ],"rotation":0.0,"scaleX":9.6875,"scaleY":7.071429,"x":890.5,"y":288.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Sign","assets":[],"depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Trees_fground","assets":[

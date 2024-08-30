@@ -389,6 +389,7 @@
     {"id":{"name":"__sprBulbPixel","path":"sprites/__sprBulbPixel/__sprBulbPixel.yy",},},
     {"id":{"name":"__input_snap_to_json","path":"scripts/__input_snap_to_json/__input_snap_to_json.yy",},},
     {"id":{"name":"__input_load_blacklist_csv","path":"scripts/__input_load_blacklist_csv/__input_load_blacklist_csv.yy",},},
+    {"id":{"name":"spr_broken_glass2","path":"sprites/spr_broken_glass2/spr_broken_glass2.yy",},},
     {"id":{"name":"input_mouse_dy","path":"scripts/input_mouse_dy/input_mouse_dy.yy",},},
     {"id":{"name":"scribble_font_bake_outline","path":"scripts/scribble_font_bake_outline/scribble_font_bake_outline.yy",},},
     {"id":{"name":"BulbDynamicOccluder","path":"scripts/BulbDynamicOccluder/BulbDynamicOccluder.yy",},},

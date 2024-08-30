@@ -392,9 +392,9 @@ fsm
 			//https://artlist.io/sfx/track/cartoonish---ninja-sword-swing-squishy-hit/66937
 			var slash_sound = random(2)
 			if(slash_sound > 1) {
-				audio_play_sound(snd_slash1, 15, 0, 5);
+				audio_play_sound(snd_slash1, 30, 0, 8);
 			} else {
-				audio_play_sound(snd_slash2, 15, 0, 5);
+				audio_play_sound(snd_slash2, 30, 0, 8);
 			}
 		},
 		

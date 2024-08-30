@@ -98,6 +98,7 @@
     {"name":"obj_screenshake_spring","order":4,"path":"objects/obj_screenshake_spring/obj_screenshake_spring.yy",},
     {"name":"spr_broken_glass","order":8,"path":"sprites/spr_broken_glass/spr_broken_glass.yy",},
     {"name":"__sprBulbPixel","order":11,"path":"sprites/__sprBulbPixel/__sprBulbPixel.yy",},
+    {"name":"spr_broken_glass2","order":9,"path":"sprites/spr_broken_glass2/spr_broken_glass2.yy",},
     {"name":"BulbDynamicOccluder","order":4,"path":"scripts/BulbDynamicOccluder/BulbDynamicOccluder.yy",},
     {"name":"obj_exit_animation","order":1,"path":"objects/obj_exit_animation/obj_exit_animation.yy",},
     {"name":"snd_horror","order":13,"path":"sounds/snd_horror/snd_horror.yy",},

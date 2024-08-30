@@ -1,5 +1,5 @@
 //set hp
-hp = 300;
+hp = 90;
 
 
 //face player upon creation
@@ -15,6 +15,10 @@ rand = 0;
 //teleporting
 target_x = 0;
 dust = noone;
+
+//lasers
+laser_timer = 0;
+laser_angle_step = 0;
 
 //flash shader
 flash_alpha = 0;
@@ -50,7 +54,7 @@ fsm
 			var _y = random_range(-100, 100) + obj_player.y
 			instance_create_layer(_x, _y, "Instances", obj_reticle);
 			state_timer = state_timer_max;
-			rand = irandom_range(0,2);
+			//rand = irandom_range(0,2);
 			//also create the grenadew to throw
 			instance_create_layer(x, y - 30, "Instances", obj_grenade);
 			
@@ -64,8 +68,11 @@ fsm
 			//if animation_end() image_index = image_number - 1
 			state_timer--;
 			//if the animation ends fire the bullet
-			if state_timer<=0  and rand >= 1 fsm.change("rockets")
-			if state_timer<=0  and rand < 1 fsm.change("teleport")
+			//if state_timer<=0  and rand >= 1 fsm.change("rockets")
+			//if state_timer<=0  and rand < 1 fsm.change("teleport")
+			if state_timer <=0 fsm.change("teleport")
+			
+			if hp <= 0 fsm.change("dead");
 			
 			
 		}
@@ -103,6 +110,7 @@ fsm
 			if (x > 800) target_x = 580 else target_x = 1056;
 			//create smoke effects;
 			dust = instance_create_layer(x, y, "Instances", obj_dust_bomb);
+			rand = irandom_range(0,3);
 		},
 		step: function() {
 			state_timer--;
@@ -111,7 +119,9 @@ fsm
 				if animation_hit_frame(3){
 					other. x = -100000;
 					//other.dust = instance_create_layer(other.target_x, other.y, "Instances", obj_dust_bomb);
-					other.fsm.change("lasers");
+					if other.rand <= 1 other.fsm.change("rockets") 
+					else if other.rand > 1  and other.rand <= 1.5 other.fsm.change("lasers");
+					else other.fsm.change("laser circle");
 				}
 			}
 			
@@ -125,6 +135,11 @@ fsm
 			image_index = 0;
 			state_timer = state_timer_max/4;
 			dust = instance_create_layer(target_x, y, "Instances", obj_dust_bomb);
+			//create floor laser
+			var floor_laser = instance_create_layer(400, 285, "Instances", obj_laser);
+			floor_laser.image_angle = 270;
+			floor_laser.image_yscale = 5;
+			floor_laser.alarm_active = 20;
 		},
 		step: function() {
 			
@@ -146,8 +161,8 @@ fsm
 		enter: function() {
 			state_timer = state_timer_max;
 			// Starting and ending x-axis positions
-			var start_x = 542;
-			var end_x = 1191;
+			var start_x = 500;
+			var end_x = 1200;
 
 			// Spacing between each laser (50 pixels)
 			var laser_spacing = 50;
@@ -200,11 +215,74 @@ fsm
 			}
 			//set timer to max
 			state_timer = state_timer_max;
+			
 		},
 		step: function() {
 				state_timer--;
-				if state_timer<=0 fsm.change("steady")
+				if state_timer<=0 fsm.change("reappear")
+		}
+
+  })
+  
+ .add("laser circle", {
+    enter: function() {
+        var center_x = 820;
+        var center_y = 190;
+        var floor_laser = instance_create_layer(center_x, center_y, "Instances", obj_laser);
+        floor_laser.image_angle = 270;
+        floor_laser.image_yscale = 3;
+        floor_laser.alarm_active = 20;
+
+        // Initialize variables for creating lasers
+        laser_timer = 0;
+        laser_counter = 0; // Counter for how many lasers have been created
+        laser_angle_step = 180 / 10; // Number of lasers (adjust accordingly)
+        max_lasers = 11; // Total number of lasers to create
+		state_timer = state_timer_max / 2;
+    },
+    step: function() {
+        laser_timer++;
+
+        if (laser_timer % 4 == 0 && laser_counter < max_lasers) { // Create a laser every 4 frames
+            var angle = 270 - laser_angle_step * laser_counter; // Angle from 270 to 90 degrees
+
+            var new_laser = instance_create_layer(820, 190, "Instances", obj_laser);
+            new_laser.image_angle = angle;
+            new_laser.image_yscale = 3;
+            new_laser.alarm_active = 15;
+
+            laser_counter++; // Increment the counter
+        }
+
+        // Stop creating lasers after the maximum number is reached
+        if (laser_counter >= max_lasers) {
+            laser_timer = -1; // Stop the timer
+        }
+        
+        // Handle transition to the next state
+        if (laser_timer == -1) {
+            state_timer--;
+            if (state_timer <= 0) fsm.change("reappear");
+        }
+    }
+})
+
+     .add("dead", {
+		enter: function() {
+			var _end = instance_create_layer(obj_player.x, obj_player.y,"Instances", obj_cutscene_collision);
+			_end.text_id = "dead";
+			_end.create_above = obj_boss_gunslinger;
+			_end.image_xscale = 300;
+			_end.image_yscale = 300;
+			obj_player.facing = sign(x - obj_player.x);
+			audio_stop_sound(snd_temp_song)
+			
+		},
+		step: function() {
+			
 		}
 
   });
+
+
   

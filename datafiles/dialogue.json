@@ -31,6 +31,10 @@
         "finally.",
         "[switch, obj_player]enough.",
         "get on it with it[cam, obj_temp_camera_anchor][boss][ended]"
+    ], 
+    "dead":[
+        "ugh",
+        "[shake_screen][shake][snd_shake]ARGGHHHH"
     ]
 }
 

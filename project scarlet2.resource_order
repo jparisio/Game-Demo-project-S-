@@ -47,6 +47,7 @@
     {"name":"TweenGMX","order":18,"path":"folders/TweenGMX.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"obj_broken_glass","order":1,"path":"objects/obj_broken_glass/obj_broken_glass.yy",},
     {"name":"spr_jump_dust2","order":2,"path":"sprites/spr_jump_dust2/spr_jump_dust2.yy",},
     {"name":"snd_speak8","order":7,"path":"sounds/snd_speak8/snd_speak8.yy",},
     {"name":"obj_exit","order":2,"path":"objects/obj_exit/obj_exit.yy",},
@@ -95,6 +96,7 @@
     {"name":"spr_blood2","order":2,"path":"sprites/spr_blood2/spr_blood2.yy",},
     {"name":"obj_water","order":1,"path":"objects/obj_water/obj_water.yy",},
     {"name":"obj_screenshake_spring","order":4,"path":"objects/obj_screenshake_spring/obj_screenshake_spring.yy",},
+    {"name":"spr_broken_glass","order":8,"path":"sprites/spr_broken_glass/spr_broken_glass.yy",},
     {"name":"__sprBulbPixel","order":11,"path":"sprites/__sprBulbPixel/__sprBulbPixel.yy",},
     {"name":"BulbDynamicOccluder","order":4,"path":"scripts/BulbDynamicOccluder/BulbDynamicOccluder.yy",},
     {"name":"obj_exit_animation","order":1,"path":"objects/obj_exit_animation/obj_exit_animation.yy",},
@@ -135,6 +137,7 @@
     {"name":"spr_shrapnel","order":10,"path":"sprites/spr_shrapnel/spr_shrapnel.yy",},
     {"name":"spr_beam_light","order":2,"path":"sprites/spr_beam_light/spr_beam_light.yy",},
     {"name":"obj_rocket","order":4,"path":"objects/obj_rocket/obj_rocket.yy",},
+    {"name":"sh_glass","order":1,"path":"shaders/sh_glass/sh_glass.yy",},
     {"name":"obj_shrapnel","order":6,"path":"objects/obj_shrapnel/obj_shrapnel.yy",},
     {"name":"obj_grass_strands","order":3,"path":"objects/obj_grass_strands/obj_grass_strands.yy",},
     {"name":"spr_crosshair_hurtbox","order":2,"path":"sprites/spr_crosshair_hurtbox/spr_crosshair_hurtbox.yy",},

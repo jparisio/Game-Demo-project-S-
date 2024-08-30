@@ -16,7 +16,9 @@ camera_target = function(_element, _parameter_array, _character_index){
 }
 
 suspense = function(){
-	sound = audio_play_sound(snd_suspense, 5, 1);
+	sound = audio_play_sound(snd_suspense, 5, 1, 0.7);
+	var val = audio_sound_get_gain(sound);
+	show_debug_message(val)
 }
 
 boss_start = function(){

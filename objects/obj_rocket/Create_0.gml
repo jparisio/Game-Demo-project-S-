@@ -29,3 +29,7 @@ part_type_sprite(particle_trail, spr_rocket_trail, 1, 1, 0);
 part_type_life(particle_trail, 20, 20);
 part_type_alpha3(particle_trail, 1, 1, 0);
 part_type_size(particle_trail, 1, 1.2, 0, 0);
+
+
+//sound
+audio_play_sound(snd_rocket_startup, 1, 0, 0.1)

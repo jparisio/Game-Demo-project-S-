@@ -3,7 +3,7 @@ typist = scribble_typist();
 typist.in(.5, 5);
 typist.character_delay_add(",", 100)
 typist.character_delay_add(".", 300)
-typist.sound_per_char([snd_error2, snd_error, snd_error3], .4, .8, [""], .6);
+typist.sound_per_char([snd_speak8], .6, 1.5, [""], .2);
 
 //moved these to initalize
 

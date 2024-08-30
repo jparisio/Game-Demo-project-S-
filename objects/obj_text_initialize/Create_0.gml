@@ -15,9 +15,16 @@ camera_target = function(_element, _parameter_array, _character_index){
 	obj_camera.follow = _t;
 }
 
+suspense = function(){
+	sound = audio_play_sound(snd_suspense, 5, 1);
+}
+
 boss_start = function(){
 	global.boss_fight = true;
+	//stop the looping sound
+	audio_sound_loop(sound, false);
 }
+
 
 
 //add the shake event
@@ -26,9 +33,11 @@ scribble_typists_add_event("ended", end_text);
 scribble_typists_add_event("switch", speech_bubble_target);
 scribble_typists_add_event("cam", camera_target);
 scribble_typists_add_event("boss", boss_start);
+scribble_typists_add_event("snd_suspense", suspense);
 
 //set sounds
-if (!scribble_external_sound_exists("snd_shake")) scribble_external_sound_add(snd_error, "snd_shake")
+if (!scribble_external_sound_exists("snd_shake")) scribble_external_sound_add(snd_speak9, "snd_shake")
+//if (!scribble_external_sound_exists("snd_suspense")) scribble_external_sound_add(snd_suspense, "snd_suspense")
 
 //set fonts
 scribble_font_set_default("text_font");

@@ -55,6 +55,7 @@ fsm
 			
 			
 			//play this sound at 1:16 https://www.youtube.com/watch?v=FlU4mEjvkz8
+			audio_play_sound(snd_reload, 1, 0);
 			
 		},
 		step: function() {

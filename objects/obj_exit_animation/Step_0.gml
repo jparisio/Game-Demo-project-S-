@@ -12,7 +12,7 @@ if(!finished and abs(x_end - current_x) <= 0.1){
 	obj_player.x = target_x;
 	obj_player.y = target_y;
 	//obj_camera.snap_to = true;
-	finished = true;
+	finished = true
 }
 
 

@@ -22,9 +22,9 @@
         "heres the finish[ended]"
     ],
     "gunslinger":[
-        "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger]hm?",
+        "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger][snd_suspense]hm?",
         "[cam, obj_player]he...",
-        "[c_red][shake_screen][shake][wave] HA HA HA HA [c_red][shake_screen]HA",
+        "[c_red][shake_screen][shake][snd_shake][wave] HA HA HA HA [c_red][snd_shake][shake_screen]HA",
         "you actually came all this way...",
         "I have waited [delay,400]soooooooo[delay,700][shake_screen][c_red] LONG[delay,700][c_white] for this moment",
         "[wave][shake]ahhhhh[/wave]",

@@ -284,6 +284,9 @@ fsm
 			var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
 			_sprayer.facing = obj_player.facing;
 			_sprayer.create_at = self;
+			//sound
+			audio_play_sound(snd_crunch, 1, 0, 0.1);
+			audio_play_sound(snd_speak8, 1, 0, 5, 0 , .5);
 			//shake
 			create_shake();
 			//hit pause

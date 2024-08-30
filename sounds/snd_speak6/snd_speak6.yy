@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.382766,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "speaking",
+    "path": "folders/Sounds/speaking.yy",
   },
   "preload": false,
   "sampleRate": 44100,

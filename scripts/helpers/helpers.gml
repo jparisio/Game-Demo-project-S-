@@ -52,6 +52,8 @@ function create_blood(_facing, _x, _y) {
     // Apply gravity to the blood particles
     _blood.gravity = 0.2; // Gravity value, tweak as needed for realistic effect
     _blood.gravity_direction = 270; // Downwards direction
+	
+	_blood.image_angle = direction;
 }
 
 

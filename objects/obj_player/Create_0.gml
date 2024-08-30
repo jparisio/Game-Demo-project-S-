@@ -246,9 +246,12 @@ fsm
 			if right dust_dir = 1 else dust_dir = -1
 			instance_create_layer(x, y, "Instances", obj_dust_run).image_xscale = dust_dir;
 			
+			
 		},
 		
 		step: function(){
+			
+			
 			
 			//transition from idle to run animation
 			if(sprite_index == spr_idle_to_run) and animation_end(){
@@ -389,9 +392,9 @@ fsm
 			//https://artlist.io/sfx/track/cartoonish---ninja-sword-swing-squishy-hit/66937
 			var slash_sound = random(2)
 			if(slash_sound > 1) {
-				audio_play_sound(snd_slash1, 1, 0);
+				audio_play_sound(snd_slash1, 5, 0);
 			} else {
-				audio_play_sound(snd_slash2, 1, 0);
+				audio_play_sound(snd_slash2, 5, 0);
 			}
 		},
 		

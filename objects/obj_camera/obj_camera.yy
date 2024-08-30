@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "camera and controllers",
-    "path": "folders/Objects/camera and controllers.yy",
+    "name": "cameras",
+    "path": "folders/Objects/camera and controllers/cameras.yy",
   },
   "parentObjectId": null,
   "persistent": true,

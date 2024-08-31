@@ -230,10 +230,10 @@ fsm
     enter: function() {
         var center_x = 820;
         var center_y = 190;
-        var floor_laser = instance_create_layer(center_x, center_y, "Instances", obj_laser);
-        floor_laser.image_angle = 270;
-        floor_laser.image_yscale = 3;
-        floor_laser.alarm_active = 20;
+        var _laser = instance_create_layer(center_x, center_y, "Instances", obj_laser);
+        _laser.image_angle = 270;
+        _laser.image_yscale = 3;
+        _laser.alarm_active = 20;
 
         // Initialize variables for creating lasers
         laser_timer = 0;
@@ -245,7 +245,7 @@ fsm
     step: function() {
         laser_timer++;
 
-        if (laser_timer % 4 == 0 && laser_counter < max_lasers) { // Create a laser every 4 frames
+        if (laser_timer % 3 == 0 && laser_counter < max_lasers) { // Create a laser every 4 frames
             var angle = 270 - laser_angle_step * laser_counter; // Angle from 270 to 90 degrees
 
             var new_laser = instance_create_layer(820, 190, "Instances", obj_laser);
@@ -271,16 +271,25 @@ fsm
 
      .add("dead", {
 		enter: function() {
+			//spawn the cutscene trigger on the player
 			var _end = instance_create_layer(obj_player.x, obj_player.y,"Instances", obj_cutscene_collision);
 			_end.text_id = "dead";
 			_end.create_above = obj_boss_gunslinger;
 			_end.image_xscale = 300;
 			_end.image_yscale = 300;
+			
+			//make player face boss
 			obj_player.facing = sign(x - obj_player.x);
+			
+			//stop all audio
 			audio_stop_sound(snd_temp_song)
+			
+			//destroy reticle
+			if(instance_exists(obj_reticle)) instance_destroy(obj_reticle);
 			
 		},
 		step: function() {
+			//make player face boss
 			obj_player.facing = sign(x - obj_player.x);
 		}
 

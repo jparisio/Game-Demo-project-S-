@@ -22,5 +22,5 @@ yscale = lerp(yscale, 1, 0.2);
 //shadow (use this for dash or roll state)
 if (on_ground) can_dash = true;
 
-//if hp <= 0 
-//show_debug_message(instance_number(obj_player));
+
+show_debug_message(hp);

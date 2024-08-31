@@ -64,7 +64,7 @@ global.boss_fight = false;
 
 //sound
 sound_frame_counter = 0;
-
+walking_on = snd_walk2;
 
 //6B9199
 //this is code for bg colour
@@ -251,7 +251,7 @@ fsm
 			instance_create_layer(x, y, "Instances", obj_dust_run).image_xscale = dust_dir;
 			
 			//play sound for initial step
-			if!(audio_is_playing(snd_walk2)) audio_play_sound(snd_walk2, 0, false, 0.2);
+			if!(audio_is_playing(walking_on)) audio_play_sound(walking_on, 0, false, 0.2);
 			
 		},
 		
@@ -280,7 +280,7 @@ fsm
 			    sound_frame_counter = 0;
 				//play audio
 			    var volume = .6
-			    audio_play_sound(snd_walk2, 0, false, volume);
+			    audio_play_sound(walking_on, 0, false, volume);
 			}
 			
 			//switch to dialogue if meeting a dialogue block and enter pressed

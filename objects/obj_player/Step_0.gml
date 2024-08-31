@@ -22,5 +22,12 @@ yscale = lerp(yscale, 1, 0.2);
 //shadow (use this for dash or roll state)
 if (on_ground) can_dash = true;
 
+//change sound for material youre on 
+if(place_meeting(x, y, obj_water)){
+	walking_on = snd_water_walk;
+} else {
+	walking_on = snd_walk2;
+}
+
 
 show_debug_message(hp);

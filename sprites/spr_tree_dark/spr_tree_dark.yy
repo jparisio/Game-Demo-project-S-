@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "environment",
-    "path": "folders/Sprites/environment.yy",
+    "name": "room1",
+    "path": "folders/Sprites/environment/room1.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

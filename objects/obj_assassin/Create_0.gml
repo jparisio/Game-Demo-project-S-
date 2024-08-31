@@ -98,7 +98,7 @@ fsm
 			//facing player always if alerted
 			if (abs(obj_player.x - x) <= 100 and (abs(obj_player.y - y <= 10))) image_xscale = sign(obj_player.x - x)
 			//switch to run if timer is up
-			if timer_switch_state <= 0 fsm.change("walk");
+			//if timer_switch_state <= 0 fsm.change("walk");
 			
 		}
 
@@ -162,16 +162,34 @@ fsm
 		
  })
  
- 	.add("dead", {
+ .add("dead", {
 		enter: function() {
 			sprite_index = spr_assassin_dead;
 			image_index = 0;
-			hsp = obj_player.pushback * sign(obj_player.facing)
+			//FIX what deosnt fall and collide if in mid air since it has no collision mask
+			//mask_index = spr_warrior_slime_dead_mask
+			var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
+			_sprayer.facing = obj_player.facing;
+			_sprayer.create_at = self;
+			//sound
+			audio_play_sound(snd_crunch, 1, 0, 1.2, 0 ,0.7);
+			audio_play_sound(snd_dash, 2, 0, 3, 0, 2);
+			//shake
+			create_shake();
+			//hit pause
+			hit_pause(20)
+			
 		},
 		step: function() {
 			collide_and_move();
+		//	if animation_end(){
+		//		image_index = image_number - 1;
+		//		//fade one death animation is done
+		//		image_alpha -= 0.05;
+		//	}
+		//	if image_alpha <= 0 instance_destroy();
 		}
-
+			
   });
   
   

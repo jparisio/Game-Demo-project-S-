@@ -2,7 +2,7 @@
 fsm.step();
 
 //check if on gorund or not
-on_ground = (place_meeting(x, y + 1, obj_wall));
+on_ground = (place_meeting(x, y + 1, obj_wall_parent));
 
 //if hit and hurt box doesnt exist give 2 seconds of invulnerability then recreate it
 if(!instance_exists(obj_hurtbox) and be_invulnerable){

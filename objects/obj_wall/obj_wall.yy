@@ -10,10 +10,13 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "environment",
-    "path": "folders/Objects/environment.yy",
+    "name": "walls",
+    "path": "folders/Objects/environment/walls.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_wall_parent",
+    "path": "objects/obj_wall_parent/obj_wall_parent.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

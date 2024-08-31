@@ -53,6 +53,7 @@ invulnerability_max = 60 * 2;
 invulnerability = invulnerability_max;
 be_invulnerable = false;
 pushback = 2;
+kill_push_back = 6;
 
 //dialogue
 dialogue_buffer = 10
@@ -60,6 +61,9 @@ talking = false
 
 //bosses
 global.boss_fight = false;
+
+//sound
+sound_frame_counter = 0;
 
 
 //6B9199
@@ -95,8 +99,8 @@ get_input_and_move = function() {
 	vsp+=grv;
 
 	//hori
-	if place_meeting(x+hsp,y,obj_wall) {
-	    while !place_meeting(x+sign(hsp),y,obj_wall) {
+	if place_meeting(x+hsp,y,obj_wall_parent) {
+	    while !place_meeting(x+sign(hsp),y,obj_wall_parent) {
 	        x += sign(hsp);
 	    }
 	    hsp = 0;
@@ -104,8 +108,8 @@ get_input_and_move = function() {
 	x += hsp;
 
 	//vert
-	if place_meeting(x,y + vsp,obj_wall) {
-	    while !place_meeting(x,y+sign(vsp),obj_wall) {
+	if place_meeting(x,y + vsp,obj_wall_parent) {
+	    while !place_meeting(x,y+sign(vsp),obj_wall_parent) {
 	        y += sign(vsp);
 	    }
 	    vsp = 0;
@@ -120,8 +124,8 @@ collide_and_move = function(_hsp, _vsp){
 hsp = _hsp
 vsp = _vsp
 //hori
-	if place_meeting(x+hsp,y,obj_wall) {
-	    while !place_meeting(x+sign(hsp),y,obj_wall) {
+	if place_meeting(x+hsp,y,obj_wall_parent) {
+	    while !place_meeting(x+sign(hsp),y,obj_wall_parent) {
 	        x += sign(hsp);
 	    }
 	    hsp = 0;
@@ -129,8 +133,8 @@ vsp = _vsp
 	x += hsp;
 
 	//vert
-	if place_meeting(x,y + vsp,obj_wall) {
-	    while !place_meeting(x,y+sign(vsp),obj_wall) {
+	if place_meeting(x,y + vsp,obj_wall_parent) {
+	    while !place_meeting(x,y+sign(vsp),obj_wall_parent) {
 	        y += sign(vsp);
 	    }
 	    vsp = 0;
@@ -215,7 +219,7 @@ fsm
 			if(dash and can_dash) fsm.change("dash");
 			
 			//edge case for falling off block
-			if(!place_meeting(x, y + 1, obj_wall) and fsm.get_previous_state() == "run"){
+			if(!place_meeting(x, y + 1, obj_wall_parent) and fsm.get_previous_state() == "run"){
 				fsm.change("jump");
 			}
 			
@@ -246,6 +250,8 @@ fsm
 			if right dust_dir = 1 else dust_dir = -1
 			instance_create_layer(x, y, "Instances", obj_dust_run).image_xscale = dust_dir;
 			
+			//play sound for initial step
+			if!(audio_is_playing(snd_walk2)) audio_play_sound(snd_walk2, 0, false, 0.2);
 			
 		},
 		
@@ -262,6 +268,20 @@ fsm
 			//move
 			get_input_and_move();
 			determine_facing();
+			
+			//sound
+			//evbery 4 frames play sound sndwalk or snd_walk2 randomized
+			// Increment the frame counter
+			sound_frame_counter++;
+
+			// Check if 4 frames have passed
+			if (sound_frame_counter >= 18) {
+			    // Reset the counter
+			    sound_frame_counter = 0;
+				//play audio
+			    var volume = .6
+			    audio_play_sound(snd_walk2, 0, false, volume);
+			}
 			
 			//switch to dialogue if meeting a dialogue block and enter pressed
 			//if(place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")){
@@ -286,7 +306,7 @@ fsm
 			}
 			
 			//run off edge
-			if(!place_meeting(x, y + 1, obj_wall)){
+			if(!place_meeting(x, y + 1, obj_wall_parent)){
 				coyote_time--;
 				vsp = 0;
 				//coyote time
@@ -316,6 +336,7 @@ fsm
 			sprite_index = spr_jump_start;
 			image_index = 0;
 			can_jump = false;
+			audio_play_sound(snd_jump, 0, false, .05);
 		},
 		
 		step: function(){
@@ -343,7 +364,7 @@ fsm
 			}
 			
 			//check if colliding with bottom of wall
-			if(place_meeting(x, y - 1, obj_wall)) vsp = 1;
+			if(place_meeting(x, y - 1, obj_wall_parent)) vsp = 1;
 			
 			//if let go of jump, can press it again
 			if(input_check_released("jump")) can_jump = true;
@@ -352,15 +373,16 @@ fsm
 			if(input_check("jump") and can_jump) jump_buffer = jump_buffer_max;
 			if(jump_buffer >= 0){
 				jump_buffer--;
-				if(place_meeting(x, y + 1, obj_wall)){
+				if(place_meeting(x, y + 1, obj_wall_parent)){
 					vsp = vsp_jump;
 					sprite_index = spr_jump;
 					can_jump = false;
 				}
-			} else if(place_meeting(x, y + 1, obj_wall)){
+			} else if(place_meeting(x, y + 1, obj_wall_parent)){
 				xscale = 1.25;
 				yscale = 0.75;
 				can_jump = false
+				audio_play_sound(snd_land, 0, 0, 0.6)
 				fsm.change("idle");
 			}
 			
@@ -370,11 +392,11 @@ fsm
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
 			
-			//cutscene 
-			if place_meeting(x, y, obj_cutscene_collision){
-				hsp = 0;
-				fsm.change("dialogue");
-			}
+			////cutscene 
+			//if place_meeting(x, y, obj_cutscene_collision){
+			//	hsp = 0;
+			//	fsm.change("dialogue");
+			//}
 	  }
 })
 
@@ -417,7 +439,7 @@ fsm
 			//}
 			
 			if(!instance_exists(obj_slash)){
-				if place_meeting(x, y + 1, obj_wall){
+				if place_meeting(x, y + 1, obj_wall_parent){
 					fsm.change("idle")
 				} else fsm.change("jump")
 			}
@@ -522,8 +544,8 @@ fsm
 				if !instance_exists(obj_hurtbox) {
 				    instance_create_layer(x, y, "Player", obj_hurtbox);
 				}
-				if(place_meeting(x, y + 1, obj_wall)) fsm.change("idle") else fsm.change("jump");
-				if(place_meeting(x, y, obj_cutscene_collision)) fsm.change("dialogue");
+				if(place_meeting(x, y + 1, obj_wall_parent)) fsm.change("idle") else fsm.change("jump");
+				//if(place_meeting(x, y, obj_cutscene_collision)) fsm.change("dialogue");
 			}
 		}
 })
@@ -541,11 +563,12 @@ fsm
 			vsp+=grv;
 			collide_and_move(0 , vsp);
 			//stop animation from looping
-			if (sprite_index == spr_run) sprite_index = spr_run_to_idle;
-			if (sprite_index == spr_idle_to_run) sprite_index = spr_run_to_idle;
+			if (sprite_index == spr_run or sprite_index == spr_idle_to_run){
+				sprite_index = spr_run_to_idle;
+				image_index = 0;
+			}
 			if (sprite_index == spr_run_to_idle and animation_end()) sprite_index = spr_idle; //just leave this line too
-			if(sprite_index == spr_jump_fall or sprite_index == spr_jump_fall_start or sprite_index == spr_jump or sprite_index = spr_jump_start and place_meeting(x , y + 1, obj_wall)) sprite_index = spr_run_to_idle;
-			
+
 			var _dialogue_box = instance_place(x, y, obj_dialogue_collision); //and this and chance target to _dialogue box
 			
 			var _cutscene_box = instance_place(x, y, obj_cutscene_collision); //probably move this shit to another state tbh

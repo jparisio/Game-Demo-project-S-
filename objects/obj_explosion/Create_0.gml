@@ -1,2 +1,6 @@
+
 image_index = 0;
-audio_play_sound(snd_explosion2, 5, 0, 3)
+
+if!audio_is_playing(snd_explosion2){
+	audio_play_sound(snd_explosion2, 5, 0, 3);
+}

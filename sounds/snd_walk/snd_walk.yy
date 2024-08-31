@@ -12,12 +12,12 @@
   "conversionMode": 0,
   "duration": 0.552,
   "parent": {
-    "name": "environment",
-    "path": "folders/Sounds/environment.yy",
+    "name": "player",
+    "path": "folders/Sounds/player.yy",
   },
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "snd_walk.mp3",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.2,
 }

@@ -39,6 +39,8 @@ fsm
 				audio_play_sound(snd_temp_song, 10, 1, 0.5);
 				fsm.change("steady");
 			}
+			//face player
+			if(obj_player.talking) obj_player.facing = sign( x - obj_player.x);
 			
 		}
 
@@ -279,7 +281,7 @@ fsm
 			
 		},
 		step: function() {
-			
+			obj_player.facing = sign(x - obj_player.x);
 		}
 
   });

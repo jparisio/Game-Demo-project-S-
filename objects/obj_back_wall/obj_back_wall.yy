@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "environment",
-    "path": "folders/Objects/environment.yy",
+    "name": "walls",
+    "path": "folders/Objects/environment/walls.yy",
   },
   "parentObjectId": null,
   "persistent": false,

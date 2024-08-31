@@ -1,6 +1,12 @@
 if(creator == "player"){
 	other.hp -= obj_player.damage
-	other.hsp = obj_player.pushback * sign(obj_player.facing)
+	if (other.hp <= 0) {
+		//apply amplified pushback
+        other.hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
+    } else {
+        // Apply normal pushback
+        other.hsp = obj_player.pushback * sign(obj_player.facing);
+    }
 	//create screen shake
 	instance_create_layer(x,y,"Instances", obj_screenshake);
 	//hitflash
@@ -10,6 +16,8 @@ if(creator == "player"){
 	_slash.image_xscale = image_xscale;
 	_slash.image_angle = random_range(20, -20);
 	
-	audio_play_sound(snd_hit_enemy2, 1, 0, 3);
+	//play audio
+	var _pitch = choose (1, 1.1, 1.2)
+	audio_play_sound(snd_hit_enemy2, 1, 0, 3, 0, _pitch);
 }
 

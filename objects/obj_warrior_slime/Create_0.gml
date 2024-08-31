@@ -285,8 +285,10 @@ fsm
 			_sprayer.facing = obj_player.facing;
 			_sprayer.create_at = self;
 			//sound
-			audio_play_sound(snd_crunch, 1, 0, 1.2, 0 ,0.7);
-			audio_play_sound(snd_dash, 2, 0, 3, 0, 2);
+			//audio_play_sound(snd_crunch, 1, 0, 1.1, 0 ,0.7);
+			var vol = choose(0.1, 0.3)
+			audio_play_sound(snd_crunch2, 1, 0, vol, 0, 1.2);
+			audio_play_sound(snd_old_dash, 2, 0, 3, 0, 2);
 			//shake
 			create_shake();
 			//hit pause

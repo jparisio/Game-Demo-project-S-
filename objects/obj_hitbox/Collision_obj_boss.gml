@@ -9,5 +9,8 @@ if(creator == "player"){
 	var _slash = instance_create_layer(other.x, other.y, "Instances", obj_hit_effect);
 	_slash.image_xscale = image_xscale;
 	_slash.image_angle = random_range(20, -20);
-	audio_play_sound(snd_hit_enemy2, 15, 0, 5);
+	
+	//play audio
+	var _pitch = choose (1, 1.1, 1.2)
+	audio_play_sound(snd_hit_enemy2, 1, 0, 3, 0, _pitch);
 }

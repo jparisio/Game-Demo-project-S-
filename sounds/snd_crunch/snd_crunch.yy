@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 1.416,
+  "duration": 1.37675,
   "parent": {
     "name": "hit effects",
     "path": "folders/Sounds/hit effects.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "snd_crunch.mp3",
+  "soundFile": "snd_crunch.wav",
   "type": 0,
   "volume": 1.0,
 }

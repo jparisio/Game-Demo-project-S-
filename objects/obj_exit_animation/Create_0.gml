@@ -12,4 +12,4 @@ next_room = 0;
 
 finished = false;
 
-audio_play_sound(snd_exit_screen, 10, 0);
+audio_play_sound(snd_exit_screen, 10, 0, 1, 0.23);

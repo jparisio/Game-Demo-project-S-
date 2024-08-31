@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.08127,
+  "duration": 0.080544,
   "parent": {
     "name": "slashes",
     "path": "folders/Sounds/slashes.yy",

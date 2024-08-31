@@ -507,7 +507,7 @@ fsm
 			if instance_exists(obj_hurtbox) {
 			    instance_destroy(obj_hurtbox);
 			}
-			audio_play_sound(snd_dash, 3, 0, 2)
+			audio_play_sound(snd_dash, 5, 0, .3)
 		},
 		
 		step: function(){

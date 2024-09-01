@@ -6,11 +6,11 @@ if follow != noone {
 }
 
 //anchor specifics 
-//if(follow == obj_temp_camera_anchor){
-//	global.x_offset  = lerp(global.x_offset, 0, 0.1);
-//} else {
-//	global.x_offset = 0.35;
-//}
+if(follow == obj_temp_camera_anchor){
+	global.x_offset  = lerp(global.x_offset, .5, .07)
+} else {
+	global.x_offset = 0.35;
+}
 
 //move the camera offset depending on if the player is facing left or right
 if(follow == obj_player and follow.facing == 1){
@@ -20,11 +20,12 @@ if(follow == obj_player and follow.facing == 1){
 		global.x_offset = lerp(global.x_offset, 0.65, 0.0025);
 	}
 }
+
 var _x =  x - global.cam_width * global.x_offset;
 var _y = y - global.cam_height * global.y_offset;
 
 //clamp the x and y 
-x = clamp(x, 100, 1520);
+//x = clamp(x, global.cam_width/2,room_width-global.cam_width);
 y = clamp(y, 260 , 270);
 
 camera_set_view_pos(view_camera[0], _x, _y);

@@ -8,7 +8,7 @@ y_velocity += y_gravity;
 y += y_velocity;
 
 // Check for collision with obj_player or obj_wall
-if (place_meeting(x, y, obj_hurtbox) || place_meeting(x, y, obj_wall)) {
+if (instance_place(x, y, obj_hurtbox) || place_meeting(x, y, obj_wall)) {
     // Trigger explosion (e.g., create explosion object, deal damage, etc.)
     instance_destroy(); // Destroy the grenade object
 }

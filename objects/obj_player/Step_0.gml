@@ -30,4 +30,4 @@ if(place_meeting(x, y, obj_water)){
 }
 
 
-show_debug_message(hp);
+//show_debug_message(hp);

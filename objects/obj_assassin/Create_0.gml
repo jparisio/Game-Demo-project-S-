@@ -27,6 +27,9 @@ stunned_timer = stunned_timer_max;
 
 _ended = false;
 
+slide = 9;
+slide_hsp = 0;
+
 collide_and_move = function(){
 
 vsp += grv;
@@ -179,8 +182,12 @@ fsm
 			//hit pause
 			hit_pause(20)
 			
+			slide_hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
+			
 		},
 		step: function() {
+			if slide >= 0 hsp = slide_hsp
+			slide--;
 			collide_and_move();
 		//	if animation_end(){
 		//		image_index = image_number - 1;

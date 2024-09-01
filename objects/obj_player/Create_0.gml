@@ -54,6 +54,9 @@ invulnerability = invulnerability_max;
 be_invulnerable = false;
 pushback = 2;
 kill_push_back = 6;
+frame_counter = 0;
+flash_alpha = 0;
+already_hit = false;
 
 //dialogue
 dialogue_buffer = 10
@@ -164,8 +167,8 @@ fsm
 			sprite_index = spr_idle;
 			image_index = 0;
 			
-			//return after run
-			if(fsm.get_previous_state() == "run"){
+			//return after run or dash
+			if(fsm.get_previous_state() == "run" or fsm.get_previous_state() == "dash"){
 				sprite_index = spr_run_to_idle
 				image_index = 0;
 			}
@@ -229,6 +232,9 @@ fsm
 				fsm.change("finisher");
 				instance_destroy(obj_finisher_circle);
 			}
+			
+			//cutscene
+			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
 			
 	   }
   })
@@ -541,7 +547,8 @@ fsm
 				image_speed = 1;
 				grv = global_grv;
 				can_dash = false;
-				if !instance_exists(obj_hurtbox) {
+				//make sure were not spawning in another hitbox while in hitsun cancelling our invul frames
+				if (!instance_exists(obj_hurtbox) and !be_invulnerable){
 				    instance_create_layer(x, y, "Player", obj_hurtbox);
 				}
 				if(place_meeting(x, y + 1, obj_wall_parent)) fsm.change("idle") else fsm.change("jump");

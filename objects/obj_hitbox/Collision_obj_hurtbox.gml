@@ -13,4 +13,7 @@ if(creator == "enemy" or creator == "boss"){
 	if(instance_exists(obj_hurtbox)){
 		instance_destroy(obj_hurtbox);
 	}
+	
+	//sound controller for being hit
+	instance_create_layer(x, y, "Instances", obj_sound_gain_controller);
 }

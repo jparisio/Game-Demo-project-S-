@@ -146,6 +146,7 @@
   "resources": [
     {"id":{"name":"__scribble_config_colours","path":"scripts/__scribble_config_colours/__scribble_config_colours.yy",},},
     {"id":{"name":"input_cursor_limit_circle","path":"scripts/input_cursor_limit_circle/input_cursor_limit_circle.yy",},},
+    {"id":{"name":"obj_sound_gain_controller","path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},},
     {"id":{"name":"__input_define_gamepad_types","path":"scripts/__input_define_gamepad_types/__input_define_gamepad_types.yy",},},
     {"id":{"name":"__input_get_previous_time","path":"scripts/__input_get_previous_time/__input_get_previous_time.yy",},},
     {"id":{"name":"spr_boss_gunslinger_idle","path":"sprites/spr_boss_gunslinger_idle/spr_boss_gunslinger_idle.yy",},},
@@ -169,6 +170,7 @@
     {"id":{"name":"input_motion_data_get","path":"scripts/input_motion_data_get/input_motion_data_get.yy",},},
     {"id":{"name":"input_cursor_x","path":"scripts/input_cursor_x/input_cursor_x.yy",},},
     {"id":{"name":"__scribble_class_page","path":"scripts/__scribble_class_page/__scribble_class_page.yy",},},
+    {"id":{"name":"sh_hit","path":"shaders/sh_hit/sh_hit.yy",},},
     {"id":{"name":"__input_gamepad_find_in_sdl2_database","path":"scripts/__input_gamepad_find_in_sdl2_database/__input_gamepad_find_in_sdl2_database.yy",},},
     {"id":{"name":"input_check_long_released","path":"scripts/input_check_long_released/input_check_long_released.yy",},},
     {"id":{"name":"EaseHeartbeat","path":"animcurves/EaseHeartbeat/EaseHeartbeat.yy",},},
@@ -553,6 +555,7 @@
     {"id":{"name":"snd_error3","path":"sounds/snd_error3/snd_error3.yy",},},
     {"id":{"name":"scribble_msdf_thickness_offset","path":"scripts/scribble_msdf_thickness_offset/scribble_msdf_thickness_offset.yy",},},
     {"id":{"name":"__scribble_class_font","path":"scripts/__scribble_class_font/__scribble_class_font.yy",},},
+    {"id":{"name":"snd_player_hit","path":"sounds/snd_player_hit/snd_player_hit.yy",},},
     {"id":{"name":"input_trigger_effect_get_pause","path":"scripts/input_trigger_effect_get_pause/input_trigger_effect_get_pause.yy",},},
     {"id":{"name":"__input_string_contains","path":"scripts/__input_string_contains/__input_string_contains.yy",},},
     {"id":{"name":"__input_class_gamepad_mapping","path":"scripts/__input_class_gamepad_mapping/__input_class_gamepad_mapping.yy",},},

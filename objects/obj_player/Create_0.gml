@@ -561,7 +561,8 @@ fsm
 		
 		step: function(){
 			vsp+=grv;
-			collide_and_move(0 , vsp);
+			//collide_and_move(0 , vsp);
+			
 			//stop animation from looping
 			if (sprite_index == spr_run or sprite_index == spr_idle_to_run){
 				sprite_index = spr_run_to_idle;

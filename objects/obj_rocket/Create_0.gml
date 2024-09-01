@@ -18,6 +18,7 @@ target_angle = 0;
 move_speed = 0;
 radius = 200;
 damage = 10;
+dead = false;
 
 //create_hitbox("boss", self, x, y, image_xscale, spr_rocket_hitbox, 150, 10)
 

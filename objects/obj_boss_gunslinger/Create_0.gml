@@ -10,7 +10,7 @@ state_timer = 0;
 state_timer_max = 120;
 
 //random state 
-rand = 0;
+rand_next_state = 0;
 
 //teleporting
 target_x = 0;
@@ -112,7 +112,7 @@ fsm
 			if (x > 800) target_x = 580 else target_x = 1056;
 			//create smoke effects;
 			dust = instance_create_layer(x, y, "Instances", obj_dust_bomb);
-			rand = irandom_range(0,3);
+			rand_next_state = choose("lasers", "rockets", "laser circle")
 		},
 		step: function() {
 			state_timer--;
@@ -120,10 +120,7 @@ fsm
 			with(dust){
 				if animation_hit_frame(3){
 					other. x = -100000;
-					//other.dust = instance_create_layer(other.target_x, other.y, "Instances", obj_dust_bomb);
-					if other.rand <= 1 other.fsm.change("rockets") 
-					else if other.rand > 1  and other.rand <= 1.5 other.fsm.change("lasers");
-					else other.fsm.change("laser circle");
+					other.fsm.change(other.rand_next_state);
 				}
 			}
 			

@@ -212,6 +212,7 @@
     {"name":"__shdBulbSoftShadowsSunlight","order":10,"path":"shaders/__shdBulbSoftShadowsSunlight/__shdBulbSoftShadowsSunlight.yy",},
     {"name":"spr_tree2","order":15,"path":"sprites/spr_tree2/spr_tree2.yy",},
     {"name":"snd_walk","order":2,"path":"sounds/snd_walk/snd_walk.yy",},
+    {"name":"spr_laser_startup","order":12,"path":"sprites/spr_laser_startup/spr_laser_startup.yy",},
     {"name":"obj_temp_wall","order":3,"path":"objects/obj_temp_wall/obj_temp_wall.yy",},
     {"name":"spr_jump_start","order":2,"path":"sprites/spr_jump_start/spr_jump_start.yy",},
     {"name":"obj_slash","order":1,"path":"objects/obj_slash/obj_slash.yy",},

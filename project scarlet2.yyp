@@ -809,6 +809,7 @@
     {"id":{"name":"scribble_font_bake_outline_8dir","path":"scripts/scribble_font_bake_outline_8dir/scribble_font_bake_outline_8dir.yy",},},
     {"id":{"name":"input_player_gamepad_type_override_set","path":"scripts/input_player_gamepad_type_override_set/input_player_gamepad_type_override_set.yy",},},
     {"id":{"name":"__input_gamepad_set_vid_pid","path":"scripts/__input_gamepad_set_vid_pid/__input_gamepad_set_vid_pid.yy",},},
+    {"id":{"name":"spr_laser_startup","path":"sprites/spr_laser_startup/spr_laser_startup.yy",},},
     {"id":{"name":"obj_temp_wall","path":"objects/obj_temp_wall/obj_temp_wall.yy",},},
     {"id":{"name":"input_binding_gamepad_axis","path":"scripts/input_binding_gamepad_axis/input_binding_gamepad_axis.yy",},},
     {"id":{"name":"scribble_is_text_element","path":"scripts/scribble_is_text_element/scribble_is_text_element.yy",},},

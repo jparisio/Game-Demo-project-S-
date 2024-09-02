@@ -7,7 +7,7 @@ if follow != noone {
 
 //anchor specifics 
 if(follow == obj_temp_camera_anchor){
-	global.x_offset  = lerp(global.x_offset, .5, .07)
+	global.x_offset  = lerp(global.x_offset, 0.5, 0.04);
 } else {
 	global.x_offset = 0.35;
 }

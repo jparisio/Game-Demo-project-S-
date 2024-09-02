@@ -247,7 +247,7 @@ fsm
 
             var new_laser = instance_create_layer(820, 190, "Instances", obj_laser);
             new_laser.image_angle = angle;
-            new_laser.image_yscale = 3;
+            new_laser.image_yscale = 6;
             new_laser.alarm_active = 15;
 
             laser_counter++; // Increment the counter

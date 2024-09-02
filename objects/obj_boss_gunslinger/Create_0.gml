@@ -87,7 +87,7 @@ fsm
 			//set sprite index
 			//sprite_index = spr_fire
 			//image_index = 0;
-			//rand = irandom_range(0,2);
+			//rand_next_state = choose("lasers", "rockets", "laser circle")
 			//play this sound https://artlist.io/sfx/track/black-powder-guns---pistol-the-lone-ranger/62778
 			// hit impact for this https://kiddolink.itch.io/vfx-fx-hit-impact-pixel-art
 		},
@@ -172,7 +172,8 @@ fsm
 			    var laser_y = 288; 
     
 			    // Create the laser at the specified position
-			    instance_create_layer(laser_x, laser_y, "Instances", obj_laser);
+			    var _laser =  instance_create_layer(laser_x, laser_y, "Instances", obj_laser);
+				_laser.image_yscale = 4;
 			}
 		},
 		step: function() {

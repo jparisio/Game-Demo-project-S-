@@ -24,7 +24,7 @@ if (sprayed) {
     // Create a blood instance every 3 frames
     if (frame_counter % 3 == 0) {
         // Create the blood instance at the specified position
-        var blood_instance = instance_create_layer(create_at.x, create_at.y - 30, "Lamps", obj_blood);
+        var blood_instance = instance_create_layer(create_at.x, create_at.y - 30, "Instances", obj_blood);
 
         // Set initial movement properties for the blood instance
         with (blood_instance) {

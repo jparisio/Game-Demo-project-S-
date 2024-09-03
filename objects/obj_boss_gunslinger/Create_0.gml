@@ -1,6 +1,11 @@
 //set hp
 hp = 300;
 
+//move
+hsp = 0;
+vsp = 0;
+grv = 0.4;
+tp_back = false;
 
 //face player upon creation
 facing = sign(obj_player.x - x);
@@ -24,6 +29,30 @@ laser_angle_step = 0;
 //flash shader
 flash_alpha = 0;
 flash_colour = c_white;
+
+collide_and_move = function(){
+
+vsp += grv;
+//hori
+	if place_meeting(x+hsp,y,obj_wall_parent) {
+	    while !place_meeting(x+sign(hsp),y,obj_wall_parent) {
+	        x += sign(hsp);
+	    }
+	    hsp = 0;
+		//show_debug_message(sprite_get_name(mask_index))
+	}
+	x += hsp;
+
+	//vert
+	if place_meeting(x,y + vsp,obj_wall_parent) {
+	    while !place_meeting(x,y+sign(vsp),obj_wall_parent) {
+	        y += sign(vsp);
+	    }
+	    vsp = 0;
+	}
+	y += vsp;
+
+}
 
 //states	
 fsm = new SnowState("idle")
@@ -88,10 +117,11 @@ fsm
 			//if the animation ends fire the bullet
 			//if state_timer<=0  and rand >= 1 fsm.change("rockets")
 			//if state_timer<=0  and rand < 1 fsm.change("teleport")
-			if state_timer <=0 fsm.change("teleport")
-			
+			if( hp != 300 and hp mod 50 == 0 ){
+				fsm.change("injured")
+			}
 			if hp <= 0 fsm.change("dead");
-			
+			if state_timer <=0 fsm.change("teleport")
 			
 		}
 
@@ -286,9 +316,74 @@ fsm
 
 	.add("injured", {
 		enter: function() {
+			sprite_index = spr_boss_gunslinger_injured_begin;
+			image_index = 0;
+			if(instance_exists(obj_reticle)) instance_destroy(obj_reticle);
+			var blood_spray = instance_create_layer(x, y, "Instances", obj_blood_sprayer);
+			var _facing = sign(obj_player.facing);
+			create_blood(_facing, x, y - 20);
+			blood_spray.create_at = self;
+			
+			audio_play_sound(snd_crunch2, 1, 0, .1, 0, 1.2);
+			audio_play_sound(snd_old_dash, 2, 0, 3, 0, 2);
+			//shake
+			create_shake();
+			//hit pause
+			hit_pause(20)
+			
+			//mask_index = spr_boss_gunslinger_idle;
+			
+			//begin movement
+			
+			
+			//set vals
+			hsp = 3 * _facing
+			vsp = -4;
+			
+			//subtract hp sp your not infintely going back to this
+			hp -= 5;
+			
+			state_timer = state_timer_max/4;
+			tp_back = false;
+			
 			
 		},
 		step: function() {
+			
+			mask_index = spr_boss_gunslinger_idle;
+
+			collide_and_move();
+
+			// Handle animation transitions
+			if (sprite_index == spr_boss_gunslinger_injured_begin && animation_end()) {
+				show_debug_message("ENDED");
+			    sprite_index = spr_boss_gunslinger_injured_loop;
+			    image_index = 0;
+			}
+
+			// Check for ground collision and switch sprite
+			if (place_meeting(x, y + 1, obj_wall) && sprite_index == spr_boss_gunslinger_injured_loop) {
+			    sprite_index = spr_boss_gunslinger_injured_ground;
+			    image_index = 0;
+			}
+
+			// Handle injured ground animation
+			if (sprite_index == spr_boss_gunslinger_injured_ground && animation_end()) {
+			    image_speed = 0;  // Stop animation at the end
+			    tp_back = true;   // Trigger teleport
+			}
+
+			// Handle teleport logic
+			if (tp_back) {
+			    state_timer--;
+			    if (state_timer <= 0) {
+					fsm.change("teleport");
+					image_speed = 1;
+				}
+			}
+
+			// Slow down the horizontal speed
+			hsp = lerp(hsp, 0, 0.1);
 
 		}
 

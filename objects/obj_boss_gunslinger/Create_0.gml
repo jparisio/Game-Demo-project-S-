@@ -1,9 +1,10 @@
 //set hp
-hp = 90;
+hp = 300;
 
 
 //face player upon creation
 facing = sign(obj_player.x - x);
+spotlight = false;
 
 //timer for switching states
 state_timer = 0;
@@ -36,11 +37,26 @@ fsm
 		step: function() {
 			//timer minus and switch state
 			if(global.boss_fight and !instance_exists(obj_text)){
+				instance_destroy(obj_cone_light);
+				audio_play_sound(snd_spotlight, 10, 0, 1, 0, 0.9)
+				for(var i = 650; i <= 1000; i++){
+					instance_create_layer(i, 280, "Lighting", obj_light)
+					i+= 50;
+				}
+				var floor_light = instance_create_layer(830, 300, "Lighting", obj_light)
+				floor_light.sprite = spr_floor_light;
 				audio_play_sound(snd_temp_song, 10, 1, 0.5);
 				fsm.change("steady");
 			}
 			//face player
-			if(obj_player.talking) obj_player.facing = sign( x - obj_player.x);
+			if(obj_player.talking) {
+				obj_player.facing = sign( x - obj_player.x);
+				if(!spotlight){
+					spotlight = true;
+					instance_create_layer(1054, 162, "Lighting", obj_cone_light);
+					audio_play_sound(snd_spotlight, 10, 0, 1, 0, 0.9)
+				}
+			}
 			
 		}
 
@@ -265,7 +281,18 @@ fsm
             if (state_timer <= 0) fsm.change("reappear");
         }
     }
-})
+})     
+
+
+	.add("injured", {
+		enter: function() {
+			
+		},
+		step: function() {
+
+		}
+
+  })
 
      .add("dead", {
 		enter: function() {

@@ -5,3 +5,6 @@ if (source != undefined) {
 	light.angle = source.image_angle;
 }
 
+light.xscale = xscale;
+light.yscale = yscale;
+light.sprite = sprite;

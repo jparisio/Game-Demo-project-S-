@@ -1,4 +1,4 @@
-if(creator == "player"){
+if(creator == "player" and other.hp > 0){
 	other.hp -= obj_player.damage
 	if (other.hp <= 0) {
 		//apply amplified pushback

@@ -36,3 +36,6 @@ part_type_size(particle_trail, 1, 1.2, 0, 0);
 audio_play_sound(snd_rocket_startup, 1, 0, 0.05, 0, 0.5)
 
 create_hitbox("boss", self, x, y, image_xscale, spr_rocket_hitbox, 150, 10, image_yscale)
+
+//var light = instance_create_layer(x, y, "Lighting", obj_outline_light);
+//light.follow = self;

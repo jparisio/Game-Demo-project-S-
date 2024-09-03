@@ -5,3 +5,10 @@ alarm_delay = 0;
 image_index = 0;
 
 
+//var light = instance_create_layer(x, y, "Lighting", obj_outline_light);
+//light.follow = self;
+//light.xscale = self.image_xscale;
+//light.yscale = self.image_yscale * 4;
+//light.colour = c_red;
+//light.sprite = spr_laser_light;
+

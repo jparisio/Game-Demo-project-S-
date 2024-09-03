@@ -564,6 +564,11 @@ fsm
 			//sprite_index = spr_idle;
 			talking = true;
 			dialogue_buffer = 10;
+			if (sprite_index != spr_run and sprite_index != spr_idle and sprite_index != spr_run_to_idle){
+				sprite_index = spr_run_to_idle;
+				image_index = 0;
+			}
+			
 		},
 		
 		step: function(){

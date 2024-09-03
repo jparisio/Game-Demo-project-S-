@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_building1",
-  "bbox_bottom": 0,
+  "bbox_bottom": 276,
   "bbox_left": 0,
-  "bbox_right": 0,
+  "bbox_right": 215,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,11 +13,11 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"329e38b2-8200-4d20-9584-52f46b686f73",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1ea058b2-1ba6-40c0-96ff-f419fd28e071",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 64,
+  "height": 277,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6815afd6-0091-4ff3-b754-2082953b922b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"329e38b2-8200-4d20-9584-52f46b686f73","path":"sprites/spr_building1/spr_building1.yy",},},},"Disabled":false,"id":"70cd71b2-a70e-4935-b100-29decd98931d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"1ea058b2-1ba6-40c0-96ff-f419fd28e071","path":"sprites/spr_building1/spr_building1.yy",},},},"Disabled":false,"id":"39893b6c-6d64-46ac-aa52-09d2ee31aaa2","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 64,
+  "width": 216,
 }

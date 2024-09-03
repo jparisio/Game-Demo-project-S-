@@ -117,10 +117,16 @@ fsm
 			//if the animation ends fire the bullet
 			//if state_timer<=0  and rand >= 1 fsm.change("rockets")
 			//if state_timer<=0  and rand < 1 fsm.change("teleport")
-			if( hp != 300 and hp mod 50 == 0 ){
+			
+			//if dead dont go to the other states 
+			if hp <= 0 fsm.change("dead");
+			
+			//injured state
+			if( hp != 300 and hp mod 50 == 0 and hp > 0){
 				fsm.change("injured")
 			}
-			if hp <= 0 fsm.change("dead");
+			
+			//tp state
 			if state_timer <=0 fsm.change("teleport")
 			
 		}
@@ -321,21 +327,19 @@ fsm
 			if(instance_exists(obj_reticle)) instance_destroy(obj_reticle);
 			var blood_spray = instance_create_layer(x, y, "Instances", obj_blood_sprayer);
 			var _facing = sign(obj_player.facing);
-			create_blood(_facing, x, y - 20);
+			blood_spray.facing = -_facing;
 			blood_spray.create_at = self;
 			
-			audio_play_sound(snd_crunch2, 1, 0, .1, 0, 1.2);
-			audio_play_sound(snd_old_dash, 2, 0, 3, 0, 2);
+			audio_play_sound(snd_injured, 13, 0, 2, 0, .9);
+			audio_play_sound(snd_unsheath, 10, 0, 4, 0, 1.1);
+			audio_play_sound(snd_old_dash, 10, 0, 3, 0, 2);
 			//shake
 			create_shake();
 			//hit pause
-			hit_pause(20)
+			hit_pause(50)
 			
-			//mask_index = spr_boss_gunslinger_idle;
 			
 			//begin movement
-			
-			
 			//set vals
 			hsp = 3 * _facing
 			vsp = -4;

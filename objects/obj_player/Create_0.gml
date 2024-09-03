@@ -12,6 +12,9 @@ can_jump = true;
 jump_buffer_max = 5;
 jump_buffer = jump_buffer_max;
 
+//set fullscreen
+fullscreen = false;
+
 //squash and stretch
 xscale = 1;
 yscale = 1;

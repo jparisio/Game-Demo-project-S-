@@ -36,3 +36,8 @@ if hp <= 0 {
 }
 
 //show_debug_message(hp);
+
+if input_check("pause"){
+	fullscreen = !fullscreen;
+	window_set_fullscreen(fullscreen);
+}

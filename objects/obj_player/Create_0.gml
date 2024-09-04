@@ -362,6 +362,7 @@ fsm
 			if(sign(facing) != input_dir){
 				input_dir = sign(facing);
 				walksp = 0;
+				hsp = 0;
 				approach_walksp = 0.04;
 			}
 			

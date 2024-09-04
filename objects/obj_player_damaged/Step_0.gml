@@ -1,0 +1,1 @@
+global.shader_shake = random_range(-0.02, 0.02)

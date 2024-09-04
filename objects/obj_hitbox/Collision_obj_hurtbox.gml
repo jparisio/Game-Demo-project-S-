@@ -16,4 +16,5 @@ if(creator == "enemy" or creator == "boss"){
 	
 	//sound controller for being hit
 	instance_create_layer(x, y, "Instances", obj_sound_gain_controller);
+	instance_create_layer(x, y, "Instances", obj_player_damaged);
 }

@@ -18,7 +18,7 @@ camera_target = function(_element, _parameter_array, _character_index){
 suspense = function(){
 	sound = audio_play_sound(snd_suspense, 5, 1, 0.7);
 	var val = audio_sound_get_gain(sound);
-	show_debug_message(val)
+	//show_debug_message(val)
 }
 
 boss_start = function(){
@@ -27,10 +27,14 @@ boss_start = function(){
 	audio_sound_loop(sound, false);
 }
 
+shake = function(){
+	create_shake();
+}
+
 
 
 //add the shake event
-scribble_typists_add_event("shake_screen", create_shake);
+scribble_typists_add_event("shake_screen", shake);
 scribble_typists_add_event("ended", end_text);
 scribble_typists_add_event("switch", speech_bubble_target);
 scribble_typists_add_event("cam", camera_target);

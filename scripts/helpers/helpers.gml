@@ -66,6 +66,13 @@ function hit_pause(_time){
 	
 }
 
-function create_shake(){
-	instance_create_layer(x, y, "Instances", obj_screenshake_large)
+function create_shake(shake_type = "large"){
+	
+	if(shake_type == "large"){
+		instance_create_layer(x, y, "Instances", obj_screenshake_large)
+	} else if(shake_type = "small"){
+		instance_create_layer(x, y, "Instances", obj_screenshake)
+	} else if(shake_type == "spring"){
+		instance_create_layer(x, y, "Instances", obj_screenshake_spring);
+	}
 }

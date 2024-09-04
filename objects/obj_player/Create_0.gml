@@ -11,6 +11,7 @@ coyote_time = 4;
 can_jump = true;
 jump_buffer_max = 5;
 jump_buffer = jump_buffer_max;
+input_dir = 0;
 
 //set fullscreen
 fullscreen = false;
@@ -181,6 +182,8 @@ fsm
 				sprite_index = spr_run_to_idle
 				image_index = 0;
 			}
+			//for move cap stuff
+			approach_walksp = .15;
 			
 		},
 		step: function() {
@@ -261,6 +264,9 @@ fsm
 			
 			//play sound for initial step
 			if!(audio_is_playing(walking_on)) audio_play_sound(walking_on, 0, false, 0.2);
+			
+			//for move cap stuff
+			approach_walksp = .15;
 			
 		},
 		
@@ -346,13 +352,24 @@ fsm
 			image_index = 0;
 			can_jump = false;
 			audio_play_sound(snd_jump, 0, false, .05);
+			input_dir = sign(facing);
 		},
 		
 		step: function(){
+			
+			// TODO: momentum in mid air calc
+			//if (!(vsp > vsp_jump + (2 * grv))) input_dir = sign(hsp)
+			if(sign(facing) != input_dir){
+				input_dir = sign(facing);
+				walksp = 0;
+				approach_walksp = 0.04;
+			}
+			
 			//move
 			get_input_and_move();
 			determine_facing();
 			
+
 			//change animations
 			if(sprite_index == spr_jump_start and animation_end()){
 				sprite_index = spr_jump;

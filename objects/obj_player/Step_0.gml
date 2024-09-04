@@ -35,7 +35,7 @@ if hp <= 0 {
 	instance_create_layer(obj_camera.x, obj_camera.y, "Lighting", obj_game_over);
 }
 
-//show_debug_message(hp);
+show_debug_message(hsp);
 
 if input_check("pause"){
 	fullscreen = !fullscreen;

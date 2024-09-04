@@ -1,5 +1,5 @@
 instance_create_layer(x , y, "Instances", obj_explosion);
-create_shake();
+create_shake("small");
 // Number of shrapnel pieces and angle increment
 var num_pieces = 5;
 var angle_increment = 180 / (num_pieces - 1); // 36 degrees

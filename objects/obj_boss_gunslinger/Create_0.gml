@@ -330,18 +330,18 @@ fsm
 			blood_spray.facing = -_facing;
 			blood_spray.create_at = self;
 			
-			audio_play_sound(snd_injured, 13, 0, 2, 0, .9);
-			audio_play_sound(snd_unsheath, 10, 0, 4, 0, 1.1);
+			audio_play_sound(snd_injured, 13, 0, 20, 0.1, 1);
+			audio_play_sound(snd_unsheath, 12, 0, 40, 0.1, 1);
 			audio_play_sound(snd_old_dash, 10, 0, 3, 0, 2);
 			//shake
 			create_shake();
 			//hit pause
-			hit_pause(50)
+			hit_pause(80);
 			
 			
 			//begin movement
 			//set vals
-			hsp = 3 * _facing
+			hsp = 3 * _facing;
 			vsp = -4;
 			
 			//subtract hp sp your not infintely going back to this

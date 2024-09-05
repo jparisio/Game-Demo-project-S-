@@ -25,6 +25,7 @@
     {"name":"Rooms","order":8,"path":"folders/Rooms.yy",},
     {"name":"Scribble","order":9,"path":"folders/Scribble.yy",},
     {"name":"Scripts","order":10,"path":"folders/Scripts.yy",},
+    {"name":"bktGlitch","order":2,"path":"folders/Scripts/bktGlitch.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":12,"path":"folders/Shaders.yy",},
     {"name":"SnowState","order":13,"path":"folders/SnowState.yy",},
@@ -50,7 +51,6 @@
     {"name":"Tilesets","order":16,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":17,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":18,"path":"folders/TweenGMX.yy",},
-    {"name":"bktGlitch","order":2,"path":"folders/Scripts/bktGlitch.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sound_gain_controller","order":2,"path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},

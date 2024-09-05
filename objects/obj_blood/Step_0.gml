@@ -7,6 +7,8 @@
 //	surface_reset_target()
 //}
 
+show_debug_message("XScale: " + string(image_xscale));
+
 lifetime--;
 
 if animation_end() instance_destroy()

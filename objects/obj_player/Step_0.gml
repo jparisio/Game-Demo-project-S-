@@ -34,9 +34,4 @@ if (hp <= 0) and fsm.get_current_state() != "dead"{
 	fsm.change("dead");
 }
 
-show_debug_message(hsp);
-
-if input_check("pause"){
-	fullscreen = !fullscreen;
-	window_set_fullscreen(fullscreen);
-}
+//show_debug_message(hsp);

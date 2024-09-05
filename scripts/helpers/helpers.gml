@@ -30,31 +30,34 @@ function create_hitbox(_creator, _follow, _x, _y, _facing, _sprite, _lifespan, _
 //}
 
 
-function create_blood(_facing, _x, _y, _grv = 0.2) {
+function create_blood(_facing, _x, _y, _grv = 0.1) {
     var _blood = instance_create_layer(_x, _y, "Instances", obj_blood);
+    with(_blood){
+	    image_index = 0; 
     
-    // Set a random image index for variety (ensure your sprite has multiple subimages)
-    _blood.image_index = 0; 
+	    // Set a random lifetime for the blood particle
+	    lifetime = random_range(10, 20);
     
-    // Set a random lifetime for the blood particle
-    _blood.lifetime = random_range(10, 20); // You can adjust this range to your liking
-    
-    // Control the speed of the blood animation
-    _blood.image_speed = 1;
+	    // Control the speed of the blood animation
+	    image_speed = 1;
 
-    // Initialize blood velocity and angle
-    var _speed = random_range(4, 6); // Initial speed of the blood particles
-    var angle = _facing < 0? random_range( 150 , 180): random_range(30, 0)
+	    // Initialize blood velocity and angle
+	    var _speed = random_range(4, 6); // Initial speed of the blood particles
+	    var angle = _facing < 0? random_range( 150 , 180): random_range(30, 0)
     
-    // Set the velocity of the blood particles
-    _blood.hspeed = lengthdir_x(_speed, angle); // Horizontal speed
-    _blood.vspeed = lengthdir_y(_speed, angle); // Vertical speed
+	    // Set the velocity of the blood particles
+	    hspeed = lengthdir_x(_speed, angle); // Horizontal speed
+	    vspeed = lengthdir_y(_speed, angle); // Vertical speed
 
-    // Apply gravity to the blood particles
-    _blood.gravity = 0.1; // Gravity value, tweak as needed for realistic effect
-    _blood.gravity_direction = 270; // Downwards direction
+	    // Apply gravity to the blood particles
+	    gravity = _grv; 
+	    gravity_direction = 270;
+		
+		//show_debug_message(sign(hspeed))
 	
-	_blood.image_angle = direction;
+		 // Flip the blood particle's x-scale based on the movement direction
+        image_xscale = hspeed < 0 ? -1 : 1;
+	}
 }
 
 

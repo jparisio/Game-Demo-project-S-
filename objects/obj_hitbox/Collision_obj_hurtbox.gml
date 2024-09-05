@@ -4,9 +4,7 @@ if(creator == "enemy" or creator == "boss"){
 	//set invulnerbaility
 	obj_player.be_invulnerable = true;
 	//shake screen a lot
-	if(!instance_exists(obj_screenshake_large)){
-		create_shake();
-	}
+	create_shake();
 	//hit pause
 	hit_pause(30);
 	//destroy so it doesnt infinately collide with the player

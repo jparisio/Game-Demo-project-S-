@@ -29,7 +29,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"77ae3e5d-7d4a-4ed2-81b0-23bad01854ac","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 9,
+  "origin": 4,
   "parent": {
     "name": "blood",
     "path": "folders/Sprites/effects/blood.yy",
@@ -71,7 +71,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 12,
+    "xorigin": 15,
     "yorigin": 15,
   },
   "swatchColours": null,

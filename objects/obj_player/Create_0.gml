@@ -14,7 +14,9 @@ jump_buffer = jump_buffer_max;
 input_dir = 0;
 
 //set fullscreen
-fullscreen = false;
+//fullscreen = true;
+
+//window_set_fullscreen(fullscreen)
 
 //squash and stretch
 xscale = 1;
@@ -643,29 +645,16 @@ fsm
 				if !audio_is_playing(snd_glitch) audio_play_sound(snd_glitch, 40, 0, 40, 0.9)
 				sprite_index = spr_dead;
 				instance_destroy(obj_hurtbox);
-				var _x = x - global.cam_width * global.x_offset;
-				var _y = y - global.cam_height * global.y_offset;
-
-				// Calculate the center position within the camera view
-				var center_x = _x + global.cam_width / 2;
-				var center_y = _y + global.cam_height / 2;
-
-				// Get the sprite's width and height
-				var sprite_w = sprite_get_width(spr_test);
-				var sprite_h = sprite_get_height(spr_test);
-
-				// Adjust for the sprite's origin being in the top-left corner
-				var adjusted_x = center_x - sprite_w / 2;
-				var adjusted_y = center_y - sprite_h / 2;
-
-				// Create the obj_death instance at the adjusted position
-				instance_create_layer(adjusted_x, adjusted_y + 30, "Lighting", obj_death);
+				
+				_x = camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0])/2)
+				_y = camera_get_view_y(view_camera[0]) + (camera_get_view_height(view_camera[0])/2)
+				instance_create_layer(_x, _y, "Lighting", obj_death);
 
 
 		},
 		
 		step: function(){
-			if(!instance_exists(obj_glitch)){
+				if(!instance_exists(obj_glitch)){
 				
 			}
 		}

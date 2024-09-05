@@ -40,6 +40,13 @@ if (sprayed) {
             // Apply gravity to make the blood droplet fall over time
             gravity = 0.09;
             gravity_direction = 270;
+			image_angle = direction;
+			// Set image_yscale based on direction
+			if (direction > 90 && direction < 270) {
+			    image_yscale = -1;  // Facing left
+			} else {
+			    image_yscale = 1;   // Facing right
+			}
         }
     }
 

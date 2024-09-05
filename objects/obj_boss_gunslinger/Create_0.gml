@@ -325,6 +325,7 @@ fsm
 			sprite_index = spr_boss_gunslinger_injured_begin;
 			image_index = 0;
 			if(instance_exists(obj_reticle)) instance_destroy(obj_reticle);
+			instance_create_layer(x, y, "Instances", obj_player_damaged);
 			var blood_spray = instance_create_layer(x, y, "Instances", obj_blood_sprayer);
 			var _facing = sign(obj_player.facing);
 			blood_spray.facing = -_facing;

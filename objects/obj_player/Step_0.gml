@@ -30,9 +30,8 @@ if(place_meeting(x, y, obj_water)){
 }
 
 
-if hp <= 0 {
-	audio_stop_all()
-	instance_create_layer(obj_camera.x, obj_camera.y, "Lighting", obj_game_over);
+if (hp <= 0) and fsm.get_current_state() != "dead"{
+	fsm.change("dead");
 }
 
 show_debug_message(hsp);

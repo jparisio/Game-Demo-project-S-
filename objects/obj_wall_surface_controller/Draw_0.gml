@@ -9,7 +9,7 @@
 //camera_apply(view_camera[0]);
 
 //// Clear the surface with a transparent color
-//draw_clear_alpha(c_white, .4);
+//draw_clear_alpha(c_white, 1);
 
 //// Draw the blood onto the surface
 //with (obj_blood) {
@@ -28,3 +28,4 @@
 //}
 
 
+//cant figure this dogshit out

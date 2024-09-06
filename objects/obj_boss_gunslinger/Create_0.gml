@@ -411,6 +411,7 @@ fsm
 			
 			//destroy reticle
 			if(instance_exists(obj_reticle)) instance_destroy(obj_reticle);
+			if(instance_exists(obj_shrapnel)) instance_destroy(obj_shrapnel);
 			
 		},
 		step: function() {

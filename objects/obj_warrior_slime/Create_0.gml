@@ -24,6 +24,9 @@ headless_timer = headless_timer_max;
 stunned_timer_max = 300;
 stunned_timer = stunned_timer_max;
 
+slide = 9;
+slide_hsp = 0;
+
 _ended = false;
 
 collide_and_move = function(){
@@ -280,7 +283,8 @@ fsm
 			sprite_index = spr_warrior_slime_death;
 			image_index = 0;
 			//FIX what deosnt fall and collide if in mid air since it has no collision mask
-			mask_index = spr_warrior_slime_dead_mask
+			//mask_index = spr_warrior_slime_dead_mask
+			slide_hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
 			var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
 			_sprayer.facing = obj_player.facing;
 			_sprayer.create_at = self;
@@ -303,6 +307,10 @@ fsm
 				image_alpha -= 0.05;
 			}
 			if image_alpha <= 0 instance_destroy();
+			
+			if slide >= 0 hsp = slide_hsp
+			slide--;
+			collide_and_move();
 		}
 			
   });

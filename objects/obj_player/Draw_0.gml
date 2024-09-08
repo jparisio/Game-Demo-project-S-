@@ -14,3 +14,8 @@ if (!instance_exists(obj_hurtbox) and be_invulnerable) {
         // Deactivate the shader after drawing
         shader_reset();
    }
+
+
+if grapple_target != noone {
+	draw_line(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+}

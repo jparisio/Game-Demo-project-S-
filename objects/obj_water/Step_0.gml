@@ -30,8 +30,8 @@ for (var i = 0; i < num_points; i++) {
     var point = points[i];
     
     // Add a small constant wave to the water so it isn't sitting still
-    point.velocity += sin((i * point_spacing) * 0.1 + current_time * 0.5) * 0.2;
-    point.velocity += sin((i * point_spacing) * 0.15 - current_time * 0.5) * 0.15;
+    //point.velocity += sin((i * point_spacing) * 0.1 + current_time * 0.5) * 0.2;
+    //point.velocity += sin((i * point_spacing) * 0.15 - current_time * 0.5) * 0.15;
     
     // Calculate the force based on Hooke's law
     var force = -spring_constant * (point.y_current - point.y_rest);

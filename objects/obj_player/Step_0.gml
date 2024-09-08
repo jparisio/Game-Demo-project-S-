@@ -34,4 +34,4 @@ if (hp <= 0) and fsm.get_current_state() != "dead"{
 	fsm.change("dead");
 }
 
-//show_debug_message(hsp);
+show_debug_message(grapple_speed);

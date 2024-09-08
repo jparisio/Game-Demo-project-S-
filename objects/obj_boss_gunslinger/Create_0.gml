@@ -409,12 +409,11 @@ fsm
 			//stop all audio
 			audio_stop_sound(snd_temp_song)
 			
+		},
+		step: function() {
 			//destroy reticle
 			if(instance_exists(obj_reticle)) instance_destroy(obj_reticle);
 			if(instance_exists(obj_shrapnel)) instance_destroy(obj_shrapnel);
-			
-		},
-		step: function() {
 			//make player face boss
 			obj_player.facing = sign(x - obj_player.x);
 		}

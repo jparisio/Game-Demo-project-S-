@@ -7,7 +7,7 @@
 //	surface_reset_target()
 //}
 
-show_debug_message("XScale: " + string(image_xscale));
+//show_debug_message("XScale: " + string(image_xscale));
 
 lifetime--;
 

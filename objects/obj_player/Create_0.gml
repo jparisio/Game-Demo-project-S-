@@ -12,11 +12,21 @@ can_jump = true;
 jump_buffer_max = 5;
 jump_buffer = jump_buffer_max;
 input_dir = 0;
+can_grapple = false;
+//grapples
+grapple_target = noone;
+grapple_move_speed_x = 0;
+grapple_move_speed_y = 0;
+grapple_speed = 7;
+katana = noone;
+grapple_cooldown = 0;
+grapple_cooldown_max = 30;
 
 //set fullscreen
 //fullscreen = true;
 
-//window_set_fullscreen(fullscreen)
+//window_set_fullscreen(true)
+//surface_resize(application_surface, display_get_width(), display_get_height())
 
 //squash and stretch
 xscale = 1;
@@ -89,6 +99,7 @@ get_input_and_move = function() {
 	if (can_jump = true) jump = input_check("jump") else jump = 0;
 	attack = input_check_pressed("shoot");
 	dash = input_check_pressed("special");
+	throw_grapple = input_check_pressed("aim");
 	
 	//calc
 	var move = right - left;
@@ -421,6 +432,8 @@ fsm
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
 			
+			if(can_grapple and throw_grapple) fsm.change("grapple initiate");
+			
 			////cutscene 
 			//if place_meeting(x, y, obj_cutscene_collision){
 			//	hsp = 0;
@@ -637,25 +650,120 @@ fsm
 
 		}
 })
-.add("dead", {
+
+
+.add("grapple initiate", {
+
+    enter: function() {
+		//reset grapple flag
+		can_grapple = false;
+        // Set the player's sprite to a jumping or grappling sprite
+        sprite_index = spr_jump;
+		facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
+
+        // Calculate the direction and speed to move toward the grapple point
+        var dx = grapple_target.x - x;
+        var dy = grapple_target.y - (y - sprite_height / 2);
+        var dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+
+        // Calculate the katana's speed (twice the grapple speed)
+        var katana_speed = grapple_speed * 1.5;
+        var katana_move_speed_x = dx / dist * katana_speed;
+        var katana_move_speed_y = dy / dist * katana_speed;
+
+        // Create and launch the katana object toward the grapple point
+        var katana = instance_create_layer(x, y - sprite_height / 2, "Instances", obj_katana);
+        katana.hspeed = katana_move_speed_x;
+        katana.vspeed = katana_move_speed_y;
+        katana.image_angle = point_direction(x, y, grapple_target.x, grapple_target.y);
+
+        // Store the grapple movement speed for later use
+        //grapple_move_speed_x = dx / dist * grapple_speed;
+        //grapple_move_speed_y = dy / dist * grapple_speed;
+
+        // Store the katana reference to check its position later
+        self.katana = katana;
+    },
+
+    step: function() {
+		//TweenEasyMove(x, y, grapple_target.x, grapple_target.y, 0, 30, EaseInOutSine);
+        // Check if the katana has reached the grapple point
+        if (point_distance(katana.x, katana.y, grapple_target.x, grapple_target.y) <= grapple_speed) {
+            // Snap the katana to the grapple point and destroy it
+            katana.x = grapple_target.x;
+            katana.y = grapple_target.y;
+            instance_destroy(katana);
+
+            // Transition to the grapple move state
+            fsm.change("grapple move");
+        }
+    }
+})
+
+	
+	
+	.add("grapple move", {
 		
-		enter: function(){
-				audio_stop_all();
-				instance_create_layer(x, y, "Instances", obj_glitch);
-				if !audio_is_playing(snd_glitch) audio_play_sound(snd_glitch, 40, 0, 40, 0.9)
-				sprite_index = spr_dead;
-				instance_destroy(obj_hurtbox);
+			enter: function(){
 				
-				_x = camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0])/2)
-				_y = camera_get_view_y(view_camera[0]) + (camera_get_view_height(view_camera[0])/2)
-				instance_create_layer(_x, _y, "Lighting", obj_death);
-
-
-		},
+			},
 		
-		step: function(){
-				if(!instance_exists(obj_glitch)){
+			step: function(){
+					// Move the player along the line towards the grapple point
+			        var tween = TweenEasyMove(x, y, grapple_target.x, grapple_target.y + 30, 0, 30, EaseOutElastic);
+					
+			         //Check if the player has reached the grapple point
+			        var dist_to_target = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+        
+			        if (dist_to_target <= grapple_speed) {
+			            // Snap to the exact grapple point
+			            x = grapple_target.x;
+			            y = grapple_target.y + sprite_height / 2;
+            
+			            // Transition to the "grapple complete" state
+			            fsm.change("grapple complete");
+					}
 				
 			}
-		}
-});
+	})
+	
+	.add("grapple complete", {
+		
+			enter: function(){
+				grapple_cooldown = grapple_cooldown_max;
+			},
+		
+			step: function(){
+				grapple_cooldown--;
+				if grapple_cooldown <= 0 {
+					if(input_check_pressed("jump")){
+						grapple_target.cooldown = true;
+						vsp = vsp_jump;
+						fsm.change("jump");
+					}
+				}
+			}
+	})
+
+	.add("dead", {
+		
+			enter: function(){
+					audio_stop_all();
+					instance_create_layer(x, y, "Instances", obj_glitch);
+					if !audio_is_playing(snd_glitch) audio_play_sound(snd_glitch, 40, 0, 40, 0.9)
+					sprite_index = spr_dead;
+					instance_destroy(obj_hurtbox);
+				
+					_x = camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0])/2)
+					_y = camera_get_view_y(view_camera[0]) + (camera_get_view_height(view_camera[0])/2)
+					instance_create_layer(_x, _y, "Lighting", obj_death);
+
+
+			},
+		
+			step: function(){
+					if(!instance_exists(obj_glitch)){
+				
+				}
+			}
+	});

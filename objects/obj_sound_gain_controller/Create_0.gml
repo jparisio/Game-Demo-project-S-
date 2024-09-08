@@ -29,7 +29,7 @@ for (var i = 0; i < array_length(playing_sounds); i++) {
         array_push(sound_info_array, sound_info);
 
         // Lower the volume to 20%
-        audio_sound_gain(playing_sounds[i], 0.2, 0);
+        audio_sound_gain(playing_sounds[i], 0.05, 0);
     }
 }
 

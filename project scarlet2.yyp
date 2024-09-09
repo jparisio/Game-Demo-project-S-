@@ -870,6 +870,7 @@
     {"id":{"name":"spr_warrior_slime_walk","path":"sprites/spr_warrior_slime_walk/spr_warrior_slime_walk.yy",},},
     {"id":{"name":"__input_load_sdl2_from_file","path":"scripts/__input_load_sdl2_from_file/__input_load_sdl2_from_file.yy",},},
     {"id":{"name":"__input_validate_macros","path":"scripts/__input_validate_macros/__input_validate_macros.yy",},},
+    {"id":{"name":"spr_grapple_rope","path":"sprites/spr_grapple_rope/spr_grapple_rope.yy",},},
     {"id":{"name":"obj_lamp","path":"objects/obj_lamp/obj_lamp.yy",},},
     {"id":{"name":"obj_light_controller","path":"objects/obj_light_controller/obj_light_controller.yy",},},
     {"id":{"name":"obj_finisher_hit_box","path":"objects/obj_finisher_hit_box/obj_finisher_hit_box.yy",},},

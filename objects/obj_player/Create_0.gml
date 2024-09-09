@@ -690,11 +690,10 @@ fsm
     step: function() {
 		//TweenEasyMove(x, y, grapple_target.x, grapple_target.y, 0, 30, EaseInOutSine);
         // Check if the katana has reached the grapple point
-        if (point_distance(katana.x, katana.y, grapple_target.x, grapple_target.y) <= grapple_speed) {
+        if (instance_place(katana.x, katana.y, obj_grapple_point)) {
             // Snap the katana to the grapple point and destroy it
             katana.x = grapple_target.x;
             katana.y = grapple_target.y;
-			//audio_play_sound(snd_grapple_start, 10, 0);
             instance_destroy(katana);
 
             // Transition to the grapple move state

@@ -269,6 +269,7 @@
     {"name":"obj_temp_wall","order":3,"path":"objects/obj_temp_wall/obj_temp_wall.yy",},
     {"name":"spr_jump_start","order":2,"path":"sprites/spr_jump_start/spr_jump_start.yy",},
     {"name":"obj_slash","order":1,"path":"objects/obj_slash/obj_slash.yy",},
+    {"name":"spr_grapple_rope","order":9,"path":"sprites/spr_grapple_rope/spr_grapple_rope.yy",},
     {"name":"snd_glitch","order":4,"path":"sounds/snd_glitch/snd_glitch.yy",},
     {"name":"spr_neon_sign_4","order":12,"path":"sprites/spr_neon_sign_4/spr_neon_sign_4.yy",},
     {"name":"obj_boss_damaged","order":7,"path":"objects/obj_boss_damaged/obj_boss_damaged.yy",},

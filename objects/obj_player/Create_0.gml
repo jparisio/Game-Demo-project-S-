@@ -655,6 +655,8 @@ fsm
 .add("grapple initiate", {
 
     enter: function() {
+		//play throw sound
+		audio_play_sound(snd_grapple_throw, 10, 0);
 		//reset grapple flag
 		can_grapple = false;
         // Set the player's sprite to a jumping or grappling sprite
@@ -692,6 +694,7 @@ fsm
             // Snap the katana to the grapple point and destroy it
             katana.x = grapple_target.x;
             katana.y = grapple_target.y;
+			//audio_play_sound(snd_grapple_start, 10, 0);
             instance_destroy(katana);
 
             // Transition to the grapple move state
@@ -705,7 +708,7 @@ fsm
 	.add("grapple move", {
 		
 			enter: function(){
-				
+				audio_play_sound(snd_grapple_rope, 10, 0);
 			},
 		
 			step: function(){
@@ -731,6 +734,8 @@ fsm
 		
 			enter: function(){
 				grapple_cooldown = grapple_cooldown_max;
+				audio_stop_sound(snd_grapple_rope);
+				audio_play_sound(snd_grapple_rope_complete, 10 , 0);
 			},
 		
 			step: function(){

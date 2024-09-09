@@ -4,6 +4,11 @@ fsm.step();
 //check if on gorund or not
 on_ground = (place_meeting(x, y + 1, obj_wall_parent));
 
+if(on_ground){
+	respawn_point._x = x;
+	respawn_point._y = y;
+}
+
 //if hit and hurt box doesnt exist give 2 seconds of invulnerability then recreate it
 if(!instance_exists(obj_hurtbox) and be_invulnerable){
 	invulnerability--;
@@ -34,4 +39,12 @@ if (hp <= 0) and fsm.get_current_state() != "dead"{
 	fsm.change("dead");
 }
 
-show_debug_message(grapple_speed);
+
+//respawn to last place touching the ground
+if instance_place(x, y, obj_respawner){
+	x = respawn_point._x;
+	y = respawn_point._y;
+}
+
+
+//show_debug_message(grapple_speed);

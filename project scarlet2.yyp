@@ -633,6 +633,7 @@
     {"id":{"name":"obj_grenade","path":"objects/obj_grenade/obj_grenade.yy",},},
     {"id":{"name":"scribble_anim_reset","path":"scripts/scribble_anim_reset/scribble_anim_reset.yy",},},
     {"id":{"name":"__input_key_name_set","path":"scripts/__input_key_name_set/__input_key_name_set.yy",},},
+    {"id":{"name":"spr_shinto5","path":"sprites/spr_shinto5/spr_shinto5.yy",},},
     {"id":{"name":"spr_oak_woods_tileset","path":"sprites/spr_oak_woods_tileset/spr_oak_woods_tileset.yy",},},
     {"id":{"name":"spr_warrior_slime_headless","path":"sprites/spr_warrior_slime_headless/spr_warrior_slime_headless.yy",},},
     {"id":{"name":"input_mouse_check_pressed","path":"scripts/input_mouse_check_pressed/input_mouse_check_pressed.yy",},},
@@ -643,6 +644,7 @@
     {"id":{"name":"input_keyboard_check_pressed","path":"scripts/input_keyboard_check_pressed/input_keyboard_check_pressed.yy",},},
     {"id":{"name":"spr_lamp","path":"sprites/spr_lamp/spr_lamp.yy",},},
     {"id":{"name":"scribble_fallback_bulletpoint","path":"sprites/scribble_fallback_bulletpoint/scribble_fallback_bulletpoint.yy",},},
+    {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
     {"id":{"name":"input_profile_create","path":"scripts/input_profile_create/input_profile_create.yy",},},
     {"id":{"name":"obj_screenshake","path":"objects/obj_screenshake/obj_screenshake.yy",},},
     {"id":{"name":"spr_jump","path":"sprites/spr_jump/spr_jump.yy",},},
@@ -701,6 +703,7 @@
     {"id":{"name":"input_icon_empty","path":"scripts/input_icon_empty/input_icon_empty.yy",},},
     {"id":{"name":"__shd_scribble_bake_shadow","path":"shaders/__shd_scribble_bake_shadow/__shd_scribble_bake_shadow.yy",},},
     {"id":{"name":"__scribble_font_add_all_from_project","path":"scripts/__scribble_font_add_all_from_project/__scribble_font_add_all_from_project.yy",},},
+    {"id":{"name":"obj_respawner","path":"objects/obj_respawner/obj_respawner.yy",},},
     {"id":{"name":"input_mouse_coord_space_set","path":"scripts/input_mouse_coord_space_set/input_mouse_coord_space_set.yy",},},
     {"id":{"name":"scribble_markdown_format","path":"scripts/scribble_markdown_format/scribble_markdown_format.yy",},},
     {"id":{"name":"__scribble_get_effects_slash_map","path":"scripts/__scribble_get_effects_slash_map/__scribble_get_effects_slash_map.yy",},},
@@ -887,6 +890,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

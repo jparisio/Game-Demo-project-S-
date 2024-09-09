@@ -21,6 +21,12 @@ grapple_speed = 7;
 katana = noone;
 grapple_cooldown = 0;
 grapple_cooldown_max = 30;
+tween = 0;
+//respawn 
+respawn_point = {
+	_x: 0, 
+	_y : 0
+}
 
 //set fullscreen
 //fullscreen = true;
@@ -694,7 +700,8 @@ fsm
             // Snap the katana to the grapple point and destroy it
             katana.x = grapple_target.x;
             katana.y = grapple_target.y;
-            instance_destroy(katana);
+			katana.speed = 0;
+            //instance_destroy(katana);
 
             // Transition to the grapple move state
             fsm.change("grapple move");
@@ -712,7 +719,7 @@ fsm
 		
 			step: function(){
 					// Move the player along the line towards the grapple point
-			        var tween = TweenEasyMove(x, y, grapple_target.x, grapple_target.y + 30, 0, 30, EaseOutElastic);
+			        tween = TweenEasyMove(x, y, grapple_target.x, grapple_target.y + 30, 0, 30, EaseOutElastic);
 					
 			         //Check if the player has reached the grapple point
 			        var dist_to_target = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
@@ -735,17 +742,25 @@ fsm
 				grapple_cooldown = grapple_cooldown_max;
 				audio_stop_sound(snd_grapple_rope);
 				audio_play_sound(snd_grapple_rope_complete, 10 , 0);
+				instance_destroy(katana);
 			},
 		
 			step: function(){
-				grapple_cooldown--;
-				if grapple_cooldown <= 0 {
-					if(input_check_pressed("jump")){
+				//better_solution
+				if(input_check_pressed("jump")){
+						TweenDestroy(tween);
 						grapple_target.cooldown = true;
 						vsp = vsp_jump;
 						fsm.change("jump");
-					}
 				}
+				//grapple_cooldown--;
+				//if grapple_cooldown <= 0 {
+				//	if(input_check_pressed("jump")){
+				//		grapple_target.cooldown = true;
+				//		vsp = vsp_jump;
+				//		fsm.change("jump");
+				//	}
+				//}
 			}
 	})
 

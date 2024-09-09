@@ -19,3 +19,5 @@ if (!instance_exists(obj_hurtbox) and be_invulnerable) {
 //if grapple_target != noone {
 //	draw_line(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 //}
+
+//draw_text(x, y - 40, string(can_grapple));

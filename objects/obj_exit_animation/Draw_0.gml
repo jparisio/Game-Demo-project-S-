@@ -7,4 +7,4 @@ var cam_y = obj_camera.y - global.cam_height * global.y_offset;
 draw_set_color(c_black);
 
 // Draw the rectangle lerping from left to right
-draw_rectangle(cam_x, cam_y, cam_x + current_x, cam_y + global.cam_height, false);
+draw_rectangle(cam_x, cam_y, cam_x + current_x, cam_y + global.cam_height + 400, false);

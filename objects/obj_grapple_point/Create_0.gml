@@ -30,10 +30,12 @@ fsm
             // Actions to take when entering the 'active' state
             image_index = 1; // Show the active image\
 			obj_player.grapple_target = self;
-			obj_player.can_grapple = true;
+			
 			
         },
         step: function() {
+			
+			obj_player.can_grapple = true;
             // Check if player is out of range or in cooldown
             if (!point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) || cooldown) {
                 // Reset grapple target if it's this point

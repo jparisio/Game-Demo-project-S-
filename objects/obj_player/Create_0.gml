@@ -277,6 +277,10 @@ fsm
 				image_index = 0;
 			}
 			
+			if(fsm.get_previous_state() == "dash"){
+				image_index = 5;
+			}
+			
 			var dust_dir = 1
 			if right dust_dir = 1 else dust_dir = -1
 			instance_create_layer(x, y, "Instances", obj_dust_run).image_xscale = dust_dir;
@@ -369,6 +373,10 @@ fsm
 		enter: function(){
 			sprite_index = spr_jump_start;
 			image_index = 0;
+			if(fsm.get_previous_state() == "dash"){
+				sprite_index = spr_dash_to_jump;
+				image_index = 0;
+			}
 			can_jump = false;
 			audio_play_sound(snd_jump, 0, false, .05);
 			input_dir = sign(facing);
@@ -376,8 +384,7 @@ fsm
 		
 		step: function(){
 			
-			// TODO: momentum in mid air calc
-			//if (!(vsp > vsp_jump + (2 * grv))) input_dir = sign(hsp)
+			//momentum in mid air calc
 			if(sign(facing) != input_dir){
 				input_dir = sign(facing);
 				walksp = 0;
@@ -400,11 +407,13 @@ fsm
 			if(!input_check("jump")) vsp = max(vsp, -2);
 			
 			//animations
-			if (vsp >= 0.5 and vsp <= 1){ //this is because we dont want it to be stuck on index 0 for forever we want it to only activate at the turn  around point
+			if (vsp >= 0.5 and vsp <= 1 and sprite_index != spr_dash_to_jump){ //this is because we dont want it to be stuck on index 0 for forever we want it to only activate at the turn  around point
 				sprite_index = spr_jump_fall_start;
 				image_index = 0;
 			}
-			if(sprite_index == spr_jump_fall_start and animation_end()){
+
+			
+			if(sprite_index == spr_jump_fall_start and animation_end() or sprite_index == spr_dash_to_jump and animation_end()){
 				sprite_index = spr_jump_fall;
 				image_index = 0;
 			}
@@ -530,7 +539,7 @@ fsm
 	.add("dash", {
 		
 		enter: function(){
-			sprite_index = spr_dash;
+			sprite_index = spr_dash2;
 			image_index = 0;
 			image_speed = 1;
 			with(instance_create_layer(x, y, "Instances", obj_dust_jump)){
@@ -544,12 +553,18 @@ fsm
 			dash_y = 0;
 			xscale = 1.25
 			yscale = 0.65
+			//no more dashing upwards
+			if (right - left != 0) {
+				dash_direction = point_direction(0, 0, right - left, 0);
+			} else {
+				dash_direction = point_direction(0, 0, facing, 0);
+			}
 			//determine dash dir (the .4 is a magic number that decreases the angle you dash at so it isnt so sharp)
-			if (right - left != 0){
-				dash_direction = point_direction(0, 0, right - left + .4 * facing, down - up)
-			} else if(right - left == 0 and down - up != 0){
-				dash_direction = point_direction(0, 0, 0, down - up)
-			} else dash_direction = point_direction(0, 0, facing, down - up);
+			//if (right - left != 0){
+			//	dash_direction = point_direction(0, 0, right - left + .4 * facing, down - up)
+			//} else if(right - left == 0 and down - up != 0){
+			//	dash_direction = point_direction(0, 0, 0, down - up)
+			//} else dash_direction = point_direction(0, 0, facing, down - up);
 			//create screenshake
 			instance_create_layer(x, y, "Instances", obj_screenshake);
 			if instance_exists(obj_hurtbox) {
@@ -579,7 +594,7 @@ fsm
 						image_index = other.image_index;
 						image_xscale = other.facing;
 						image_speed = 0;
-						image_blend = #6495ED;
+						image_blend = #760D3A;
 						image_alpha = 1;
 					}
 					dash_timer = dash_timer_max;
@@ -593,7 +608,15 @@ fsm
 				if (!instance_exists(obj_hurtbox) and !be_invulnerable){
 				    instance_create_layer(x, y, "Player", obj_hurtbox);
 				}
-				if(place_meeting(x, y + 1, obj_wall_parent)) fsm.change("idle") else fsm.change("jump");
+				if(place_meeting(x, y + 1, obj_wall_parent)){
+					if(!left and !right){
+						fsm.change("idle");
+					} else {
+						fsm.change("run");
+					}
+				} else {
+					fsm.change("jump");
+				}
 				//if(place_meeting(x, y, obj_cutscene_collision)) fsm.change("dialogue");
 			}
 		}

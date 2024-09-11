@@ -1,3 +1,4 @@
+draw_self();
 // Get the start and end points
 var startX = x;
 var startY = y;
@@ -29,8 +30,8 @@ draw_set_color(c_white);
 // Draw the wavy line using triangle strip for smoothness
 for (var i = 0; i <= segments; i++) {
     var t = i / segments;
-    var waveY = amplitude * cos(i * frequency * 2 * pi); // Sine wave for the y-offset
-	var waveX = amplitude * cos(i * frequency * 3 * pi); // Sine wave for the x-offset
+    var waveY = amplitude * sin(i * frequency * 2 * pi); // Sine wave for the y-offset
+	var waveX = amplitude * sin(i * frequency * 2 * pi); // Sine wave for the x-offset
 
     var x1 = startX + i * dx;
     var y1 = startY + i * dy + waveY;

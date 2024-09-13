@@ -47,4 +47,4 @@ if instance_place(x, y, obj_respawner){
 }
 
 
-//show_debug_message(string(sprite_index));
+cam_bounds = instance_place(x, y, obj_cam_bounds)

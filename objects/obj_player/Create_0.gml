@@ -91,6 +91,9 @@ global.boss_fight = false;
 sound_frame_counter = 0;
 walking_on = snd_walk2;
 
+//cam
+cam_bounds = noone;
+
 //6B9199
 //this is code for bg colour
 
@@ -328,9 +331,10 @@ fsm
 			
 			//not holding move, switch to idle
 			if ((!right and !left) or (right and left)){
-			fsm.change("idle");
+				fsm.change("idle");
 			}
 			
+					
 			//check if player has let go of jump
 			if(input_check_released("jump") or !input_check("jump")) can_jump = true;
 			

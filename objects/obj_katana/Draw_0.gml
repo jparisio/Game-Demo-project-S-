@@ -57,3 +57,4 @@ for (var i = 0; i <= segments; i++) {
 // End drawing the primitive
 draw_primitive_end();
 
+//TODO add spring shake in direction of grapple

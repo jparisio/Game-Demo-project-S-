@@ -5,9 +5,9 @@ if (follow != noone) {
 	if(_bounds != noone) {
 		//y = _bounds.y;
 		//show_debug_message("WERE WORKING")
-		y += (_bounds.y - y) / 30;
+		y += (_bounds.set_y - y) / 30;
 	} else {
-		y += (follow.y - y) / 30;
+		y += (follow.y - 30 - y) / 30;
 	}
 }
 
@@ -31,21 +31,6 @@ if (follow == obj_player) {
 
 var _x = x - global.cam_width * global.x_offset;
 var _y = y - global.cam_height * global.y_offset;
-
-// Check if the player is inside an instance of obj_cam_bounds
-var cam_bounds = instance_place(follow.x, follow.y, obj_cam_bounds);
-
-if (cam_bounds != noone) {
-    // Get the boundaries of the obj_cam_bounds instance
-    var left_bound = cam_bounds.x;
-    var right_bound = cam_bounds.x + cam_bounds.sprite_width;
-    var top_bound = cam_bounds.y;
-    var bottom_bound = cam_bounds.y + cam_bounds.sprite_height;
-
-    // Clamp the camera position to stay within the bounds
-    //_x = clamp(_x, left_bound, right_bound - global.cam_width);
-    _y = clamp(_y, top_bound, bottom_bound - global.cam_height);
-}
 
 // Apply the camera position
 camera_set_view_pos(view_camera[0], _x, _y);

@@ -10,7 +10,7 @@ var distance = point_distance(startX, startY, endX, endY);
 
 // Determine the direction from the katana to the player
 var _direction = point_direction(startX, startY, endX, endY);
-show_debug_message(_direction)
+//show_debug_message(_direction)
 
 // Adjust amplitude and frequency based on the direction
 var amplitude = 5;
@@ -32,6 +32,8 @@ for (var i = 0; i <= segments; i++) {
     var t = i / segments;
     var waveY = amplitude * sin(i * frequency * 2 * pi); // Sine wave for the y-offset
 	var waveX = amplitude * sin(i * frequency * 2 * pi); // Sine wave for the x-offset
+	show_debug_message(waveX)
+	show_debug_message(waveY)
 
     var x1 = startX + i * dx;
     var y1 = startY + i * dy + waveY;

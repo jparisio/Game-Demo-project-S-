@@ -1,2 +1,2 @@
-//bktglitch_deactivate();
+bktglitch_deactivate();
 //instance_destroy();

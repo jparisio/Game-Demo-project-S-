@@ -23,10 +23,7 @@ grapple_cooldown = 0;
 grapple_cooldown_max = 30;
 tween = 0;
 //respawn 
-respawn_point = {
-	_x: 0, 
-	_y : 0
-}
+respawn_point = noone;
 
 //set fullscreen
 //fullscreen = true;

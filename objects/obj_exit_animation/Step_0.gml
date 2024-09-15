@@ -1,3 +1,5 @@
+//step
+
 // Lerp the rectangle's x position from left to right
 current_x = lerp(current_x, x_end, animation_speed);
 

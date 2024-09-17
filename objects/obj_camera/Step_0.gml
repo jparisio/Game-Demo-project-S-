@@ -1,7 +1,7 @@
 var _bounds = obj_player.cam_bounds
 // Follow the target with smoothing
 if (follow != noone) {
-    x += (follow.x - x) / 25;
+    x += (follow.x - x) / 15;
 	if(_bounds != noone) {
 		//y = _bounds.y;
 		//show_debug_message("WERE WORKING")
@@ -16,17 +16,23 @@ if (follow != noone) {
 // Anchor specifics
 if (follow == obj_temp_camera_anchor) {
     global.x_offset = lerp(global.x_offset, 0.5, 0.03);
-} else {
-    global.x_offset = 0.35;
 }
+//} else {
+//    global.x_offset = 0.45;
+//}
 
 // Move the camera offset depending on if the player is facing left or right
 if (follow == obj_player) {
-    if (follow.facing == 1) {
-        global.x_offset = lerp(global.x_offset, 0.35, 0.0025);
-    } else {
-        global.x_offset = lerp(global.x_offset, 0.65, 0.0025);
-    }
+	if(obj_player.facing == 1){
+		//show_debug_message("facing right")
+		global.x_offset = lerp(global.x_offset, 0.48, 0.05);
+		//show_debug_message(global.x_offset);
+	} else {
+		//show_debug_message("facing left")
+		global.x_offset = lerp(global.x_offset, 0.52, 0.05);
+		//show_debug_message(global.x_offset);
+	}
+
 }
 
 var _x = x - global.cam_width * global.x_offset;

@@ -447,8 +447,11 @@ fsm
 			
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
-			
-			if(can_grapple and throw_grapple) fsm.change("grapple initiate");
+			if(grapple_target != noone){
+				var coll = collision_line(x, y, grapple_target.x, grapple_target.y, obj_wall, false, false)
+				show_debug_message(coll)
+			}
+			if(can_grapple and throw_grapple and coll == -4) fsm.change("grapple initiate");
 			
 			////cutscene 
 			//if place_meeting(x, y, obj_cutscene_collision){

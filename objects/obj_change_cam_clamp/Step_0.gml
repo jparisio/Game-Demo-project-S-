@@ -1,6 +1,6 @@
 var target_yoffset;
 
-if (place_meeting(x, y, obj_player) and obj_player.on_ground and obj_player.facing == -sign(self.image_xscale)) {
+if (place_meeting(x, y, obj_player) and obj_player.facing == -sign(self.image_xscale)) {
     target_yoffset = -0.4;
 } else {
     target_yoffset = 0.7;

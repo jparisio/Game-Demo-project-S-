@@ -167,6 +167,7 @@ fsm
 			rand_next_state = choose("lasers", "rockets", "laser circle")
 		},
 		step: function() {
+			image_index = image_number - 1
 			state_timer--;
 			//tp to other side
 			with(dust){
@@ -374,7 +375,7 @@ fsm
 
 			// Handle injured ground animation
 			if (sprite_index == spr_boss_gunslinger_injured_ground && animation_end()) {
-			    image_speed = 0;  // Stop animation at the end
+			    image_index = image_number - 1;  // Stop animation at the end
 			    tp_back = true;   // Trigger teleport
 			}
 
@@ -383,7 +384,6 @@ fsm
 			    state_timer--;
 			    if (state_timer <= 0) {
 					fsm.change("teleport");
-					image_speed = 1;
 				}
 			}
 

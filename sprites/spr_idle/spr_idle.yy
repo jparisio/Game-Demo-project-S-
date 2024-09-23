@@ -59,8 +59,8 @@
   },
   "origin": 9,
   "parent": {
-    "name": "player",
-    "path": "folders/Sprites/player.yy",
+    "name": "scarlet",
+    "path": "folders/Sprites/player/scarlet.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

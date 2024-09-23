@@ -7,7 +7,7 @@ if (follow != noone) {
 		//show_debug_message("WERE WORKING")
 		y += (_bounds.set_y - y) / 30;
 	} else {
-		y += (follow.y - 30 - y) / 30;
+		y += (follow.y - 30 - y) / 15;
 	}
 }
 

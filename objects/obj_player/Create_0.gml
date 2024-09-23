@@ -25,6 +25,31 @@ tween = 0;
 //respawn 
 respawn_point = noone;
 
+//ghost sprite switch
+global.ghost = false;
+// Sprites for Act 1 (scarlet)
+sprites_act1 = {
+    idle: spr_idle,
+    run: spr_run,
+	run_to_idle: spr_run_to_idle,
+	idle_to_run: spr_idle_to_run,
+    jump: spr_jump,
+	dash: spr_dash2
+};
+
+// Sprites for Act 2 (ghost switch)
+sprites_act2 = {
+    idle: spr_ghost_idle,
+    run: spr_run,
+	run_to_idle: spr_run_to_idle,
+	idle_to_run: spr_idle_to_run,
+    jump: spr_jump,
+	dash: spr_dash2
+};
+
+// Create a character instance using the sprites
+player_character = character(sprites_act1, sprites_act2);
+
 //set fullscreen
 //fullscreen = true;
 
@@ -187,18 +212,18 @@ fsm
 	.add("idle", {
 		enter: function() {
 			//normal return to idle
-			sprite_index = spr_idle;
+			sprite_index = player_character.getSprite("idle");
 			image_index = 0;
 			
 			//return after run or dash
 			if(fsm.get_previous_state() == "run" or fsm.get_previous_state() == "dash"){
-				sprite_index = spr_run_to_idle
+				sprite_index = player_character.getSprite("rtoi");
 				image_index = 0;
 			}
 			
 			//return after jump !TODO: this is a temp landing animation
 			if(fsm.get_previous_state() == "jump"){
-				sprite_index = spr_run_to_idle
+				sprite_index = player_character.getSprite("rtoi");
 				image_index = 0;
 			}
 			//for move cap stuff
@@ -208,8 +233,8 @@ fsm
 		step: function() {
 			
 			//transition from running to idle animation
-			if(sprite_index == spr_run_to_idle) and animation_end(){
-				sprite_index = spr_idle;
+			if(sprite_index == player_character.getSprite("rtoi")) and animation_end(){
+				sprite_index = player_character.getSprite("idle");
 				image_index = 0;
 			}
 			
@@ -273,7 +298,7 @@ fsm
 			
 			//run to idle
 			if(fsm.get_previous_state() == "idle"){
-				sprite_index = spr_idle_to_run;
+				sprite_index = player_character.getSprite("itor");
 				image_index = 0;
 			}
 			
@@ -298,8 +323,8 @@ fsm
 			
 			
 			//transition from idle to run animation
-			if(sprite_index == spr_idle_to_run) and animation_end(){
-				sprite_index = spr_run;
+			if(sprite_index ==  player_character.getSprite("itor")) and animation_end(){
+				sprite_index = player_character.getSprite("run");
 				image_index = 0;
 			}
 			
@@ -400,7 +425,7 @@ fsm
 
 			//change animations
 			if(sprite_index == spr_jump_start and animation_end()){
-				sprite_index = spr_jump;
+				sprite_index = player_character.getSprite("jump");
 				image_index = 0;
 			}
 			
@@ -543,7 +568,7 @@ fsm
 	.add("dash", {
 		
 		enter: function(){
-			sprite_index = spr_dash2;
+			sprite_index =  player_character.getSprite("dash");
 			image_index = 0;
 			image_speed = 1;
 			with(instance_create_layer(x, y, "Instances", obj_dust_jump)){
@@ -770,6 +795,8 @@ fsm
 				audio_stop_sound(snd_grapple_rope);
 				audio_play_sound(snd_grapple_rope_complete, 10 , 0);
 				instance_destroy(katana);
+				//regen a dash
+				can_dash = true;
 			},
 		
 			step: function(){

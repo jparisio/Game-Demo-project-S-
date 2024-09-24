@@ -33,6 +33,9 @@ flash_colour = c_white;
 //shooting
 reticle = noone;
 
+//phase 2
+phase2 = false
+
 //movement for falling
 collide_and_move = function(){
 
@@ -109,6 +112,7 @@ fsm
 			
 			//play this sound at 1:16 https://www.youtube.com/watch?v=FlU4mEjvkz8
 			audio_play_sound(snd_reload, 15, 0, 5);
+		
 			
 		},
 		step: function() {
@@ -121,6 +125,11 @@ fsm
 			
 			
 			state_timer--;
+			
+			if hp <= 100 and !phase2{
+				phase2 = true
+				state_timer_max/= 2
+			}
 			
 			//if dead dont go to the other states 
 			if hp <= 0 fsm.change("dead");
@@ -156,6 +165,14 @@ fsm
 		},
 		step: function() {
 			
+			//if dead dont go to the other states 
+			if hp <= 0 fsm.change("dead");
+			
+			//injured state
+			if( hp != 300 and hp mod 50 == 0 and hp > 0){
+				fsm.change("injured")
+			}
+			
 			//if the animation ends fire the bullet
 			if (animation_end()){
 				fsm.change("teleport");
@@ -175,7 +192,7 @@ fsm
 		},
 		step: function() {
 			image_index = image_number - 1
-			state_timer--;
+			//state_timer--;
 			//tp to other side
 			with(dust){
 				if animation_hit_frame(3){

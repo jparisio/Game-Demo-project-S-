@@ -30,6 +30,10 @@ laser_angle_step = 0;
 flash_alpha = 0;
 flash_colour = c_white;
 
+//shooting
+reticle = noone;
+
+//movement for falling
 collide_and_move = function(){
 
 vsp += grv;
@@ -94,12 +98,9 @@ fsm
   	.add("steady", {
 		enter: function() {
 			//set sprite index
-			//sprite_index = spr_steady
-			//image_index = 0;
-			//spawn in reticle
-			var _x = random_range(-100, 100) + obj_player.x
-			var _y = random_range(-100, 100) + obj_player.y
-			instance_create_layer(_x, _y, "Instances", obj_reticle);
+			sprite_index = spr_boss_gunslinger_aim;
+			image_index = 0;
+
 			state_timer = state_timer_max;
 			//rand = irandom_range(0,2);
 			//also create the grenadew to throw
@@ -111,12 +112,15 @@ fsm
 			
 		},
 		step: function() {
-			//if animation is over sit on last frame
-			//if animation_end() image_index = image_number - 1
+			if animation_hit_frame(5){
+				//spawn in reticle
+				var _x = random_range(-100, 100) + obj_player.x
+				var _y = random_range(-100, 100) + obj_player.y
+				reticle = instance_create_layer(_x, _y, "Instances", obj_reticle);
+			}
+			
+			
 			state_timer--;
-			//if the animation ends fire the bullet
-			//if state_timer<=0  and rand >= 1 fsm.change("rockets")
-			//if state_timer<=0  and rand < 1 fsm.change("teleport")
 			
 			//if dead dont go to the other states 
 			if hp <= 0 fsm.change("dead");
@@ -126,8 +130,15 @@ fsm
 				fsm.change("injured")
 			}
 			
-			//tp state
-			if state_timer <=0 fsm.change("teleport")
+			if animation_end() {
+				image_index = image_number - 1;
+			}
+			
+			//firing
+			if state_timer <=0 {
+				reticle.stop = true;
+				fsm.change("fire");
+			}
 			
 		}
 
@@ -137,8 +148,8 @@ fsm
 	.add("fire", {
 		enter: function() {
 			//set sprite index
-			//sprite_index = spr_fire
-			//image_index = 0;
+			sprite_index = spr_boss_gunslinger_fire;
+			image_index = 0;
 			//rand_next_state = choose("lasers", "rockets", "laser circle")
 			//play this sound https://artlist.io/sfx/track/black-powder-guns---pistol-the-lone-ranger/62778
 			// hit impact for this https://kiddolink.itch.io/vfx-fx-hit-impact-pixel-art
@@ -147,11 +158,7 @@ fsm
 			
 			//if the animation ends fire the bullet
 			if (animation_end()){
-				if(rand <= 1){
-					fsm.change("rockets")
-				} else {
-					fsm.change("teleport")
-				}
+				fsm.change("teleport");
 			}
 			
 		}
@@ -396,6 +403,8 @@ fsm
 
      .add("dead", {
 		enter: function() {
+			sprite_index = spr_boss_gunslinger_idle;
+			image_index = 0;
 			//spawn the cutscene trigger on the player
 			var _end = instance_create_layer(obj_player.x, obj_player.y,"Instances", obj_cutscene_collision);
 			_end.text_id = "dead";

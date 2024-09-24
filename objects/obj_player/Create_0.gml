@@ -116,9 +116,6 @@ walking_on = snd_walk2;
 //cam
 cam_bounds = noone;
 
-//6B9199
-//this is code for bg colour
-
 //movement
 get_input_and_move = function() {
 	

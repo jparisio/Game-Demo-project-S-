@@ -1,10 +1,16 @@
+if(stop and !remove){
+	remove = true;
+	create_hitbox("boss", self, x, y, 1, spr_crosshair_hurtbox, 3, 15);
+	audio_play_sound(snd_gunshot, 1, 0);
+	create_shake();
+}
 
 if(!stop){
 	x = lerp(x, obj_player.x, rand);
 	y = lerp(y, obj_player.y - 40, rand);
 }
 
-if stop {
+if remove {
 	life--;
 }
 

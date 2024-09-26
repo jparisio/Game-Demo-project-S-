@@ -375,6 +375,7 @@ fsm
 			
 			state_timer = state_timer_max/4;
 			tp_back = false;
+			facing = -sign(hsp)
 			
 			
 		},

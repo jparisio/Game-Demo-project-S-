@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "room1",
-    "path": "folders/Sprites/environment/room1.yy",
+    "name": "tilesets",
+    "path": "folders/Sprites/tilesets.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

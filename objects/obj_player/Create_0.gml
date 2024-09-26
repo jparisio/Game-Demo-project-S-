@@ -610,6 +610,7 @@ fsm
 				//move
 				hsp = lengthdir_x(dash_x, dash_direction);
 				vsp = lengthdir_y(dash_y, dash_direction);
+				determine_facing();
 				//move
 				collide_and_move(hsp, vsp);
 				//create dash trail

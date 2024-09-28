@@ -29,7 +29,7 @@
         "I have waited [delay,400]soooooooo[delay,700][shake_screen][c_red] LONG[delay,700][c_white] for this moment",
         "[wave][shake]ahhhhh[/wave]",
         "finally.",
-        "[switch, obj_player]enough.",
+        "[cam, obj_player][switch, obj_player]enough.",
         "get on it with it[cam, obj_temp_camera_anchor][boss][ended]"
     ], 
     "dead":[

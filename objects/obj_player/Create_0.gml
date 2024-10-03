@@ -72,9 +72,10 @@ dash_y = 0;
 
 //wall
 on_wall = 0;
-wall_fric = 0.17;
+wall_fric = 0.25;
 wall_jump_frames = 5;
 wall_jump_hsp = 0;
+wall_jump_hsp_max = 6;
 slash_dir = 0;
 
 facing = 1;
@@ -496,19 +497,20 @@ fsm
 	.add("wall slide", {
 		
 		enter: function(){
-			grv = grv * wall_fric
-			vsp = 2;
+			grv = global_grv;
+			grv = grv * wall_fric;
 			sprite_index = spr_wall_slide;
 		},
 		
 		step: function(){
-			collide_and_move(0, vsp)
 			if(input_check_pressed("jump")) fsm.change("wall jump");
-			
-			if on_ground {
+			if(!place_meeting(x + sign(facing), y, obj_slide_wall)){
+				determine_facing();
 				grv = global_grv;
-				fsm.change("idle");
+				fsm.change("jump");
 			}
+		
+			get_input_and_move();
 		}
 })
 
@@ -519,12 +521,13 @@ fsm
 			image_index = 0;
 			wall_jump_frames = 8;
 			grv = global_grv;
-			wall_jump_hsp = 2 * - facing
+			wall_jump_hsp = wall_jump_hsp_max * - facing
+			//wall_jump_hsp_max *= -facing
 		},
 		
 		step: function(){
 			wall_jump_frames --
-			wall_jump_hsp = lerp(wall_jump_hsp, -6, .3);
+			//wall_jump_hsp = lerp(wall_jump_hsp, wall_jump_hsp_max, .3);
 			show_debug_message(wall_jump_hsp)
 			collide_and_move(wall_jump_hsp, -3);
 			determine_facing();
@@ -653,6 +656,14 @@ fsm
 			
 			if(dash_length >= 0){
 				dash_length--;
+				//wall slide check
+				if(place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0){
+					image_speed = 1;
+					grv = global_grv * wall_fric; // Gradually apply gravity for wall slide
+					can_dash = false;
+					instance_create_layer(x, y, "Player", obj_hurtbox);
+					fsm.change("wall slide");
+				} 
 			
 				//speed up the dash at end
 				dash_x = lerp(dash_x, 7, .5);
@@ -694,6 +705,7 @@ fsm
 				} else {
 					fsm.change("jump");
 				}
+
 				//if(place_meeting(x, y, obj_cutscene_collision)) fsm.change("dialogue");
 			}
 		}

@@ -73,6 +73,8 @@ dash_y = 0;
 //wall
 on_wall = 0;
 wall_fric = 0.17;
+wall_jump_frames = 5;
+wall_jump_hsp = 0;
 slash_dir = 0;
 
 facing = 1;
@@ -414,6 +416,7 @@ fsm
 				hsp = 0;
 				approach_walksp = 0.04;
 			}
+
 			
 			//move
 			get_input_and_move();
@@ -473,7 +476,14 @@ fsm
 				var coll = collision_line(x, y, grapple_target.x, grapple_target.y, obj_wall, false, false)
 				show_debug_message(coll)
 			}
+			
+			//grapple check
 			if(can_grapple and throw_grapple and coll == -4) fsm.change("grapple initiate");
+			
+			//wall slide check
+			if(place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0){
+				fsm.change("wall slide");
+			} 
 			
 			////cutscene 
 			//if place_meeting(x, y, obj_cutscene_collision){
@@ -481,6 +491,46 @@ fsm
 			//	fsm.change("dialogue");
 			//}
 	  }
+})
+
+	.add("wall slide", {
+		
+		enter: function(){
+			grv = grv * wall_fric
+			vsp = 2;
+			sprite_index = spr_wall_slide;
+		},
+		
+		step: function(){
+			collide_and_move(0, vsp)
+			if(input_check_pressed("jump")) fsm.change("wall jump");
+			
+			if on_ground {
+				grv = global_grv;
+				fsm.change("idle");
+			}
+		}
+})
+
+	.add("wall jump", {
+		
+		enter: function(){
+			sprite_index = spr_jump;
+			image_index = 0;
+			wall_jump_frames = 8;
+			grv = global_grv;
+			wall_jump_hsp = 2 * - facing
+		},
+		
+		step: function(){
+			wall_jump_frames --
+			wall_jump_hsp = lerp(wall_jump_hsp, -6, .3);
+			show_debug_message(wall_jump_hsp)
+			collide_and_move(wall_jump_hsp, -3);
+			determine_facing();
+			
+			if wall_jump_frames <= 0 fsm.change("jump");
+		}
 })
 
 	.add("attack", {

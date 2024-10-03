@@ -248,8 +248,7 @@ fsm
 				_slash.image_xscale = obj_player.image_xscale;
 				_slash.image_angle = random_range(20, -20);
 				//create blood and blood angle
-				var _angled = random(2)
-				if(_angled <= 1) repeat(30) create_blood(-image_xscale, x -10, y-40, true) else repeat(30) create_blood(-image_xscale, x -10, y-40, false)
+				blood_sprayer(self);
 				//hit pause
 				hit_pause(20)
 				

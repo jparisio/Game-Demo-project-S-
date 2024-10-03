@@ -169,11 +169,8 @@ fsm
 		enter: function() {
 			sprite_index = spr_assassin_dead;
 			image_index = 0;
-			//FIX what deosnt fall and collide if in mid air since it has no collision mask
-			//mask_index = spr_warrior_slime_dead_mask
-			var _sprayer = instance_create_layer(x,y, "Instances", obj_blood_sprayer);
-			_sprayer.facing = obj_player.facing;
-			_sprayer.create_at = self;
+			//spray blood
+			blood_sprayer(self);
 			//sound
 			audio_play_sound(snd_crunch2, 1, 0, .1, 0, 1.2);
 			audio_play_sound(snd_old_dash, 2, 0, 3, 0, 2);

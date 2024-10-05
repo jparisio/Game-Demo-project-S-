@@ -1,16 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_hurtbox",
+  "name": "obj_cutscene",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "player",
-    "path": "folders/Objects/player.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,9 +29,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_hurtbox",
-    "path": "sprites/spr_hurtbox/spr_hurtbox.yy",
+    "name": "spr_cutscene",
+    "path": "sprites/spr_cutscene/spr_cutscene.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

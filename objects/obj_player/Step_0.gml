@@ -47,3 +47,5 @@ if instance_place(x, y, obj_respawner){
 
 
 cam_bounds = instance_place(x, y, obj_cam_bounds);
+
+cutscene_instance = instance_place(x, y, obj_cutscene);

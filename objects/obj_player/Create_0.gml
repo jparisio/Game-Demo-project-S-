@@ -50,6 +50,9 @@ sprites_act2 = {
 // Create a character instance using the sprites
 player_character = character(sprites_act1, sprites_act2);
 
+//cutscenes
+cutscene_instance = noone;
+
 //set fullscreen
 //fullscreen = true;
 
@@ -332,6 +335,12 @@ fsm
 			get_input_and_move();
 			determine_facing();
 			
+			//for cutscene 
+			if (cutscene_instance != noone){
+				fsm.change("cutscene");
+				cutscene_instance.start = true;
+			}
+			
 			//sound
 			//evbery 4 frames play sound sndwalk or snd_walk2 randomized
 			// Increment the frame counter
@@ -474,8 +483,8 @@ fsm
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
 			if(grapple_target != noone){
-				var coll = collision_line(x, y, grapple_target.x, grapple_target.y, obj_wall, false, false)
-				show_debug_message(coll)
+				var coll = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_24_wall, false, false)
+				//show_debug_message(coll)
 			}
 			
 			//grapple check
@@ -500,6 +509,7 @@ fsm
 			grv = global_grv;
 			grv = grv * wall_fric;
 			sprite_index = spr_wall_slide;
+			approach_walksp = 0.04;
 		},
 		
 		step: function(){
@@ -875,6 +885,24 @@ fsm
 				//		fsm.change("jump");
 				//	}
 				//}
+			}
+	})
+	
+	.add("cutscene", {
+		
+			enter: function(){
+					hsp = 0;
+					vsp = 0;
+					global.cutscene_ended = false;
+			},
+		
+			step: function(){
+				
+				if (global.cutscene_ended){
+					image_speed = 1;
+					fsm.change("idle");
+				}
+
 			}
 	})
 

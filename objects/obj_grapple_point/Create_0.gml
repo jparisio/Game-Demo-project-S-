@@ -3,6 +3,7 @@ image_speed = 0;
 alarm[0] = -1;
 cooldown = false;
 radius = 140;
+coll_line = 0;
 
 
 // Define the FSM structure
@@ -19,7 +20,7 @@ fsm
         },
         step: function() {
             // Check if player is within range and not in cooldown
-            if (point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) && !cooldown) {
+            if (point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) && !cooldown && coll_line == -4 ) {
                 // Transition to 'active' state
                 fsm.change("active");
             }
@@ -27,8 +28,7 @@ fsm
     })
     .add("active", {
         enter: function() {
-            // Actions to take when entering the 'active' state
-            image_index = 1; // Show the active image\
+            image_index = 1; // Show the active image
 			obj_player.grapple_target = self;
 			
 			
@@ -37,7 +37,7 @@ fsm
 			
 			obj_player.can_grapple = true;
             // Check if player is out of range or in cooldown
-            if (!point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) || cooldown) {
+            if (!point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) || cooldown || coll_line != -4 ) {
                 // Reset grapple target if it's this point
                 //if (obj_player.grapple_target == self) {
                 //    obj_player.grapple_target = noone;

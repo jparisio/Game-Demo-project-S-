@@ -274,6 +274,7 @@
     {"name":"spr_crosshair_hurtbox","order":2,"path":"sprites/spr_crosshair_hurtbox/spr_crosshair_hurtbox.yy",},
     {"name":"BulbRenderer","order":7,"path":"scripts/BulbRenderer/BulbRenderer.yy",},
     {"name":"spr_large_cloud_bg2","order":6,"path":"sprites/spr_large_cloud_bg2/spr_large_cloud_bg2.yy",},
+    {"name":"DestroyAction","order":7,"path":"scripts/DestroyAction/DestroyAction.yy",},
     {"name":"__BulbSystem","order":2,"path":"scripts/__BulbSystem/__BulbSystem.yy",},
     {"name":"spr_bg1146147148","order":4,"path":"sprites/spr_bg1146147148/spr_bg1146147148.yy",},
     {"name":"obj_paralax_room2","order":6,"path":"objects/obj_paralax_room2/obj_paralax_room2.yy",},

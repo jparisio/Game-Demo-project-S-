@@ -752,6 +752,7 @@
     {"id":{"name":"obj_enter_button","path":"objects/obj_enter_button/obj_enter_button.yy",},},
     {"id":{"name":"obj_hit_effect","path":"objects/obj_hit_effect/obj_hit_effect.yy",},},
     {"id":{"name":"spr_large_cloud_bg2","path":"sprites/spr_large_cloud_bg2/spr_large_cloud_bg2.yy",},},
+    {"id":{"name":"DestroyAction","path":"scripts/DestroyAction/DestroyAction.yy",},},
     {"id":{"name":"scribble_anim_pulse","path":"scripts/scribble_anim_pulse/scribble_anim_pulse.yy",},},
     {"id":{"name":"TGMX_Update_Log","path":"notes/TGMX_Update_Log/TGMX_Update_Log.yy",},},
     {"id":{"name":"__input_finalize_verb_groups","path":"scripts/__input_finalize_verb_groups/__input_finalize_verb_groups.yy",},},

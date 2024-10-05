@@ -5,7 +5,7 @@ function MoveAction(_object, _target_x, _target_y, _speed) : CutsceneAction("mov
     object = _object;
     target_x = _target_x;
     target_y = _target_y;
-    speed = _speed;
+    move_speed = _speed;
 	start_moving = true;
 
     // Override execute method
@@ -15,9 +15,9 @@ function MoveAction(_object, _target_x, _target_y, _speed) : CutsceneAction("mov
 		object.image_speed = 1 * global.game_speed;
 		
 		with(object){
-			
+			show_debug_message(other.move_speed)
 			//update the direction facing
-			if(speed != 0) facing = sign(speed);
+			if(other.move_speed != 0) facing = sign(other.move_speed);
 			
 			//anims
 			if(other.start_moving){
@@ -30,7 +30,7 @@ function MoveAction(_object, _target_x, _target_y, _speed) : CutsceneAction("mov
 				image_index = 0;
 			}
 			
-			if(sprite_index == spr_run and abs(speed) <= 0.5){
+			if(sprite_index == spr_run and abs(other.move_speed) <= 0.5){
 				sprite_index = spr_run_to_idle;
 				image_index = 0;
 			}
@@ -42,10 +42,10 @@ function MoveAction(_object, _target_x, _target_y, _speed) : CutsceneAction("mov
 			
 		}
 		
-        if (point_distance(object.x, object.y, target_x, target_y) > speed) {
+        if (point_distance(object.x, object.y, target_x, target_y) > move_speed) {
             var dir = point_direction(object.x, object.y, target_x, target_y);
-            object.x += lengthdir_x(speed, dir);
-            object.y += lengthdir_y(speed, dir);
+            object.x += lengthdir_x(move_speed, dir);
+            object.y += lengthdir_y(move_speed, dir);
         } else {
             _controller.NextAction();
 			//reset flag for repeat usage

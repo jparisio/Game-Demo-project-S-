@@ -8,7 +8,8 @@ actions = [
 	new PlayAnim(obj_player, spr_finisher),
 	new PlayAnim(obj_player, spr_release),
 	new ChangeSprite(obj_player, spr_idle),
-	new WaitAction(120)
+	new DialogueAction(obj_player, "test"),
+	new WaitAction(60)
 ];
 
 start = false;

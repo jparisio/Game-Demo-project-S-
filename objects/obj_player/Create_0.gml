@@ -78,7 +78,7 @@ on_wall = 0;
 wall_fric = 0.25;
 wall_jump_frames = 5;
 wall_jump_hsp = 0;
-wall_jump_hsp_max = 6;
+wall_jump_hsp_max = 8;
 slash_dir = 0;
 
 facing = 1;
@@ -319,6 +319,8 @@ fsm
 			//for move cap stuff
 			approach_walksp = .15;
 			
+			input_dir = sign(facing);
+			
 		},
 		
 		step: function(){
@@ -334,6 +336,14 @@ fsm
 			//move
 			get_input_and_move();
 			determine_facing();
+			
+			//if turn around stop momentum
+			if(sign(facing) != input_dir){
+				input_dir = sign(facing);
+				walksp = 0;
+				hsp = 0;
+				fsm.change("idle");
+			}
 			
 			//for cutscene 
 			if (cutscene_instance != noone){
@@ -413,7 +423,8 @@ fsm
 				image_index = 0;
 			}
 			can_jump = false;
-			audio_play_sound(snd_jump, 0, false, .05);
+			//dont play this if last state was a wall jump
+			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
 			input_dir = sign(facing);
 		},
 		
@@ -509,17 +520,30 @@ fsm
 			grv = global_grv;
 			grv = grv * wall_fric;
 			sprite_index = spr_wall_slide;
-			approach_walksp = 0.04;
+			//approach_walksp = 0.04;
+			audio_play_sound(snd_wall_slide, 0, 1);
 		},
 		
 		step: function(){
+			//create dust
+			var _x = x + 12 * facing
+			var _max = y - sprite_height / 2
+			var _min = y;
+			var _y = random_range(_min, _max);
+			instance_create_layer(_x, _y, "Instances", obj_slide_dust);
+			
+			
+			//movement 
 			if(input_check_pressed("jump")) fsm.change("wall jump");
 			if(!place_meeting(x + sign(facing), y, obj_slide_wall)){
 				determine_facing();
 				grv = global_grv;
+				audio_stop_sound(snd_wall_slide);
 				fsm.change("jump");
 			}
-		
+			//show_debug_message(vsp)
+			//cap the vsp on the wall
+			vsp = min(vsp, 3.8);
 			get_input_and_move();
 		}
 })
@@ -527,6 +551,8 @@ fsm
 	.add("wall jump", {
 		
 		enter: function(){
+			audio_stop_sound(snd_wall_slide);
+			audio_play_sound(snd_wall_jump, 0, 0);
 			sprite_index = spr_jump;
 			image_index = 0;
 			wall_jump_frames = 8;
@@ -537,9 +563,11 @@ fsm
 		
 		step: function(){
 			wall_jump_frames --
+		    //wall_jump_hsp = lerp(wall_jump_hsp, sign(wall_jump_hsp) * max_walksp, 0.1);
 			//wall_jump_hsp = lerp(wall_jump_hsp, wall_jump_hsp_max, .3);
-			show_debug_message(wall_jump_hsp)
+			//show_debug_message(wall_jump_hsp)
 			collide_and_move(wall_jump_hsp, -3);
+			//wall_jump_hsp -= 0.5;
 			determine_facing();
 			
 			if wall_jump_frames <= 0 fsm.change("jump");

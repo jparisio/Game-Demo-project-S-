@@ -187,7 +187,7 @@ fsm
 			//determine where to tp to
 			if (x > 800) target_x = 580 else target_x = 1056;
 			//create smoke effects;
-			dust = instance_create_layer(x, y, "Instances", obj_dust_bomb);
+			dust = instance_create_layer(x, y + 10, "Instances", obj_dust_bomb);
 			rand_next_state = choose("lasers", "rockets", "laser circle")
 		},
 		step: function() {

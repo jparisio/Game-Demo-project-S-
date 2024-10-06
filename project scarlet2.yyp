@@ -343,6 +343,7 @@
     {"id":{"name":"snd_explosion2","path":"sounds/snd_explosion2/snd_explosion2.yy",},},
     {"id":{"name":"input_ignore_key_remove","path":"scripts/input_ignore_key_remove/input_ignore_key_remove.yy",},},
     {"id":{"name":"__scribble_get_typewriter_events_map","path":"scripts/__scribble_get_typewriter_events_map/__scribble_get_typewriter_events_map.yy",},},
+    {"id":{"name":"Approach","path":"scripts/Approach/Approach.yy",},},
     {"id":{"name":"scribble_font_add","path":"scripts/scribble_font_add/scribble_font_add.yy",},},
     {"id":{"name":"snd_error","path":"sounds/snd_error/snd_error.yy",},},
     {"id":{"name":"input_color_set","path":"scripts/input_color_set/input_color_set.yy",},},

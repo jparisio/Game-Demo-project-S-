@@ -138,6 +138,7 @@
     {"name":"obj_death","order":9,"path":"objects/obj_death/obj_death.yy",},
     {"name":"obj_blood_sprayer","order":2,"path":"objects/obj_blood_sprayer/obj_blood_sprayer.yy",},
     {"name":"snd_explosion2","order":9,"path":"sounds/snd_explosion2/snd_explosion2.yy",},
+    {"name":"Approach","order":6,"path":"scripts/Approach/Approach.yy",},
     {"name":"obj_text_initialize","order":1,"path":"objects/obj_text_initialize/obj_text_initialize.yy",},
     {"name":"spr_run_to_idle","order":16,"path":"sprites/spr_run_to_idle/spr_run_to_idle.yy",},
     {"name":"spr_shrapnel_destroy","order":11,"path":"sprites/spr_shrapnel_destroy/spr_shrapnel_destroy.yy",},

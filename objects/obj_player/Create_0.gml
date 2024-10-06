@@ -6,14 +6,18 @@ global_grv = 0.27;
 grv = global_grv;
 walksp = 0;
 max_walksp = 4;
-approach_walksp = 0.15;
+approach_walksp_max = 0.3;
+approach_walksp = approach_walksp_max;
 coyote_time = 4;
 can_jump = true;
 jump_buffer_max = 5;
 jump_buffer = jump_buffer_max;
 input_dir = 0;
-can_grapple = false;
+decelerate_ground = 0.2;
+decelerate_air = 0.1;
+decelerate = decelerate_ground
 //grapples
+can_grapple = false;
 grapple_target = noone;
 grapple_move_speed_x = 0;
 grapple_move_speed_y = 0;
@@ -76,9 +80,10 @@ dash_y = 0;
 //wall
 on_wall = 0;
 wall_fric = 0.25;
-wall_jump_frames = 5;
+wall_jump_frames_max = 9;
+wall_jump_frames = wall_jump_frames_max ;
 wall_jump_hsp = 0;
-wall_jump_hsp_max = 8;
+wall_jump_hsp_max = 4;
 slash_dir = 0;
 
 facing = 1;
@@ -130,7 +135,7 @@ get_input_and_move = function() {
     right = input_check("right");
 	up = input_check("up");
 	down = input_check("down");
-	if (can_jump = true) jump = input_check("jump") else jump = 0;
+	if (can_jump) jump = input_check("jump") else jump = 0;
 	attack = input_check_pressed("shoot");
 	dash = input_check_pressed("special");
 	throw_grapple = input_check_pressed("aim");
@@ -139,13 +144,14 @@ get_input_and_move = function() {
 	var move = right - left;
 
 	if(left xor right){
-		walksp = lerp(walksp, max_walksp, approach_walksp);
+		//walksp = lerp(walksp, max_walksp, approach_walksp);
+		walksp = Approach(walksp, max_walksp, approach_walksp);
 	} else {
 		walksp = 0;
 	}
 	walksp = min(walksp, max_walksp);
 	hsp += move * walksp;
-	hsp = lerp(hsp, 0, .2);
+	hsp = lerp(hsp, 0, decelerate);
 	if(abs(hsp) <= .1) hsp = 0;
 	hsp = min(abs(hsp), max_walksp) * sign(hsp)
 	
@@ -230,7 +236,7 @@ fsm
 				image_index = 0;
 			}
 			//for move cap stuff
-			approach_walksp = .15;
+			approach_walksp = approach_walksp_max;
 			
 		},
 		step: function() {
@@ -317,7 +323,7 @@ fsm
 			if!(audio_is_playing(walking_on)) audio_play_sound(walking_on, 0, false, 0.2);
 			
 			//for move cap stuff
-			approach_walksp = .15;
+			approach_walksp = approach_walksp_max;
 			
 			input_dir = sign(facing);
 			
@@ -370,6 +376,10 @@ fsm
 			//	fsm.change("dialogue");
 			//}
 			
+						
+			//cutscene check
+			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
+			
 			//not holding move, switch to idle
 			if ((!right and !left) or (right and left)){
 				fsm.change("idle");
@@ -406,8 +416,6 @@ fsm
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
 			
-			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
-			
 	  }
 })
 	
@@ -426,16 +434,22 @@ fsm
 			//dont play this if last state was a wall jump
 			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
 			input_dir = sign(facing);
+			//make air accel slower
+			approach_walksp = 0.1;
 		},
 		
 		step: function(){
 			
-			//momentum in mid air calc
+			//carry momentum -> if player moves in the opposite direction of jump, cut their hsp/acceleration
 			if(sign(facing) != input_dir){
 				input_dir = sign(facing);
 				walksp = 0;
 				hsp = 0;
-				approach_walksp = 0.04;
+				if(fsm.get_previous_state() == "wall jump"){
+					approach_walksp = 0.03;
+				} else {
+					approach_walksp = 0.1;
+				}
 			}
 
 			
@@ -555,7 +569,7 @@ fsm
 			audio_play_sound(snd_wall_jump, 0, 0);
 			sprite_index = spr_jump;
 			image_index = 0;
-			wall_jump_frames = 8;
+			wall_jump_frames = wall_jump_frames_max ;
 			grv = global_grv;
 			wall_jump_hsp = wall_jump_hsp_max * - facing
 			//wall_jump_hsp_max *= -facing
@@ -567,7 +581,6 @@ fsm
 			//wall_jump_hsp = lerp(wall_jump_hsp, wall_jump_hsp_max, .3);
 			//show_debug_message(wall_jump_hsp)
 			collide_and_move(wall_jump_hsp, -3);
-			//wall_jump_hsp -= 0.5;
 			determine_facing();
 			
 			if wall_jump_frames <= 0 fsm.change("jump");
@@ -811,6 +824,10 @@ fsm
 .add("grapple initiate", {
 
     enter: function() {
+		
+		//set hsp and vsp to 0
+		hsp = 0;
+		vsp = 0;
 		//play throw sound
 		audio_play_sound(snd_grapple_throw, 10, 0);
 		//reset grapple flag

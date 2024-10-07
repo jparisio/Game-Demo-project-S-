@@ -259,7 +259,7 @@ fsm
 			
 			//if holding one move key
 			if (right xor left) {
-			fsm.change("run");
+				fsm.change("run");
 			}
 			
 			//check if player has let go of jump

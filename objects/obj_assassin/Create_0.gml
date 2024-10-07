@@ -7,7 +7,7 @@ hsp = 0;
 vsp = 0;
 grv = .28;
 facing = 0
-_speed = 2.1;
+_speed = 1.3;
 starting_x = x;
 starting_y = y;
 //timers
@@ -18,12 +18,24 @@ timer_attack = timer_attack_max;
 //dir to move in
 move_dir = random_range(-1, 1)	
 
-//finisher stuff
-headless = false
-headless_timer_max = 80;
-headless_timer = headless_timer_max;
-stunned_timer_max = 300;
-stunned_timer = stunned_timer_max;
+//raycast
+vision_range = 150;  // How far the vision reaches
+vision_angle = 20;   // Field of vision angle (in degrees)
+vision_offset_y = -30;  // Offset the triangle from the enemy’s position
+
+//patrol points
+patrol_points = [x + 100, x - 100];
+target_point = choose(patrol_points[0], patrol_points[1]);
+
+//collision rectangle
+rec_min_x = 0;
+rec_min_y = 0;
+rec_max_x = 0;
+rec_max_y = 0;
+
+//stunned
+stunned = false;
+
 
 _ended = false;
 
@@ -59,7 +71,6 @@ determine_facing = function(){
 	
 	if(hsp != 0){
 		facing = sign(hsp)
-		image_xscale = facing;
 	}
 }
 
@@ -67,105 +78,187 @@ determine_facing = function(){
 	
 	
 //states	
-fsm = new SnowState("idle")
+fsm = new SnowState("patrol")
 
 fsm
-	.add("idle", {
+	.add("patrol", {
 		enter: function() {
-			sprite_index = spr_assassin_idle;
-			if(fsm.get_previous_state() == "walk"){
-				sprite_index = spr_assassin_run_to_idle;
-			}
+			sprite_index = spr_assassin_run;
 			image_index = 0;
-			timer_switch_state = timer_max;
-			determine_facing();
+			target_point = choose(patrol_points[0], patrol_points[1]);
+			
 		},
 		step: function() {
-			
-			if(sprite_index == spr_assassin_run_to_idle and animation_end()){
-				sprite_index = spr_assassin_idle;
-				image_index = 0;
-			}
 			//if dead switch to dead state
 			if(hp <= 0){
 				fsm.change("dead");
 			}
-			//if hp < 0 fsm.change("dead");
-			//to slow down after the run
-			collide_and_move();
-			//switch to attack if in range and on same level veritcally
-			if (abs(obj_player.x - x) <= 50 and timer_attack <= 0 and (abs(obj_player.y - y <= 10))){
-				var _attack = random(2)
-				//if _attack <= 1 fsm.change("attack1") else fsm.change("attack2")
+			
+			//player is seen
+			if(collision_rectangle(rec_min_x, rec_min_y, rec_max_x, rec_max_y, obj_player, false, true)){
+				 show_debug_message("Player is within the triangle's bounding box");
+				 fsm.change("shoot");
 			}
-			//facing player always if alerted
-			if (abs(obj_player.x - x) <= 100 and (abs(obj_player.y - y <= 10))) image_xscale = sign(obj_player.x - x)
-			//switch to run if timer is up
-			//if timer_switch_state <= 0 fsm.change("walk");
+			
+			//move to target point
+			 if (abs(x - target_point) < _speed) {
+                // Switch patrol points when reaching one
+				//target_point = target_point == patrol_points[0]? patrol_points[1]: patrol_points[0];
+				fsm.change("patrol rest");
+            }
+			
+			//wall check
+			if place_meeting(x + hsp, y, obj_wall_parent){
+				target_point = target_point == patrol_points[0]? patrol_points[1]: patrol_points[0];
+			}
+			
+			//fall off ledge check 
+			var _side = bbox_right
+			if (hsp >= 0) _side = bbox_right else _side = bbox_left
+			//if theres a ledge turn around 
+			if !position_meeting(_side + sign(hsp), bbox_bottom + 1, obj_wall_parent) {
+				target_point = target_point == patrol_points[0]? patrol_points[1]: patrol_points[0];
+			}
+
+			//set hsp (approach it for smooth movment)
+			//hsp = Approach(hsp, sign(target_point - x) * _speed, .3);
+			hsp = sign(target_point - x) * _speed;
+		
+			//move and collide functions
+			collide_and_move();
+			determine_facing();
+			
+			//anims
+			//if abs(hsp) > 0 sprite_index = spr_assassin_run;
+
 			
 		}
 
   })
-  
-	.add("walk", {
+  	.add("patrol rest", {
 		enter: function() {
-			sprite_index = spr_warrior_slime_walk;
-			if(fsm.get_previous_state() == "idle"){
-				sprite_index = spr_assassin_idle_to_run;
-			}
+			// rest in between patrol points
+			sprite_index = spr_assassin_idle;
 			image_index = 0;
 			timer_switch_state = timer_max;
-	
+			
+			
 		},
 		step: function() {
 			
-			if(sprite_index = spr_assassin_idle_to_run and animation_end()){
-				sprite_index = spr_assassin_run;
-				image_index = 0;
-			}
+			timer_switch_state--;
 			
 			//if dead switch to dead state
 			if(hp <= 0){
 				fsm.change("dead");
 			}
-			//if hp < 0 fsm.change("dead");
-			//if in range of player attack
-			//if (abs(obj_player.x - x) <= 80 and timer_attack <= 0 and (abs(obj_player.y - y <= 10))){
-			//	var _attack = random(2)
-			//	//if _attack <= 1 fsm.change("attack1") else fsm.change("attack2")
-			//}
-			//move random direction
-			if (move_dir <= 0) hsp = -_speed else hsp = _speed;
 			
-			//if player is near move towards him
-			//if(abs(obj_player.x - x) <= 100) and (abs(obj_player.y - y <= 10)) hsp = 2 * sign(obj_player.x - x);
 			
-			//check if gonna fall off a ledge and flip if so
-			var _side = bbox_right
-			if (hsp >= 0) _side = bbox_right else _side = bbox_left
-			if !position_meeting(_side + sign(hsp), bbox_bottom + 1, obj_wall) {
-				//hsp = 0
-				fsm.change("idle")
-				move_dir = - move_dir;
-			}
-			
-			//check if youre at wall
-			if place_meeting(x + sign(hsp), y, obj_wall){
-				//hsp = 0
-				fsm.change("idle")
-				move_dir = -move_dir;
-			}
+			hsp = lerp(hsp, 0, .15);
+			if abs(hsp) <= 0.01 hsp = 0;
 			
 			//collision and move
 			collide_and_move();
+			
+			if(timer_switch_state <= 0){
+				fsm.change("patrol");
+			}
+			
+		
+		}
+		
+ })
+  
+	.add("chase", {
+		enter: function() {
+			target_point = obj_player.x;
+			
+		},
+		step: function() {
+			
+			//if dead switch to dead state
+			if(hp <= 0){
+				fsm.change("dead");
+			}
+			
+			hsp = sign(target_point - x) * _speed;
+		
+			//move and collide functions
+			collide_and_move();
 			determine_facing();
-			//switch back after timer_max seconds
-			if timer_switch_state <= 0 fsm.change("idle");
+		
+			
+			//collision and move
+			collide_and_move();
+			//determine_facing();
 		}
 		
  })
  
- .add("dead", {
+ 
+ 	.add("shoot", {
+		enter: function() {
+			hsp = 0;
+			sprite_index = spr_boss_gunslinger_aim;
+			image_index = 0;
+
+			
+			
+		},
+		step: function() {
+			
+			//if dead switch to dead state
+			if(hp <= 0){
+				fsm.change("dead");
+			}
+			
+			if stunned fsm.change("stunned");
+			
+			if 	sprite_index == spr_boss_gunslinger_aim and animation_end() {
+				var bullet = instance_create_layer(x, y - sprite_height/4, "Instances", obj_bullet);
+				bullet.direction = point_direction(x, y - sprite_height/4, obj_player.x, obj_player. y - 22);
+				bullet.speed = 7;
+				sprite_index = spr_boss_gunslinger_fire;
+				image_index = 0;
+			}
+			
+			if sprite_index == spr_boss_gunslinger_fire and animation_end() {
+				fsm.change("patrol");
+			}
+		
+			hsp = lerp(hsp, 0, .15);
+			if abs(hsp) <= 0.01 hsp = 0;
+			//collision and move
+			collide_and_move();
+			//determine_facing();
+		}
+		
+ })
+ 
+ 
+  	.add("stunned", {
+		enter: function() {
+			//hsp = 0;
+			sprite_index = spr_assassin_idle;
+			image_index = 0;
+			
+			//make it so u can grapple to the enemy adn carry momentum through them
+			
+		},
+		step: function() {
+			
+			if(hp <= 0){
+				fsm.change("dead");
+			}
+			hsp = lerp(hsp, 0, .15);
+			if abs(hsp) <= 0.01 hsp = 0;
+			//collision and move
+			collide_and_move();
+		}
+		
+ })
+ 
+   .add("dead", {
 		enter: function() {
 			sprite_index = spr_assassin_dead;
 			image_index = 0;
@@ -183,15 +276,11 @@ fsm
 			
 		},
 		step: function() {
+			hsp = lerp(hsp, 0, .15);
+			if abs(hsp) <= 0.1 hsp = 0;
 			if slide >= 0 hsp = slide_hsp
 			slide--;
 			collide_and_move();
-		//	if animation_end(){
-		//		image_index = image_number - 1;
-		//		//fade one death animation is done
-		//		image_alpha -= 0.05;
-		//	}
-		//	if image_alpha <= 0 instance_destroy();
 		}
 			
   });

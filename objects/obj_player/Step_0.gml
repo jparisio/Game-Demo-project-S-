@@ -24,8 +24,18 @@ if(!instance_exists(obj_hurtbox) and be_invulnerable){
 xscale = lerp(xscale, 1, 0.2);
 yscale = lerp(yscale, 1, 0.2);
 
-//shadow (use this for dash or roll state)
+//reset the dash if on ground
 if (on_ground) can_dash = true;
+
+//if theres a force applied to the player velocity, store it for 4 frames, thn clear it
+if (stored_velocity != 0) {
+	stored_velocity_timer--
+	if(stored_velocity_timer <= 0){
+		stored_velocity = 0;
+		//reset this 
+		stored_velocity_timer = 6;
+	}
+}
 
 //change sound for material youre on 
 if(place_meeting(x, y, obj_water)){

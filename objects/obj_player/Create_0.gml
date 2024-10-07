@@ -12,6 +12,9 @@ coyote_time = 4;
 can_jump = true;
 jump_buffer_max = 5;
 jump_buffer = jump_buffer_max;
+peak_grv = global_grv / 2;
+stored_velocity = 0;
+stored_velocity_timer = 6;
 input_dir = 0;
 decelerate_ground = 0.2;
 decelerate_air = 0.1;
@@ -269,7 +272,7 @@ fsm
 			if(jump){
 			  xscale = .75;
 			  yscale = 1.25;
-			  vsp = vsp_jump;
+			  vsp = vsp_jump + stored_velocity;
 			  instance_create_layer(x, y, "Instances", obj_dust_jump);
 		      fsm.change("jump");
 			}
@@ -404,7 +407,7 @@ fsm
 				vsp = 0;
 				//coyote time
 				if(jump and coyote_time >=0){
-					vsp = vsp_jump;
+					vsp = vsp_jump + stored_velocity;
 					//show_debug_message("YAY")
 					fsm.change("jump");
 				} else if(coyote_time <= 0) fsm.change("jump");
@@ -436,6 +439,7 @@ fsm
 			input_dir = sign(facing);
 			//make air accel slower
 			approach_walksp = 0.1;
+			//show_debug_message("START JUMP")
 		},
 		
 		step: function(){
@@ -466,6 +470,16 @@ fsm
 			
 			//variable jump
 			if(!input_check("jump")) vsp = max(vsp, -2);
+			
+			//half grav at peak of jump
+			if(vsp >= -0.4 and vsp <= 0.4){
+				grv = peak_grv;
+			} else {
+				grv = global_grv;
+			}
+			
+			//show_debug_message("vsp is :" + string(vsp));
+			//show_debug_message("grv is :" + string(grv));  
 			
 			//animations
 			if (vsp >= 0.5 and vsp <= 1 and sprite_index != spr_dash_to_jump){ //this is because we dont want it to be stuck on index 0 for forever we want it to only activate at the turn  around point
@@ -890,6 +904,7 @@ fsm
 					
 			         //Check if the player has reached the grapple point
 			        var dist_to_target = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+					
         
 			        if (dist_to_target <= grapple_speed) {
 			            // Snap to the exact grapple point

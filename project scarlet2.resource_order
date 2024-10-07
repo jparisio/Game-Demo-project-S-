@@ -275,6 +275,7 @@
     {"name":"sh_glass","order":1,"path":"shaders/sh_glass/sh_glass.yy",},
     {"name":"spr_dash2","order":3,"path":"sprites/spr_dash2/spr_dash2.yy",},
     {"name":"obj_shrapnel","order":6,"path":"objects/obj_shrapnel/obj_shrapnel.yy",},
+    {"name":"obj_vert_move_wall","order":7,"path":"objects/obj_vert_move_wall/obj_vert_move_wall.yy",},
     {"name":"snd_water_walk","order":6,"path":"sounds/snd_water_walk/snd_water_walk.yy",},
     {"name":"obj_grass_strands","order":4,"path":"objects/obj_grass_strands/obj_grass_strands.yy",},
     {"name":"obj_player_damaged","order":5,"path":"objects/obj_player_damaged/obj_player_damaged.yy",},

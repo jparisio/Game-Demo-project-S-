@@ -736,6 +736,7 @@
     {"id":{"name":"input_binding_scan_start","path":"scripts/input_binding_scan_start/input_binding_scan_start.yy",},},
     {"id":{"name":"obj_shrapnel","path":"objects/obj_shrapnel/obj_shrapnel.yy",},},
     {"id":{"name":"scribble_font_combine","path":"scripts/scribble_font_combine/scribble_font_combine.yy",},},
+    {"id":{"name":"obj_vert_move_wall","path":"objects/obj_vert_move_wall/obj_vert_move_wall.yy",},},
     {"id":{"name":"__input_binding_get_label","path":"scripts/__input_binding_get_label/__input_binding_get_label.yy",},},
     {"id":{"name":"scribble_anim_blink","path":"scripts/scribble_anim_blink/scribble_anim_blink.yy",},},
     {"id":{"name":"snd_water_walk","path":"sounds/snd_water_walk/snd_water_walk.yy",},},

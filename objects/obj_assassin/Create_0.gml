@@ -5,7 +5,8 @@ flash_colour = c_white;
 //hori and verti move
 hsp = 0;
 vsp = 0;
-grv = .28;
+//grv = .27;
+grv = 0
 facing = 0
 _speed = 1.3;
 starting_x = x;
@@ -15,6 +16,7 @@ timer_max = 60 * 2;
 timer_switch_state = timer_max;
 timer_attack_max = 60 * 1;
 timer_attack = timer_attack_max;
+
 //dir to move in
 move_dir = random_range(-1, 1)	
 
@@ -35,7 +37,7 @@ rec_max_y = 0;
 
 //stunned
 stunned = false;
-
+grappled_to = false;
 
 _ended = false;
 
@@ -78,7 +80,7 @@ determine_facing = function(){
 	
 	
 //states	
-fsm = new SnowState("patrol")
+fsm = new SnowState("shoot")
 
 fsm
 	.add("patrol", {
@@ -96,7 +98,7 @@ fsm
 			
 			//player is seen
 			if(collision_rectangle(rec_min_x, rec_min_y, rec_max_x, rec_max_y, obj_player, false, true)){
-				 show_debug_message("Player is within the triangle's bounding box");
+				 //show_debug_message("Player is within the triangle's bounding box");
 				 fsm.change("shoot");
 			}
 			
@@ -230,6 +232,7 @@ fsm
 			if abs(hsp) <= 0.01 hsp = 0;
 			//collision and move
 			collide_and_move();
+			facing = sign (obj_player.x - x);
 			//determine_facing();
 		}
 		
@@ -243,16 +246,15 @@ fsm
 			image_index = 0;
 			
 			//make it so u can grapple to the enemy adn carry momentum through them
-			
+			create_enemy_grapple_target(self, x, y, 30, 200);
 		},
 		step: function() {
 			
-			if(hp <= 0){
-				fsm.change("dead");
-			}
+			if(hp <= 0 or grappled_to) fsm.change("dead");
+			
+			
 			hsp = lerp(hsp, 0, .15);
 			if abs(hsp) <= 0.01 hsp = 0;
-			//collision and move
 			collide_and_move();
 		}
 		
@@ -273,6 +275,8 @@ fsm
 			hit_pause(20)
 			
 			slide_hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
+			//in case died to grapple;
+			hp = 0;
 			
 		},
 		step: function() {

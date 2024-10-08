@@ -37,7 +37,7 @@ if (stored_velocity != 0) {
 	}
 }
 
-//change sound for material youre on 
+//change sound for material youre on TODO: fix this oop later
 if(place_meeting(x, y, obj_water)){
 	walking_on = snd_water_walk;
 } else {

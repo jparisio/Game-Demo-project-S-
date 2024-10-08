@@ -24,10 +24,16 @@ can_grapple = false;
 grapple_target = noone;
 grapple_move_speed_x = 0;
 grapple_move_speed_y = 0;
+grapple_new_x = 0;
+grapple_new_y = 0;
 grapple_speed = 7;
+grapple_direction = 0;
 katana = noone;
+grapple_frames = 4;
+grapple_target_dist = 0;
 grapple_cooldown = 0;
 grapple_cooldown_max = 30;
+grapple_coll_line = 0;
 tween = 0;
 //respawn 
 respawn_point = noone;
@@ -298,6 +304,16 @@ fsm
 			//cutscene
 			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
 			
+			
+			//grapple
+			if(grapple_target != noone){
+				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
+				//show_debug_message(coll)
+			}
+			
+			//grapple check
+			if(can_grapple and throw_grapple and grapple_coll_line == -4) fsm.change("grapple initiate");
+			
 	   }
   })
   
@@ -419,6 +435,15 @@ fsm
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
 			
+			//grapple
+			if(grapple_target != noone){
+				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
+				//show_debug_message(coll)
+			}
+			
+			//grapple check
+			if(can_grapple and throw_grapple and grapple_coll_line == -4) fsm.change("grapple initiate");
+			
 	  }
 })
 	
@@ -450,7 +475,7 @@ fsm
 				walksp = 0;
 				hsp = 0;
 				if(fsm.get_previous_state() == "wall jump"){
-					approach_walksp = 0.03;
+					approach_walksp = 0.025;
 				} else {
 					approach_walksp = 0.1;
 				}
@@ -471,12 +496,13 @@ fsm
 			//variable jump
 			if(!input_check("jump")) vsp = max(vsp, -2);
 			
-			//half grav at peak of jump
+			//half grav at peak of jump 
 			if(vsp >= -0.4 and vsp <= 0.4){
 				grv = peak_grv;
 			} else {
 				grv = global_grv;
 			}
+		
 			
 			//show_debug_message("vsp is :" + string(vsp));
 			//show_debug_message("grv is :" + string(grv));  
@@ -521,24 +547,21 @@ fsm
 			
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
+			
+			//grapple
 			if(grapple_target != noone){
-				var coll = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_24_wall, false, false)
+				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
 				//show_debug_message(coll)
 			}
 			
 			//grapple check
-			if(can_grapple and throw_grapple and coll == -4) fsm.change("grapple initiate");
+			if(can_grapple and throw_grapple and grapple_coll_line == -4) fsm.change("grapple initiate");
 			
 			//wall slide check
 			if(place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0){
 				fsm.change("wall slide");
 			} 
 			
-			////cutscene 
-			//if place_meeting(x, y, obj_cutscene_collision){
-			//	hsp = 0;
-			//	fsm.change("dialogue");
-			//}
 	  }
 })
 
@@ -835,60 +858,60 @@ fsm
 })
 
 
-.add("grapple initiate", {
+	.add("grapple initiate", {
 
-    enter: function() {
+	    enter: function() {
 		
-		//set hsp and vsp to 0
-		hsp = 0;
-		vsp = 0;
-		//play throw sound
-		audio_play_sound(snd_grapple_throw, 10, 0);
-		//reset grapple flag
-		can_grapple = false;
-        // Set the player's sprite to a jumping or grappling sprite
-        sprite_index = spr_jump;
-		facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
+			//set hsp and vsp to 0
+			hsp = 0;
+			vsp = 0;
+			//play throw sound
+			audio_play_sound(snd_grapple_throw, 10, 0);
+			//reset grapple flag
+			can_grapple = false;
+	        // Set the player's sprite to a jumping or grappling sprite
+	        sprite_index = spr_jump;
+			facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
 
-        // Calculate the direction and speed to move toward the grapple point
-        var dx = grapple_target.x - x;
-        var dy = grapple_target.y - (y - sprite_height / 2);
-        var dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+	        // Calculate the direction and speed to move toward the grapple point
+	        var dx = grapple_target.x - x;
+	        var dy = grapple_target.y - (y - sprite_height / 2);
+	        var dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 
-        // Calculate the katana's speed (twice the grapple speed)
-        var katana_speed = grapple_speed * 1.5;
-        var katana_move_speed_x = dx / dist * katana_speed;
-        var katana_move_speed_y = dy / dist * katana_speed;
+	        // Calculate the katana's speed (twice the grapple speed)
+	        var katana_speed = grapple_speed * 1.5;
+	        var katana_move_speed_x = dx / dist * katana_speed;
+	        var katana_move_speed_y = dy / dist * katana_speed;
 
-        // Create and launch the katana object toward the grapple point
-        var katana = instance_create_layer(x, y - sprite_height / 2, "Instances", obj_katana);
-        katana.hspeed = katana_move_speed_x;
-        katana.vspeed = katana_move_speed_y;
-        katana.image_angle = point_direction(x, y, grapple_target.x, grapple_target.y);
+	        // Create and launch the katana object toward the grapple point
+	        var katana = instance_create_layer(x, y - sprite_height / 2, "Instances", obj_katana);
+	        katana.hspeed = katana_move_speed_x;
+	        katana.vspeed = katana_move_speed_y;
+	        katana.image_angle = point_direction(x, y, grapple_target.x, grapple_target.y);
 
-        // Store the grapple movement speed for later use
-        //grapple_move_speed_x = dx / dist * grapple_speed;
-        //grapple_move_speed_y = dy / dist * grapple_speed;
+	        // Store the grapple movement speed for later use
+	        //grapple_move_speed_x = dx / dist * grapple_speed;
+	        //grapple_move_speed_y = dy / dist * grapple_speed;
 
-        // Store the katana reference to check its position later
-        self.katana = katana;
-    },
+	        // Store the katana reference to check its position later
+	        self.katana = katana;
+	    },
 
-    step: function() {
-		//TweenEasyMove(x, y, grapple_target.x, grapple_target.y, 0, 30, EaseInOutSine);
-        // Check if the katana has reached the grapple point
-        if (instance_place(katana.x, katana.y, obj_grapple_point)) {
-            // Snap the katana to the grapple point and destroy it
-            katana.x = grapple_target.x;
-            katana.y = grapple_target.y;
-			katana.speed = 0;
-            //instance_destroy(katana);
+	    step: function() {
+			//TweenEasyMove(x, y, grapple_target.x, grapple_target.y, 0, 30, EaseInOutSine);
+	        // Check if the katana has reached the grapple point
+	        if (instance_place(katana.x, katana.y, obj_grapple_point)) {
+	            // Snap the katana to the grapple point and destroy it
+	            katana.x = grapple_target.x;
+	            katana.y = grapple_target.y;
+				katana.speed = 0;
+	            //instance_destroy(katana);
 
-            // Transition to the grapple move state
-            fsm.change("grapple move");
-        }
-    }
-})
+	            // Transition to the grapple move state
+	            fsm.change("grapple move");
+	        }
+	    }
+	})
 
 	
 	
@@ -896,31 +919,60 @@ fsm
 		
 			enter: function(){
 				audio_play_sound(snd_grapple_rope, 10, 0);
+				//set these for if player moves through the grapple target
 			},
 		
 			step: function(){
-					// Move the player along the line towards the grapple point
-			        tween = TweenEasyMove(x, y, grapple_target.x, grapple_target.y + 30, 0, 30, EaseOutElastic);
-					
-			         //Check if the player has reached the grapple point
-			        var dist_to_target = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
-					
-        
-			        if (dist_to_target <= grapple_speed) {
-			            // Snap to the exact grapple point
-			            x = grapple_target.x;
-			            y = grapple_target.y + sprite_height / 2;
-            
-			            // Transition to the "grapple complete" state
-			            fsm.change("grapple complete");
+				// Move the player along the line towards the grapple point
+			    //tween = TweenEasyMove(x, y, grapple_target.x, grapple_target.y + 30, 0, 30, EaseOutElastic);
+				//work tweens in later	
+			     
+			    grapple_target_dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+				grapple_direction = point_direction(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
+				hsp = lengthdir_x(grapple_target_dist, grapple_direction) * 0.5;
+				vsp = lengthdir_y(grapple_target_dist, grapple_direction) * 0.5;
+				//x += hsp;
+				//y += vsp;
+				collide_and_move(hsp, vsp);
+				
+				//nudge the player up a bit if there stuck on a wall
+				//right check
+				//if place_meeting(bbox_right, y, obj_wall_parent){
+				//	if !position_meeting(bbox_right + 32, bbox_bottom - 10, obj_wall_parent){
+				//		//show_debug_message("were free here")
+				//		x += 32;
+				//		y -= 10;
+				//	}
+				//}
+				////left check
+				//if place_meeting(bbox_left, y, obj_wall_parent){
+				//	if !position_meeting(bbox_left, bbox_bottom - 4, obj_wall_parent){
+				//		//show_debug_message("were free here")
+				//		x += 32;
+				//		y -= 10;
+				//	}
+				//}
+				
+			
+				//Check if the player has reached the grapple point
+			    if (grapple_target_dist <= grapple_speed) {
+			        // Transition to the "grapple complete" state
+					if (grapple_target.creator == "enemy"){
+						fsm.change("grapple enemy");
+					} else {
+						fsm.change("grapple hang");
 					}
+				}
 				
 			}
 	})
 	
-	.add("grapple complete", {
+	.add("grapple hang", {
 		
 			enter: function(){
+				// Snap to the exact grapple point
+				x = grapple_target.x;
+				y = grapple_target.y + sprite_height / 2;
 				grapple_cooldown = grapple_cooldown_max;
 				audio_stop_sound(snd_grapple_rope);
 				audio_play_sound(snd_grapple_rope_complete, 10 , 0);
@@ -930,23 +982,53 @@ fsm
 			},
 		
 			step: function(){
-				//better_solution
 				if(input_check_pressed("jump")){
 						TweenDestroy(tween);
 						grapple_target.cooldown = true;
 						vsp = vsp_jump;
 						fsm.change("jump");
 				}
-				//grapple_cooldown--;
-				//if grapple_cooldown <= 0 {
-				//	if(input_check_pressed("jump")){
-				//		grapple_target.cooldown = true;
-				//		vsp = vsp_jump;
-				//		fsm.change("jump");
-				//	}
-				//}
 			}
 	})
+	
+	
+	.add("grapple enemy", {
+			enter: function() {
+				grapple_cooldown = grapple_cooldown_max;
+				audio_stop_sound(snd_grapple_rope);
+				audio_play_sound(snd_grapple_rope_complete, 10, 0);
+				instance_destroy(katana);
+				//set enemy id attached to the grapple to dead state
+				grapple_target.follow.grappled_to = true;
+				create_shake();
+				
+				//gain a dash
+				can_dash = true;
+				
+				//clean up left over grapple
+				instance_destroy(grapple_target);
+				grapple_target = noone;
+				can_grapple = false;
+		
+				// Keep momentum for a few frames
+				grapple_frames = 6;
+				hsp *= 3;
+				vsp *= 3;
+			},
+	
+			step: function() {
+				// Continue momentum from the last direction
+				grapple_frames--;
+					
+				// Move player using hsp and vsp
+				collide_and_move(hsp, vsp);
+		
+				// End state after 4 frames
+				if (grapple_frames <= 0) {
+					if on_ground fsm.change("idle") else fsm.change("jump");
+				}
+			}
+		})
 	
 	.add("cutscene", {
 		

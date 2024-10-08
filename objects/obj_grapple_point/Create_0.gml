@@ -4,7 +4,10 @@ alarm[0] = -1;
 cooldown = false;
 radius = 140;
 coll_line = 0;
-
+draw_line_ = false;
+follow = noone;
+creator = noone;
+offset = 0;
 
 // Define the FSM structure
 fsm = new SnowState("inactive");
@@ -20,10 +23,11 @@ fsm
         },
         step: function() {
             // Check if player is within range and not in cooldown
-            if (point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) && !cooldown && coll_line == -4 ) {
-                // Transition to 'active' state
-                fsm.change("active");
-            }
+            if (point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) && !cooldown){
+				draw_line_ = true;
+                coll_line = collision_line(x, y, obj_player.x, obj_player.y - 20, obj_wall_parent, false, true)
+                 if (coll_line == -4) fsm.change("active") 
+            } else draw_line_ = false;
         }
     })
     .add("active", {

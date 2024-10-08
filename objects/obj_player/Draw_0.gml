@@ -21,3 +21,5 @@ if (!instance_exists(obj_hurtbox) and be_invulnerable) {
 //}
 
 //draw_text(x, y - 40, string(can_grapple));
+
+//draw_circle(bbox_right + 32, bbox_bottom - 10, 1, false);

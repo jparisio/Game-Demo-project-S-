@@ -290,7 +290,7 @@ fsm
 			if(dash and can_dash) fsm.change("dash");
 			
 			//edge case for falling off block
-			if(!place_meeting(x, y + 1, obj_wall_parent) and fsm.get_previous_state() == "run"){
+			if(!place_meeting(x, y + 1, obj_wall_parent)){
 				fsm.change("jump");
 			}
 			
@@ -879,7 +879,7 @@ fsm
 	        var dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 
 	        // Calculate the katana's speed (twice the grapple speed)
-	        var katana_speed = grapple_speed * 1.5;
+	        var katana_speed = grapple_speed * 3;
 	        var katana_move_speed_x = dx / dist * katana_speed;
 	        var katana_move_speed_y = dy / dist * katana_speed;
 
@@ -888,11 +888,7 @@ fsm
 	        katana.hspeed = katana_move_speed_x;
 	        katana.vspeed = katana_move_speed_y;
 	        katana.image_angle = point_direction(x, y, grapple_target.x, grapple_target.y);
-
-	        // Store the grapple movement speed for later use
-	        //grapple_move_speed_x = dx / dist * grapple_speed;
-	        //grapple_move_speed_y = dy / dist * grapple_speed;
-
+			
 	        // Store the katana reference to check its position later
 	        self.katana = katana;
 	    },
@@ -931,31 +927,34 @@ fsm
 				grapple_direction = point_direction(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 				hsp = lengthdir_x(grapple_target_dist, grapple_direction) * 0.5;
 				vsp = lengthdir_y(grapple_target_dist, grapple_direction) * 0.5;
-				//x += hsp;
-				//y += vsp;
-				collide_and_move(hsp, vsp);
+				x += hsp;
+				y += vsp;
 				
-				//nudge the player up a bit if there stuck on a wall
-				//right check
-				//if place_meeting(bbox_right, y, obj_wall_parent){
-				//	if !position_meeting(bbox_right + 32, bbox_bottom - 10, obj_wall_parent){
-				//		//show_debug_message("were free here")
-				//		x += 32;
-				//		y -= 10;
-				//	}
-				//}
-				////left check
-				//if place_meeting(bbox_left, y, obj_wall_parent){
-				//	if !position_meeting(bbox_left, bbox_bottom - 4, obj_wall_parent){
-				//		//show_debug_message("were free here")
-				//		x += 32;
-				//		y -= 10;
-				//	}
-				//}
+				//here check for the spot your ending up at make sure its not in a wall
 				
 			
 				//Check if the player has reached the grapple point
 			    if (grapple_target_dist <= grapple_speed) {
+					// Make sure the player is not inside a wall
+				     // Adjust upwards (top)
+				    while (place_meeting(x, bbox_top, obj_wall_parent)) {
+				        y += 1;
+				    }
+    
+				    // Adjust downwards (bottom)
+				    while (place_meeting(x, bbox_bottom, obj_wall_parent)) {
+				        y -= 1;
+				    }
+    
+				    // Adjust left (left side)
+				    while (place_meeting(bbox_left, y, obj_wall_parent)) {
+				        x += 1;
+				    }
+    
+				    // Adjust right (right side)
+				    while (place_meeting(bbox_right, y, obj_wall_parent)) {
+				        x -= 1;
+				    }
 			        // Transition to the "grapple complete" state
 					if (grapple_target.creator == "enemy"){
 						fsm.change("grapple enemy");

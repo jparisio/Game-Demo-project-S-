@@ -89,6 +89,7 @@
     {"name":"acCubicOut","order":11,"path":"animcurves/acCubicOut/acCubicOut.yy",},
     {"name":"sh_hit","order":2,"path":"shaders/sh_hit/sh_hit.yy",},
     {"name":"spr_neon_sign_5","order":13,"path":"sprites/spr_neon_sign_5/spr_neon_sign_5.yy",},
+    {"name":"obj_one_way_plat","order":8,"path":"objects/obj_one_way_plat/obj_one_way_plat.yy",},
     {"name":"spr_exit","order":1,"path":"sprites/spr_exit/spr_exit.yy",},
     {"name":"snd_reload","order":2,"path":"sounds/snd_reload/snd_reload.yy",},
     {"name":"spr_floors","order":7,"path":"sprites/spr_floors/spr_floors.yy",},

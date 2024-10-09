@@ -237,6 +237,7 @@
     {"name":"spr_large_cloud_bg1","order":5,"path":"sprites/spr_large_cloud_bg1/spr_large_cloud_bg1.yy",},
     {"name":"spr_crosshair","order":1,"path":"sprites/spr_crosshair/spr_crosshair.yy",},
     {"name":"spr_shinto3","order":2,"path":"sprites/spr_shinto3/spr_shinto3.yy",},
+    {"name":"onGround","order":9,"path":"scripts/onGround/onGround.yy",},
     {"name":"spr_tree_dark","order":13,"path":"sprites/spr_tree_dark/spr_tree_dark.yy",},
     {"name":"snd_temp_song","order":8,"path":"sounds/snd_temp_song/snd_temp_song.yy",},
     {"name":"snd_rocket_startup","order":3,"path":"sounds/snd_rocket_startup/snd_rocket_startup.yy",},

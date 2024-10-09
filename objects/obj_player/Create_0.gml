@@ -101,6 +101,7 @@ y_dir = 0;
 hit_dir = -1;
 
 on_ground = 0;
+on_one_way = false;
 
 move_amount = 0;
 
@@ -183,8 +184,20 @@ get_input_and_move = function() {
 	    }
 	    vsp = 0;
 	}
-	y += vsp;
 	
+	//one way
+	var _one_way = instance_place(x, y + max(1, vsp), obj_one_way_plat);
+	if _one_way != noone {
+	if bbox_bottom < _one_way.bbox_bottom && vsp > 0 && !keyboard_check(vk_down)
+		{
+		//stop moving or snap player to other.bbox_top eg.
+		  y = _one_way.bbox_top - (bbox_bottom - y)
+		  vsp = 0;
+		}
+		
+	}
+	
+	y += vsp;
 	
 }
 
@@ -290,7 +303,7 @@ fsm
 			if(dash and can_dash) fsm.change("dash");
 			
 			//edge case for falling off block
-			if(!place_meeting(x, y + 1, obj_wall_parent)){
+			if(!onGround(self)){
 				fsm.change("jump");
 			}
 			
@@ -418,7 +431,7 @@ fsm
 			}
 			
 			//run off edge
-			if(!place_meeting(x, y + 1, obj_wall_parent)){
+			if(!onGround(self)){
 				coyote_time--;
 				vsp = 0;
 				//coyote time
@@ -529,12 +542,12 @@ fsm
 			if(input_check("jump") and can_jump) jump_buffer = jump_buffer_max;
 			if(jump_buffer >= 0){
 				jump_buffer--;
-				if(place_meeting(x, y + 1, obj_wall_parent)){
+				if(onGround(self)){
 					vsp = vsp_jump;
 					sprite_index = spr_jump;
 					can_jump = false;
 				}
-			} else if(place_meeting(x, y + 1, obj_wall_parent)){
+			} else if(onGround(self)){
 				xscale = 1.25;
 				yscale = 0.75;
 				can_jump = false

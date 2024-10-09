@@ -2,7 +2,8 @@
 fsm.step();
 
 //check if on gorund or not
-on_ground = (place_meeting(x, y + 1, obj_wall_parent));
+on_ground = onGround(self)
+show_debug_message(onGround(self));
 if(on_ground){
 	decelerate = decelerate_ground;
 } else {
@@ -64,6 +65,8 @@ if instance_place(x, y, obj_respawner){
 cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
+
+//show_debug_message(vsp)
 
 
 //show_debug_message(hsp);

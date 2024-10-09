@@ -585,6 +585,7 @@
     {"id":{"name":"__input_key_is_ignored","path":"scripts/__input_key_is_ignored/__input_key_is_ignored.yy",},},
     {"id":{"name":"spr_shinto3","path":"sprites/spr_shinto3/spr_shinto3.yy",},},
     {"id":{"name":"__scribble_get_generator_state","path":"scripts/__scribble_get_generator_state/__scribble_get_generator_state.yy",},},
+    {"id":{"name":"onGround","path":"scripts/onGround/onGround.yy",},},
     {"id":{"name":"__input_restart_set","path":"scripts/__input_restart_set/__input_restart_set.yy",},},
     {"id":{"name":"spr_tree_dark","path":"sprites/spr_tree_dark/spr_tree_dark.yy",},},
     {"id":{"name":"__input_class_gamepad","path":"scripts/__input_class_gamepad/__input_class_gamepad.yy",},},

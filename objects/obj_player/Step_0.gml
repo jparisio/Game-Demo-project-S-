@@ -1,9 +1,33 @@
 //state machine
 fsm.step();
 
-//check if on gorund or not
+//check all grapples instances
+if(!ds_list_empty(grapple_target_list)){
+	//for each grapple point in the list check only the ones in front of you, then check dsitance and pick closest
+	var dist = 0;
+	for (var i = 0; i < ds_list_size(grapple_target_list); i++){		
+		if (dist < point_distance(x + hsp, y - sprite_height/2, grapple_target_list[|i].x, grapple_target_list[|i].y)){
+			dist = point_distance(x + hsp, y - sprite_height/2, grapple_target_list[|i].x,grapple_target_list[|i].y);
+			//make sure were not already mocing to a grapple point
+			if(fsm.get_current_state() != "grapple initiate" and fsm.get_current_state() != "grapple move"){
+				//set new grapple point
+				grapple_target = grapple_target_list[|i];
+			}
+		}
+		can_grapple = true;
+	}
+	//show_debug_message(grapple_target.x)
+} else {
+	
+	can_grapple = false;
+	grapple_target = noone;
+}
+
+//show_debug_message(ds_list_size(grapple_target_list))
+
+//check if on ground or not
 on_ground = onGround(self)
-show_debug_message(onGround(self));
+//show_debug_message(onGround(self));
 if(on_ground){
 	decelerate = decelerate_ground;
 } else {
@@ -67,6 +91,3 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
 //show_debug_message(vsp)
-
-
-//show_debug_message(hsp);

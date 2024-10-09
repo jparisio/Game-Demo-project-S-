@@ -5,8 +5,8 @@ flash_colour = c_white;
 //hori and verti move
 hsp = 0;
 vsp = 0;
-//grv = .27;
-grv = 0
+grv = .27;
+//grv = 0
 facing = 1;
 _speed = 1.3;
 starting_x = x;
@@ -44,38 +44,7 @@ _ended = false;
 slide = 9;
 slide_hsp = 0;
 
-//collide_and_move = function(){
-
-//vsp += grv;
-////hori
-//	if place_meeting(x+hsp,y,obj_wall_parent) {
-//	    while !place_meeting(x+sign(hsp),y,obj_wall_parent) {
-//	        x += sign(hsp);
-//	    }
-//	    hsp = 0;
-//		//show_debug_message(sprite_get_name(mask_index))
-//	}
-//	x += hsp;
-
-//	//vert
-//	if place_meeting(x,y + vsp,obj_wall_parent) {
-//	    while !place_meeting(x,y+sign(vsp),obj_wall_parent) {
-//	        y += sign(vsp);
-//	    }
-//	    vsp = 0;
-//	}
-//	y += vsp;
-
-//}
-
-////determine facing script
-//determine_facing = function(){
-	
-//	if(hsp != 0){
-//		facing = sign(hsp)
-//	}
-//}
-
+//inheret collisions
 event_inherited();
 	
 	

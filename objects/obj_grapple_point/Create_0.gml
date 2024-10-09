@@ -17,7 +17,7 @@ fsm
     .add("inactive", {
         enter: function() {
             // Actions to take when entering the 'inactive' state
-			obj_player.can_grapple = false;
+			//obj_player.can_grapple = false;
             image_index = 0; // Show the inactive image
 		
         },
@@ -25,29 +25,32 @@ fsm
             // Check if player is within range and not in cooldown
             if (point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) && !cooldown){
 				draw_line_ = true;
-                coll_line = collision_line(x, y, obj_player.x, obj_player.y - 20, obj_wall_parent, false, true)
-                 if (coll_line == -4) fsm.change("active") 
+                 if (!coll_line) fsm.change("active") 
             } else draw_line_ = false;
         }
     })
     .add("active", {
         enter: function() {
+			show_debug_message("should be adding to list here")
             image_index = 1; // Show the active image
-			obj_player.grapple_target = self;
-			
+			ds_list_add(obj_player.grapple_target_list, self);
 			
         },
         step: function() {
 			
-			obj_player.can_grapple = true;
+			
+			//obj_player.can_grapple = true;
             // Check if player is out of range or in cooldown
-            if (!point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) || cooldown || coll_line != -4 ) {
-                // Reset grapple target if it's this point
-                //if (obj_player.grapple_target == self) {
-                //    obj_player.grapple_target = noone;
-                //}
-                // Transition to 'inactive' state
-                fsm.change("inactive");
+            if (!point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) || cooldown || coll_line) {
+				//remove the point from the list if the players not already grappling to it
+				if(obj_player.fsm.get_current_state() != "grapple initiate" and obj_player.fsm.get_current_state() != "grapple move"){
+					show_debug_message("player state is: " + obj_player.fsm.get_current_state());
+	                var _i = ds_list_find_index(obj_player.grapple_target_list, self);
+					ds_list_delete(obj_player.grapple_target_list, _i);
+					obj_player.can_grapple = false;
+					fsm.change("inactive");
+				}
+                
             }
         }
     });

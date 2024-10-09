@@ -22,6 +22,7 @@ decelerate = decelerate_ground
 //grapples
 can_grapple = false;
 grapple_target = noone;
+grapple_target_list = ds_list_create();
 grapple_move_speed_x = 0;
 grapple_move_speed_y = 0;
 grapple_new_x = 0;
@@ -38,8 +39,6 @@ tween = 0;
 //respawn 
 respawn_point = noone;
 
-//ghost sprite switch
-global.ghost = false;
 // Sprites for Act 1 (scarlet)
 sprites_act1 = {
     idle: spr_idle,
@@ -105,7 +104,6 @@ on_one_way = false;
 
 move_amount = 0;
 
-global.game_speed = 1;
 slow_time_meter = 250;
 refill = 200;
 
@@ -127,15 +125,13 @@ already_hit = false;
 dialogue_buffer = 10
 talking = false
 
-//bosses
-global.boss_fight = false;
-
 //sound
 sound_frame_counter = 0;
 walking_on = snd_walk2;
 
 //cam
 cam_bounds = noone;
+
 
 //movement
 get_input_and_move = function() {
@@ -188,7 +184,7 @@ get_input_and_move = function() {
 	//one way
 	var _one_way = instance_place(x, y + max(1, vsp), obj_one_way_plat);
 	if _one_way != noone {
-	if bbox_bottom < _one_way.bbox_bottom && vsp > 0 && !keyboard_check(vk_down)
+	if bbox_bottom < _one_way.bbox_bottom && vsp > 0 && !down
 		{
 		//stop moving or snap player to other.bbox_top eg.
 		  y = _one_way.bbox_top - (bbox_bottom - y)
@@ -247,7 +243,7 @@ fsm
 			image_index = 0;
 			
 			//return after run or dash
-			if(fsm.get_previous_state() == "run" or fsm.get_previous_state() == "dash"){
+			if(fsm.get_previous_state() == "run" or fsm.get_previous_state() == "dash" or fsm.get_previous_state() == "grapple enemy"){
 				sprite_index = player_character.getSprite("rtoi");
 				image_index = 0;
 			}
@@ -568,7 +564,7 @@ fsm
 			}
 			
 			//grapple check
-			if(can_grapple and throw_grapple and grapple_coll_line == -4) fsm.change("grapple initiate");
+			if(can_grapple and throw_grapple and !grapple_coll_line) fsm.change("grapple initiate");
 			
 			//wall slide check
 			if(place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0){
@@ -1017,15 +1013,28 @@ fsm
 				//gain a dash
 				can_dash = true;
 				
+				
+				// Keep momentum for a few frames
+				grapple_frames = 9;
+				hsp *= 4;
+				vsp *= 4;
+				
+				vsp = clamp(vsp, vsp_jump, -vsp_jump);
+				
+				//add momentum to enemy
+				grapple_target.follow.hsp = hsp;
+				grapple_target.follow.vsp = vsp;
+				
 				//clean up left over grapple
+				var _i = ds_list_find_index(obj_player.grapple_target_list, grapple_target);
+				ds_list_delete(obj_player.grapple_target_list, _i);
 				instance_destroy(grapple_target);
 				grapple_target = noone;
 				can_grapple = false;
 		
-				// Keep momentum for a few frames
-				grapple_frames = 6;
-				hsp *= 3;
-				vsp *= 3;
+
+				
+				
 			},
 	
 			step: function() {

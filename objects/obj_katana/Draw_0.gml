@@ -8,7 +8,7 @@ var endY = obj_player.y - 30;
 var distance = point_distance(startX, startY, endX, endY);
 var _direction = point_direction(startX, startY, endX, endY);
 
-var amplitude = 5;
+//var amplitude = 5;
 var frequency = 0.1;
 
 // Calculate the number of segments based on the distance

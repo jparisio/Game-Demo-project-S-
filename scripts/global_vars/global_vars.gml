@@ -17,3 +17,8 @@ global.y_offset = 0.7;
 global.clamp_cam_min = 260;
 global.clamp_cam_max = 270;
 global.cam_follow_y = false;
+
+
+//app surface
+global.app_ratio_y = 1;
+global.app_ratio_x = 1;

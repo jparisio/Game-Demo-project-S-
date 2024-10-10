@@ -1004,7 +1004,9 @@ fsm
 			enter: function() {
 				grapple_cooldown = grapple_cooldown_max;
 				audio_stop_sound(snd_grapple_rope);
-				audio_play_sound(snd_grapple_rope_complete, 10, 0);
+				audio_play_sound(snd_injured, 13, 0, 20, 0.1, 1);
+				audio_play_sound(snd_unsheath, 12, 0, 40, 0.1, 1);
+				//audio_play_sound(snd_old_dash, 10, 0, 3, 0, 2);
 				instance_destroy(katana);
 				//set enemy id attached to the grapple to dead state
 				grapple_target.follow.grappled_to = true;
@@ -1022,8 +1024,8 @@ fsm
 				vsp = clamp(vsp, vsp_jump, -vsp_jump);
 				
 				//add momentum to enemy
-				grapple_target.follow.hsp = hsp;
-				grapple_target.follow.vsp = vsp;
+				grapple_target.follow.hsp = hsp / 2;
+				grapple_target.follow.vsp = vsp / 2;
 				
 				//clean up left over grapple
 				var _i = ds_list_find_index(obj_player.grapple_target_list, grapple_target);

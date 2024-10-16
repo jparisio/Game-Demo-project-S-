@@ -59,17 +59,11 @@ sprites_act2 = {
 	dash: spr_dash2
 };
 
-// Create a character instance using the sprites
+// character instance with sprites
 player_character = character(sprites_act1, sprites_act2);
 
 //cutscenes
 cutscene_instance = noone;
-
-//set fullscreen
-//fullscreen = true;
-
-//window_set_fullscreen(true)
-//surface_resize(application_surface, display_get_width(), display_get_height())
 
 //squash and stretch
 xscale = 1;

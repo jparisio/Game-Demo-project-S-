@@ -7,6 +7,10 @@ global.game_speed = 1;
 global.boss_fight = false;
 
 
+//cutscenes 
+global.cutscene_ended = false;
+
+
 //cam properties
 global.cam_width = 640;
 global.cam_height = 320;

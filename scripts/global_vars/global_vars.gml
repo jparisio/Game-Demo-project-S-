@@ -1,5 +1,5 @@
 //ghost sprite switch
-global.ghost = false;
+global.ghost = true;
 
 global.game_speed = 1;
 

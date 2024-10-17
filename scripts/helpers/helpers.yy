@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "helpers",
+  "name": "Helpers",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

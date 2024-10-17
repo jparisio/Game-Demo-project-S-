@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "onGround",
+  "name": "on_ground",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

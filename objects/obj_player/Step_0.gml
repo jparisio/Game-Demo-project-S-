@@ -26,8 +26,8 @@ if(!ds_list_empty(grapple_target_list)){
 //show_debug_message(ds_list_size(grapple_target_list))
 
 //check if on ground or not
-on_ground = onGround(self)
-//show_debug_message(onGround(self));
+on_ground = on_ground(self)
+//show_debug_message(on_ground(self));
 if(on_ground){
 	decelerate = decelerate_ground;
 } else {

@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function onGround(_inst){
+function on_ground(_inst){
 	if place_meeting(_inst.x, _inst.y + 1, obj_wall_parent){
 		return true;
 	}

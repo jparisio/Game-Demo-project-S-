@@ -40,27 +40,35 @@ tween = 0;
 respawn_point = noone;
 
 // Sprites for Act 1 (scarlet)
-sprites_act1 = {
+sprites_scar = {
     idle: spr_idle,
     run: spr_run,
 	run_to_idle: spr_run_to_idle,
 	idle_to_run: spr_idle_to_run,
     jump: spr_jump,
-	dash: spr_dash2
+	jump_start: spr_jump_start,
+	jump_fall_start: spr_jump_fall_start,
+	jump_fall: spr_jump_fall,
+	dash: spr_dash2,
+	wall_slide: spr_wall_slide
 };
 
 // Sprites for Act 2 (ghost switch)
-sprites_act2 = {
+sprites_ghost = {
     idle: spr_ghost_idle,
     run: spr_run,
 	run_to_idle: spr_run_to_idle,
 	idle_to_run: spr_idle_to_run,
-    jump: spr_jump,
-	dash: spr_dash2
+    jump: spr_ghost_jump,
+	jump_start: spr_ghost_jump,
+	jump_fall_start: spr_ghost_jump,
+	jump_fall: spr_ghost_jump,
+	dash: spr_dash2,
+	wall_slide: spr_ghost_wall_slide
 };
 
 // character instance with sprites
-player_character = character(sprites_act1, sprites_act2);
+player_character = character(sprites_scar, sprites_ghost);
 
 //cutscenes
 cutscene_instance = noone;
@@ -233,18 +241,18 @@ fsm
 	.add("idle", {
 		enter: function() {
 			//normal return to idle
-			sprite_index = player_character.getSprite("idle");
+			sprite_index = player_character.setSprite("idle");
 			image_index = 0;
 			
 			//return after run or dash
 			if(fsm.get_previous_state() == "run" or fsm.get_previous_state() == "dash" or fsm.get_previous_state() == "grapple enemy"){
-				sprite_index = player_character.getSprite("rtoi");
+				sprite_index = player_character.setSprite("rtoi");
 				image_index = 0;
 			}
 			
 			//return after jump !TODO: this is a temp landing animation
 			if(fsm.get_previous_state() == "jump"){
-				sprite_index = player_character.getSprite("rtoi");
+				sprite_index = player_character.setSprite("rtoi");
 				image_index = 0;
 			}
 			//for move cap stuff
@@ -254,8 +262,8 @@ fsm
 		step: function() {
 			
 			//transition from running to idle animation
-			if(sprite_index == player_character.getSprite("rtoi")) and animation_end(){
-				sprite_index = player_character.getSprite("idle");
+			if(player_character.getSpriteState() == "rtoi") and animation_end(){
+				sprite_index = player_character.setSprite("idle");
 				image_index = 0;
 			}
 			
@@ -293,7 +301,7 @@ fsm
 			if(dash and can_dash) fsm.change("dash");
 			
 			//edge case for falling off block
-			if(!onGround(self)){
+			if(!on_ground(self)){
 				fsm.change("jump");
 			}
 			
@@ -329,7 +337,7 @@ fsm
 			
 			//run to idle
 			if(fsm.get_previous_state() == "idle"){
-				sprite_index = player_character.getSprite("itor");
+				sprite_index = player_character.setSprite("itor");
 				image_index = 0;
 			}
 			
@@ -356,8 +364,8 @@ fsm
 			
 			
 			//transition from idle to run animation
-			if(sprite_index ==  player_character.getSprite("itor")) and animation_end(){
-				sprite_index = player_character.getSprite("run");
+			if(sprite_index ==  player_character.setSprite("itor")) and animation_end(){
+				sprite_index = player_character.setSprite("run");
 				image_index = 0;
 			}
 			
@@ -421,7 +429,7 @@ fsm
 			}
 			
 			//run off edge
-			if(!onGround(self)){
+			if(!on_ground(self)){
 				coyote_time--;
 				vsp = 0;
 				//coyote time
@@ -455,7 +463,7 @@ fsm
 	.add("jump", {
 		
 		enter: function(){
-			sprite_index = spr_jump_start;
+			sprite_index =  player_character.setSprite("jstart");
 			image_index = 0;
 			if(fsm.get_previous_state() == "dash"){
 				sprite_index = spr_dash_to_jump;
@@ -491,8 +499,9 @@ fsm
 			
 
 			//change animations
-			if(sprite_index == spr_jump_start and animation_end()){
-				sprite_index = player_character.getSprite("jump");
+			//show_debug_message( player_character.getSpriteState());
+			if(player_character.getSpriteState() == "jstart" and animation_end()){
+				sprite_index =  player_character.setSprite("jump");
 				image_index = 0;
 			}
 			
@@ -512,13 +521,13 @@ fsm
 			
 			//animations
 			if (vsp >= 0.5 and vsp <= 1 and sprite_index != spr_dash_to_jump){ //this is because we dont want it to be stuck on index 0 for forever we want it to only activate at the turn  around point
-				sprite_index = spr_jump_fall_start;
+				sprite_index =  player_character.setSprite("jfalls");
 				image_index = 0;
 			}
 
-			
-			if(sprite_index == spr_jump_fall_start and animation_end() or sprite_index == spr_dash_to_jump and animation_end()){
-				sprite_index = spr_jump_fall;
+			//if not equal to jump fall start anim 
+			if(player_character.getSpriteState() == "jfalls" and animation_end() or sprite_index == spr_dash_to_jump and animation_end()){
+				sprite_index =  player_character.setSprite("jfall");
 				image_index = 0;
 			}
 			
@@ -532,12 +541,12 @@ fsm
 			if(input_check("jump") and can_jump) jump_buffer = jump_buffer_max;
 			if(jump_buffer >= 0){
 				jump_buffer--;
-				if(onGround(self)){
+				if(on_ground(self)){
 					vsp = vsp_jump;
-					sprite_index = spr_jump;
+					sprite_index =  player_character.setSprite("jstart");
 					can_jump = false;
 				}
-			} else if(onGround(self)){
+			} else if(on_ground(self)){
 				xscale = 1.25;
 				yscale = 0.75;
 				can_jump = false
@@ -573,7 +582,7 @@ fsm
 		enter: function(){
 			grv = global_grv;
 			grv = grv * wall_fric;
-			sprite_index = spr_wall_slide;
+			sprite_index = player_character.setSprite("wslide");
 			//approach_walksp = 0.04;
 			audio_play_sound(snd_wall_slide, 0, 1);
 		},
@@ -709,7 +718,7 @@ fsm
 	.add("dash", {
 		
 		enter: function(){
-			sprite_index =  player_character.getSprite("dash");
+			sprite_index =  player_character.setSprite("dash");
 			image_index = 0;
 			image_speed = 1;
 			with(instance_create_layer(x, y, "Instances", obj_dust_jump)){

@@ -29,10 +29,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_katana",
-    "path": "sprites/spr_katana/spr_katana.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

@@ -6,8 +6,11 @@ radius = 140;
 coll_line = 0;
 draw_line_ = false;
 follow = noone;
-creator = noone;
+grapple_type = noone;
 offset = 0;
+//mouse hover
+mouse_hovering = false;
+hover_radius = 40;
 
 // Define the FSM structure
 fsm = new SnowState("inactive");

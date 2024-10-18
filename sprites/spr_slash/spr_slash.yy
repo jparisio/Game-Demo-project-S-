@@ -4,7 +4,7 @@
   "name": "spr_slash",
   "bbox_bottom": 92,
   "bbox_left": 1,
-  "bbox_right": 92,
+  "bbox_right": 99,
   "bbox_top": 28,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -22,6 +22,7 @@
   "height": 100,
   "HTile": false,
   "layers": [
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"71a45fb1-55a1-478a-ac5a-a139a23e96f7","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4355d285-2c50-4c0e-a1b3-bad63dbfa519","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,

@@ -44,4 +44,4 @@ for (var i = 0; i <= segments; i++) {
 draw_primitive_end();
 
 
-draw_self();
+//draw_self();

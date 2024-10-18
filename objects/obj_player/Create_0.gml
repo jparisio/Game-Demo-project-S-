@@ -101,7 +101,7 @@ y_dir = 0;
 
 hit_dir = -1;
 
-on_ground = 0;
+//on_ground = 0;
 on_one_way = false;
 
 move_amount = 0;
@@ -341,6 +341,7 @@ fsm
 				image_index = 0;
 			}
 			
+			//pick up from dash frame in the run cycle
 			if(fsm.get_previous_state() == "dash"){
 				image_index = 5;
 			}
@@ -378,7 +379,8 @@ fsm
 				input_dir = sign(facing);
 				walksp = 0;
 				hsp = 0;
-				fsm.change("idle");
+				sprite_index = player_character.setSprite("itor");
+				image_index = 0;
 			}
 			
 			//for cutscene 
@@ -475,7 +477,8 @@ fsm
 			input_dir = sign(facing);
 			//make air accel slower
 			approach_walksp = 0.1;
-			//show_debug_message("START JUMP")
+			//carry momentum from the wall jump
+			if fsm.get_previous_state() == "wall jump" walksp  = 4;
 		},
 		
 		step: function(){
@@ -603,6 +606,14 @@ fsm
 				grv = global_grv;
 				audio_stop_sound(snd_wall_slide);
 				fsm.change("jump");
+			}
+			
+			//slide into ground sends you to idle
+			if(place_meeting(x, y + 1, obj_wall_parent)){
+				facing *= -1;
+				grv = global_grv;
+				audio_stop_sound(snd_wall_slide);
+				fsm.change("idle");
 			}
 			//show_debug_message(vsp)
 			//cap the vsp on the wall
@@ -882,7 +893,7 @@ fsm
 			//reset grapple flag
 			can_grapple = false;
 	        // Set the player's sprite to a jumping or grappling sprite
-	        sprite_index = spr_jump;
+	        sprite_index =  player_character.setSprite("jump");
 			facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
 
 	        // Calculate the direction and speed to move toward the grapple point
@@ -890,7 +901,7 @@ fsm
 	        var dy = grapple_target.y - (y - sprite_height / 2);
 	        var dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 
-	        // Calculate the katana's speed (twice the grapple speed)
+	        // Calculate the katana's speed (triple the grapple speed)
 	        var katana_speed = grapple_speed * 3;
 	        var katana_move_speed_x = dx / dist * katana_speed;
 	        var katana_move_speed_y = dy / dist * katana_speed;
@@ -968,7 +979,7 @@ fsm
 				        x -= 1;
 				    }
 			        // Transition to the "grapple complete" state
-					if (grapple_target.creator == "enemy"){
+					if (grapple_target.grapple_type == "enemy"){
 						fsm.change("grapple enemy");
 					} else {
 						fsm.change("grapple hang");
@@ -1019,11 +1030,12 @@ fsm
 				can_dash = true;
 				
 				
-				// Keep momentum for a few frames
+				// Keep enhanced momentum for a few frames
 				grapple_frames = 9;
 				hsp *= 4;
 				vsp *= 4;
 				
+				//clamp jump to max jump so you cant go flying
 				vsp = clamp(vsp, vsp_jump, -vsp_jump);
 				
 				//add momentum to enemy
@@ -1037,6 +1049,16 @@ fsm
 				grapple_target = noone;
 				can_grapple = false;
 		
+				//create the slash 
+				// Handle flipping
+				var y_dir = 0;
+				if((grapple_direction > 90) and (grapple_direction < 270)){
+					y_dir = -1;
+				} else {
+					y_dir = 1;
+				}
+				
+				instance_create_layer(x, y - sprite_height / 2, "Instances", obj_grapple_slash, {image_angle: grapple_direction}).image_yscale = y_dir;
 
 				
 				
@@ -1077,6 +1099,7 @@ fsm
 	.add("dead", {
 		
 			enter: function(){
+					//entire is a placeholder state for now
 					audio_stop_all();
 					instance_create_layer(x, y, "Instances", obj_glitch);
 					if !audio_is_playing(snd_glitch) audio_play_sound(snd_glitch, 40, 0, 40, 0.9)

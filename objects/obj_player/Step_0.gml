@@ -2,33 +2,44 @@
 fsm.step();
 
 //check all grapples instances
-if(!ds_list_empty(grapple_target_list)){
-	//for each grapple point in the list check only the ones in front of you, then check dsitance and pick closest
-	var dist = 0;
-	for (var i = 0; i < ds_list_size(grapple_target_list); i++){		
-		if (dist < point_distance(x + hsp, y - sprite_height/2, grapple_target_list[|i].x, grapple_target_list[|i].y)){
-			dist = point_distance(x + hsp, y - sprite_height/2, grapple_target_list[|i].x,grapple_target_list[|i].y);
-			//make sure were not already mocing to a grapple point
-			if(fsm.get_current_state() != "grapple initiate" and fsm.get_current_state() != "grapple move"){
-				//set new grapple point
-				grapple_target = grapple_target_list[|i];
-			}
+if (!ds_list_empty(grapple_target_list)) {
+    var closest_dist = 9999; // Arbitrarily large number
+    for (var i = 0; i < ds_list_size(grapple_target_list); i++) {
+        var target = grapple_target_list[| i];
+        
+        // Check if this target is being hovered
+        if (target.mouse_hovering) {
+            var dist = point_distance(x + hsp, y - sprite_height / 2, target.x, target.y);
+            
+            // Check distance and if the target is closer
+            if (dist < closest_dist) {
+                closest_dist = dist;
+
+                // Make sure we're not already moving to a grapple point or in grapple states
+                if (fsm.get_current_state() != "grapple initiate" && fsm.get_current_state() != "grapple move" && fsm.get_current_state() != "grapple hang") {
+                    // Set the new grapple point
+                    grapple_target = target;
+                }
+            }
+			can_grapple = true;
+        } else {
+			//reset flag if stopped hovering (need to be hovering to move to grapple point)
+			can_grapple = false;
 		}
-		can_grapple = true;
-	}
-	//show_debug_message(grapple_target.x)
+    }
 } else {
-	
-	can_grapple = false;
-	grapple_target = noone;
+    // Reset if no valid targets
+    can_grapple = false;
+    grapple_target = noone;
 }
+
 
 //show_debug_message(ds_list_size(grapple_target_list))
 
 //check if on ground or not
-on_ground = on_ground(self)
+var _on_ground = on_ground(self)
 //show_debug_message(on_ground(self));
-if(on_ground){
+if(_on_ground){
 	decelerate = decelerate_ground;
 } else {
 	decelerate = decelerate_air;

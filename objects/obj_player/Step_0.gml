@@ -61,7 +61,7 @@ xscale = lerp(xscale, 1, 0.2);
 yscale = lerp(yscale, 1, 0.2);
 
 //reset the dash if on ground
-if (on_ground) can_dash = true;
+if (on_ground(self)) can_dash = true;
 
 //if theres a force applied to the player velocity, store it for 4 frames, thn clear it
 if (stored_velocity != 0) {

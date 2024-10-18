@@ -4,11 +4,13 @@ yscale = lerp(yscale, 1, .2);
 
 
 if(found_hover){
-	xscale = 3;
-	yscale = 3;
-	image_angle += 20;
+	if counter <= 30 counter += 1/30
+	xscale = AnimcurveTween(xscale, 3, acElasticOut, counter)
+	yscale = AnimcurveTween(yscale, 3, acElasticOut, counter)
+	image_angle += 5;
 } else {
 	image_angle = lerp(image_angle, 90, .4);
+	counter = 0;
 }
 
 

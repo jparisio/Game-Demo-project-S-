@@ -509,7 +509,8 @@ fsm
 			}
 			
 			//variable jump
-			if(!input_check("jump")) vsp = max(vsp, -2);
+			show_debug_message(fsm.get_previous_state())
+			if(!input_check("jump") and fsm.get_previous_state() != "grapple enemy") vsp = max(vsp, -2);
 			
 			//half grav at peak of jump 
 			if(vsp >= -0.4 and vsp <= 0.4){
@@ -1036,7 +1037,7 @@ fsm
 				vsp *= 4;
 				
 				//clamp jump to max jump so you cant go flying
-				vsp = clamp(vsp, vsp_jump, -vsp_jump);
+				vsp = clamp(vsp, vsp_jump / 1.5, -vsp_jump / 1.5);
 				
 				//add momentum to enemy
 				grapple_target.follow.hsp = hsp / 2;
@@ -1073,7 +1074,7 @@ fsm
 		
 				// End state after 4 frames
 				if (grapple_frames <= 0) {
-					if on_ground fsm.change("idle") else fsm.change("jump");
+					if on_ground(self) fsm.change("idle") else fsm.change("jump");
 				}
 			}
 		})

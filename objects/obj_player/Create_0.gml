@@ -156,12 +156,13 @@ get_input_and_move = function() {
 	var target_speed = move * max_walksp;  // Target speed is either max_walksp or -max_walksp based on direction
 
 	// Lerp hsp towards the target speed (transitioning smoothly)
-	hsp = Approach(hsp, target_speed, approach_walksp);  
+	if (left xor right) hsp = Approach(hsp, target_speed, approach_walksp);  
 
 	// Decelerate smoothly when no input is pressed
 	if (move == 0) {
 	    hsp = lerp(hsp, 0, decelerate);
 	}
+	
 
 	// If the speed is very small, stop completely
 	if(abs(hsp) <= .1) hsp = 0;
@@ -170,7 +171,7 @@ get_input_and_move = function() {
 	hsp = clamp(hsp, -(max_walksp + carried_momentum), max_walksp + carried_momentum);
 
 	// Gradually reduce carried momentum
-	carried_momentum = Approach(carried_momentum, 0, .3);
+	carried_momentum = Approach(carried_momentum, 0, decelerate);
 	
 	//add gravity
 	vsp+=grv;
@@ -386,8 +387,6 @@ fsm
 			//if turn around stop momentum
 			if(sign(facing) != input_dir){
 				input_dir = sign(facing);
-				walksp = 0;
-				hsp = 0;
 				sprite_index = player_character.setSprite("itor");
 				image_index = 0;
 			}

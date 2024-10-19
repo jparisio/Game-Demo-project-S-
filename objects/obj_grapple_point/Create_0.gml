@@ -12,6 +12,8 @@ offset = 0;
 mouse_hovering = false;
 hover_radius = 40;
 
+active = false;
+
 // Define the FSM structure
 fsm = new SnowState("inactive");
 
@@ -34,7 +36,7 @@ fsm
     })
     .add("active", {
         enter: function() {
-			show_debug_message("should be adding to list here")
+			//show_debug_message("should be adding to list here")
             image_index = 1; // Show the active image
 			ds_list_add(obj_player.grapple_target_list, self);
 			
@@ -47,7 +49,7 @@ fsm
             if (!point_in_circle(obj_player.x, obj_player.y - 20, x, y, radius) || cooldown || coll_line) {
 				//remove the point from the list if the players not already grappling to it
 				if(obj_player.fsm.get_current_state() != "grapple initiate" and obj_player.fsm.get_current_state() != "grapple move"){
-					show_debug_message("player state is: " + obj_player.fsm.get_current_state());
+					//show_debug_message("player state is: " + obj_player.fsm.get_current_state());
 	                var _i = ds_list_find_index(obj_player.grapple_target_list, self);
 					ds_list_delete(obj_player.grapple_target_list, _i);
 					obj_player.can_grapple = false;

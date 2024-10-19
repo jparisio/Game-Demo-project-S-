@@ -19,9 +19,11 @@ input_dir = 0;
 decelerate_ground = 0.2;
 decelerate_air = 0.1;
 decelerate = decelerate_ground
+carried_momentum = 0;
+max_carried_momentum = 4;
 //grapples
 can_grapple = false;
-grapple_target = noone;
+grapple_target = noone
 grapple_target_list = ds_list_create();
 grapple_move_speed_x = 0;
 grapple_move_speed_y = 0;
@@ -36,6 +38,7 @@ grapple_cooldown = 0;
 grapple_cooldown_max = 30;
 grapple_coll_line = 0;
 tween = 0;
+chainsaw_fly = false;
 //respawn 
 respawn_point = noone;
 
@@ -150,18 +153,24 @@ get_input_and_move = function() {
 	
 	//calc
 	var move = right - left;
+	var target_speed = move * max_walksp;  // Target speed is either max_walksp or -max_walksp based on direction
 
-	if(left xor right){
-		//walksp = lerp(walksp, max_walksp, approach_walksp);
-		walksp = Approach(walksp, max_walksp, approach_walksp);
-	} else {
-		walksp = 0;
+	// Lerp hsp towards the target speed (transitioning smoothly)
+	hsp = Approach(hsp, target_speed, approach_walksp);  
+
+	// Decelerate smoothly when no input is pressed
+	if (move == 0) {
+	    hsp = lerp(hsp, 0, decelerate);
 	}
-	walksp = min(walksp, max_walksp);
-	hsp += move * walksp;
-	hsp = lerp(hsp, 0, decelerate);
+
+	// If the speed is very small, stop completely
 	if(abs(hsp) <= .1) hsp = 0;
-	hsp = min(abs(hsp), max_walksp) * sign(hsp)
+
+	// Cap hsp to max_walksp and carried momentum
+	hsp = clamp(hsp, -(max_walksp + carried_momentum), max_walksp + carried_momentum);
+
+	// Gradually reduce carried momentum
+	carried_momentum = Approach(carried_momentum, 0, .3);
 	
 	//add gravity
 	vsp+=grv;
@@ -476,24 +485,25 @@ fsm
 			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
 			input_dir = sign(facing);
 			//make air accel slower
-			approach_walksp = 0.1;
-			//carry momentum from the wall jump
-			if fsm.get_previous_state() == "wall jump" walksp  = 4;
+			//approach_walksp = 0.1;
+			//carry momentum from the wall jump or grapple
+			if (fsm.get_previous_state() == "wall jump" || fsm.get_previous_state() == "grapple enemy") walksp  = max_walksp;
 		},
 		
 		step: function(){
 			
 			//carry momentum -> if player moves in the opposite direction of jump, cut their hsp/acceleration
-			if(sign(facing) != input_dir){
-				input_dir = sign(facing);
-				walksp = 0;
-				hsp = 0;
-				if(fsm.get_previous_state() == "wall jump"){
-					approach_walksp = 0.025;
-				} else {
-					approach_walksp = 0.1;
-				}
-			}
+			//if(sign(facing) != input_dir){
+			//	input_dir = sign(facing);
+			//	//walksp = 0;
+			//	//hsp = 0;
+			//	//carried_momentum = 0;
+			//	if(fsm.get_previous_state() == "wall jump" || fsm.get_previous_state() == "grapple enemy"){
+			//		approach_walksp = 0.025;
+			//	} else {
+			//		approach_walksp = 0.1;
+			//	}
+			//}
 
 			
 			//move
@@ -564,7 +574,7 @@ fsm
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
 			
-			//grapple
+			//-----grapple-----//
 			if(grapple_target != noone){
 				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
 				//show_debug_message(coll)
@@ -893,6 +903,7 @@ fsm
 			audio_play_sound(snd_grapple_throw, 10, 0);
 			//reset grapple flag
 			can_grapple = false;
+			chainsaw_fly = false;
 	        // Set the player's sprite to a jumping or grappling sprite
 	        sprite_index =  player_character.setSprite("jump");
 			facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
@@ -993,6 +1004,7 @@ fsm
 	.add("grapple hang", {
 		
 			enter: function(){
+				grapple_target.active = true;
 				// Snap to the exact grapple point
 				x = grapple_target.x;
 				y = grapple_target.y + sprite_height / 2;
@@ -1005,8 +1017,11 @@ fsm
 			},
 		
 			step: function(){
+				//stick to grapple
+				x = grapple_target.x;
+				y = grapple_target.y + sprite_height / 2;
 				if(input_check_pressed("jump")){
-						TweenDestroy(tween);
+						//TweenDestroy(tween);
 						grapple_target.cooldown = true;
 						vsp = vsp_jump;
 						fsm.change("jump");
@@ -1038,6 +1053,7 @@ fsm
 				
 				//clamp jump to max jump so you cant go flying
 				vsp = clamp(vsp, vsp_jump / 1.5, -vsp_jump / 1.5);
+				hsp = clamp(hsp, -(max_walksp + max_carried_momentum), (max_walksp + max_carried_momentum));
 				
 				//add momentum to enemy
 				grapple_target.follow.hsp = hsp / 2;
@@ -1074,6 +1090,7 @@ fsm
 		
 				// End state after 4 frames
 				if (grapple_frames <= 0) {
+					carried_momentum = abs(hsp) - max_walksp
 					if on_ground(self) fsm.change("idle") else fsm.change("jump");
 				}
 			}

@@ -7,3 +7,5 @@ yscale = 1;
 found_hover = false;
 
 counter = 0;
+
+previous_mouse_x = mouse_x;

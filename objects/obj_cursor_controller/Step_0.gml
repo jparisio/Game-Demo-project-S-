@@ -9,9 +9,25 @@ if(found_hover){
 	yscale = AnimcurveTween(yscale, 3, acElasticOut, counter)
 	image_angle += 5;
 } else {
-	image_angle = lerp(image_angle, 90, .4);
+	//calculate a spin ddepeding on how fast the mouse 
+	//is moved horizontally, and constanbtly smooth out to no spin wwhen mouse isnt moving 
 	counter = 0;
+	
+	var mouse_vel_x = mouse_x - previous_mouse_x;
+
+    var threshold = 2; // Adjust this value as needed
+
+	if (abs(mouse_vel_x) > threshold) {
+	    // Only apply the spin if the movement exceeds the threshold
+	    var spin_speed = 20;
+	    image_angle += mouse_vel_x * spin_speed;
+	}
+
+    // Smoothly reduce spin to stop when mouse stops moving
+	image_angle = lerp(image_angle, 0, 0.05);
 }
+
+previous_mouse_x = mouse_x;
 
 
 found_hover = false;

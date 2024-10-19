@@ -13,3 +13,11 @@ if (follow != noone) {
 	x = follow.x;
 	y = follow.y - offset;
 }
+
+
+//edge case for chainsaws 
+
+if (active && follow != noone && follow.object_index == obj_chainsaw) {
+    follow.active = true;
+}
+

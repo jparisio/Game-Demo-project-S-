@@ -6,7 +6,7 @@ global_grv = 0.27;
 grv = global_grv;
 walksp = 0;
 max_walksp = 4;
-approach_walksp_max = 0.3;
+approach_walksp_max = 0.4;
 approach_walksp = approach_walksp_max;
 coyote_time = 4;
 can_jump = true;
@@ -484,7 +484,7 @@ fsm
 			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
 			input_dir = sign(facing);
 			//make air accel slower
-			//approach_walksp = 0.1;
+			approach_walksp = 0.3;
 			//carry momentum from the wall jump or grapple
 			if (fsm.get_previous_state() == "wall jump" || fsm.get_previous_state() == "grapple enemy") walksp  = max_walksp;
 		},
@@ -1051,21 +1051,14 @@ fsm
 				vsp *= 4;
 				
 				//clamp jump to max jump so you cant go flying
-				vsp = clamp(vsp, vsp_jump / 1.5, -vsp_jump / 1.5);
+				vsp = clamp(vsp, -5, 5);
 				hsp = clamp(hsp, -(max_walksp + max_carried_momentum), (max_walksp + max_carried_momentum));
 				
 				//add momentum to enemy
 				grapple_target.follow.hsp = hsp / 2;
 				grapple_target.follow.vsp = vsp / 2;
-				
-				//clean up left over grapple
-				var _i = ds_list_find_index(obj_player.grapple_target_list, grapple_target);
-				ds_list_delete(obj_player.grapple_target_list, _i);
-				instance_destroy(grapple_target);
-				grapple_target = noone;
-				can_grapple = false;
 		
-				//create the slash 
+				//----create the slash---//
 				// Handle flipping
 				var y_dir = 0;
 				if((grapple_direction > 90) and (grapple_direction < 270)){
@@ -1073,10 +1066,17 @@ fsm
 				} else {
 					y_dir = 1;
 				}
-				
+				//create the actual slash
 				instance_create_layer(x, y - sprite_height / 2, "Instances", obj_grapple_slash, {image_angle: grapple_direction}).image_yscale = y_dir;
-
+				//create the hit effect
+				instance_create_layer(grapple_target.x, grapple_target.y, "Walls", obj_impact_frame, {image_angle: grapple_direction});
 				
+				
+				//clean up left over grapple
+				remove_grapple_point(grapple_target);
+				instance_destroy(grapple_target);
+				grapple_target = noone;
+				//can_grapple = false;
 				
 			},
 	

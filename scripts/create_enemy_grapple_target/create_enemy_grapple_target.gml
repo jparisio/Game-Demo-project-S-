@@ -7,5 +7,5 @@ function create_enemy_grapple_target(_follow, _x, _y, _offset, _radius = 140, gr
 	grap_point.image_xscale = grapple_scale;
 	grap_point.image_yscale = grapple_scale;
 	grap_point.visible = false;
-	
+	return grap_point;
 }

@@ -17,6 +17,8 @@ timer_switch_state = timer_max;
 timer_attack_max = 60 * 1;
 timer_attack = timer_attack_max;
 
+self_grapple = 0;
+
 //dir to move in
 move_dir = random_range(-1, 1)	
 
@@ -215,7 +217,7 @@ fsm
 			image_index = 0;
 			
 			//make it so u can grapple to the enemy adn carry momentum through them
-			create_enemy_grapple_target(self, x, y, 30, 200);
+			self_grapple = create_enemy_grapple_target(self, x, y, 30, 200);
 		},
 		step: function() {
 			
@@ -246,6 +248,9 @@ fsm
 			slide_hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
 			//in case died to grapple;
 			hp = 0;
+			
+			remove_grapple_point(self_grapple);
+			instance_destroy(self_grapple);
 			
 		},
 		step: function() {

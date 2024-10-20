@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_idle",
-    "path": "sprites/spr_idle/spr_idle.yy",
+    "name": "spr_ghost_idle",
+    "path": "sprites/spr_ghost_idle/spr_ghost_idle.yy",
   },
   "spriteMaskId": {
     "name": "spr_hurtbox",

@@ -37,7 +37,18 @@ if (follow == obj_player) {
 
 var _x = x - global.cam_width * global.x_offset;
 var _y = y - global.cam_height * global.y_offset;
+// Calculate thresholds
+//var upper_threshold = _y + (global.cam_height / 4);
+//var lower_threshold = _y + (global.cam_height * 3 / 4);
 
+//// Apply threshold logic
+//if (obj_player.y < upper_threshold) {
+//    _y = obj_player.y - (global.cam_height / 4);  // Center player at 1/4th height
+//} else if (obj_player.y > lower_threshold) {
+//    _y = obj_player.y - (global.cam_height * 3 / 4);  // Center player at 3/4th height
+//}
+
+//clamp to room boundaries
 _x = clamp(_x, 0, room_width - global.cam_width);
 _y = clamp(_y, 0, room_height - global.cam_height);
 

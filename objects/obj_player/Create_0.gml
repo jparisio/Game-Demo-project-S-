@@ -1,4 +1,4 @@
-//movements
+//---movements---//
 hsp = 0;
 vsp = 0;
 vsp_jump = -6;
@@ -16,12 +16,13 @@ peak_grv = global_grv / 2;
 stored_velocity = 0;
 stored_velocity_timer = 6;
 input_dir = 0;
-decelerate_ground = 0.2;
+decelerate_ground = 0.4;
 decelerate_air = 0.1;
 decelerate = decelerate_ground
 carried_momentum = 0;
 max_carried_momentum = 4;
-//grapples
+facing = 1;
+//---grapples---//
 can_grapple = false;
 grapple_target = noone
 grapple_target_list = ds_list_create();
@@ -41,6 +42,8 @@ tween = 0;
 chainsaw_fly = false;
 //respawn 
 respawn_point = noone;
+
+//---SPRITES---//
 
 // Sprites for Act 1 (scarlet)
 sprites_scar = {
@@ -80,7 +83,7 @@ cutscene_instance = noone;
 xscale = 1;
 yscale = 1;
 
-//dash
+//---dash---//
 can_dash = false;
 dash_timer_max = 5;
 dash_timer = dash_timer_max;
@@ -90,7 +93,7 @@ dash_direction = 0;
 dash_x = 0;
 dash_y = 0;
 
-//wall
+//---WALL JUMP STUFF---//
 on_wall = 0;
 wall_fric = 0.25;
 wall_jump_frames_max = 9;
@@ -99,8 +102,6 @@ wall_jump_hsp = 0;
 wall_jump_hsp_max = 4;
 slash_dir = 0;
 
-facing = 1;
-y_dir = 0;
 
 hit_dir = -1;
 
@@ -153,25 +154,24 @@ get_input_and_move = function() {
 	
 	//calc
 	var move = right - left;
-	var target_speed = move * max_walksp;  // Target speed is either max_walksp or -max_walksp based on direction
+	var target_speed = move * (max_walksp + carried_momentum);  // Target speed is either max_walksp or -max_walksp based on direction
 
 	// Lerp hsp towards the target speed (transitioning smoothly)
 	if (left xor right) hsp = Approach(hsp, target_speed, approach_walksp);  
 
 	// Decelerate smoothly when no input is pressed
 	if (move == 0) {
-	    hsp = lerp(hsp, 0, decelerate);
+	    hsp = Approach(hsp, 0, decelerate);
 	}
 	
+	// Gradually reduce carried momentum
+	carried_momentum = Approach(carried_momentum, 0, decelerate);
 
 	// If the speed is very small, stop completely
 	if(abs(hsp) <= .1) hsp = 0;
 
 	// Cap hsp to max_walksp and carried momentum
 	hsp = clamp(hsp, -(max_walksp + carried_momentum), max_walksp + carried_momentum);
-
-	// Gradually reduce carried momentum
-	carried_momentum = Approach(carried_momentum, 0, decelerate);
 	
 	//add gravity
 	vsp+=grv;
@@ -479,31 +479,20 @@ fsm
 				sprite_index = spr_dash_to_jump;
 				image_index = 0;
 			}
+			//rest jump flag
 			can_jump = false;
-			//dont play this if last state was a wall jump
-			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
-			input_dir = sign(facing);
+			
 			//make air accel slower
 			approach_walksp = 0.3;
+			
+			//dont play this if last state was a wall jump
+			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
+			
 			//carry momentum from the wall jump or grapple
 			if (fsm.get_previous_state() == "wall jump" || fsm.get_previous_state() == "grapple enemy") walksp  = max_walksp;
 		},
 		
 		step: function(){
-			
-			//carry momentum -> if player moves in the opposite direction of jump, cut their hsp/acceleration
-			//if(sign(facing) != input_dir){
-			//	input_dir = sign(facing);
-			//	//walksp = 0;
-			//	//hsp = 0;
-			//	//carried_momentum = 0;
-			//	if(fsm.get_previous_state() == "wall jump" || fsm.get_previous_state() == "grapple enemy"){
-			//		approach_walksp = 0.025;
-			//	} else {
-			//		approach_walksp = 0.1;
-			//	}
-			//}
-
 			
 			//move
 			get_input_and_move();
@@ -517,8 +506,8 @@ fsm
 				image_index = 0;
 			}
 			
-			//variable jump
-			show_debug_message(fsm.get_previous_state())
+			//variable jump but dont cap after a grapple slash 
+			//show_debug_message(fsm.get_previous_state())
 			if(!input_check("jump") and fsm.get_previous_state() != "grapple enemy") vsp = max(vsp, -2);
 			
 			//half grav at peak of jump 
@@ -637,7 +626,7 @@ fsm
 		enter: function(){
 			audio_stop_sound(snd_wall_slide);
 			audio_play_sound(snd_wall_jump, 0, 0);
-			sprite_index = spr_jump;
+			sprite_index = player_character.setSprite("jump");;
 			image_index = 0;
 			wall_jump_frames = wall_jump_frames_max ;
 			grv = global_grv;

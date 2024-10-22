@@ -370,6 +370,7 @@
     {"id":{"name":"obj_text_initialize","path":"objects/obj_text_initialize/obj_text_initialize.yy",},},
     {"id":{"name":"spr_run_to_idle","path":"sprites/spr_run_to_idle/spr_run_to_idle.yy",},},
     {"id":{"name":"acExpoInOut","path":"animcurves/acExpoInOut/acExpoInOut.yy",},},
+    {"id":{"name":"spr_spikes","path":"sprites/spr_spikes/spr_spikes.yy",},},
     {"id":{"name":"obj_impact_frame","path":"objects/obj_impact_frame/obj_impact_frame.yy",},},
     {"id":{"name":"scribble_super_glyph_copy","path":"scripts/scribble_super_glyph_copy/scribble_super_glyph_copy.yy",},},
     {"id":{"name":"scribble_external_sound_add","path":"scripts/scribble_external_sound_add/scribble_external_sound_add.yy",},},

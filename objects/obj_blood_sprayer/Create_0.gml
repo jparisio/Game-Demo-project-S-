@@ -2,7 +2,7 @@ facing = 0;
 sprayed = false;
 create_at = undefined;
 frame_counter =  0;
-
+angle = noone;
 
 death_time = 30;
 

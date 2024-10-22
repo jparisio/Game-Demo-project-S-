@@ -1,8 +1,5 @@
-room_goto(2);
-obj_player.x = 66
-obj_player.y = 548
-
-
+//reset everything in the room 
+reset_room_states();
 
 
 

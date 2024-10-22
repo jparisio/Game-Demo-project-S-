@@ -14,40 +14,28 @@ function create_hitbox(_creator, _follow, _x, _y, _facing, _sprite, _lifespan, _
 }
 
 
-//function create_blood(_facing, _x, _y, _angled){
-//	var _blood = instance_create_layer(_x, _y, "Instances", obj_blood)
-//	//random starting index
-//	_blood.image_index = random(5);
-//	//random lifetime 
-//	_blood.lifetime = random(12)
-//	_blood.image_speed = 1;
-//	//determine if the blood is angled or sideways
-//	if(_angled){	if sign(_facing) > 0 _blood.image_angle = random_range(20, 50) else _blood.image_angle = random_range( 120 , 150)}
-//	else { if sign(_facing) > 0 _blood.image_angle = random_range(30, 0) else _blood.image_angle = random_range( 160 , 190)}
-//	_blood.direction = _blood.image_angle;
-//	//speed
-//	_blood.speed = random_range(7, 10);
-//}
-
-
-function create_blood(_facing, _x, _y, _grv = 0.1) {
+function create_blood(_angle, _facing, _x, _y, _grv = 0.1) {
     var _blood = instance_create_layer(_x, _y, "Instances", obj_blood);
     with(_blood){
 	    image_index = 0; 
-    
 	    // Set a random lifetime for the blood particle
 	    lifetime = random_range(10, 20);
+	    // cycle through blood frames
+		 image_speed = 1;
+		
+		if(_angle != noone){
+			direction = _angle + random_range(-15, 15);
+			speed = random_range(4, 6);
+			image_angle = direction
+		} else {
+		    // Initialize blood velocity and angle
+			var _speed = random_range(4, 6); // Initial speed of the blood particles
+			var angle = _facing < 0? random_range( 150 , 180): random_range(30, 0)
     
-	    // Control the speed of the blood animation
-	    image_speed = 1;
-
-	    // Initialize blood velocity and angle
-	    var _speed = random_range(4, 6); // Initial speed of the blood particles
-	    var angle = _facing < 0? random_range( 150 , 180): random_range(30, 0)
-    
-	    // Set the velocity of the blood particles
-	    hspeed = lengthdir_x(_speed, angle); // Horizontal speed
-	    vspeed = lengthdir_y(_speed, angle); // Vertical speed
+			// Set the velocity of the blood particles
+			hspeed = lengthdir_x(_speed, angle); // Horizontal speed
+			vspeed = lengthdir_y(_speed, angle); // Vertical speed
+		}
 
 	    // Apply gravity to the blood particles
 	    gravity = _grv; 

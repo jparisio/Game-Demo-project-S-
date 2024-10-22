@@ -175,7 +175,7 @@ fsm
 			sprite_index = spr_assassin_dead;
 			image_index = 0;
 			//spray blood
-			blood_sprayer(self);
+			if(fsm.get_previous_state() == "stunned") blood_sprayer(self, obj_player.grapple_direction) else  blood_sprayer(self);
 			//sound
 			audio_play_sound(snd_crunch2, 1, 0, .1, 0, 1.2);
 			audio_play_sound(snd_old_dash, 2, 0, 3, 0, 2);

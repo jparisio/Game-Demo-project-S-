@@ -94,6 +94,7 @@ if(instance_place(x, y, obj_respawn_point) != noone){
 if instance_place(x, y, obj_respawner){
 	x = respawn_point.x;
 	y = respawn_point.y;
+	reset_room_states();
 }
 
 

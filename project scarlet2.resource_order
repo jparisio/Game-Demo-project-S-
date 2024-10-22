@@ -160,6 +160,7 @@
     {"name":"obj_text_initialize","order":1,"path":"objects/obj_text_initialize/obj_text_initialize.yy",},
     {"name":"spr_run_to_idle","order":16,"path":"sprites/spr_run_to_idle/spr_run_to_idle.yy",},
     {"name":"acExpoInOut","order":19,"path":"animcurves/acExpoInOut/acExpoInOut.yy",},
+    {"name":"spr_spikes","order":8,"path":"sprites/spr_spikes/spr_spikes.yy",},
     {"name":"obj_impact_frame","order":3,"path":"objects/obj_impact_frame/obj_impact_frame.yy",},
     {"name":"spr_shrapnel_destroy","order":11,"path":"sprites/spr_shrapnel_destroy/spr_shrapnel_destroy.yy",},
     {"name":"spr_blood3","order":3,"path":"sprites/spr_blood3/spr_blood3.yy",},

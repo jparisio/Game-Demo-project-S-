@@ -4,6 +4,7 @@ function capture_initial_room_states() {
 	// Clear previous states
 	global.initial_player_state = [];
 	global.initial_enemy_states = [];
+	global.initial_window_states = [];
     // Capture player states
     var player = instance_find(obj_player, 0); // one player
     if (player != noone) {
@@ -31,6 +32,17 @@ function capture_initial_room_states() {
         };
         array_push(global.initial_enemy_states, enemy_state);
     }
+	
+	//capture window states
+	var window_count = instance_number(obj_glass_window);
+	for (var i = 0; i < window_count; i++) {
+	    var window = instance_find(obj_glass_window, i);
+	    var window_state = {
+			_mask: window.mask_index,
+			_id: window.id
+	    };
+	    array_push(global.initial_window_states, window_state);
+	}
 }
 
 
@@ -76,6 +88,16 @@ function reset_room_states() {
 		}
     }
 	
+	//restore windows 
+	 for (var i = 0; i < array_length(global.initial_window_states); i++) {
+        var window_state = global.initial_window_states[i];
+        var window = instance_find(window_state._id, 0);
+        if (window != noone) {
+            window.mask_index = window_state._mask;
+			window.image_index = 0;
+		}
+	 }
+	
 	//clear the surface in the room
 	with (obj_wall_surface_controller) {
 		if (surface_exists(big_surface)) {
@@ -92,7 +114,6 @@ function reset_room_states() {
 	//remove grapple rope (aka katana) so it doesnt keep drawing
 	instance_destroy(obj_katana)
 
-	
 	//clear the cursor data 
 	obj_cursor_controller.lock_on = noone;
 	obj_cursor_controller.found_hover = false;

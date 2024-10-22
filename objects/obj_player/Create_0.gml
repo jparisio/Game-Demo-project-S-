@@ -820,8 +820,6 @@ fsm
 				} else {
 					fsm.change("jump");
 				}
-
-				//if(place_meeting(x, y, obj_cutscene_collision)) fsm.change("dialogue");
 			}
 		}
 })
@@ -1051,7 +1049,7 @@ fsm
 				
 				//add momentum to enemy
 				grapple_target.follow.hsp = hsp / 2;
-				grapple_target.follow.vsp = vsp / 2;
+				grapple_target.follow.vsp = vsp;
 		
 				//----create the slash---//
 				// Handle flipping

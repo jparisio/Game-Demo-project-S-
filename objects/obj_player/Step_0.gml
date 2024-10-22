@@ -102,4 +102,5 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
-//show_debug_message(global.initial_states);
+show_debug_message(can_grapple);
+show_debug_message(ds_list_size(grapple_target_list));

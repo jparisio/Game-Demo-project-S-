@@ -685,7 +685,7 @@ fsm
 			//}
 			
 			if(!instance_exists(obj_slash)){
-				if place_meeting(x, y + 1, obj_wall_parent){
+				if on_ground(self){
 					fsm.change("idle")
 				} else fsm.change("jump")
 			}

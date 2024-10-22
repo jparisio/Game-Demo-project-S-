@@ -29,6 +29,8 @@ slide_hsp = 0;
 
 _ended = false;
 
+//self_grapple = 0;
+
 collide_and_move = function(){
 
 vsp += grv;

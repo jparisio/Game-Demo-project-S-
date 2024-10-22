@@ -17,7 +17,7 @@ timer_switch_state = timer_max;
 timer_attack_max = 60 * 1;
 timer_attack = timer_attack_max;
 
-self_grapple = 0;
+self_grapple = noone;
 
 //dir to move in
 move_dir = random_range(-1, 1)	
@@ -191,6 +191,7 @@ fsm
 			
 			remove_grapple_point(self_grapple);
 			instance_destroy(self_grapple);
+			self_grapple = noone;
 			
 		},
 		step: function() {

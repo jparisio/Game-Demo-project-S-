@@ -50,7 +50,7 @@ fsm
 				//remove the point from the list if the players not already grappling to it
 				if(obj_player.fsm.get_current_state() != "grapple initiate" and obj_player.fsm.get_current_state() != "grapple move"){
 					//show_debug_message("player state is: " + obj_player.fsm.get_current_state());
-	                remove_grapple_point(self);
+	                remove_grapple_target(self);
 					fsm.change("inactive");
 				}
                 

@@ -158,7 +158,7 @@ fsm
 			image_index = 0;
 			
 			//make it so u can grapple to the enemy adn carry momentum through them
-			self_grapple = create_enemy_grapple_target(self, x, y, 30, 200);
+			self_grapple = create_grapple_target(self, x, y, 30, 200);
 		},
 		step: function() {
 			
@@ -189,7 +189,7 @@ fsm
 			//reset the frames to slide for
 			slide = 9
 			
-			remove_grapple_point(self_grapple);
+			remove_grapple_target(self_grapple);
 			instance_destroy(self_grapple);
 			self_grapple = noone;
 			

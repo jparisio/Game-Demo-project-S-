@@ -62,14 +62,14 @@ sprites_scar = {
 // Sprites for Act 2 (ghost switch)
 sprites_ghost = {
     idle: spr_ghost_idle,
-    run: spr_run,
-	run_to_idle: spr_run_to_idle,
-	idle_to_run: spr_idle_to_run,
+    run: spr_ghost_run,
+	run_to_idle: spr_ghost_run_to_idle,
+	idle_to_run: spr_ghost_idle_to_run,
     jump: spr_ghost_jump,
 	jump_start: spr_ghost_jump,
 	jump_fall_start: spr_ghost_jump,
 	jump_fall: spr_ghost_jump,
-	dash: spr_dash2,
+	dash: spr_ghost_jump,
 	wall_slide: spr_ghost_wall_slide
 };
 
@@ -341,7 +341,7 @@ fsm
 	
 	.add("run", {
 		enter: function(){
-			sprite_index = spr_run;
+			sprite_index = player_character.setSprite("run");
 			image_index = 0;
 			coyote_time = 7;
 			
@@ -476,7 +476,9 @@ fsm
 			sprite_index =  player_character.setSprite("jstart");
 			image_index = 0;
 			if(fsm.get_previous_state() == "dash"){
-				sprite_index = spr_dash_to_jump;
+				//TODO reset this
+				//sprite_index = spr_dash_to_jump;
+				sprite_index = player_character.setSprite("jfalls");
 				image_index = 0;
 			}
 			//rest jump flag
@@ -569,7 +571,10 @@ fsm
 			}
 			
 			//grapple check
-			if(can_grapple and throw_grapple and !grapple_coll_line) fsm.change("grapple initiate");
+			if(can_grapple and throw_grapple and !grapple_coll_line){
+				fsm.change("grapple initiate");
+				return;
+			}
 			
 			//wall slide check
 			if(place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0){
@@ -1063,7 +1068,7 @@ fsm
 				
 				
 				//clean up left over grapple
-				remove_grapple_point(grapple_target);
+				remove_grapple_target(grapple_target);
 				instance_destroy(grapple_target);
 				grapple_target = noone;
 				//can_grapple = false;

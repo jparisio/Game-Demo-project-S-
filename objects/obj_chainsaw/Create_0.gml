@@ -1,6 +1,6 @@
 //start_x = x;
 
-create_enemy_grapple_target(self, x, y, 0, 140, , noone);
+create_grapple_target(self, x, y, 0, 140, , noone);
 
 active = false;
 

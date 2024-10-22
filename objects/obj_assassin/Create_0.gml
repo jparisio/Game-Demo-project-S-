@@ -39,7 +39,6 @@ rec_max_y = 0;
 
 //stunned
 stunned = false;
-grappled_to = false;
 
 _ended = false;
 
@@ -54,61 +53,7 @@ event_inherited();
 fsm = new SnowState("stunned")
 
 fsm
-	.add("patrol", {
-		enter: function() {
-			sprite_index = spr_assassin_run;
-			image_index = 0;
-			target_point = choose(patrol_points[0], patrol_points[1]);
-			
-		},
-		step: function() {
-			//if dead switch to dead state
-			if(hp <= 0){
-				fsm.change("dead");
-			}
-			
-			//player is seen
-			if(collision_rectangle(rec_min_x, rec_min_y, rec_max_x, rec_max_y, obj_player, false, true)){
-				 //show_debug_message("Player is within the triangle's bounding box");
-				 fsm.change("shoot");
-			}
-			
-			//move to target point
-			 if (abs(x - target_point) < _speed) {
-                // Switch patrol points when reaching one
-				//target_point = target_point == patrol_points[0]? patrol_points[1]: patrol_points[0];
-				fsm.change("patrol rest");
-            }
-			
-			//wall check
-			if place_meeting(x + hsp, y, obj_wall_parent){
-				target_point = target_point == patrol_points[0]? patrol_points[1]: patrol_points[0];
-			}
-			
-			//fall off ledge check 
-			var _side = bbox_right
-			if (hsp >= 0) _side = bbox_right else _side = bbox_left
-			//if theres a ledge turn around 
-			if !position_meeting(_side + sign(hsp), bbox_bottom + 1, obj_wall_parent) {
-				target_point = target_point == patrol_points[0]? patrol_points[1]: patrol_points[0];
-			}
-
-			//set hsp (approach it for smooth movment)
-			//hsp = Approach(hsp, sign(target_point - x) * _speed, .3);
-			hsp = sign(target_point - x) * _speed;
-		
-			//move and collide functions
-			collide_and_move();
-			determine_facing();
-			
-			//anims
-			//if abs(hsp) > 0 sprite_index = spr_assassin_run;
-
-			
-		}
-
-  })
-  	.add("patrol rest", {
+	.add("patrol rest", {
 		enter: function() {
 			// rest in between patrol points
 			sprite_index = spr_assassin_idle;
@@ -160,10 +105,6 @@ fsm
 			collide_and_move();
 			determine_facing();
 		
-			
-			//collision and move
-			collide_and_move();
-			//determine_facing();
 		}
 		
  })
@@ -221,11 +162,9 @@ fsm
 		},
 		step: function() {
 			
-			if(hp <= 0 or grappled_to) fsm.change("dead");
+			if(hp <= 0) fsm.change("dead");
 			
-			
-			hsp = lerp(hsp, 0, .15);
-			if abs(hsp) <= 0.01 hsp = 0;
+			//movement
 			collide_and_move();
 		}
 		
@@ -246,15 +185,16 @@ fsm
 			hit_pause(20)
 			
 			slide_hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
-			//in case died to grapple;
-			hp = 0;
+			
+			//reset the frames to slide for
+			slide = 9
 			
 			remove_grapple_point(self_grapple);
 			instance_destroy(self_grapple);
 			
 		},
 		step: function() {
-			hsp = lerp(hsp, 0, .15);
+			hsp = Approach(hsp, 0, .2);
 			if abs(hsp) <= 0.1 hsp = 0;
 			if slide >= 0 hsp = slide_hsp
 			slide--;

@@ -31,3 +31,9 @@ global.app_ratio_x = 1;
 global.initial_player_state = [];
 global.initial_enemy_states = [];
 global.initial_window_states = [];
+
+
+//blood
+global.blood_colour = #fe00a7;
+//tests
+//#cb0c1f - #d146fb - #4038ff

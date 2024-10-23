@@ -8,7 +8,8 @@ walksp = 0;
 max_walksp = 4;
 approach_walksp_max = 0.4;
 approach_walksp = approach_walksp_max;
-coyote_time = 4;
+coyote_time_max = 4
+coyote_time = coyote_time_max;
 can_jump = true;
 jump_buffer_max = 5;
 jump_buffer = jump_buffer_max;
@@ -343,7 +344,7 @@ fsm
 		enter: function(){
 			sprite_index = player_character.setSprite("run");
 			image_index = 0;
-			coyote_time = 7;
+			coyote_time = coyote_time_max;
 			
 			//run to idle
 			if(fsm.get_previous_state() == "idle"){

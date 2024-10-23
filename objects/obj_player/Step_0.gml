@@ -80,7 +80,7 @@ if(place_meeting(x, y, obj_water)){
 	walking_on = snd_walk2;
 }
 
-
+//death if hp < 0 
 if (hp <= 0) and fsm.get_current_state() != "dead"{
 	fsm.change("dead");
 }

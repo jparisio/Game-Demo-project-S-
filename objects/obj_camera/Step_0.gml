@@ -11,42 +11,26 @@ if (follow != noone) {
 	}
 }
 
-//show_debug_message(y)
 
 // Anchor specifics
 if (follow == obj_temp_camera_anchor) {
     global.x_offset = lerp(global.x_offset, 0.5, 0.03);
 }
-//} else {
-//    global.x_offset = 0.45;
-//}
 
 // Move the camera offset depending on if the player is facing left or right
 if (follow == obj_player) {
 	if(obj_player.facing == 1){
-		//show_debug_message("facing right")
 		global.x_offset = lerp(global.x_offset, 0.48, 0.05);
-		//show_debug_message(global.x_offset);
 	} else {
-		//show_debug_message("facing left")
 		global.x_offset = lerp(global.x_offset, 0.52, 0.05);
-		//show_debug_message(global.x_offset);
 	}
 
 }
 
+//camera applying
+
 var _x = x - global.cam_width * global.x_offset;
 var _y = y - global.cam_height * global.y_offset;
-// Calculate thresholds
-//var upper_threshold = _y + (global.cam_height / 4);
-//var lower_threshold = _y + (global.cam_height * 3 / 4);
-
-//// Apply threshold logic
-//if (obj_player.y < upper_threshold) {
-//    _y = obj_player.y - (global.cam_height / 4);  // Center player at 1/4th height
-//} else if (obj_player.y > lower_threshold) {
-//    _y = obj_player.y - (global.cam_height * 3 / 4);  // Center player at 3/4th height
-//}
 
 //clamp to room boundaries
 _x = clamp(_x, 0, room_width - global.cam_width);

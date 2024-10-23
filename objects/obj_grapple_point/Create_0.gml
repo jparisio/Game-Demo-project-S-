@@ -6,7 +6,7 @@ radius = 140;
 coll_line = 0;
 draw_line_ = false;
 follow = noone;
-grapple_type = noone;
+grapple_type = "grapple hang";
 offset = 0;
 //mouse hover
 mouse_hovering = false;

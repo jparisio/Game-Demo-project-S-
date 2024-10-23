@@ -614,8 +614,10 @@ fsm
 			}
 			
 			//slide into ground sends you to idle
-			if(place_meeting(x, y + 1, obj_wall_parent)){
+			if(on_ground(self)){
 				facing *= -1;
+				//move me 1 pixel forward so i can turn back into wall (edge case)
+				x += facing;
 				grv = global_grv;
 				audio_stop_sound(snd_wall_slide);
 				fsm.change("idle");
@@ -983,12 +985,9 @@ fsm
 				    while (place_meeting(bbox_right, y, obj_wall_parent)) {
 				        x -= 1;
 				    }
-			        // Transition to the "grapple complete" state
-					if (grapple_target.grapple_type == "enemy"){
-						fsm.change("grapple enemy");
-					} else {
-						fsm.change("grapple hang");
-					}
+			        // Transition to the next grapple state (finishing part)
+					fsm.change(grapple_target.grapple_type);
+					
 				}
 				
 			}
@@ -1118,7 +1117,7 @@ fsm
 			if !instance_exists(obj_screen_transition) instance_create_layer(x, y, "Lighting", obj_screen_transition);
 	    },
 	    step: function() {
-	        // Handle the transition animation trigger
+	        //make it an anim or something or wait a few frames
 	        
 	    }
 	})

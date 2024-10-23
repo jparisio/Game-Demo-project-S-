@@ -3,8 +3,7 @@ if other.creator == "player" {
 	mask_index = spr_empty;
 	//create glass shards
 	create_shake();
-	audio_play_sound(snd_unsheath, 2, 0);
-	audio_play_sound(snd_glass_shatter, 3, 0, 1);
+	audio_play_sound(snd_glass_shatter, 3, 0, 1.3, 0, 1.1);
 	repeat(60) {
 		var _x = random_range(x, x + sprite_width);
 		var _y = random_range(y, y + sprite_height);

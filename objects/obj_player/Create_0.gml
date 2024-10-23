@@ -1106,6 +1106,22 @@ fsm
 
 			}
 	})
+	
+	.add("injured", {
+	    enter: function() {
+	        // Logic for hit state
+	        //sprite_index = spr_player_hit;
+	        //invincible = true;  // Make the player invincible for a short time
+	        //input_enabled = false;  // Disable input
+			create_shake();
+			audio_play_sound(snd_player_hit, 30, 0, 35);
+			if !instance_exists(obj_screen_transition) instance_create_layer(x, y, "Lighting", obj_screen_transition);
+	    },
+	    step: function() {
+	        // Handle the transition animation trigger
+	        
+	    }
+	})
 
 	.add("dead", {
 		

@@ -235,6 +235,7 @@
     {"name":"spr_24_wall","order":5,"path":"sprites/spr_24_wall/spr_24_wall.yy",},
     {"name":"snd_crunch","order":2,"path":"sounds/snd_crunch/snd_crunch.yy",},
     {"name":"spr_jump_dust4","order":4,"path":"sprites/spr_jump_dust4/spr_jump_dust4.yy",},
+    {"name":"obj_screen_transition","order":8,"path":"objects/obj_screen_transition/obj_screen_transition.yy",},
     {"name":"spr_large_cloud_bg3","order":7,"path":"sprites/spr_large_cloud_bg3/spr_large_cloud_bg3.yy",},
     {"name":"acQuartInOut","order":25,"path":"animcurves/acQuartInOut/acQuartInOut.yy",},
     {"name":"snd_speak2","order":1,"path":"sounds/snd_speak2/snd_speak2.yy",},

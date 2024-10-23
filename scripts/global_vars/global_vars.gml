@@ -13,7 +13,7 @@ global.cutscene_ended = false;
 
 //cam properties
 global.cam_width = 640;
-global.cam_height = 320;
+global.cam_height = 360;
 global.x_offset = 0.45;
 //global.y_offset = 0.8;
 global.y_offset = 0.7;

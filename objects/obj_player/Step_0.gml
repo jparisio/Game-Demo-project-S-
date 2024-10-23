@@ -91,10 +91,11 @@ if(instance_place(x, y, obj_respawn_point) != noone){
 	respawn_point = instance_place(x, y, obj_respawn_point);
 }
 
-if instance_place(x, y, obj_respawner){
-	x = respawn_point.x;
-	y = respawn_point.y;
-	reset_room_states();
+if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
+	//x = respawn_point.x;
+	//y = respawn_point.y;
+	//reset_room_states();
+	fsm.change("injured");
 }
 
 
@@ -102,5 +103,5 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
-//show_debug_message(can_grapple);
+show_debug_message(instance_exists(obj_screen_transition));
 //show_debug_message(ds_list_size(grapple_target_list));

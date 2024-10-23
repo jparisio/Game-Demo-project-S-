@@ -544,6 +544,7 @@
     {"id":{"name":"input_binding_scan_params_get","path":"scripts/input_binding_scan_params_get/input_binding_scan_params_get.yy",},},
     {"id":{"name":"TGMX_1_EasyTweens","path":"scripts/TGMX_1_EasyTweens/TGMX_1_EasyTweens.yy",},},
     {"id":{"name":"input_system_reset","path":"scripts/input_system_reset/input_system_reset.yy",},},
+    {"id":{"name":"obj_screen_transition","path":"objects/obj_screen_transition/obj_screen_transition.yy",},},
     {"id":{"name":"spr_warrior_slime_attack2","path":"sprites/spr_warrior_slime_attack2/spr_warrior_slime_attack2.yy",},},
     {"id":{"name":"input_check_opposing","path":"scripts/input_check_opposing/input_check_opposing.yy",},},
     {"id":{"name":"scribble_anim_rainbow","path":"scripts/scribble_anim_rainbow/scribble_anim_rainbow.yy",},},

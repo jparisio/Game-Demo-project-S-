@@ -37,3 +37,6 @@ global.initial_window_states = [];
 global.blood_colour = #fe00a7;
 //tests
 //#cb0c1f - #d146fb - #4038ff
+
+//screen shake
+global.screen_shake_magnitude = 30;

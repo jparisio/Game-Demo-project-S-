@@ -763,7 +763,7 @@ fsm
 			//	dash_direction = point_direction(0, 0, 0, down - up)
 			//} else dash_direction = point_direction(0, 0, facing, down - up);
 			//create screenshake
-			instance_create_layer(x, y, "Instances", obj_screenshake);
+			create_shake("small");
 			if instance_exists(obj_hurtbox) {
 			    instance_destroy(obj_hurtbox);
 			}

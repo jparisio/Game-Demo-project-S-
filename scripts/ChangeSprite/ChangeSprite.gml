@@ -1,4 +1,4 @@
-function ChangeSprite(_object, _sprite) : CutsceneAction("wait") constructor
+function ChangeSprite(_object, _sprite) : CutsceneAction("change sprite") constructor
 {
     //action_parent = new CutsceneAction("wait");
     object = _object;
@@ -8,7 +8,7 @@ function ChangeSprite(_object, _sprite) : CutsceneAction("wait") constructor
     Execute = function(_controller) {
        object.sprite_index = sprite;
 	   object.image_index = 0;
-	    object.image_speed = 1;
+	   object.image_speed = 1;
 	   _controller.NextAction();
 	}
 	   

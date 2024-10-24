@@ -29,7 +29,7 @@ if place_meeting(x + hspeed, y, obj_wall_parent) {
 x += hspeed;
 y += vspeed;
 
-image_angle += 1;
+image_angle += 1 * hspeed;
 
 // Destroy the object if it's outside the room bounds
 if (x < 0 || x > room_width || y < 0 || y > room_height) {

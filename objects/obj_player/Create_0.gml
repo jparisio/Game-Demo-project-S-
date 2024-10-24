@@ -110,7 +110,6 @@ pushback = 2;
 kill_push_back = 6;
 frame_counter = 0;
 flash_alpha = 0;
-already_hit = false;
 
 //dialogue
 dialogue_buffer = 10
@@ -249,67 +248,10 @@ fsm
 			//movement
 			get_input_and_move();
 			determine_facing();
-			
-			//switch to dialogue if meeting a dialogue block and enter pressed
-			if(place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")){
-				fsm.change("dialogue");
-				return;
-			}
-			
-			
-			//if holding one move key
-			if (right xor left) {
-				fsm.change("run");
-				return;
-			}
-			
+
 			//check if player has let go of jump
 			if(input_check_released("jump") or !input_check("jump")) can_jump = true;
-			
-			//jump check
-			if(jump){
-			  xscale = .75;
-			  yscale = 1.25;
-			  vsp = vsp_jump + stored_velocity;
-			  instance_create_layer(x, y, "Instances", obj_dust_jump);
-		      fsm.change("jump");
-			  return;
-			}
-			
-			//attack check
-			if(attack){
-				fsm.change("attack");
-				return;
-			}
-			
-			//dash check
-			if(dash and can_dash) fsm.change("dash");
-			
-			//edge case for falling off block
-			if(!on_ground(self)){
-				fsm.change("jump");
-				return;
-			}
-			
-			//cutscene
-			if(place_meeting(x,y, obj_cutscene_collision)){
-				fsm.change("dialogue");
-				return;
-			}
-			
-			
-			//grapple
-			if(grapple_target != noone){
-				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
-				//show_debug_message(coll)
-			}
-			
-			//grapple check
-			if(can_grapple and throw_grapple and grapple_coll_line == -4){
-				fsm.change("grapple initiate");
-				return;
-			}
-			
+					
 	   }
   })
   
@@ -357,22 +299,14 @@ fsm
 			get_input_and_move();
 			determine_facing();
 			
-			//if turn around stop momentum
+			//if turn around reset sprite ro itor
 			if(sign(facing) != input_dir){
 				input_dir = sign(facing);
 				sprite_index = player_character.setSprite("itor");
 				image_index = 0;
 			}
 			
-			//for cutscene 
-			if (cutscene_instance != noone){
-				fsm.change("cutscene");
-				cutscene_instance.start = true;
-			}
-			
-			//sound
-			//evbery 4 frames play sound sndwalk or snd_walk2 randomized
-			// Increment the frame counter
+			//every 4 frames play sound sndwalk or snd_walk2 randomized
 			sound_frame_counter++;
 
 			// Check if 4 frames have passed
@@ -383,53 +317,9 @@ fsm
 			    var volume = .6
 			    audio_play_sound(walking_on, 0, false, volume);
 			}
-			
-						
-			//cutscene check
-			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
-			
-			//not holding move, switch to idle
-			if ((!right and !left) or (right and left)){
-				fsm.change("idle");
-			}
-			
-					
+				
 			//check if player has let go of jump
 			if(input_check_released("jump") or !input_check("jump")) can_jump = true;
-			
-			//jump
-			if(jump){
-				xscale = .75;
-				yscale = 1.25;
-				vsp = vsp_jump;
-				instance_create_layer(x, y, "Instances", obj_dust_jump);
-				fsm.change("jump");
-			}
-			
-			//run off edge
-			if(!on_ground(self)){
-				coyote_time--;
-				vsp = 0;
-				//coyote time
-				if(jump and coyote_time >=0){
-					vsp = vsp_jump;
-					fsm.change("jump");
-				} else if(coyote_time <= 0) fsm.change("jump");
-			}
-			
-			//switch to attack
-			if(attack) fsm.change("attack");
-			
-			//dash check
-			if(dash and can_dash) fsm.change("dash");
-			
-			//grapple
-			if(grapple_target != noone){
-				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
-			}
-			
-			//grapple check
-			if(!grapple_coll_line and can_grapple and throw_grapple) return fsm.change("grapple initiate");
 			
 	  }
 })
@@ -486,9 +376,6 @@ fsm
 			}
 		
 			
-			//show_debug_message("vsp is :" + string(vsp));
-			//show_debug_message("grv is :" + string(grv));  
-			
 			//animations
 			if (vsp >= 0.5 and vsp <= 1 and sprite_index != spr_dash_to_jump){ //this is because we dont want it to be stuck on index 0 for forever we want it to only activate at the turn  around point
 				sprite_index =  player_character.setSprite("jfalls");
@@ -523,30 +410,6 @@ fsm
 				audio_play_sound(snd_land, 0, 0, 0.6)
 				fsm.change("idle");
 			}
-			
-			//attack switch
-			if(attack) fsm.change("attack");
-			
-			//dash check
-			if(dash and can_dash) fsm.change("dash");
-			
-			//-----grapple-----//
-			if(grapple_target != noone){
-				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
-				//show_debug_message(coll)
-			}
-			
-			//grapple check
-			if(can_grapple and throw_grapple and !grapple_coll_line){
-				fsm.change("grapple initiate");
-				return;
-			}
-			
-			//wall slide check
-			if(place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0){
-				fsm.change("wall slide");
-			} 
-			
 	  }
 })
 
@@ -567,26 +430,6 @@ fsm
 			var _min = y;
 			var _y = random_range(_min, _max);
 			instance_create_layer(_x, _y, "Instances", obj_slide_dust);
-			
-			
-			//movement 
-			if(input_check_pressed("jump")) fsm.change("wall jump");
-			if(!place_meeting(x + sign(facing), y, obj_slide_wall)){
-				determine_facing();
-				grv = global_grv;
-				audio_stop_sound(snd_wall_slide);
-				fsm.change("jump");
-			}
-			
-			//slide into ground sends you to idle
-			if(on_ground(self)){
-				facing *= -1;
-				//move me 1 pixel forward so i can turn back into wall (edge case)
-				x += facing;
-				grv = global_grv;
-				audio_stop_sound(snd_wall_slide);
-				fsm.change("idle");
-			}
 			//cap the vsp on the wall
 			vsp = min(vsp, 3.8);
 			get_input_and_move();
@@ -600,20 +443,18 @@ fsm
 			audio_play_sound(snd_wall_jump, 0, 0);
 			sprite_index = player_character.setSprite("jump");;
 			image_index = 0;
-			wall_jump_frames = wall_jump_frames_max ;
+			wall_jump_frames = wall_jump_frames_max;
 			grv = global_grv;
 			wall_jump_hsp = wall_jump_hsp_max * - facing
 			//wall_jump_hsp_max *= -facing
 		},
 		
 		step: function(){
-			wall_jump_frames --
+			wall_jump_frames --;
 			hsp = wall_jump_hsp;
 			vsp = -3;
 			collide_and_move();
 			determine_facing();
-			
-			if wall_jump_frames <= 0 fsm.change("jump");
 		}
 })
 
@@ -832,7 +673,6 @@ fsm
 			audio_play_sound(snd_grapple_throw, 10, 0);
 			//reset grapple flag
 			can_grapple = false;
-			chainsaw_fly = false;
 	        // Set the player's sprite to a jumping or grappling sprite
 	        sprite_index =  player_character.setSprite("jump");
 			facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
@@ -934,12 +774,6 @@ fsm
 				//stick to grapple
 				x = grapple_target.x;
 				y = grapple_target.y + sprite_height / 2;
-				if(input_check_pressed("jump")){
-						//TweenDestroy(tween);
-						grapple_target.cooldown = true;
-						vsp = vsp_jump;
-						fsm.change("jump");
-				}
 			}
 	})
 	
@@ -999,7 +833,7 @@ fsm
 				// Continue momentum from the last direction
 				grapple_frames--;
 					
-				// Move player using hsp and vsp
+				// Move player
 				collide_and_move();
 		
 				// End state after 4 frames
@@ -1079,3 +913,135 @@ fsm
 				}
 			}
 	});
+
+
+	//--------------------------------------TRANSITIONS---------------------------------------------------------//
+	fsm.add_transition("to_run", "idle", "run", function()  {
+		return right xor left
+	})
+	
+	
+	fsm.add_transition("to_idle", "run", "idle", function()  {
+		return 	((!right and !left) or (right and left))
+	})
+	
+	fsm.add_transition("t_coyote_jump", ["idle", "run"], "jump", function() {
+	    if (!on_ground(self)) {
+	        coyote_time--; 
+	        if (jump && coyote_time >= 0) {
+	            vsp = vsp_jump; 
+	            return true;
+	        }
+	        if (coyote_time < 0) {
+	            return true; 
+	        }
+	    }
+	    return false;
+	});
+
+	
+	fsm.add_transition("to_jump", ["idle", "run"], "jump", function() {
+	    if (input_check("jump")) {
+	        xscale = 0.75;    
+	        yscale = 1.25;  
+	        vsp = vsp_jump;   
+	        instance_create_layer(x, y, "Instances", obj_dust_jump); 
+	        return true; 
+	    }
+	    return false;
+	})
+	
+	fsm.add_transition("to_wall_slide", "jump", "wall slide", function() {
+	    return (place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0)
+	})
+	
+	
+	fsm.add_transition("fall_off", ["idle", "run"], "jump", function() {
+	    if(!on_ground(self)){
+			return true;
+		}
+	    return false;
+	})
+	
+
+	fsm.add_transition("to_attack", ["idle", "run", "jump"], "attack", function()  {
+		return attack
+	})
+
+	fsm.add_transition("to_dash", ["idle", "run", "jump"], "dash", function()  {
+		return dash and can_dash
+	})
+	
+	fsm.add_transition("to_grapple", ["idle", "run", "jump"], "grapple initiate", function()  {
+		return can_grapple and throw_grapple and !grapple_coll_line
+	})
+	
+	fsm.add_transition("grap_to_jump", "grapple hang", "jump", function()  {
+		if(input_check_pressed("jump")){
+					grapple_target.cooldown = true;
+					vsp = vsp_jump;
+					return true;
+		}
+		return false;
+	})
+	
+	fsm.add_transition("to_dialogue", "idle", "dialogue", function()  {
+		return 	place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")
+	})
+	
+	fsm.add_transition("to_cut_dialogue", "idle", "dialogue", function()  {
+		return 	place_meeting(x,y, obj_cutscene_collision)
+	})
+	
+	fsm.add_transition("to_cut_dialogue", ["idle", "run"], "dialogue", function()  {
+		return 	place_meeting(x,y, obj_cutscene_collision)
+	})
+	
+	
+	fsm.add_transition("to_cutscene", ["idle", "run"], "cutscene", function() {
+			if (cutscene_instance != noone){
+				cutscene_instance.start = true;
+				return true;
+			}
+	    return false;
+	});
+	
+	 
+	
+	fsm.add_transition("wall_slide_to_wall_jump", "wall slide", "wall jump", function() {
+    return input_check_pressed("jump");
+	});
+
+	fsm.add_transition("wall_slide_to_jump", "wall slide", "jump", function() {
+	    return !place_meeting(x + sign(facing), y, obj_slide_wall);
+	});
+
+	fsm.add_transition("wall_slide_to_idle", "wall slide", "idle", function() {
+	    if(on_ground(self)){
+				facing *= -1;
+				//move me 1 pixel forward so i can turn back into wall (edge case)
+				x += facing;
+				grv = global_grv;
+				audio_stop_sound(snd_wall_slide);
+				return true
+		}
+		return false;
+	});
+	
+	fsm.add_transition("wall_jump_to_jump", "wall jump", "jump", function() {
+	    return wall_jump_frames <= 0
+	});
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	

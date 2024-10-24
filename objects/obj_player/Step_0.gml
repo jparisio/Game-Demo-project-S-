@@ -1,12 +1,4 @@
-//state machine
-fsm.step();
-//fsm.trigger("to_run");
-//fsm.trigger("to_jump");
-//fsm.trigger("to_attack");
-//fsm.trigger("to_dash");
-//fsm.trigger("to_grapple");
-
-
+//-----------------------------------------------------grapple-----------------------------------------------------------------//
 //check all grapples instances
 if (!ds_list_empty(grapple_target_list)) {
     var closest_dist = 9999; // Arbitrarily large number
@@ -39,6 +31,33 @@ if (!ds_list_empty(grapple_target_list)) {
     grapple_target = noone;
 }
 
+if(grapple_target != noone){
+	grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
+}
+
+//--------------------------------------------------state machine---------------------------------------------------------------//
+// Update character state
+fsm.step();
+// Trigger state transitions based on current conditions
+fsm.trigger("to_idle");
+fsm.trigger("to_run");
+fsm.trigger("t_coyote_jump");
+fsm.trigger("to_jump");
+fsm.trigger("to_wall_slide");
+fsm.trigger("fall_off");
+fsm.trigger("to_attack");
+fsm.trigger("to_dash");
+fsm.trigger("to_grapple");
+fsm.trigger("to_dialogue");
+fsm.trigger("to_cut_dialogue");
+fsm.trigger("to_cutscene");
+fsm.trigger("grap_to_jump");
+fsm.trigger("wall_slide_to_wall_jump");
+fsm.trigger("wall_slide_to_jump");
+fsm.trigger("wall_slide_to_idle");
+fsm.trigger("wall_jump_to_jump");
+
+//-------------------------------------------------other stuff------------------------------------------------------------------//
 //check if on ground or not
 var _on_ground = on_ground(self)
 //show_debug_message(on_ground(self));

@@ -30,7 +30,7 @@ grapple_target_list = ds_list_create();
 grapple_speed = 7;
 grapple_direction = 0;
 katana = noone;
-grapple_frames = 4;
+grapple_frames = 9;
 grapple_target_dist = 0;
 grapple_cooldown = 0;
 grapple_cooldown_max = 30;
@@ -107,7 +107,6 @@ invulnerability_max = 60 * 2;
 invulnerability = invulnerability_max;
 be_invulnerable = false;
 pushback = 2;
-kill_push_back = 6;
 frame_counter = 0;
 flash_alpha = 0;
 

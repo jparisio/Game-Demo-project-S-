@@ -59,10 +59,10 @@ fsm.trigger("wall_jump_to_jump");
 
 //-------------------------------------------------other stuff------------------------------------------------------------------//
 //check if on ground or not
-var _on_ground = on_ground(self)
-//show_debug_message(on_ground(self));
-if(_on_ground){
+if(on_ground(self)){
 	decelerate = decelerate_ground;
+	//reset dash
+	can_dash = true;
 } else {
 	decelerate = decelerate_air;
 }
@@ -81,19 +81,6 @@ if(!instance_exists(obj_hurtbox) and be_invulnerable){
 //lerp back to normal size for squash and stretch
 xscale = lerp(xscale, 1, 0.2);
 yscale = lerp(yscale, 1, 0.2);
-
-//reset the dash if on ground
-if (on_ground(self)) can_dash = true;
-
-//if theres a force applied to the player velocity, store it for 4 frames, thn clear it
-if (stored_velocity != 0) {
-	stored_velocity_timer--
-	if(stored_velocity_timer <= 0){
-		stored_velocity = 0;
-		//reset this 
-		stored_velocity_timer = 6;
-	}
-}
 
 //change sound for material youre on TODO: fix this oop later
 if(place_meeting(x, y, obj_water)){
@@ -125,5 +112,4 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
-show_debug_message(instance_exists(obj_reset_room_transition));
 //show_debug_message(ds_list_size(grapple_target_list));

@@ -223,7 +223,7 @@
     {"name":"snd_horror","order":13,"path":"sounds/snd_horror/snd_horror.yy",},
     {"name":"spr_grapple_slash","order":2,"path":"sprites/spr_grapple_slash/spr_grapple_slash.yy",},
     {"name":"spr_building3","order":9,"path":"sprites/spr_building3/spr_building3.yy",},
-    {"name":"obj_room_restart_controller","order":14,"path":"objects/obj_room_restart_controller/obj_room_restart_controller.yy",},
+    {"name":"obj_room_test","order":14,"path":"objects/obj_room_test/obj_room_test.yy",},
     {"name":"obj_paralax","order":1,"path":"objects/obj_paralax/obj_paralax.yy",},
     {"name":"spr_blood5","order":5,"path":"sprites/spr_blood5/spr_blood5.yy",},
     {"name":"spr_cursor","order":6,"path":"sprites/spr_cursor/spr_cursor.yy",},

@@ -513,7 +513,7 @@
     {"id":{"name":"__input_config_mouse","path":"scripts/__input_config_mouse/__input_config_mouse.yy",},},
     {"id":{"name":"spr_building3","path":"sprites/spr_building3/spr_building3.yy",},},
     {"id":{"name":"__input_error","path":"scripts/__input_error/__input_error.yy",},},
-    {"id":{"name":"obj_room_restart_controller","path":"objects/obj_room_restart_controller/obj_room_restart_controller.yy",},},
+    {"id":{"name":"obj_room_test","path":"objects/obj_room_test/obj_room_test.yy",},},
     {"id":{"name":"__input_class_trigger_effect_weapon","path":"scripts/__input_class_trigger_effect_weapon/__input_class_trigger_effect_weapon.yy",},},
     {"id":{"name":"input_cursor_limit_remove","path":"scripts/input_cursor_limit_remove/input_cursor_limit_remove.yy",},},
     {"id":{"name":"input_icons","path":"scripts/input_icons/input_icons.yy",},},

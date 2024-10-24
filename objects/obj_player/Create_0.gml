@@ -989,24 +989,18 @@ fsm
 		return 	place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")
 	})
 	
-	fsm.add_transition("to_cut_dialogue", "idle", "dialogue", function()  {
-		return 	place_meeting(x,y, obj_cutscene_collision)
-	})
-	
 	fsm.add_transition("to_cut_dialogue", ["idle", "run"], "dialogue", function()  {
 		return 	place_meeting(x,y, obj_cutscene_collision)
 	})
 	
 	
-	fsm.add_transition("to_cutscene", ["idle", "run"], "cutscene", function() {
+	fsm.add_transition("to_cutscene", ["idle", "run", "jump"], "cutscene", function() {
 			if (cutscene_instance != noone){
 				cutscene_instance.start = true;
 				return true;
 			}
 	    return false;
 	});
-	
-	 
 	
 	fsm.add_transition("wall_slide_to_wall_jump", "wall slide", "wall jump", function() {
     return input_check_pressed("jump");

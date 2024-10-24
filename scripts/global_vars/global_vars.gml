@@ -10,6 +10,8 @@ global.boss_fight = false;
 //cutscenes 
 global.cutscene_ended = false;
 
+//game state
+global.curent_game_state = 0;
 
 //cam properties
 global.cam_width = 640;

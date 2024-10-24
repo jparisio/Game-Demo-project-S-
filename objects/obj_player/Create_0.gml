@@ -6,7 +6,7 @@ global_grv = 0.27;
 grv = global_grv;
 walksp = 0;
 max_walksp = 4;
-approach_walksp_max = 0.4;
+approach_walksp_max = 0.6;
 approach_walksp = approach_walksp_max;
 coyote_time_max = 4
 coyote_time = coyote_time_max;
@@ -27,10 +27,6 @@ facing = 1;
 can_grapple = false;
 grapple_target = noone
 grapple_target_list = ds_list_create();
-grapple_move_speed_x = 0;
-grapple_move_speed_y = 0;
-grapple_new_x = 0;
-grapple_new_y = 0;
 grapple_speed = 7;
 grapple_direction = 0;
 katana = noone;
@@ -101,18 +97,6 @@ wall_jump_frames_max = 9;
 wall_jump_frames = wall_jump_frames_max ;
 wall_jump_hsp = 0;
 wall_jump_hsp_max = 4;
-slash_dir = 0;
-
-
-hit_dir = -1;
-
-//on_ground = 0;
-on_one_way = false;
-
-move_amount = 0;
-
-slow_time_meter = 250;
-refill = 200;
 
 //health
 hp = 50;
@@ -143,7 +127,7 @@ cam_bounds = noone;
 //movement
 get_input_and_move = function() {
 	
-	//input
+	//input verbs
 	left = input_check("left");
     right = input_check("right");
 	up = input_check("up");
@@ -176,7 +160,14 @@ get_input_and_move = function() {
 	
 	//add gravity
 	vsp+=grv;
+	
+	//----collisions----//
+	collide_and_move();
+	
+}
 
+collide_and_move = function(){
+	
 	//hori
 	if place_meeting(x+hsp,y,obj_wall_parent) {
 	    while !place_meeting(x+sign(hsp),y,obj_wall_parent) {
@@ -207,30 +198,6 @@ get_input_and_move = function() {
 	}
 	
 	y += vsp;
-	
-}
-
-collide_and_move = function(_hsp, _vsp){
-	
-hsp = _hsp
-vsp = _vsp
-//hori
-	if place_meeting(x+hsp,y,obj_wall_parent) {
-	    while !place_meeting(x+sign(hsp),y,obj_wall_parent) {
-	        x += sign(hsp);
-	    }
-	    hsp = 0;
-	}
-	x += hsp;
-
-	//vert
-	if place_meeting(x,y + vsp,obj_wall_parent) {
-	    while !place_meeting(x,y+sign(vsp),obj_wall_parent) {
-	        y += sign(vsp);
-	    }
-	    vsp = 0;
-	}
-	y += vsp;
 
 }
 
@@ -256,7 +223,8 @@ fsm
 			image_index = 0;
 			
 			//return after run or dash
-			if(fsm.get_previous_state() == "run" or fsm.get_previous_state() == "dash" or fsm.get_previous_state() == "grapple enemy"){
+			var prev_state = fsm.get_previous_state();
+			if (prev_state == "run" || prev_state == "dash" || prev_state == "grapple enemy" || prev_state == "jump") {
 				sprite_index = player_character.setSprite("rtoi");
 				image_index = 0;
 			}
@@ -285,12 +253,14 @@ fsm
 			//switch to dialogue if meeting a dialogue block and enter pressed
 			if(place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")){
 				fsm.change("dialogue");
+				return;
 			}
 			
 			
 			//if holding one move key
 			if (right xor left) {
 				fsm.change("run");
+				return;
 			}
 			
 			//check if player has let go of jump
@@ -303,10 +273,14 @@ fsm
 			  vsp = vsp_jump + stored_velocity;
 			  instance_create_layer(x, y, "Instances", obj_dust_jump);
 		      fsm.change("jump");
+			  return;
 			}
 			
 			//attack check
-			if(attack) fsm.change("attack");
+			if(attack){
+				fsm.change("attack");
+				return;
+			}
 			
 			//dash check
 			if(dash and can_dash) fsm.change("dash");
@@ -314,17 +288,14 @@ fsm
 			//edge case for falling off block
 			if(!on_ground(self)){
 				fsm.change("jump");
-			}
-			
-			//switch to finisher
-			var _circle = instance_place(x, y, obj_finisher_circle);
-			if (input_check_pressed("cancel") and _circle){
-				fsm.change("finisher");
-				instance_destroy(obj_finisher_circle);
+				return;
 			}
 			
 			//cutscene
-			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
+			if(place_meeting(x,y, obj_cutscene_collision)){
+				fsm.change("dialogue");
+				return;
+			}
 			
 			
 			//grapple
@@ -334,7 +305,10 @@ fsm
 			}
 			
 			//grapple check
-			if(can_grapple and throw_grapple and grapple_coll_line == -4) fsm.change("grapple initiate");
+			if(can_grapple and throw_grapple and grapple_coll_line == -4){
+				fsm.change("grapple initiate");
+				return;
+			}
 			
 	   }
   })
@@ -364,7 +338,7 @@ fsm
 			//play sound for initial step
 			if!(audio_is_playing(walking_on)) audio_play_sound(walking_on, 0, false, 0.2);
 			
-			//for move cap stuff
+			//reset the accel to normal ground accel
 			approach_walksp = approach_walksp_max;
 			
 			input_dir = sign(facing);
@@ -372,8 +346,6 @@ fsm
 		},
 		
 		step: function(){
-			
-			
 			
 			//transition from idle to run animation
 			if(sprite_index ==  player_character.setSprite("itor")) and animation_end(){
@@ -412,11 +384,6 @@ fsm
 			    audio_play_sound(walking_on, 0, false, volume);
 			}
 			
-			//switch to dialogue if meeting a dialogue block and enter pressed
-			//if(place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")){
-			//	fsm.change("dialogue");
-			//}
-			
 						
 			//cutscene check
 			if(place_meeting(x,y, obj_cutscene_collision)) fsm.change("dialogue");
@@ -445,8 +412,7 @@ fsm
 				vsp = 0;
 				//coyote time
 				if(jump and coyote_time >=0){
-					vsp = vsp_jump + stored_velocity;
-					//show_debug_message("YAY")
+					vsp = vsp_jump;
 					fsm.change("jump");
 				} else if(coyote_time <= 0) fsm.change("jump");
 			}
@@ -460,11 +426,10 @@ fsm
 			//grapple
 			if(grapple_target != noone){
 				grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)
-				//show_debug_message(coll)
 			}
 			
 			//grapple check
-			if(can_grapple and throw_grapple and grapple_coll_line == -4) fsm.change("grapple initiate");
+			if(!grapple_coll_line and can_grapple and throw_grapple) return fsm.change("grapple initiate");
 			
 	  }
 })
@@ -622,7 +587,6 @@ fsm
 				audio_stop_sound(snd_wall_slide);
 				fsm.change("idle");
 			}
-			//show_debug_message(vsp)
 			//cap the vsp on the wall
 			vsp = min(vsp, 3.8);
 			get_input_and_move();
@@ -644,10 +608,9 @@ fsm
 		
 		step: function(){
 			wall_jump_frames --
-		    //wall_jump_hsp = lerp(wall_jump_hsp, sign(wall_jump_hsp) * max_walksp, 0.1);
-			//wall_jump_hsp = lerp(wall_jump_hsp, wall_jump_hsp_max, .3);
-			//show_debug_message(wall_jump_hsp)
-			collide_and_move(wall_jump_hsp, -3);
+			hsp = wall_jump_hsp;
+			vsp = -3;
+			collide_and_move();
 			determine_facing();
 			
 			if wall_jump_frames <= 0 fsm.change("jump");
@@ -701,37 +664,6 @@ fsm
 			
 		}
 })
-
-	.add("finisher", {
-		
-		enter: function(){
-			image_index = 0;
-			sprite_index = spr_steady;
-		},
-		
-		step: function(){
-			//TODO right now skipping spin but idk if i like the spin or without the spin
-			if (sprite_index == spr_steady and animation_end()) {
-				sprite_index = spr_finisher;
-				image_index = 0;
-			} else if (sprite_index == spr_katana_spin and animation_end()){
-				sprite_index = spr_finisher;
-				image_index = 0;
-			} else if (sprite_index == spr_finisher and animation_end()){
-				sprite_index = spr_release;
-				image_index = 0;
-			} else if (sprite_index == spr_release and animation_end()){
-				fsm.change("idle");
-			}
-			
-			if(sprite_index = spr_finisher) and animation_hit_frame(5){
-				instance_create_layer(x, y, "Instances", obj_finisher_hit_box).image_xscale = facing;
-			}
-		
-			
-		}
-})
-
 
 	.add("dash", {
 		
@@ -791,7 +723,7 @@ fsm
 				vsp = lengthdir_y(dash_y, dash_direction);
 				determine_facing();
 				//move
-				collide_and_move(hsp, vsp);
+				collide_and_move();
 				//create dash trail
 				dash_timer--
 				if dash_timer <= 0 {
@@ -838,6 +770,8 @@ fsm
 				sprite_index = spr_run_to_idle;
 				image_index = 0;
 			}
+			
+			sprite_index = player_character.setSprite("idle");
 			
 		},
 		
@@ -903,39 +837,29 @@ fsm
 	        sprite_index =  player_character.setSprite("jump");
 			facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
 
-	        // Calculate the direction and speed to move toward the grapple point
-	        var dx = grapple_target.x - x;
-	        var dy = grapple_target.y - (y - sprite_height / 2);
-	        var dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
-
 	        // Calculate the katana's speed (triple the grapple speed)
 	        var katana_speed = grapple_speed * 3;
-	        var katana_move_speed_x = dx / dist * katana_speed;
-	        var katana_move_speed_y = dy / dist * katana_speed;
 
 	        // Create and launch the katana object toward the grapple point
 	        var katana = instance_create_layer(x, y - sprite_height / 2, "Instances", obj_katana);
-	        katana.hspeed = katana_move_speed_x;
-	        katana.vspeed = katana_move_speed_y;
-	        katana.image_angle = point_direction(x, y, grapple_target.x, grapple_target.y);
+			var _dir = point_direction(katana.x, katana.y, grapple_target.x, grapple_target.y);
+			katana.direction = _dir;
+	        katana.image_angle = direction;
+			katana.speed = katana_speed;
 			
 	        // Store the katana reference to check its position later
 	        self.katana = katana;
 	    },
 
 	    step: function() {
-			//TweenEasyMove(x, y, grapple_target.x, grapple_target.y, 0, 30, EaseInOutSine);
 	        // Check if the katana has reached the grapple point
-	        if (instance_place(katana.x, katana.y, obj_grapple_point)) {
-	            // Snap the katana to the grapple point and destroy it
-	            katana.x = grapple_target.x;
-	            katana.y = grapple_target.y;
-				katana.speed = 0;
-	            //instance_destroy(katana);
+	        if (point_distance(katana.x, katana.y, grapple_target.x, grapple_target.y) < katana.speed) {
+			    katana.x = grapple_target.x;
+			    katana.y = grapple_target.y;
+			    katana.speed = 0;
+			    fsm.change("grapple move");
+			}
 
-	            // Transition to the grapple move state
-	            fsm.change("grapple move");
-	        }
 	    }
 	})
 
@@ -949,10 +873,8 @@ fsm
 			},
 		
 			step: function(){
-				// Move the player along the line towards the grapple point
-			    //tween = TweenEasyMove(x, y, grapple_target.x, grapple_target.y + 30, 0, 30, EaseOutElastic);
-				//work tweens in later	
-			     
+				determine_facing();
+				// Move the player along the line towards the grapple point	     
 			    grapple_target_dist = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 				grapple_direction = point_direction(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 				hsp = lengthdir_x(grapple_target_dist, grapple_direction) * 0.5;
@@ -1078,7 +1000,7 @@ fsm
 				grapple_frames--;
 					
 				// Move player using hsp and vsp
-				collide_and_move(hsp, vsp);
+				collide_and_move();
 		
 				// End state after 4 frames
 				if (grapple_frames <= 0) {
@@ -1114,12 +1036,24 @@ fsm
 	        //input_enabled = false;  // Disable input
 			create_shake();
 			audio_play_sound(snd_player_hit, 30, 0, 35);
-			if !instance_exists(obj_screen_transition) instance_create_layer(x, y, "Lighting", obj_screen_transition);
+			if !instance_exists(obj_reset_room_transition) instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
 	    },
 	    step: function() {
 	        //make it an anim or something or wait a few frames
 	        
 	    }
+	})
+	
+	.add("paused", {
+		
+			enter: function(){
+
+
+			},
+		
+			step: function(){
+
+			}
 	})
 
 	.add("dead", {

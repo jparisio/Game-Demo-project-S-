@@ -117,6 +117,11 @@ function reset_room_states() {
 	//clear the cursor data 
 	obj_cursor_controller.lock_on = noone;
 	obj_cursor_controller.found_hover = false;
+	
+	//camera snap back to player
+	obj_camera.follow = obj_player;
+	obj_camera.x = obj_player.x;
+	obj_camera.y = obj_player.y;
 }
 
 

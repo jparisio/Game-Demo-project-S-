@@ -1,5 +1,11 @@
 //state machine
 fsm.step();
+//fsm.trigger("to_run");
+//fsm.trigger("to_jump");
+//fsm.trigger("to_attack");
+//fsm.trigger("to_dash");
+//fsm.trigger("to_grapple");
+
 
 //check all grapples instances
 if (!ds_list_empty(grapple_target_list)) {
@@ -32,9 +38,6 @@ if (!ds_list_empty(grapple_target_list)) {
     can_grapple = false;
     grapple_target = noone;
 }
-
-
-//show_debug_message(ds_list_size(grapple_target_list))
 
 //check if on ground or not
 var _on_ground = on_ground(self)
@@ -103,5 +106,5 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
-show_debug_message(instance_exists(obj_screen_transition));
+show_debug_message(instance_exists(obj_reset_room_transition));
 //show_debug_message(ds_list_size(grapple_target_list));

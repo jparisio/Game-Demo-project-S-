@@ -29,6 +29,7 @@ return {
 		aim: input_binding_mouse_button(mb_right),
         
         pause: input_binding_key(vk_escape),
+		restart: input_binding_key("R"),
     },
     
     gamepad:

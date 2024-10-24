@@ -91,7 +91,6 @@ dash_x = 0;
 dash_y = 0;
 
 //---WALL JUMP STUFF---//
-on_wall = 0;
 wall_fric = 0.25;
 wall_jump_frames_max = 9;
 wall_jump_frames = wall_jump_frames_max ;
@@ -674,12 +673,19 @@ fsm
 			can_grapple = false;
 	        // Set the player's sprite to a jumping or grappling sprite
 	        sprite_index =  player_character.setSprite("jump");
+			image_index = 0;
 			facing = sign(grapple_target.x - x) == 0? 1 : sign(grapple_target.x - x);
+			
+			//sprite arm TODO: get an anim for this
+			//var _arm = instance_create_layer(x -3 * facing, y - 28, "Instances", obj_grapple_arm)
+			//_arm.image_xscale = facing;
+			//_arm.direction = point_direction(_arm.x, _arm.y, grapple_target.x, grapple_target.y);
+			
 
 	        // Calculate the katana's speed (triple the grapple speed)
 	        var katana_speed = grapple_speed * 3;
 
-	        // Create and launch the katana object toward the grapple point
+	        // Create and launch the katana/grapple at the hand object toward the grapple point
 	        var katana = instance_create_layer(x, y - sprite_height / 2, "Instances", obj_katana);
 			var _dir = point_direction(katana.x, katana.y, grapple_target.x, grapple_target.y);
 			katana.direction = _dir;
@@ -696,6 +702,7 @@ fsm
 			    katana.x = grapple_target.x;
 			    katana.y = grapple_target.y;
 			    katana.speed = 0;
+				instance_destroy(obj_grapple_arm);
 			    fsm.change("grapple move");
 			}
 
@@ -722,30 +729,30 @@ fsm
 				y += vsp;
 				
 				//here check for the spot your ending up at make sure its not in a wall
-				
-			
 				//Check if the player has reached the grapple point
 			    if (grapple_target_dist <= grapple_speed) {
 					// Make sure the player is not inside a wall
-				     // Adjust upwards (top)
-				    while (place_meeting(x, bbox_top, obj_wall_parent)) {
-				        y += 1;
-				    }
-    
-				    // Adjust downwards (bottom)
-				    while (place_meeting(x, bbox_bottom, obj_wall_parent)) {
-				        y -= 1;
-				    }
-    
-				    // Adjust left (left side)
-				    while (place_meeting(bbox_left, y, obj_wall_parent)) {
-				        x += 1;
-				    }
-    
-				    // Adjust right (right side)
-				    while (place_meeting(bbox_right, y, obj_wall_parent)) {
-				        x -= 1;
-				    }
+				    // Check if the player is inside a wall after grappling
+					if (place_meeting(x, y, obj_wall_parent)) {
+					    var directions = [
+					        [0, -1],    // up
+					        [0, 1],     // down
+					        [-1, 0],    // left
+					        [1, 0]      // right
+					    ];
+
+					    // Move player out of the wall step by step
+					    for (var i = 0; i < 4; i++) {
+					        var dir_x = directions[i][0];
+					        var dir_y = directions[i][1];
+        
+					        while (place_meeting(x + dir_x, y + dir_y, obj_wall_parent)) {
+					            x += dir_x;
+					            y += dir_y;
+					        }
+					    }
+					}
+
 			        // Transition to the next grapple state (finishing part)
 					fsm.change(grapple_target.grapple_type);
 					

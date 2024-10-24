@@ -1,4 +1,4 @@
-global.curent_game_state = game_state.get_current_state();
-
+fsm.step();
+global.curent_fsm = fsm.get_current_state();
 
 

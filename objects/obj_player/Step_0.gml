@@ -94,22 +94,6 @@ if (hp <= 0) and fsm.get_current_state() != "dead"{
 	fsm.change("dead");
 }
 
-
-//respawn to last respawn point
-if(instance_place(x, y, obj_respawn_point) != noone){
-	respawn_point = instance_place(x, y, obj_respawn_point);
-}
-
-if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
-	//x = respawn_point.x;
-	//y = respawn_point.y;
-	//reset_room_states();
-	fsm.change("injured");
-}
-
-
-cam_bounds = instance_place(x, y, obj_cam_bounds);
-
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
 //show_debug_message(ds_list_size(grapple_target_list));

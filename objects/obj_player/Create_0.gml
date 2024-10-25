@@ -431,13 +431,16 @@ fsm
 			//cap the vsp on the wall
 			vsp = min(vsp, 3.8);
 			get_input_and_move();
+		}, 
+		
+		leave: function() {
+			audio_stop_sound(snd_wall_slide);
 		}
 })
 
 	.add("wall jump", {
 		
 		enter: function(){
-			audio_stop_sound(snd_wall_slide);
 			audio_play_sound(snd_wall_jump, 0, 0);
 			sprite_index = player_character.setSprite("jump");;
 			image_index = 0;
@@ -702,7 +705,6 @@ fsm
 			    katana.x = grapple_target.x;
 			    katana.y = grapple_target.y;
 			    katana.speed = 0;
-				instance_destroy(obj_grapple_arm);
 			    fsm.change("grapple move");
 			}
 
@@ -922,6 +924,25 @@ fsm
 
 
 	//--------------------------------------TRANSITIONS---------------------------------------------------------//
+	
+	//cutscenes
+	fsm.add_transition("to_dialogue", "idle", "dialogue", function()  {
+		return 	place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")
+	})
+	
+	fsm.add_transition("to_cut_dialogue", ["idle", "run"], "dialogue", function()  {
+		return 	place_meeting(x,y, obj_cutscene_collision)
+	})
+	
+	fsm.add_transition("to_cutscene", ["idle", "run", "jump"], "cutscene", function() {
+			if (cutscene_instance != noone){
+				cutscene_instance.start = true;
+				return true;
+			}
+	    return false;
+	})
+	
+	//movement 
 	fsm.add_transition("to_run", "idle", "run", function()  {
 		return right xor left
 	})
@@ -990,23 +1011,6 @@ fsm
 		}
 		return false;
 	})
-	
-	fsm.add_transition("to_dialogue", "idle", "dialogue", function()  {
-		return 	place_meeting(x, y, obj_dialogue_collision) and input_check_pressed("action")
-	})
-	
-	fsm.add_transition("to_cut_dialogue", ["idle", "run"], "dialogue", function()  {
-		return 	place_meeting(x,y, obj_cutscene_collision)
-	})
-	
-	
-	fsm.add_transition("to_cutscene", ["idle", "run", "jump"], "cutscene", function() {
-			if (cutscene_instance != noone){
-				cutscene_instance.start = true;
-				return true;
-			}
-	    return false;
-	});
 	
 	fsm.add_transition("wall_slide_to_wall_jump", "wall slide", "wall jump", function() {
     return input_check_pressed("jump");

@@ -12,7 +12,7 @@ if (current_x >= x_end - 1) {
 if(!finished and abs(x_end - current_x) <= 0.1){
 	x_end = 0;
 	room_goto(next_room);
-	//var restart_instance = instance_find(obj_respawn_point, 0); // Find the restart point
+	//var restart_instance = instance_find(obj_room_start_point, 0); // Find the restart point
 	//if (restart_instance != noone) {
 	//    obj_player.x = restart_instance.x; // Set player x to restart point x
 	//    obj_player.y = restart_instance.y; // Set player y to restart point y

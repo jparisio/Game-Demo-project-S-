@@ -35,12 +35,13 @@ fsm
 	.add("room transition", {
 		
 			enter: function(){
-				//switch player and all enemies to paused state
-
+				if (room_next(room) != -1){
+					room_goto_next();
+				}
 			},
 		
 			step: function(){
-
+				fsm.change("play")
 			}
 	})
 	

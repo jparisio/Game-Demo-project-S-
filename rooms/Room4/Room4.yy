@@ -27,7 +27,6 @@
     {"name":"inst_5FEA424","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_75991BE2","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_32A0580F","path":"rooms/Room4/Room4.yy",},
-    {"name":"inst_788E486D","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_3B13E245","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_484D39C6","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_626891DC","path":"rooms/Room4/Room4.yy",},
@@ -41,6 +40,7 @@
     {"name":"inst_1D2BFCA3","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_3D4AD291","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_3F792F98","path":"rooms/Room4/Room4.yy",},
+    {"name":"inst_52245F83","path":"rooms/Room4/Room4.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -77,7 +77,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5FEA424","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_24_wall","path":"objects/obj_24_wall/obj_24_wall.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":2.9583333,"x":1296.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_75991BE2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_24_wall","path":"objects/obj_24_wall/obj_24_wall.yy",},"properties":[],"rotation":0.0,"scaleX":19.958334,"scaleY":1.0,"x":840.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_32A0580F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_respawner","path":"objects/obj_respawner/obj_respawner.yy",},"properties":[],"rotation":0.0,"scaleX":2.5,"scaleY":1.0,"x":1296.0,"y":792.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_788E486D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_respawn_point","path":"objects/obj_respawn_point/obj_respawn_point.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":72.0,"y":360.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3B13E245","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_24_wall","path":"objects/obj_24_wall/obj_24_wall.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":22.333332,"x":288.0,"y":360.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_484D39C6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_24_wall","path":"objects/obj_24_wall/obj_24_wall.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":8.958329,"x":288.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_626891DC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_respawner","path":"objects/obj_respawner/obj_respawner.yy",},"properties":[],"rotation":0.0,"scaleX":4.84375,"scaleY":1.140625,"x":1008.0,"y":600.0,},
@@ -88,6 +87,7 @@
           ],"rotation":0.0,"scaleX":1.09375,"scaleY":1.171875,"x":840.0,"y":552.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_38E59806","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_grapple_point","path":"objects/obj_grapple_point/obj_grapple_point.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1104.0,"y":528.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7689F576","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_respawner","path":"objects/obj_respawner/obj_respawner.yy",},"properties":[],"rotation":0.0,"scaleX":8.625,"scaleY":1.375,"x":264.0,"y":600.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_52245F83","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_room_start_point","path":"objects/obj_room_start_point/obj_room_start_point.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":72.0,"y":360.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Back_walls","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1399A149","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_back_wall","path":"objects/obj_back_wall/obj_back_wall.yy",},"properties":[],"rotation":0.0,"scaleX":11.5,"scaleY":3.0,"x":704.0,"y":256.0,},

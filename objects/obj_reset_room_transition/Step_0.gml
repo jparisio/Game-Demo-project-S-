@@ -1,7 +1,4 @@
-if all_squares_done() and square_size == 0 {
-	instance_destroy();
-}
-
+fsm.step();
 
 for (var i = 0; i < array_length(transition_squares); i++) {
     var square = transition_squares[i];
@@ -11,9 +8,4 @@ for (var i = 0; i < array_length(transition_squares); i++) {
 }
 
 
-if(all_squares_done() and square_size == square_size_max){
-	if (alarm[0] == -1) {
-		alarm[0] = 15;
-		reset_room_states();
-	}
-}
+//show_debug_message(instance_number(obj_reset_room_transition))

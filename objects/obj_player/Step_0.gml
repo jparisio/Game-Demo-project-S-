@@ -94,6 +94,13 @@ if (hp <= 0) and fsm.get_current_state() != "dead"{
 	fsm.change("dead");
 }
 
+if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
+	fsm.change("injured");
+}
+
+
+cam_bounds = instance_place(x, y, obj_cam_bounds);
+
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
 //show_debug_message(ds_list_size(grapple_target_list));

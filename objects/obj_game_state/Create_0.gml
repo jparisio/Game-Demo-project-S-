@@ -36,7 +36,8 @@ fsm
 		
 			enter: function(){
 				if (room_next(room) != -1){
-					room_goto_next();
+					var _trans = instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
+					_trans.next_room = true;
 				}
 			},
 		
@@ -48,7 +49,8 @@ fsm
 	.add("reload room", {
 		
 			enter: function(){
-				instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
+				var _trans = instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
+				_trans.reset = true;
 
 			},
 		

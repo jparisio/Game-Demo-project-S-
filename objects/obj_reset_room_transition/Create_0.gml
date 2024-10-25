@@ -5,7 +5,8 @@ square_size = square_size_max;
 approach_val = 2.3;
 rows = ceil(display_get_gui_width() / square_size) + 1;
 columns = ceil(display_get_gui_width() / square_size) + 1;
-alarm[0] = -1;
+reset = false;
+next_room = false;
 
 // Initialize squares with size 0
 for (var i = 0; i < columns; i++) {
@@ -22,11 +23,55 @@ for (var i = 0; i < columns; i++) {
 
 all_squares_done = function() {
     for (var i = 0; i < array_length(transition_squares); i++) {
-		show_debug_message(transition_squares[i].size);
         if (transition_squares[i].size != square_size) {
             return false;
         }
     }
     return true;
 }
+
+fsm = new SnowState("start")
+
+
+fsm	
+	.add("start", {
+		enter: function() {
+			
+		},
+		step: function() {
+			if(all_squares_done() and square_size == square_size_max){
+				fsm.change("transition");
+			}
+		}
+	})
+		
+		
+	.add("transition", {
+		enter: function() {
+			timer = 15;
+		},
+		step: function() {
+			timer--;		
+			if timer <= 0 fsm.change("final");
+		}
+		
+ })
+ 
+ 	.add("final", {
+		enter: function() {
+			//make squares approach 0 now
+			square_size = 0;
+			if (reset) {
+				    reset_room_states();
+				} else if (next_room && room != room_last) {
+				    room_goto_next();
+			}
+		},
+		step: function() {
+			if (all_squares_done()){
+					instance_destroy();
+			}
+		}
+		
+ });
 

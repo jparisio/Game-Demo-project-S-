@@ -25,6 +25,7 @@
     {"name":"inst_3BFFC454","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_7FF3A92C","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_637347BD","path":"rooms/rm_boss/rm_boss.yy",},
+    {"name":"inst_2A152AB8","path":"rooms/rm_boss/rm_boss.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -92,6 +93,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6110CCB5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_invis_wall","path":"objects/obj_invis_wall/obj_invis_wall.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_wall_parent","path":"objects/obj_wall_parent/obj_wall_parent.yy",},"propertyId":{"name":"visible","path":"objects/obj_wall_parent/obj_wall_parent.yy",},"value":"False",},
           ],"rotation":0.0,"scaleX":0.21875,"scaleY":2.921875,"x":1200.0,"y":100.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2A152AB8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_room_start_point","path":"objects/obj_room_start_point/obj_room_start_point.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":400.0,"y":288.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"cutscene","depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1566D1D2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_cutscene_collision","path":"objects/obj_cutscene_collision/obj_cutscene_collision.yy",},"properties":[

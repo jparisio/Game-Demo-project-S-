@@ -878,7 +878,10 @@ fsm
 	        //input_enabled = false;  // Disable input
 			create_shake();
 			audio_play_sound(snd_player_hit, 30, 0, 35);
-			if !instance_exists(obj_reset_room_transition) instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
+			if !instance_exists(obj_reset_room_transition){
+				var _trans = instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
+				_trans.reset = true;
+			}
 	    },
 	    step: function() {
 	        //make it an anim or something or wait a few frames

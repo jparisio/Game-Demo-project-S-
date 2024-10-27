@@ -8,7 +8,7 @@ walksp = 0;
 max_walksp = 4;
 approach_walksp_max = 0.6;
 approach_walksp = approach_walksp_max;
-coyote_time_max = 4
+coyote_time_max = 4;
 coyote_time = coyote_time_max;
 can_jump = true;
 jump_buffer_max = 5;
@@ -318,6 +318,17 @@ fsm
 				
 			//check if player has let go of jump
 			if(input_check_released("jump") or !input_check("jump")) can_jump = true;
+			
+			//coyote time
+			//if(!on_ground(self)){
+			//		coyote_time--;
+			//		vsp = 0;
+			//		//coyote time
+			//		if(jump and coyote_time >=0){
+			//			vsp = vsp_jump;
+			//			fsm.change("jump");
+			//		} else if(coyote_time <= 0) fsm.change("jump");
+			//	}
 			
 	  }
 })
@@ -955,10 +966,11 @@ fsm
 		return 	((!right and !left) or (right and left))
 	})
 	
-	fsm.add_transition("t_coyote_jump", ["idle", "run"], "jump", function() {
+	fsm.add_transition("t_coyote_jump", ["run"], "jump", function() {
 	    if (!on_ground(self)) {
 	        coyote_time--; 
 	        if (jump && coyote_time >= 0) {
+				instance_create_layer(x, y, "Instances", obj_dust_jump); 
 	            vsp = vsp_jump; 
 	            return true;
 	        }
@@ -986,7 +998,7 @@ fsm
 	})
 	
 	
-	fsm.add_transition("fall_off", ["idle", "run"], "jump", function() {
+	fsm.add_transition("fall_off", ["idle"], "jump", function() {
 	    if(!on_ground(self)){
 			return true;
 		}

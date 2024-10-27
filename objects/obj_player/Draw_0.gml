@@ -20,6 +20,6 @@ if (!instance_exists(obj_hurtbox) and be_invulnerable) {
 //	draw_line(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);
 //}
 
-//draw_text(x, y - 40, string(can_grapple));
+//draw_text(x, y - 40, string(can_jump));
 
 //draw_circle(bbox_right + 32, bbox_bottom - 10, 1, false);

@@ -319,17 +319,6 @@ fsm
 			//check if player has let go of jump
 			if(input_check_released("jump") or !input_check("jump")) can_jump = true;
 			
-			//coyote time
-			//if(!on_ground(self)){
-			//		coyote_time--;
-			//		vsp = 0;
-			//		//coyote time
-			//		if(jump and coyote_time >=0){
-			//			vsp = vsp_jump;
-			//			fsm.change("jump");
-			//		} else if(coyote_time <= 0) fsm.change("jump");
-			//	}
-			
 	  }
 })
 	
@@ -404,7 +393,7 @@ fsm
 			if(input_check_released("jump")) can_jump = true;
 			
 			//jump buffer
-			if(input_check("jump") and can_jump) jump_buffer = jump_buffer_max;
+			if(jump) jump_buffer = jump_buffer_max;
 			if(jump_buffer >= 0){
 				jump_buffer--;
 				if(on_ground(self)){
@@ -983,7 +972,7 @@ fsm
 
 	
 	fsm.add_transition("to_jump", ["idle", "run"], "jump", function() {
-	    if (input_check("jump")) {
+	    if (jump) {
 	        xscale = 0.75;    
 	        yscale = 1.25;  
 	        vsp = vsp_jump;   

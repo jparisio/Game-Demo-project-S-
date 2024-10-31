@@ -5,8 +5,8 @@ yscale = lerp(yscale, 1, .2);
 
 if(found_hover){
 	if counter <= 30 counter += 1/30
-	xscale = AnimcurveTween(xscale, 3, acBackOut, counter)
-	yscale = AnimcurveTween(yscale, 3, acBackOut, counter)
+	xscale = AnimcurveTween(1, 3, acElasticOut, counter)
+	yscale = AnimcurveTween(1, 3, acElasticOut, counter)
 	image_angle += 5;
 } else {
 	//calculate a spin ddepeding on how fast the mouse 

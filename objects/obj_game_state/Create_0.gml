@@ -1,7 +1,7 @@
 pause_toggle = 0;
 reload_room = 0;
 
-fsm = new SnowState("play")
+fsm = new SnowState("main menu")
 
 fsm 
 
@@ -20,10 +20,7 @@ fsm
 	.add("paused", {
 		
 			enter: function(){
-				//switch player and all enemies to paused state
-				with(obj_player) {
-					fsm.change("paused");
-				}
+				
 
 			},
 		
@@ -57,4 +54,19 @@ fsm
 			step: function(){
 				if !instance_exists(obj_reset_room_transition) fsm.change("play");
 			}
+	})
+	
+	.add("main menu", {
+		
+			enter: function(){
+				//instance_create_layer(x, y, "Instances", obj_menu_parent);
+			},
+		
+			step: function(){
+				
+			}
 	});
+	
+	
+	//set window to full screen 
+	window_set_fullscreen(true);

@@ -1,4 +1,4 @@
 //create
-follow = obj_player;
+follow = noone;
 
-
+_bounds = noone;

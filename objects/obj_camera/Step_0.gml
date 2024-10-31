@@ -1,4 +1,4 @@
-var _bounds = obj_player.cam_bounds
+if instance_exists(obj_player) _bounds = obj_player.cam_bounds
 // Follow the target with smoothing
 if (follow != noone) {
     x += (follow.x - x) / 15;

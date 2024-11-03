@@ -38,7 +38,7 @@ grapple_coll_line = 0;
 tween = 0;
 chainsaw_fly = false;
 //----gun----//
-default_bullet = new Bullet(7)
+default_bullet = new Bullet(7, obj_bullet);
 gun = new Gun(default_bullet, 5);
 //respawn 
 respawn_point = noone;

@@ -12,8 +12,6 @@ function Gun(_bullet, _max_ammo) constructor {
     // Fire function that uses either the next_bullet nullet
     fire = function(_x, _y, _direction) {
         if (array_length(bullets) > bullet_index) {
-			create_shake("small");
-			audio_play_sound(snd_gunshot, 10, 0);
             var current_bullet = bullets[bullet_index];
             // Fire bullet and remove from array
             current_bullet.shoot(_x, _y, _direction);
@@ -42,9 +40,13 @@ function Gun(_bullet, _max_ammo) constructor {
     };
     
     // Function to add a bullet back to the array (e.g., for pickups or reloads)
-    add_bullet = function(_bullet_type) {
-        if (array_length(bullets) < array_size) {
-            array_push(bullets, _bullet_type);
+    add_bullet = function(_bullet) {
+        if (bullet_index > 0 && bullets[bullet_index -1] == -1) {
+            bullets[bullet_index -1] = _bullet;
+			bullet_index -= 1;
+			return 1;
         }
+		//return 0 to indicate the bullet wasnt added
+		return 0;
     };
 }

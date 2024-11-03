@@ -105,5 +105,5 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
-var _bullets = gun.get_bullets()
-show_debug_message(_bullets);
+//var _bullets = gun.get_bullets()
+//show_debug_message(_bullets);

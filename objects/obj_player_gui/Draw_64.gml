@@ -6,9 +6,10 @@ var y_start = display_get_gui_height() - 50; // Y position at the bottom of the 
 for (var i = 0; i < array_length(_bullets); i++) {
     var bullet_state = _bullets[i];
     if (bullet_state == -1) {
+		//draw empty shell (I want to play anim eventually of the bullet spinning out of the socket)
         draw_sprite(spr_bullet_ui, 1, x_start + (i * bullet_spacing), y_start); // Draw with image_index 1
     } else {
-        draw_sprite(spr_bullet_ui, 0, x_start + (i * bullet_spacing), y_start); // Draw with image_index 0
+        draw_sprite(bullet_state.sprite, 0, x_start + (i * bullet_spacing), y_start); // Draw with image_index 0
     }
 }
 

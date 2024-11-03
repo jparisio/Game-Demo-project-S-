@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "main menu",
-    "path": "folders/Objects/UI/main menu.yy",
+    "name": "buttons",
+    "path": "folders/Objects/UI/main menu/buttons.yy",
   },
   "parentObjectId": {
     "name": "obj_button_parent",

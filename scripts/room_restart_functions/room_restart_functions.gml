@@ -16,7 +16,11 @@ function capture_initial_room_states() {
             state: player.fsm.get_current_state()
         };
         array_push(global.initial_player_state, player_state);
+		
+		//reload gun 
+		player.gun.reload();
     }
+
 
     // Capture enemy states
     var enemy_count = instance_number(obj_enemy);
@@ -60,6 +64,8 @@ function reset_room_states() {
 		ds_list_clear(player.grapple_target_list);
 		player.can_grapple = false
 		player.grapple_target = noone;
+		//reload gun bullets
+		player.gun.reload();
     }
 
     // Reset enemy states

@@ -46,6 +46,8 @@ fsm.trigger("to_jump");
 fsm.trigger("to_wall_slide");
 fsm.trigger("fall_off");
 fsm.trigger("to_attack");
+fsm.trigger("to_shoot");
+fsm.trigger("shoot_to_idle");
 fsm.trigger("to_dash");
 fsm.trigger("to_grapple");
 fsm.trigger("to_dialogue");
@@ -103,4 +105,5 @@ cam_bounds = instance_place(x, y, obj_cam_bounds);
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
-//show_debug_message(ds_list_size(grapple_target_list));
+var _bullets = gun.get_bullets()
+show_debug_message(_bullets);

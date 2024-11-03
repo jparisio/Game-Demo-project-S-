@@ -69,4 +69,4 @@ fsm
 	
 	
 	//set window to full screen 
-	window_set_fullscreen(true);
+	//window_set_fullscreen(true);

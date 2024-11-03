@@ -37,6 +37,9 @@ grapple_cooldown_max = 30;
 grapple_coll_line = 0;
 tween = 0;
 chainsaw_fly = false;
+//----gun----//
+default_bullet = new Bullet(7)
+gun = new Gun(default_bullet, 5);
 //respawn 
 respawn_point = noone;
 
@@ -130,7 +133,8 @@ get_input_and_move = function() {
 	up = input_check("up");
 	down = input_check("down");
 	if (can_jump) jump = input_check("jump") else jump = 0;
-	attack = input_check_pressed("shoot");
+	attack = input_check_pressed("attack");
+	shoot = input_check_pressed("shoot");
 	dash = input_check_pressed("special");
 	throw_grapple = input_check_pressed("aim");
 	
@@ -345,7 +349,12 @@ fsm
 			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
 			
 			//carry momentum from the wall jump or grapple
-			if (fsm.get_previous_state() == "wall jump" || fsm.get_previous_state() == "grapple enemy") walksp  = max_walksp;
+			var _prev_state = fsm.get_previous_state()
+			if (_prev_state == "wall jump" || _prev_state == "grapple enemy"){
+				walksp  = max_walksp;
+				carried_momentum = abs(hsp) - max_walksp
+			}
+			
 		},
 		
 		step: function(){
@@ -846,11 +855,27 @@ fsm
 		
 				// End state after 4 frames
 				if (grapple_frames <= 0) {
-					carried_momentum = abs(hsp) - max_walksp
+					//carried_momentum = abs(hsp) - max_walksp
 					if on_ground(self) fsm.change("idle") else fsm.change("jump");
 				}
 			}
 		})
+		
+		
+	.add("shoot", {
+		
+			enter: function(){
+					var _dir = point_direction(x, y - sprite_height / 2,  mouse_x, mouse_y)
+					gun.fire(x, y - sprite_height / 2, _dir);
+					sprite_index = spr_ghost_grapple;
+					image_index = 0;
+			},
+		
+			step: function(){
+				get_input_and_move();
+				determine_facing();
+			}
+	})
 	
 	.add("cutscene", {
 		
@@ -996,8 +1021,17 @@ fsm
 	
 
 	fsm.add_transition("to_attack", ["idle", "run", "jump"], "attack", function()  {
-		return attack
+		return attack;
 	})
+	
+	fsm.add_transition("to_shoot", ["idle", "run", "jump"], "shoot", function()  {
+		return shoot;
+	})
+	
+	fsm.add_transition("shoot_to_idle", "shoot", "idle", function()  {
+		return 1;
+	})
+
 
 	fsm.add_transition("to_dash", ["idle", "run", "jump"], "dash", function()  {
 		return dash and can_dash

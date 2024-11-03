@@ -25,6 +25,7 @@ return {
         
         //No aiming verbs since we use the mouse for that (see below for aiming verb examples)
         shoot: input_binding_mouse_button(mb_left),
+		attack: input_binding_key("F"),
 		//cap lol ^^
 		aim: input_binding_mouse_button(mb_right),
         

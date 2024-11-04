@@ -8,10 +8,11 @@ bullet_ui_arr = [];
 //create the array of bullets
 for (var i = 0; i < array_length(_bullets); i++) {
     var _curr_bullet = _bullets[i];
-		var _bull = instance_create_layer(x, y, "Instances", obj_bullet_ui);
+		var _bull = instance_create_layer(x, y, "UI", obj_bullet_ui);
 		_bull.draw_x = x_start + (i * bullet_spacing);
 		_bull.draw_y = y_start;
 		_bull.index = i;
 		_bull.bullet_sprite = _curr_bullet.sprite;
+		_bull.depth = -i; // Ensures bullets at higher indices draw on top
 		array_push(bullet_ui_arr, _bull);
 }

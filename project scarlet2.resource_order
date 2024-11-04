@@ -80,6 +80,7 @@
     {"name":"Tilesets","order":14,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":16,"path":"folders/TweenGMX.yy",},
+    {"name":"player gui","order":3,"path":"folders/Objects/UI/player gui.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sound_gain_controller","order":2,"path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},
@@ -224,7 +225,6 @@
     {"name":"obj_slide_dust","order":3,"path":"objects/obj_slide_dust/obj_slide_dust.yy",},
     {"name":"obj_24_wall","order":5,"path":"objects/obj_24_wall/obj_24_wall.yy",},
     {"name":"spr_shinto4","order":3,"path":"sprites/spr_shinto4/spr_shinto4.yy",},
-    {"name":"obj_player_gui","order":2,"path":"objects/obj_player_gui/obj_player_gui.yy",},
     {"name":"obj_water","order":2,"path":"objects/obj_water/obj_water.yy",},
     {"name":"spr_impact_frame","order":3,"path":"sprites/spr_impact_frame/spr_impact_frame.yy",},
     {"name":"obj_invis_wall","order":4,"path":"objects/obj_invis_wall/obj_invis_wall.yy",},
@@ -236,6 +236,7 @@
     {"name":"spr_broken_glass2","order":9,"path":"sprites/spr_broken_glass2/spr_broken_glass2.yy",},
     {"name":"spr_boss_gunslinger_fire","order":17,"path":"sprites/spr_boss_gunslinger_fire/spr_boss_gunslinger_fire.yy",},
     {"name":"BulbDynamicOccluder","order":4,"path":"scripts/BulbDynamicOccluder/BulbDynamicOccluder.yy",},
+    {"name":"obj_bullet_ui","order":1,"path":"objects/obj_bullet_ui/obj_bullet_ui.yy",},
     {"name":"spr_jump_fall","order":9,"path":"sprites/spr_jump_fall/spr_jump_fall.yy",},
     {"name":"snd_horror","order":13,"path":"sounds/snd_horror/snd_horror.yy",},
     {"name":"spr_grapple_slash","order":2,"path":"sprites/spr_grapple_slash/spr_grapple_slash.yy",},

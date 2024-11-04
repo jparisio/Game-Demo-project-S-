@@ -148,6 +148,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player gui","folderPath":"folders/Objects/UI/player gui.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},
@@ -517,6 +518,7 @@
     {"id":{"name":"__scribble_system","path":"scripts/__scribble_system/__scribble_system.yy",},},
     {"id":{"name":"__input_mouse_button","path":"scripts/__input_mouse_button/__input_mouse_button.yy",},},
     {"id":{"name":"spr_warrior_slime_attack","path":"sprites/spr_warrior_slime_attack/spr_warrior_slime_attack.yy",},},
+    {"id":{"name":"obj_bullet_ui","path":"objects/obj_bullet_ui/obj_bullet_ui.yy",},},
     {"id":{"name":"__scribble_class_model","path":"scripts/__scribble_class_model/__scribble_class_model.yy",},},
     {"id":{"name":"__input_load_type_csv","path":"scripts/__input_load_type_csv/__input_load_type_csv.yy",},},
     {"id":{"name":"obj_dust_bomb","path":"objects/obj_dust_bomb/obj_dust_bomb.yy",},},

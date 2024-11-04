@@ -1028,8 +1028,9 @@ fsm
 				return true;
 			} else {
 				//play gun empty sound and dont state change
-				var _snd = choose(snd_empty_gun1, snd_empty_gun2, snd_empty_gun3);
-				audio_play_sound(_snd, 10, 0);
+				var _snd = choose(snd_empty_gun3);
+				var _pitch = random_range(1, 1.1);
+				audio_play_sound(_snd, 10, 0, , , _pitch);
 				return false;
 			}
 		}

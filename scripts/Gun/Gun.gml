@@ -41,8 +41,19 @@ function Gun(_bullet, _max_ammo) constructor {
         return bullet_index;
     };
 	
+	 is_empty = function() {
+	    for (var i = 0; i < array_length(bullets); i++) {
+	        if (bullets[i] != -1) {
+	            return false;
+	        }
+	    }
+		return true;
+	}
+
+	
 	//set bullet defaulted to set the last bullet
 	set_bullet = function(_bullet, _index = array_length(bullets) - 1) {
+		if self.is_empty() bullet_index -= 1;
         bullets[_index] = _bullet;
     };
     

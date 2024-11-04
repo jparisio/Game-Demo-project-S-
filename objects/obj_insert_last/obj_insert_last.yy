@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_pickup_bullet",
+  "name": "obj_insert_last",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_pickup_item",
-    "path": "sprites/spr_pickup_item/spr_pickup_item.yy",
+    "name": "spr_pickup_item2",
+    "path": "sprites/spr_pickup_item2/spr_pickup_item2.yy",
   },
   "spriteMaskId": null,
   "visible": true,

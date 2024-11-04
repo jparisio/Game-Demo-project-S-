@@ -147,6 +147,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player ui","folderPath":"folders/Sprites/UI and text/player ui.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},
@@ -1032,7 +1033,6 @@
     {"id":{"name":"obj_glass_window","path":"objects/obj_glass_window/obj_glass_window.yy",},},
     {"id":{"name":"obj_finisher_hit_box","path":"objects/obj_finisher_hit_box/obj_finisher_hit_box.yy",},},
     {"id":{"name":"input_cursor_gyro_params_get","path":"scripts/input_cursor_gyro_params_get/input_cursor_gyro_params_get.yy",},},
-    {"id":{"name":"keyboard_207","path":"sprites/keyboard_207/keyboard_207.yy",},},
     {"id":{"name":"snd_glitch","path":"sounds/snd_glitch/snd_glitch.yy",},},
     {"id":{"name":"spr_neon_sign_4","path":"sprites/spr_neon_sign_4/spr_neon_sign_4.yy",},},
     {"id":{"name":"acBounceOut","path":"animcurves/acBounceOut/acBounceOut.yy",},},

@@ -24,7 +24,7 @@ for (var i = 0; i < array_length(_bullets); i++) {
         draw_sprite(spr_bullet_ui, 1, x_start + (i * bullet_spacing), y_start); // Draw with image_index 1
     } else {
 		//draw the current bullet to be rotating
-		var rotation_range = 15; // Maximum rotation in either direction
+		var rotation_range = 7; // Maximum rotation in either direction
 		var frequency = 0.005; // Speed of oscillation
 
 		// Calculate oscillating angle using sine wave

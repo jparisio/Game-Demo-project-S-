@@ -13,7 +13,6 @@ function Bullet(__speed, _type) constructor {
         var bullet_instance = instance_create_layer(_x, _y, "Instances", type);
         bullet_instance.speed = _speed;
         bullet_instance.direction = _direction;
-		show_debug_message(sprite);
     };
 
 }

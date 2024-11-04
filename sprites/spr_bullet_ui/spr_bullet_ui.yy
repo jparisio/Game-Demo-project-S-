@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "UI and text",
-    "path": "folders/Sprites/UI and text.yy",
+    "name": "player ui",
+    "path": "folders/Sprites/UI and text/player ui.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

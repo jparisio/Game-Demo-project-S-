@@ -82,55 +82,43 @@ function reset_room_states() {
 		player.gun.reload();
     }
 
-    // Reset enemy states
-    for (var i = 0; i < array_length(global.initial_enemy_states); i++) {
-        var enemy_state = global.initial_enemy_states[i];
-		// Find by ID from the stored state
-        var enemy = instance_find(enemy_state._id, 0); 
-        if (enemy != noone) {
-            enemy.x = enemy_state._x;
-            enemy.y = enemy_state._y;
-            enemy.hp = enemy_state.hp;
-			//remove movement
-			enemy.hsp = 0;
-			enemy.vsp = 0;
-			//clear the grapple target on self if there is one
-			if (variable_instance_exists(enemy, "self_grapple") && enemy.self_grapple != noone && instance_exists(enemy.self_grapple)) {
-			    instance_destroy(enemy.self_grapple);
-			}
-			//switches back to proper state (creates new grapple instance if last state was a grappleable state)
-			enemy.fsm.change(enemy_state.state);
-        } else {
-			// Recreate the enemy if it was deleted
+	// Restore enemies
+	array_foreach(global.initial_enemy_states, function(enemy_state) {
+	    if (instance_exists(enemy_state._id)) {
+	        var enemy = enemy_state._id;
+	        enemy.x = enemy_state._x;
+	        enemy.y = enemy_state._y;
+	        enemy.hp = enemy_state.hp;
+	        enemy.hsp = 0;
+	        enemy.vsp = 0;
+
+	        if (variable_instance_exists(enemy, "self_grapple") && enemy.self_grapple != noone && instance_exists(enemy.self_grapple)) {
+	            instance_destroy(enemy.self_grapple);
+	        }
+        
+	        enemy.fsm.change(enemy_state.state);
+	    } else {
 	        var new_enemy = instance_create_layer(enemy_state._x, enemy_state._y, "Enemies", enemy_state._type);
 	        new_enemy.hp = enemy_state.hp;
 	        new_enemy.fsm.change(enemy_state.state);
-		}
-    }
-	
-	//restore windows 
-	 for (var i = 0; i < array_length(global.initial_window_states); i++) {
-        var window_state = global.initial_window_states[i];
-        var window = instance_find(window_state._id, 0);
-        if (window != noone) {
-            window.mask_index = window_state._mask;
-			window.image_index = 0;
-		}
-	 }
+	    }
+	});
+
+	// Restore windows
+	array_foreach(global.initial_window_states, function(window_state) {
+	    if (instance_exists(window_state._id)) {
+	        var window = window_state._id;
+	        window.mask_index = window_state._mask;
+	        window.image_index = 0;
+	    }
+	});
 	 
 	//restore items in room 
-	 for (var i = 0; i < array_length(global.initial_item_states); i++) {
-        var item_state = global.initial_item_states[i];
-		// Find by ID from the stored state
-        var item = instance_find(item_state._id, 0); 
-        if (item != noone) {
-            item.x = item_state._x;
-            item.y = item_state._y;
-        } else {
-			// Recreate the item if it was deleted
-	        instance_create_layer(item_state._x, item_state._y, "Instances", item_state._type);
-		}
-    }
+	instance_destroy(obj_item_parent);
+	array_foreach(global.initial_item_states, function(item) {
+	     instance_create_layer(item._x, item._y, "Instances", item._type);
+	});
+
 	
 	//---------------------------------EXTRAS----------------------------------//
 	//clear the surface in the room

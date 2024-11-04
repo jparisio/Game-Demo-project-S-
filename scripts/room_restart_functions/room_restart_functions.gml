@@ -5,6 +5,7 @@ function capture_initial_room_states() {
 	global.initial_player_state = [];
 	global.initial_enemy_states = [];
 	global.initial_window_states = [];
+	global.initial_item_states = [];
     // Capture player states
     var player = instance_find(obj_player, 0); // one player
     if (player != noone) {
@@ -47,6 +48,19 @@ function capture_initial_room_states() {
 	    };
 	    array_push(global.initial_window_states, window_state);
 	}
+	
+	//capture items in room 
+	var item_count = instance_number(obj_item_parent);
+    for (var i = 0; i < item_count; i++) {
+        var item = instance_find(obj_item_parent, i);
+        var item_state = {
+			_type: item.object_index,
+            _x: item.x,
+            _y: item.y,
+			_id: item.id,
+        };
+        array_push(global.initial_item_states, item_state);
+    }
 }
 
 
@@ -103,7 +117,22 @@ function reset_room_states() {
 			window.image_index = 0;
 		}
 	 }
+	 
+	//restore items in room 
+	 for (var i = 0; i < array_length(global.initial_item_states); i++) {
+        var item_state = global.initial_item_states[i];
+		// Find by ID from the stored state
+        var item = instance_find(item_state._id, 0); 
+        if (item != noone) {
+            item.x = item_state._x;
+            item.y = item_state._y;
+        } else {
+			// Recreate the item if it was deleted
+	        instance_create_layer(item_state._x, item_state._y, "Instances", item_state._type);
+		}
+    }
 	
+	//---------------------------------EXTRAS----------------------------------//
 	//clear the surface in the room
 	with (obj_wall_surface_controller) {
 		if (surface_exists(big_surface)) {

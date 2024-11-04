@@ -1,4 +1,4 @@
-//---movements---//
+//----------------------------------------------------MOVEMENTS----------------------------------------------------------//
 hsp = 0;
 vsp = 0;
 vsp_jump = -6;
@@ -23,7 +23,7 @@ decelerate = decelerate_ground
 carried_momentum = 0;
 max_carried_momentum = 4;
 facing = 1;
-//---grapples---//
+//-------------------------------------------------------GRAPPLES-------------------------------------------------------//
 can_grapple = false;
 grapple_target = noone
 grapple_target_list = ds_list_create();
@@ -37,13 +37,13 @@ grapple_cooldown_max = 30;
 grapple_coll_line = 0;
 tween = 0;
 chainsaw_fly = false;
-//----gun----//
-default_bullet = new Bullet(7, obj_bullet);
+//----------------------------------------------------------GUN------------------------------------------------------//
+default_bullet = new Bullet(15, obj_bullet);
 gun = new Gun(default_bullet, 5);
 //respawn 
 respawn_point = noone;
 
-//---SPRITES---//
+//--------------------------------------------------------SPRITES-----------------------------------------------------//
 
 // Sprites for Act 1 (scarlet)
 sprites_scar = {
@@ -83,7 +83,7 @@ cutscene_instance = noone;
 xscale = 1;
 yscale = 1;
 
-//---dash---//
+//--------------------------------------------------------dash-------------------------------------------------//
 can_dash = false;
 dash_timer_max = 5;
 dash_timer = dash_timer_max;
@@ -93,17 +93,15 @@ dash_direction = 0;
 dash_x = 0;
 dash_y = 0;
 
-//---WALL JUMP STUFF---//
+//---------------------------------------------------WALL JUMP STUFF-------------------------------------------//
 wall_fric = 0.25;
 wall_jump_frames_max = 9;
 wall_jump_frames = wall_jump_frames_max ;
 wall_jump_hsp = 0;
 wall_jump_hsp_max = 4;
 
-//health
+//-------------------------------------------------health and damage------------------------------------------//
 hp = 50;
-
-//damage
 damage = 5;
 invulnerability_max = 60 * 2;
 invulnerability = invulnerability_max;
@@ -1025,7 +1023,17 @@ fsm
 	})
 	
 	fsm.add_transition("to_shoot", ["idle", "run", "jump"], "shoot", function()  {
-		return shoot;
+		if(shoot){
+			if (array_length(gun.get_bullets()) > gun.get_index()){
+				return true;
+			} else {
+				//play gun empty sound and dont state change
+				var _snd = choose(snd_empty_gun1, snd_empty_gun2, snd_empty_gun3);
+				audio_play_sound(_snd, 10, 0);
+				return false;
+			}
+		}
+		return false;
 	})
 	
 	fsm.add_transition("shoot_to_idle", "shoot", "idle", function()  {

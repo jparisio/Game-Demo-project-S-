@@ -270,6 +270,7 @@
     {"name":"spr_grapple_point","order":5,"path":"sprites/spr_grapple_point/spr_grapple_point.yy",},
     {"name":"obj_screen_size_controller","order":4,"path":"objects/obj_screen_size_controller/obj_screen_size_controller.yy",},
     {"name":"acElasticInOut","order":16,"path":"animcurves/acElasticInOut/acElasticInOut.yy",},
+    {"name":"obj_item_parent","order":5,"path":"objects/obj_item_parent/obj_item_parent.yy",},
     {"name":"obj_cone_light","order":3,"path":"objects/obj_cone_light/obj_cone_light.yy",},
     {"name":"snd_injured","order":11,"path":"sounds/snd_injured/snd_injured.yy",},
     {"name":"BulbStaticOccluder","order":9,"path":"scripts/BulbStaticOccluder/BulbStaticOccluder.yy",},

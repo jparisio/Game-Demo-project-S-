@@ -50,7 +50,7 @@ event_inherited();
 	
 	
 //states	
-fsm = new SnowState("stunned")
+fsm = new SnowState("patrol rest")
 
 fsm
 	.add("patrol rest", {
@@ -64,7 +64,7 @@ fsm
 		},
 		step: function() {
 			
-			timer_switch_state--;
+			//timer_switch_state--;
 			
 			//if dead switch to dead state
 			if(hp <= 0){

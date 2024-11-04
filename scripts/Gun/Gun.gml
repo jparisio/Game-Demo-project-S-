@@ -19,8 +19,6 @@ function Gun(_bullet, _max_ammo) constructor {
             bullet_index++;
         } else {
 			//out of ammo
-			var _snd = choose(snd_empty_gun1, snd_empty_gun2, snd_empty_gun3);
-			audio_play_sound(_snd, 10, 0);
             show_debug_message("Out of bullets!");
         }
     };

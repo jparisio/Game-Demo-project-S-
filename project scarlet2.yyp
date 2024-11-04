@@ -608,6 +608,7 @@
     {"id":{"name":"input_binding_mouse_wheel_up","path":"scripts/input_binding_mouse_wheel_up/input_binding_mouse_wheel_up.yy",},},
     {"id":{"name":"input_binding_swap","path":"scripts/input_binding_swap/input_binding_swap.yy",},},
     {"id":{"name":"acElasticInOut","path":"animcurves/acElasticInOut/acElasticInOut.yy",},},
+    {"id":{"name":"obj_item_parent","path":"objects/obj_item_parent/obj_item_parent.yy",},},
     {"id":{"name":"obj_cone_light","path":"objects/obj_cone_light/obj_cone_light.yy",},},
     {"id":{"name":"__input_virtual_player_set","path":"scripts/__input_virtual_player_set/__input_virtual_player_set.yy",},},
     {"id":{"name":"acBackIn","path":"animcurves/acBackIn/acBackIn.yy",},},

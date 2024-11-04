@@ -7,7 +7,7 @@ rows = ceil(display_get_gui_width() / square_size) + 1;
 columns = ceil(display_get_gui_width() / square_size) + 1;
 reset = false;
 next_room = false;
-
+depth = -99;
 // Initialize squares with size 0
 for (var i = 0; i < columns; i++) {
     for (var j = 0; j < rows; j++) {

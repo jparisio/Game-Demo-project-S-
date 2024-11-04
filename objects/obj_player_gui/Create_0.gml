@@ -6,7 +6,7 @@ y_start = display_get_gui_height() - 50; // Y position at the bottom of the scre
 bullet_ui_arr = [];
 
 //create the array of bullets
-for (var i = array_length(_bullets) - 1; i >= 0; i--) {
+for (var i = 0; i < array_length(_bullets); i++) {
     var _curr_bullet = _bullets[i];
 		var _bull = instance_create_layer(x, y, "Instances", obj_bullet_ui);
 		_bull.draw_x = x_start + (i * bullet_spacing);

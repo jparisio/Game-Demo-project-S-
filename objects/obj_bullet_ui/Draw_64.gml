@@ -1,5 +1,6 @@
 time			= (time + .5 * 0.05) mod 1;
 
+//shader
 gpu_set_tex_filter_ext(u_distort_tex, true);
 
 
@@ -14,7 +15,7 @@ gpu_set_tex_filter_ext(u_distort_tex, true);
 		draw_sprite_ext(sprite, 0, draw_x, draw_y, xscale, yscale, 1, c_white, 1); 
 	shader_reset();
 
-	gpu_set_tex_filter(false);
+gpu_set_tex_filter(false);
 	
 if(fsm.get_current_state() == "active"){
 	
@@ -26,11 +27,11 @@ if(fsm.get_current_state() == "active"){
 	draw_sprite_ext(bullet_sprite, 0, draw_x, draw_y, 1, 1, rot, c_white, 1); 
 	
 } else if(fsm.get_current_state() == "loaded"){
-	
+	//draw without rotation 
 	draw_sprite(bullet_sprite, 0, draw_x, draw_y);
 	
 } else {
-	
+	//draw empty shell
 	draw_sprite(bullet_sprite, 1, draw_x, draw_y);
 	
 }

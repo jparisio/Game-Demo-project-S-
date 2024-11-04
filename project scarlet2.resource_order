@@ -75,11 +75,11 @@
     {"name":"tilesets","order":8,"path":"folders/Sprites/tilesets.yy",},
     {"name":"UI and text","order":5,"path":"folders/Sprites/UI and text.yy",},
     {"name":"menu","order":7,"path":"folders/Sprites/UI and text/menu.yy",},
+    {"name":"player ui","order":14,"path":"folders/Sprites/UI and text/player ui.yy",},
     {"name":"weapons","order":9,"path":"folders/Sprites/weapons.yy",},
     {"name":"Tilesets","order":14,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":16,"path":"folders/TweenGMX.yy",},
-    {"name":"player ui","order":14,"path":"folders/Sprites/UI and text/player ui.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sound_gain_controller","order":2,"path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},

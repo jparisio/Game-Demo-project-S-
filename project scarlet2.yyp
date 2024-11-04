@@ -139,6 +139,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"tilesets","folderPath":"folders/Sprites/tilesets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI and text","folderPath":"folders/Sprites/UI and text.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"menu","folderPath":"folders/Sprites/UI and text/menu.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player ui","folderPath":"folders/Sprites/UI and text/player ui.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"weapons","folderPath":"folders/Sprites/weapons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilesets","folderPath":"folders/Tilesets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
@@ -147,7 +148,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player ui","folderPath":"folders/Sprites/UI and text/player ui.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},

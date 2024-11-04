@@ -3,10 +3,9 @@
 //-----------------------------------------------------------------------------
 time			= (time + .5 * 0.05) mod 1;
 
-var strength_x	= .231;		// [0, 0.3]
-var strength_y	= .5;		// [0, 1]
-var size		= .7;		// [0.25, 0.75]
-var bend		= -.5;		// [-1, +1]
+
+
+if input_check("shoot") strength_y = lerp(strength_y, -1, .05);
 
 
 // DRAW:

@@ -10,8 +10,10 @@ u_size			= shader_get_uniform(shader, "size");
 u_bend			= shader_get_uniform(shader, "bend");
 
 time			= random(1);
-
-
+strength_x	= .231;		// [0, 0.3]
+strength_y	= .5;		// [0, 1]
+size		= .7;		// [0.25, 0.75]
+bend		= -.5;		// [-1, +1]
 
 
 

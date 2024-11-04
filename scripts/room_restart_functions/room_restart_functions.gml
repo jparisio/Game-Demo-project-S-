@@ -101,6 +101,8 @@ function reset_room_states() {
 	        var new_enemy = instance_create_layer(enemy_state._x, enemy_state._y, "Enemies", enemy_state._type);
 	        new_enemy.hp = enemy_state.hp;
 	        new_enemy.fsm.change(enemy_state.state);
+			// Update ID in the stored state
+			enemy_state._id = new_enemy.id;
 	    }
 	});
 

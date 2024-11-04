@@ -34,6 +34,7 @@
     {"name":"player gui","order":3,"path":"folders/Objects/UI/player gui.yy",},
     {"name":"weapons","order":12,"path":"folders/Objects/weapons.yy",},
     {"name":"bullets","order":3,"path":"folders/Objects/weapons/bullets.yy",},
+    {"name":"items","order":6,"path":"folders/Objects/weapons/items.yy",},
     {"name":"Particle Systems","order":18,"path":"folders/Particle Systems.yy",},
     {"name":"Paths","order":6,"path":"folders/Paths.yy",},
     {"name":"Rooms","order":19,"path":"folders/Rooms.yy",},
@@ -81,7 +82,6 @@
     {"name":"Tilesets","order":14,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":16,"path":"folders/TweenGMX.yy",},
-    {"name":"items","order":6,"path":"folders/Objects/weapons/items.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sound_gain_controller","order":2,"path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},

@@ -81,6 +81,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player gui","folderPath":"folders/Objects/UI/player gui.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"weapons","folderPath":"folders/Objects/weapons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bullets","folderPath":"folders/Objects/weapons/bullets.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"items","folderPath":"folders/Objects/weapons/items.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Particle Systems","folderPath":"folders/Particle Systems.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy",},
@@ -149,7 +150,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"items","folderPath":"folders/Objects/weapons/items.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},

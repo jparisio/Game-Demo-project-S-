@@ -38,6 +38,15 @@ function Gun(_bullet, _max_ammo) constructor {
     get_bullets = function() {
         return bullets;
     };
+	
+	get_index = function() {
+        return bullet_index;
+    };
+	
+	//set bullet defaulted to set the last bullet
+	set_bullet = function(_bullet, _index = array_length(bullets) - 1) {
+        bullets[_index] = _bullet;
+    };
     
     // Function to add a bullet back to the array (e.g., for pickups or reloads)
     add_bullet = function(_bullet) {

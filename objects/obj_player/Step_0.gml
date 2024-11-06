@@ -14,7 +14,8 @@ if (!ds_list_empty(grapple_target_list)) {
                 closest_dist = dist;
 
                 // Make sure we're not already moving to a grapple point or in grapple states
-                if (fsm.get_current_state() != "grapple initiate" && fsm.get_current_state() != "grapple move" && fsm.get_current_state() != "grapple hang") {
+				var _curr_state = fsm.get_current_state();
+                if (_curr_state != "grapple initiate" && _curr_state != "grapple move" && _curr_state != "grapple hang") {
                     // Set the new grapple point
                     grapple_target = target;
                 }
@@ -101,7 +102,12 @@ if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
 }
 
 
-cam_bounds = instance_place(x, y, obj_cam_bounds);
+//cam_bounds = instance_place(x, y, obj_cam_hori_offset);
+//if (cam_bounds != noone){
+//	global.x_offset = lerp(global.x_offset, cam_bounds.x_offset, .05);
+//} else {
+//	global.x_offset = lerp(global.x_offset, .5, .05);
+//}
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 

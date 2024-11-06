@@ -24,16 +24,11 @@
     {"name":"inst_3166A642","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_3BFFC454","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_7FF3A92C","path":"rooms/rm_boss/rm_boss.yy",},
-    {"name":"inst_637347BD","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_2A152AB8","path":"rooms/rm_boss/rm_boss.yy",},
   ],
   "isDnd": false,
   "layers": [
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Cam_bounds","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_637347BD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_cam_bounds","path":"objects/obj_cam_bounds/obj_cam_bounds.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cam_bounds","path":"objects/obj_cam_bounds/obj_cam_bounds.yy",},"propertyId":{"name":"set_y","path":"objects/obj_cam_bounds/obj_cam_bounds.yy",},"value":"260",},
-          ],"rotation":0.0,"scaleX":19.625,"scaleY":3.453125,"x":947.0,"y":251.5,},
-      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Cam_bounds","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Lighting","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6D735DFB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_bulb_controller","path":"objects/obj_bulb_controller/obj_bulb_controller.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bulb_controller","path":"objects/obj_bulb_controller/obj_bulb_controller.yy",},"propertyId":{"name":"ambience","path":"objects/obj_bulb_controller/obj_bulb_controller.yy",},"value":"$007F4C4C",},

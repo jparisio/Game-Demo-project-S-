@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"da2e8f0c-02f4-4fb3-8c4f-b675330acba9","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 1,
+  "origin": 2,
   "parent": {
     "name": "weapons",
     "path": "folders/Sprites/weapons.yy",
@@ -59,7 +59,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 2,
+    "xorigin": 4,
     "yorigin": 0,
   },
   "swatchColours": null,

@@ -35,6 +35,7 @@ grapple_target_dist = 0;
 grapple_cooldown = 0;
 grapple_cooldown_max = 30;
 grapple_coll_line = 0;
+grapple_momentum_modifier = 0;
 tween = 0;
 chainsaw_fly = false;
 //----------------------------------------------------------GUN------------------------------------------------------//
@@ -254,8 +255,7 @@ fsm
 					
 	   }
   })
-  
-	
+  	
 	.add("run", {
 		enter: function(){
 			sprite_index = player_character.setSprite("run");
@@ -323,8 +323,6 @@ fsm
 			
 	  }
 })
-	
-	
 	
 	.add("jump", {
 		
@@ -608,7 +606,6 @@ fsm
 		}
 })
 
-
 	.add("dialogue", {
 		
 		enter: function(){
@@ -668,7 +665,6 @@ fsm
 		}
 })
 
-
 	.add("grapple initiate", {
 
 	    enter: function() {
@@ -717,13 +713,13 @@ fsm
 
 	    }
 	})
-
-	
 	
 	.add("grapple move", {
 		
 			enter: function(){
 				audio_play_sound(snd_grapple_rope, 10, 0);
+				//add speed depending on distance travelled
+				grapple_momentum_modifier = point_distance(x, y - sprite_height / 2, grapple_target.x, grapple_target.y) / grapple_target.radius 
 				//set these for if player moves through the grapple target
 			},
 		
@@ -792,7 +788,6 @@ fsm
 			}
 	})
 	
-	
 	.add("grapple enemy", {
 			enter: function() {
 				grapple_cooldown = grapple_cooldown_max;
@@ -811,8 +806,11 @@ fsm
 				
 				// Keep enhanced momentum for a few frames
 				grapple_frames = 9;
-				hsp *= 4;
-				vsp *= 4;
+				hsp *= 5 * grapple_momentum_modifier;
+				vsp *= 5 * grapple_momentum_modifier;
+				
+				//hsp = max(abs(hsp), 3) * sign(hsp)
+				//vsp = max(abs(vsp), 3) * sign(vsp)
 				
 				//clamp jump to max jump so you cant go flying
 				vsp = clamp(vsp, -5, 5);
@@ -858,8 +856,7 @@ fsm
 				}
 			}
 		})
-		
-		
+			
 	.add("shoot", {
 		
 			enter: function(){
@@ -901,10 +898,6 @@ fsm
 	        //input_enabled = false;  // Disable input
 			create_shake();
 			audio_play_sound(snd_player_hit, 30, 0, 35);
-			if !instance_exists(obj_reset_room_transition){
-				var _trans = instance_create_layer(x, y, "Lighting", obj_reset_room_transition);
-				_trans.reset = true;
-			}
 	    },
 	    step: function() {
 	        //make it an anim or something or wait a few frames

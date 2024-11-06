@@ -1,5 +1,6 @@
 event_inherited();
 
+create_shells = true;
 
 move_frames = 9;
 

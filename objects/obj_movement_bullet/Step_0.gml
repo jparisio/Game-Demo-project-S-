@@ -3,6 +3,20 @@ speed = Approach(speed, max_speed, .5);
 if speed != 0 move_dir = sign(speed);
 
 
+if create_shells{
+	
+	create_shells = false 
+	//shotgun so create a bunch of bullets in direction 
+	repeat(10){
+		var _bullet = instance_create_layer(x, y, "Instances", obj_bullet)
+		with(_bullet){
+			speed = other.speed * random_range(0.2, 1.2);
+			direction = other.direction + random_range(15, -15)
+		}
+	}
+	
+}
+
 if (move_frames >= 0){
 	move_frames--;
 	with (obj_player) {

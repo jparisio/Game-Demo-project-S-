@@ -1,6 +1,6 @@
 _bullets = obj_player.gun.get_bullets(); // Get bullets from the player's gun
 _bullet_index = obj_player.gun.get_index();
-bullet_spacing = 32; // Space between bullets
+bullet_spacing = 35; // Space between bullets
 x_start = 50; // X starting position for drawing
 y_start = display_get_gui_height() - 50; // Y position at the bottom of the screen
 bullet_ui_arr = [];

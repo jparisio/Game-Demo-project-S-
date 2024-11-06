@@ -161,7 +161,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"__scribble_config_colours","path":"scripts/__scribble_config_colours/__scribble_config_colours.yy",},},
@@ -370,6 +370,7 @@
     {"id":{"name":"input_source_mode_set","path":"scripts/input_source_mode_set/input_source_mode_set.yy",},},
     {"id":{"name":"spr_squ","path":"sprites/spr_squ/spr_squ.yy",},},
     {"id":{"name":"__input_gamepad_guid_parse","path":"scripts/__input_gamepad_guid_parse/__input_gamepad_guid_parse.yy",},},
+    {"id":{"name":"spr_movement_bullet_ui183","path":"sprites/spr_movement_bullet_ui183/spr_movement_bullet_ui183.yy",},},
     {"id":{"name":"scribble_font_bake_shader","path":"scripts/scribble_font_bake_shader/scribble_font_bake_shader.yy",},},
     {"id":{"name":"input_trigger_effect_weapon","path":"scripts/input_trigger_effect_weapon/input_trigger_effect_weapon.yy",},},
     {"id":{"name":"hit_pause","path":"scripts/hit_pause/hit_pause.yy",},},

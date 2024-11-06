@@ -14,6 +14,9 @@ fsm
 			step: function(){
 				if pause_toggle fsm.change("paused");
 				if reload_room fsm.change("reload room");
+				if (instance_exists(obj_player)){
+					if obj_player.fsm.get_current_state() == "injured" fsm.change("reload room");
+				}
 			}
 	})
 	

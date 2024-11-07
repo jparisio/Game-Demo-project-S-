@@ -1,0 +1,1 @@
+if global.toggle_debug visible = true else visible = false

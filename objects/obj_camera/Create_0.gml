@@ -91,6 +91,7 @@ fsm
 				}
 				
 				//pan_camera(pan_inst);
+				if pan_inst != noone fsm.change("bounded");
 			
 			}
 		})
@@ -100,22 +101,24 @@ fsm
         enter: function() {
             // Set target to the right side of the sprite
             if (pan_inst != noone) {
-                target_x = pan_inst.x + pan_inst.sprite_width * global.x_offset;
-                target_y = pan_inst.y;
+                target_x = pan_inst.target_x;
+                target_y = pan_inst.target_y;
             }
+			follow = noone
         },
         
         step: function() {
-			with(follow){
+			with(obj_player){
 				other.pan_inst = instance_place(x, y, obj_cam_pan);
 			}
 				
 			if (!pan_inst){
+				follow = obj_player
 				fsm.change("follow")
 			} else {
                 // Smoothly move camera towards the bounding area
-                x = lerp(x, target_x, 0.02);
-                y = lerp(y, target_y, 0.02);
+                x += (target_x - x) / 15;
+				y += (target_y - y) / 15;
             }
         }
     });

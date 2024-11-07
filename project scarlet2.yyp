@@ -350,7 +350,7 @@
     {"id":{"name":"scribble","path":"scripts/scribble/scribble.yy",},},
     {"id":{"name":"obj_trail","path":"objects/obj_trail/obj_trail.yy",},},
     {"id":{"name":"input_trigger_effect_set_pause","path":"scripts/input_trigger_effect_set_pause/input_trigger_effect_set_pause.yy",},},
-    {"id":{"name":"obj_cam_hori_offset","path":"objects/obj_cam_hori_offset/obj_cam_hori_offset.yy",},},
+    {"id":{"name":"obj_cam_pan","path":"objects/obj_cam_pan/obj_cam_pan.yy",},},
     {"id":{"name":"snd_crunch2","path":"sounds/snd_crunch2/snd_crunch2.yy",},},
     {"id":{"name":"snd_explosion","path":"sounds/snd_explosion/snd_explosion.yy",},},
     {"id":{"name":"spr_jump_fall_start","path":"sprites/spr_jump_fall_start/spr_jump_fall_start.yy",},},

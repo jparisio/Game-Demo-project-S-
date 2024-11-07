@@ -2,14 +2,17 @@
 
 fsm.step();
 
-//camera applying
+//apply mouse look
+mouse_look();
 
+//camera applying
 var _x = x - global.cam_width * global.x_offset;
 var _y = y - global.cam_height * global.y_offset;
 
 //clamp to room boundaries
 _x = clamp(_x, 0, room_width - global.cam_width);
 _y = clamp(_y, 0, room_height - global.cam_height);
+
 
 // Apply the camera position
 camera_set_view_pos(view_camera[0], _x, _y);

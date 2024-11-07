@@ -1,8 +1,48 @@
 //create
 follow = noone;
-bounds = noone;
+pan_inst = noone;
 target_x = 0;
 target_y = 0;
+default_offset_x = 0.45;
+default_offset_y = 0.7;
+
+pan_camera = function(_obj){
+	if (_obj !=noone){
+		global.x_offset = lerp(global.x_offset, _obj.offset_x, 0.03);
+		global.y_offset = lerp(global.y_offset, _obj.offset_y, 0.03);
+	} else {
+		global.y_offset = lerp(global.y_offset, default_offset_y, 0.03);
+	}
+}
+
+mouse_look = function() {
+	
+	// Center of the screen in GUI coordinates
+	var screen_center_x = display_get_gui_width() / 2;
+	var screen_center_y = display_get_gui_height() / 2;
+
+	// Mouse position in screen coordinates
+	var mouse_screen_x = device_mouse_x_to_gui(0);
+	var mouse_screen_y = device_mouse_y_to_gui(0);
+
+	var distance = point_distance(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
+	var angle = point_direction(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
+	var threshold = 130;
+	var max_offset = 2; 
+	
+	show_debug_message(distance)
+
+	// Only apply the offset if mouse is past threshold
+	if (distance > threshold) {
+	    // Calculate offset based on distance, clamped to max_offset
+	    var offset_amount = min((distance - threshold) / 100, max_offset);
+
+	    // Offset camera position in the direction of the angle
+	    x += lengthdir_x(offset_amount, angle);
+	    y += lengthdir_y(offset_amount, angle);
+	}
+}
+
 
 fsm = new SnowState("static")
 
@@ -45,12 +85,12 @@ fsm
 					}
 				}
 				
-				//bounds to move to static cam 
+				//pan camera if meeting point to pan
 				with(follow){
-					other.bounds = instance_place(x, y, obj_cam_hori_offset);
+					other.pan_inst = instance_place(x, y, obj_cam_pan);
 				}
 				
-				if (bounds != noone) fsm.change("bounded");
+				//pan_camera(pan_inst);
 			
 			}
 		})
@@ -58,24 +98,24 @@ fsm
 		
 	.add("bounded", {
         enter: function() {
-            // Set target positions based on bounds for smooth transition
-            if (bounds != noone) {
-                target_x = bounds.x + (bounds.sprite_width * global.x_offset);
-                target_y = bounds.y + (bounds.sprite_height * 0.5); // Center vertically
+            // Set target to the right side of the sprite
+            if (pan_inst != noone) {
+                target_x = pan_inst.x + pan_inst.sprite_width * global.x_offset;
+                target_y = pan_inst.y;
             }
         },
         
         step: function() {
 			with(follow){
-				other.bounds = instance_place(x, y, obj_cam_hori_offset);
+				other.pan_inst = instance_place(x, y, obj_cam_pan);
 			}
 				
-			if (!bounds){
+			if (!pan_inst){
 				fsm.change("follow")
 			} else {
                 // Smoothly move camera towards the bounding area
-                x = lerp(x, target_x, 0.04);
-                y = lerp(y, target_y, 0.04);
+                x = lerp(x, target_x, 0.02);
+                y = lerp(y, target_y, 0.02);
             }
         }
     });

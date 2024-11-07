@@ -43,3 +43,6 @@ global.blood_colour = #fe00a7;
 
 //screen shake
 global.screen_shake_magnitude = 30;
+
+
+global.toggle_debug = false;

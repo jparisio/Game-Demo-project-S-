@@ -161,7 +161,7 @@
     {"name":"spr_stuff","order":6,"path":"sprites/spr_stuff/spr_stuff.yy",},
     {"name":"obj_outline_light","order":5,"path":"objects/obj_outline_light/obj_outline_light.yy",},
     {"name":"spr_boss_gunslinger_injured_begin","order":13,"path":"sprites/spr_boss_gunslinger_injured_begin/spr_boss_gunslinger_injured_begin.yy",},
-    {"name":"obj_cam_hori_offset","order":9,"path":"objects/obj_cam_hori_offset/obj_cam_hori_offset.yy",},
+    {"name":"obj_cam_pan","order":9,"path":"objects/obj_cam_pan/obj_cam_pan.yy",},
     {"name":"snd_crunch2","order":3,"path":"sounds/snd_crunch2/snd_crunch2.yy",},
     {"name":"snd_explosion","order":5,"path":"sounds/snd_explosion/snd_explosion.yy",},
     {"name":"spr_jump_fall_start","order":10,"path":"sprites/spr_jump_fall_start/spr_jump_fall_start.yy",},

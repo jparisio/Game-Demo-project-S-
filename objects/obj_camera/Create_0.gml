@@ -18,16 +18,16 @@ pan_camera = function(_obj){
 mouse_look = function() {
 	
 	// Center of the screen in GUI coordinates
-	var screen_center_x = display_get_gui_width() / 2;
-	var screen_center_y = display_get_gui_height() / 2;
+	var screen_center_x = obj_player.x;
+	var screen_center_y = obj_player.y;
 
 	// Mouse position in screen coordinates
-	var mouse_screen_x = device_mouse_x_to_gui(0);
-	var mouse_screen_y = device_mouse_y_to_gui(0);
+	var mouse_screen_x = mouse_x;
+	var mouse_screen_y = mouse_y;
 
 	var distance = point_distance(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
 	var angle = point_direction(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
-	var threshold = 250;
+	var threshold = 150;
 	var max_offset = 2; 
 	
 	show_debug_message(distance)

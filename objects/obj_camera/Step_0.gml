@@ -3,7 +3,7 @@
 fsm.step();
 
 //apply mouse look
-mouse_look();
+if (follow == obj_player) mouse_look();
 
 //camera applying
 var _x = x - global.cam_width * global.x_offset;

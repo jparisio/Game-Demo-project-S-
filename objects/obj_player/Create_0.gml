@@ -386,7 +386,7 @@ fsm
 			}
 			
 			//check if colliding with bottom of wall
-			if(place_meeting(x, y - 1, obj_wall_parent)) vsp = 1;
+			if(place_meeting(x, y - 1, obj_wall_parent)) vsp = 0.5;
 			
 			//if let go of jump, can press it again
 			if(input_check_released("jump")) can_jump = true;

@@ -20,53 +20,52 @@ size		= .7;		// [0.25, 0.75]
 bend		= -.5;		// [-1, +1]
 
 //these are to shrink the flame out of sight when inactive
-xscale = 1;
+xscale = 0;
 yscale = 1;
-
 
 fsm = new SnowState("loaded")
 
 	.add("loaded", {
 	    enter: function() {
+			//xscale = 0;
 			//strength_y = -15;
+			
 	    },
 	    step: function() {
-			xscale = lerp(xscale, 1, .03);
-	        strength_y = lerp(strength_y, 0.5, 0.09);
+			xscale = lerp(xscale, 0, .003);
+	        strength_y = lerp(strength_y, -30, 0.002);
 	        if (index == obj_player.gun.get_index()) fsm.change("active");
 	    }
-		
-	})
-	
 
-	
+	})
+
+
+
 	.add("active", {
 	    enter: function() {
-			//strength_y = -15;
+			strength_y = -15;
 	    },
 	    step: function() {
-			
+
 			xscale = lerp(xscale, 1, .03);
-	        
+
 	        strength_y = lerp(strength_y, 0.5, 0.09);
 			if (index < obj_player.gun.get_index()) fsm.change("inactive");
 			if (index > obj_player.gun.get_index()) fsm.change("loaded");
 	    }
-		
+
 	})
-	
-	
+
+
 	.add("inactive", {
 	    enter: function() {
-			
+
 	    },
 	    step: function() {
 			xscale = lerp(xscale, 0, .003);
 	        strength_y = lerp(strength_y, -30, 0.002);
 	        if (index >= obj_player.gun.get_index()) fsm.change("loaded");
 	    }
-		
+
 	})
-
-
 

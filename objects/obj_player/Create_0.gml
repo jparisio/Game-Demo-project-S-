@@ -41,8 +41,6 @@ chainsaw_fly = false;
 //----------------------------------------------------------GUN------------------------------------------------------//
 default_bullet = new Bullet(15, obj_bullet);
 gun = new Gun(default_bullet, 5);
-//respawn 
-respawn_point = noone;
 
 //--------------------------------------------------------SPRITES-----------------------------------------------------//
 
@@ -118,10 +116,6 @@ talking = false
 //sound
 sound_frame_counter = 0;
 walking_on = snd_walk2;
-
-//cam
-cam_bounds = noone;
-
 
 //movement
 get_input_and_move = function() {
@@ -831,7 +825,7 @@ fsm
 				//create the actual slash
 				instance_create_layer(x, y - sprite_height / 2, "Instances", obj_grapple_slash, {image_angle: grapple_direction}).image_yscale = y_dir;
 				//create the hit effect
-				instance_create_layer(grapple_target.x, grapple_target.y, "Walls", obj_impact_frame, {image_angle: grapple_direction});
+				//instance_create_layer(grapple_target.x, grapple_target.y, "Walls", obj_impact_frame, {image_angle: grapple_direction});
 				
 				
 				//clean up left over grapple

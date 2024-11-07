@@ -102,13 +102,6 @@ if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
 }
 
 
-//cam_bounds = instance_place(x, y, obj_cam_hori_offset);
-//if (cam_bounds != noone){
-//	global.x_offset = lerp(global.x_offset, cam_bounds.x_offset, .05);
-//} else {
-//	global.x_offset = lerp(global.x_offset, .5, .05);
-//}
-
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
 //var _bullets = gun.get_bullets()

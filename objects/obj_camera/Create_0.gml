@@ -116,9 +116,22 @@ fsm
 				follow = obj_player
 				fsm.change("follow")
 			} else {
-                // Smoothly move camera towards the bounding area
-                x += (target_x - x) / 15;
-				y += (target_y - y) / 15;
+				// Calculate the distance between the player and pan_inst's target position
+	            var dist = point_distance(obj_player.x, obj_player.y, target_x, target_y);
+
+	            // Get the percentage of distance (scaled to a max value of 1)
+	            var dist_perc = dist / 500; // Adjust '500' for how quickly it reaches target
+
+	            // Ensure the percentage is always between 0 and 1
+	            dist_perc = clamp(dist_perc, 0, 1);
+
+	            // Calculate the amount to move towards the target, using the percentage
+	            var move_x = (target_x - x) * dist_perc;
+	            var move_y = (target_y - y) * dist_perc;
+
+	            // Smoothly move the camera towards the target based on the percentage
+	            x += move_x / 15; // Adjust '15' for smoothing speed
+	            y += move_y / 15;
             }
         }
     });

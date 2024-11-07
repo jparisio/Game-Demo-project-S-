@@ -27,7 +27,7 @@ mouse_look = function() {
 
 	var distance = point_distance(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
 	var angle = point_direction(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
-	var threshold = 130;
+	var threshold = 250;
 	var max_offset = 2; 
 	
 	show_debug_message(distance)

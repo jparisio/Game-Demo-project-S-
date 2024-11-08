@@ -784,6 +784,8 @@ fsm
 	
 	.add("grapple enemy", {
 			enter: function() {
+				sprite_index = spr_ghost_grapple_slash;
+				image_index = 0;
 				grapple_cooldown = grapple_cooldown_max;
 				audio_stop_sound(snd_grapple_rope);
 				audio_play_sound(snd_injured, 13, 0, 20, 0.1, 1);

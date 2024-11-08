@@ -161,7 +161,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"__scribble_config_colours","path":"scripts/__scribble_config_colours/__scribble_config_colours.yy",},},
@@ -535,7 +535,7 @@
     {"id":{"name":"__scribble_config_defaults","path":"scripts/__scribble_config_defaults/__scribble_config_defaults.yy",},},
     {"id":{"name":"snd_horror","path":"sounds/snd_horror/snd_horror.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
-    {"id":{"name":"spr_grapple_slash","path":"sprites/spr_grapple_slash/spr_grapple_slash.yy",},},
+    {"id":{"name":"spr_grapple_slash_old","path":"sprites/spr_grapple_slash_old/spr_grapple_slash_old.yy",},},
     {"id":{"name":"input_check_repeat","path":"scripts/input_check_repeat/input_check_repeat.yy",},},
     {"id":{"name":"string_length_scribble","path":"scripts/string_length_scribble/string_length_scribble.yy",},},
     {"id":{"name":"__input_config_mouse","path":"scripts/__input_config_mouse/__input_config_mouse.yy",},},
@@ -757,6 +757,7 @@
     {"id":{"name":"obj_grenade","path":"objects/obj_grenade/obj_grenade.yy",},},
     {"id":{"name":"scribble_anim_reset","path":"scripts/scribble_anim_reset/scribble_anim_reset.yy",},},
     {"id":{"name":"__input_key_name_set","path":"scripts/__input_key_name_set/__input_key_name_set.yy",},},
+    {"id":{"name":"spr_ghost_grapple_slash","path":"sprites/spr_ghost_grapple_slash/spr_ghost_grapple_slash.yy",},},
     {"id":{"name":"spr_shinto5","path":"sprites/spr_shinto5/spr_shinto5.yy",},},
     {"id":{"name":"spr_oak_woods_tileset","path":"sprites/spr_oak_woods_tileset/spr_oak_woods_tileset.yy",},},
     {"id":{"name":"spr_warrior_slime_headless","path":"sprites/spr_warrior_slime_headless/spr_warrior_slime_headless.yy",},},
@@ -833,6 +834,7 @@
     {"id":{"name":"obj_grass_strands","path":"objects/obj_grass_strands/obj_grass_strands.yy",},},
     {"id":{"name":"obj_player_damaged","path":"objects/obj_player_damaged/obj_player_damaged.yy",},},
     {"id":{"name":"input_icon_empty","path":"scripts/input_icon_empty/input_icon_empty.yy",},},
+    {"id":{"name":"spr_grapple_slash","path":"sprites/spr_grapple_slash/spr_grapple_slash.yy",},},
     {"id":{"name":"__shd_scribble_bake_shadow","path":"shaders/__shd_scribble_bake_shadow/__shd_scribble_bake_shadow.yy",},},
     {"id":{"name":"__scribble_font_add_all_from_project","path":"scripts/__scribble_font_add_all_from_project/__scribble_font_add_all_from_project.yy",},},
     {"id":{"name":"obj_respawner","path":"objects/obj_respawner/obj_respawner.yy",},},

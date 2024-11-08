@@ -6,41 +6,28 @@ target_y = 0;
 default_offset_x = 0.45;
 default_offset_y = 0.7;
 
-pan_camera = function(_obj){
-	if (_obj !=noone){
-		global.x_offset = lerp(global.x_offset, _obj.offset_x, 0.03);
-		global.y_offset = lerp(global.y_offset, _obj.offset_y, 0.03);
-	} else {
-		global.y_offset = lerp(global.y_offset, default_offset_y, 0.03);
-	}
-}
 
 mouse_look = function() {
 	
-	// Center of the screen in GUI coordinates
 	var screen_center_x = obj_player.x;
-	var screen_center_y = obj_player.y;
+	var screen_center_y = obj_player.y - obj_player.sprite_height / 2;
 
-	// Mouse position in screen coordinates
 	var mouse_screen_x = mouse_x;
 	var mouse_screen_y = mouse_y;
 
 	var distance = point_distance(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
 	var angle = point_direction(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
-	var threshold = 150;
+	var threshold = 90;
 	var max_offset = 2; 
-	
 	show_debug_message(distance)
 
-	// Only apply the offset if mouse is past threshold
-	if (distance > threshold) {
-	    // Calculate offset based on distance, clamped to max_offset
-	    var offset_amount = min((distance - threshold) / 100, max_offset);
+	// Calculate offset based on distance, clamped to max_offset
+	var offset_amount = min(max((distance - threshold) / 100, 0), max_offset);
 
-	    // Offset camera position in the direction of the angle
-	    x += lengthdir_x(offset_amount, angle);
-	    y += lengthdir_y(offset_amount, angle);
-	}
+
+	x += lengthdir_x(offset_amount, angle);
+	y += lengthdir_y(offset_amount, angle);
+
 }
 
 
@@ -116,22 +103,8 @@ fsm
 				follow = obj_player
 				fsm.change("follow")
 			} else {
-				// Calculate the distance between the player and pan_inst's target position
-	            var dist = point_distance(obj_player.x, obj_player.y, target_x, target_y);
-
-	            // Get the percentage of distance (scaled to a max value of 1)
-	            var dist_perc = dist / 500; // Adjust '500' for how quickly it reaches target
-
-	            // Ensure the percentage is always between 0 and 1
-	            dist_perc = clamp(dist_perc, 0, 1);
-
-	            // Calculate the amount to move towards the target, using the percentage
-	            var move_x = (target_x - x) * dist_perc;
-	            var move_y = (target_y - y) * dist_perc;
-
-	            // Smoothly move the camera towards the target based on the percentage
-	            x += move_x / 15; // Adjust '15' for smoothing speed
-	            y += move_y / 15;
+				x += ( target_x - x) / 15;
+				y += ( target_y - y) / 15;
             }
         }
     });

@@ -161,7 +161,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.11.1.129",
+    "IDEVersion": "2023.8.2.108",
   },
   "resources": [
     {"id":{"name":"__scribble_config_colours","path":"scripts/__scribble_config_colours/__scribble_config_colours.yy",},},
@@ -367,6 +367,7 @@
     {"id":{"name":"obj_shop","path":"objects/obj_shop/obj_shop.yy",},},
     {"id":{"name":"obj_glitch","path":"objects/obj_glitch/obj_glitch.yy",},},
     {"id":{"name":"input_verb_get_icon","path":"scripts/input_verb_get_icon/input_verb_get_icon.yy",},},
+    {"id":{"name":"snd_shotgun_bullet","path":"sounds/snd_shotgun_bullet/snd_shotgun_bullet.yy",},},
     {"id":{"name":"input_vibrate_constant","path":"scripts/input_vibrate_constant/input_vibrate_constant.yy",},},
     {"id":{"name":"input_source_mode_set","path":"scripts/input_source_mode_set/input_source_mode_set.yy",},},
     {"id":{"name":"spr_squ","path":"sprites/spr_squ/spr_squ.yy",},},
@@ -993,6 +994,7 @@
     {"id":{"name":"input_mouse_x","path":"scripts/input_mouse_x/input_mouse_x.yy",},},
     {"id":{"name":"scribble_font_has_character","path":"scripts/scribble_font_has_character/scribble_font_has_character.yy",},},
     {"id":{"name":"acBackInOut","path":"animcurves/acBackInOut/acBackInOut.yy",},},
+    {"id":{"name":"obj_shotgun_bullet","path":"objects/obj_shotgun_bullet/obj_shotgun_bullet.yy",},},
     {"id":{"name":"obj_boss_gunslinger","path":"objects/obj_boss_gunslinger/obj_boss_gunslinger.yy",},},
     {"id":{"name":"spr_dead","path":"sprites/spr_dead/spr_dead.yy",},},
     {"id":{"name":"__shdBulbHSVValueToAlpha","path":"shaders/__shdBulbHSVValueToAlpha/__shdBulbHSVValueToAlpha.yy",},},

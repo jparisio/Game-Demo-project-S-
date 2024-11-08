@@ -8,9 +8,9 @@ if create_shells{
 	create_shells = false 
 	//shotgun so create a bunch of bullets in direction 
 	repeat(10){
-		var _bullet = instance_create_layer(x, y, "Instances", obj_bullet)
+		var _bullet = instance_create_layer(x, y, "Instances", obj_shotgun_bullet)
 		with(_bullet){
-			speed = other.speed * random_range(0.2, 1.2);
+			speed = other.speed * random_range(.8, 1.2);
 			direction = other.direction + random_range(15, -15)
 		}
 	}

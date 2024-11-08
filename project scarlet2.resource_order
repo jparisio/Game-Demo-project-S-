@@ -172,7 +172,7 @@
     {"name":"obj_glitch","order":6,"path":"objects/obj_glitch/obj_glitch.yy",},
     {"name":"snd_shotgun_bullet","order":5,"path":"sounds/snd_shotgun_bullet/snd_shotgun_bullet.yy",},
     {"name":"spr_squ","order":2,"path":"sprites/spr_squ/spr_squ.yy",},
-    {"name":"spr_movement_bullet_ui183","order":5,"path":"sprites/spr_movement_bullet_ui183/spr_movement_bullet_ui183.yy",},
+    {"name":"spr_movement_bullet_ui_test","order":5,"path":"sprites/spr_movement_bullet_ui_test/spr_movement_bullet_ui_test.yy",},
     {"name":"hit_pause","order":15,"path":"scripts/hit_pause/hit_pause.yy",},
     {"name":"spr_assassin_run_to_idle","order":2,"path":"sprites/spr_assassin_run_to_idle/spr_assassin_run_to_idle.yy",},
     {"name":"spr_slash","order":1,"path":"sprites/spr_slash/spr_slash.yy",},

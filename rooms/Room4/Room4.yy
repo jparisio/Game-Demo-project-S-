@@ -38,7 +38,6 @@
     {"name":"inst_7689F576","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_1399A149","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_1D2BFCA3","path":"rooms/Room4/Room4.yy",},
-    {"name":"inst_3D4AD291","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_52245F83","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_54D15DD4","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_5F265A93","path":"rooms/Room4/Room4.yy",},
@@ -46,6 +45,7 @@
     {"name":"inst_6924C12A","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_185F3CD6","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_52A6FE7F","path":"rooms/Room4/Room4.yy",},
+    {"name":"inst_3D4AD291","path":"rooms/Room4/Room4.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -109,7 +109,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5F265A93","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pan_point","path":"objects/obj_pan_point/obj_pan_point.yy",},"properties":[],"rotation":0.0,"scaleX":2.9,"scaleY":2.7,"x":541.5,"y":369.5,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2AB3B7B5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_cam_pan","path":"objects/obj_cam_pan/obj_cam_pan.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cam_pan","path":"objects/obj_cam_pan/obj_cam_pan.yy",},"propertyId":{"name":"pan_point","path":"objects/obj_cam_pan/obj_cam_pan.yy",},"value":"inst_6924C12A",},
-          ],"rotation":0.0,"scaleX":9.409405,"scaleY":2.953125,"x":1139.1055,"y":550.4797,},
+          ],"rotation":0.0,"scaleX":7.4094043,"scaleY":2.953125,"x":1075.083,"y":550.4797,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6924C12A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pan_point","path":"objects/obj_pan_point/obj_pan_point.yy",},"properties":[],"rotation":0.0,"scaleX":2.5,"scaleY":2.2,"x":1126.5,"y":550.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},

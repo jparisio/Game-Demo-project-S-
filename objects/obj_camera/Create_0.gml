@@ -3,8 +3,9 @@ follow = noone;
 pan_inst = noone;
 target_x = 0;
 target_y = 0;
-default_offset_x = 0.45;
-default_offset_y = 0.7;
+val = 0;
+start_x = 0;
+start_y = 0;
 
 
 mouse_look = function() {
@@ -91,7 +92,10 @@ fsm
                 target_x = pan_inst.target_x;
                 target_y = pan_inst.target_y;
             }
-			follow = noone
+			follow = noone;
+			val = 0;
+			start_x = x;
+			start_y = y;
         },
         
         step: function() {
@@ -103,8 +107,9 @@ fsm
 				follow = obj_player
 				fsm.change("follow")
 			} else {
-				x += ( target_x - x) / 15;
-				y += ( target_y - y) / 15;
+				val += 1/60
+				x = AnimcurveTween(start_x, target_x, acCubicOut, val);
+				y = AnimcurveTween(start_y, target_y, acCubicOut, val);
             }
         }
     });

@@ -347,6 +347,7 @@
     {"name":"spr_ghost_grapple_arm","order":7,"path":"sprites/spr_ghost_grapple_arm/spr_ghost_grapple_arm.yy",},
     {"name":"snd_speak4","order":3,"path":"sounds/snd_speak4/snd_speak4.yy",},
     {"name":"spr_shrapnel","order":10,"path":"sprites/spr_shrapnel/spr_shrapnel.yy",},
+    {"name":"Room6","order":13,"path":"rooms/Room6/Room6.yy",},
     {"name":"spr_beam_light","order":2,"path":"sprites/spr_beam_light/spr_beam_light.yy",},
     {"name":"snd_glass_shatter","order":6,"path":"sounds/snd_glass_shatter/snd_glass_shatter.yy",},
     {"name":"obj_rocket","order":4,"path":"objects/obj_rocket/obj_rocket.yy",},

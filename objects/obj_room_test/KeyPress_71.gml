@@ -1,5 +1,5 @@
-room_goto(2);
-obj_player.x = 66
-obj_player.y = 548
+room_goto(6);
+obj_player.x = 49
+obj_player.y = 276
 
 

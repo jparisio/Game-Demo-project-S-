@@ -14,6 +14,9 @@ function capture_initial_room_states() {
             _x: player.x,
             _y: player.y,
             hp: player.hp,
+			hsp: 0,
+			vsp: 0,
+			facing: player.facing,
             state: player.fsm.get_current_state()
         };
         array_push(global.initial_player_state, player_state);
@@ -72,6 +75,8 @@ function reset_room_states() {
         player.x = player_state._x;
         player.y = player_state._y;
         player.hp = player_state.hp;
+		player.hsp = player_state.hsp;
+		player.vsp = player_state.vsp;
         player.fsm.change(player_state.state);
 
 		//clear the list of grapple targets
@@ -145,6 +150,7 @@ function reset_room_states() {
 	
 	//camera snap back to player
 	obj_camera.follow = obj_player;
+	obj_camera.fsm.change("follow");
 	obj_camera.x = obj_player.x;
 	obj_camera.y = obj_player.y;
 }

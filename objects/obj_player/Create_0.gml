@@ -41,6 +41,7 @@ chainsaw_fly = false;
 //----------------------------------------------------------GUN------------------------------------------------------//
 default_bullet = new Bullet(15, obj_bullet);
 gun = new Gun(default_bullet, 5);
+shoot_direction = 0;
 
 //--------------------------------------------------------SPRITES-----------------------------------------------------//
 
@@ -856,15 +857,21 @@ fsm
 	.add("shoot", {
 		
 			enter: function(){
-					var _dir = point_direction(x, y - sprite_height / 2,  mouse_x, mouse_y)
-					gun.fire(x, y - sprite_height / 2, _dir);
+					//TODO work on the muzzle flash 
+					shoot_direction = point_direction(x, y - sprite_height / 2,  mouse_x, mouse_y)
+					//var _x = lengthdir_x(12, _dir);
+					//var _y = lengthdir_y(12, _dir);
+					//var _muzzle = instance_create_layer(x + _x, y - sprite_height / 2 + _y, "Instances", obj_muzzle_flash, {image_angle: _dir});
+					//_muzzle.offset_x = _x;
+					//_muzzle.offset_y = _y;
+					gun.fire(x, y - sprite_height / 2, shoot_direction);
 					sprite_index = spr_ghost_grapple;
 					image_index = 0;
 			},
 		
 			step: function(){
 				get_input_and_move();
-				determine_facing();
+				facing = (shoot_direction >= -90 && shoot_direction <= 90) ? 1 : -1;
 			}
 	})
 	

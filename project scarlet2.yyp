@@ -161,7 +161,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.11.1.129",
+    "IDEVersion": "2023.8.2.108",
   },
   "resources": [
     {"id":{"name":"__scribble_config_colours","path":"scripts/__scribble_config_colours/__scribble_config_colours.yy",},},
@@ -220,6 +220,7 @@
     {"id":{"name":"spr_exit","path":"sprites/spr_exit/spr_exit.yy",},},
     {"id":{"name":"snd_reload","path":"sounds/snd_reload/snd_reload.yy",},},
     {"id":{"name":"obj_menu_parent","path":"objects/obj_menu_parent/obj_menu_parent.yy",},},
+    {"id":{"name":"spr_muzzle_flash","path":"sprites/spr_muzzle_flash/spr_muzzle_flash.yy",},},
     {"id":{"name":"spr_floors","path":"sprites/spr_floors/spr_floors.yy",},},
     {"id":{"name":"snd_lazers_active","path":"sounds/snd_lazers_active/snd_lazers_active.yy",},},
     {"id":{"name":"scribble_font_add_msdf","path":"scripts/scribble_font_add_msdf/scribble_font_add_msdf.yy",},},
@@ -983,6 +984,7 @@
     {"id":{"name":"__scribble_get_buffer_b","path":"scripts/__scribble_get_buffer_b/__scribble_get_buffer_b.yy",},},
     {"id":{"name":"input_check_double_pressed","path":"scripts/input_check_double_pressed/input_check_double_pressed.yy",},},
     {"id":{"name":"spr_blue_bg_buildings2","path":"sprites/spr_blue_bg_buildings2/spr_blue_bg_buildings2.yy",},},
+    {"id":{"name":"obj_muzzle_flash","path":"objects/obj_muzzle_flash/obj_muzzle_flash.yy",},},
     {"id":{"name":"input_join_is_finished","path":"scripts/input_join_is_finished/input_join_is_finished.yy",},},
     {"id":{"name":"input_binding_get_icon","path":"scripts/input_binding_get_icon/input_binding_get_icon.yy",},},
     {"id":{"name":"spr_ground","path":"sprites/spr_ground/spr_ground.yy",},},

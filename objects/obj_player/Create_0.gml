@@ -837,7 +837,7 @@ fsm
 				//clean up left over grapple
 				remove_grapple_target(grapple_target);
 				instance_destroy(grapple_target);
-				grapple_target = noone;
+				//grapple_target = noone;
 				//can_grapple = false;
 				
 			},

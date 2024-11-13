@@ -156,6 +156,8 @@ get_input_and_move = function() {
 	//add gravity
 	vsp+=grv;
 	
+	vsp = clamp(vsp, -9, 9);
+	
 	//----collisions----//
 	collide_and_move();
 	
@@ -334,7 +336,7 @@ fsm
 			can_jump = false;
 			
 			//make air accel slower
-			approach_walksp = 0.3;
+			approach_walksp = 0.25;
 			
 			//dont play this if last state was a wall jump
 			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);

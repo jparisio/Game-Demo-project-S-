@@ -1,3 +1,6 @@
+//inheret collisions and grapple stuff
+event_inherited();
+
 hp = 12;
 //flash for hit effect
 flash_alpha = 0;
@@ -16,8 +19,6 @@ timer_max = 60 * 2;
 timer_switch_state = timer_max;
 timer_attack_max = 60 * 1;
 timer_attack = timer_attack_max;
-
-self_grapple = noone;
 
 //dir to move in
 move_dir = random_range(-1, 1)	
@@ -44,9 +45,6 @@ _ended = false;
 
 slide = 9;
 slide_hsp = 0;
-
-//inheret collisions
-event_inherited();
 	
 	
 //states	

@@ -1,36 +1,26 @@
-//-----------------------------------------------------grapple-----------------------------------------------------------------//
-//check all grapples instances
-if (!ds_list_empty(grapple_target_list)) {
-    var closest_dist = 9999; // Arbitrarily large number
-    for (var i = 0; i < ds_list_size(grapple_target_list); i++) {
-        var target = grapple_target_list[| i];
-        
-        // Check if this target is being hovered
-        if (target.mouse_hovering) {
-            var dist = point_distance(x + hsp, y - sprite_height / 2, target.x, target.y);
-            
-            // Check distance and if the target is closer
-            if (dist < closest_dist) {
-                closest_dist = dist;
+////-----------------------------------------------------grapple-----------------------------------------------------------------//
+////check all grapples instances
 
-                // Make sure we're not already moving to a grapple point or in grapple states
-				var _curr_state = fsm.get_current_state();
-                if (_curr_state != "grapple initiate" && _curr_state != "grapple move" && _curr_state != "grapple hang") {
-                    // Set the new grapple point
-                    grapple_target = target;
-                }
-            }
-			can_grapple = true;
-        } else {
-			//reset flag if stopped hovering (need to be hovering to move to grapple point)
-			can_grapple = false;
-		}
+// Get the current state of the player
+var _curr_state = fsm.get_current_state();
+
+// Update grapple target only if the player is not grappling
+if (!ds_list_empty(grapple_target_list) && obj_cursor_controller.lock_on != noone && 
+    _curr_state != "grapple initiate" && _curr_state != "grapple move" && _curr_state != "grapple hang") {
+    
+    var target_index = ds_list_find_index(grapple_target_list, obj_cursor_controller.lock_on);
+    
+    // Set target only if it's in the list and can grapple
+    if (target_index != -1) {
+        grapple_target = obj_cursor_controller.lock_on;
+        can_grapple = true;
     }
-} else {
-    // Reset if no valid targets
-    can_grapple = false;
+} else if (_curr_state != "grapple initiate" && _curr_state != "grapple move" && _curr_state != "grapple hang") {
+    // Reset only if not in grapple states
     grapple_target = noone;
+    can_grapple = false;
 }
+
 
 if(grapple_target != noone){
 	grapple_coll_line = collision_line(x, y - 20, grapple_target.x, grapple_target.y, obj_wall_parent, false, true)

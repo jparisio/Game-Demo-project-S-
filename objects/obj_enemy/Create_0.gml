@@ -44,5 +44,6 @@ determine_facing = function(){
 }
 
 
+self_grapple = noone;
 
-
+hp = 0;

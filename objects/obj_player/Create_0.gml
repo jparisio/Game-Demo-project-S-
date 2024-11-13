@@ -800,6 +800,9 @@ fsm
 				//gain a dash
 				can_dash = true;
 				
+				//reset throw grapple / clear it from being pressed
+				throw_grapple = 0;
+				
 				
 				// Keep enhanced momentum for a few frames
 				grapple_frames = 9;

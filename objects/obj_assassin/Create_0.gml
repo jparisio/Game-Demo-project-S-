@@ -152,7 +152,7 @@ fsm
   	.add("stunned", {
 		enter: function() {
 			//hsp = 0;
-			sprite_index = spr_assassin_idle;
+			sprite_index = spr_assassin_dead;
 			image_index = 0;
 			
 			//make it so u can grapple to the enemy adn carry momentum through them

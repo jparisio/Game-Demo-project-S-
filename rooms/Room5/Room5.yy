@@ -42,6 +42,7 @@
     {"name":"inst_126539CC","path":"rooms/Room5/Room5.yy",},
     {"name":"inst_418AC11B","path":"rooms/Room5/Room5.yy",},
     {"name":"inst_7405CCF2","path":"rooms/Room5/Room5.yy",},
+    {"name":"inst_308BF407","path":"rooms/Room5/Room5.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -101,8 +102,15 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_cam_pan","path":"objects/obj_cam_pan/obj_cam_pan.yy",},"propertyId":{"name":"pan_point","path":"objects/obj_cam_pan/obj_cam_pan.yy",},"value":"inst_7405CCF2",},
           ],"rotation":0.0,"scaleX":7.0,"scaleY":3.0,"x":992.0,"y":384.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7405CCF2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pan_point","path":"objects/obj_pan_point/obj_pan_point.yy",},"properties":[],"rotation":0.0,"scaleX":4.2,"scaleY":4.2,"x":992.0,"y":416.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_308BF407","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_tutorial_ui","path":"objects/obj_tutorial_ui/obj_tutorial_ui.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_tutorial_ui","path":"objects/obj_tutorial_ui/obj_tutorial_ui.yy",},"propertyId":{"name":"inst","path":"objects/obj_tutorial_ui/obj_tutorial_ui.yy",},"value":"inst_194C7B8F",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":446.0,"y":431.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
-    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_43147AB9","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":1.4375,"scaleY":1.296875,"spriteId":{"name":"spr_R_to_restart","path":"sprites/spr_R_to_restart/spr_R_to_restart.yy",},"x":172.89313,"y":580.57806,},
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_48C6B930","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_mouse_click_tutorial2","path":"sprites/spr_mouse_click_tutorial2/spr_mouse_click_tutorial2.yy",},"x":708.0,"y":582.0,},
+      ],"depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "parent": {
     "name": "Rooms",

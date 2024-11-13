@@ -49,6 +49,15 @@ function Gun(_bullet, _max_ammo) constructor {
 	    }
 		return true;
 	}
+	
+	is_full = function(){
+		 for (var i = 0; i < array_length(bullets); i++) {
+	        if (bullets[i] == -1) {
+	            return false;
+	        }
+	    }
+		return true;
+	}
 
 	
 	//set bullet defaulted to set the last bullet
@@ -59,6 +68,10 @@ function Gun(_bullet, _max_ammo) constructor {
     
     // Function to add a bullet back to the array (e.g., for pickups or reloads)
     add_bullet = function(_bullet) {
+		if(self.is_full()){
+			self.set_bullet(_bullet, bullet_index);
+			return 1;
+		}
         if (bullet_index > 0 && bullets[bullet_index -1] == -1) {
             bullets[bullet_index -1] = _bullet;
 			bullet_index -= 1;

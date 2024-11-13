@@ -47,3 +47,9 @@ determine_facing = function(){
 self_grapple = noone;
 
 hp = 0;
+
+//hori and verti move
+hsp = 0;
+vsp = 0;
+grv = .27;
+facing = 1;

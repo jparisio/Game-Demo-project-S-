@@ -5,12 +5,7 @@ hp = 12;
 //flash for hit effect
 flash_alpha = 0;
 flash_colour = c_white;
-//hori and verti move
-hsp = 0;
-vsp = 0;
-grv = .27;
-//grv = 0
-facing = 1;
+
 _speed = 1.3;
 starting_x = x;
 starting_y = y;
@@ -29,8 +24,8 @@ vision_angle = 20;   // Field of vision angle (in degrees)
 vision_offset_y = -30;  // Offset the triangle from the enemy’s position
 
 //patrol points
-patrol_points = [x + 100, x - 100];
-target_point = choose(patrol_points[0], patrol_points[1]);
+//patrol_points = [x + 100, x - 100];
+//target_point = choose(patrol_points[0], patrol_points[1]);
 
 //collision rectangle
 rec_min_x = 0;
@@ -48,23 +43,17 @@ slide_hsp = 0;
 	
 	
 //states	
-fsm = new SnowState("patrol rest")
+fsm = new SnowState("idle")
 
 fsm
-	.add("patrol rest", {
+	.add("idle", {
 		enter: function() {
-			// rest in between patrol points
 			sprite_index = spr_assassin_idle;
 			image_index = 0;
-			timer_switch_state = timer_max;
-			
+
 			
 		},
 		step: function() {
-			
-			//timer_switch_state--;
-			
-			//if dead switch to dead state
 			if(hp <= 0){
 				fsm.change("dead");
 			}
@@ -76,37 +65,10 @@ fsm
 			//collision and move
 			collide_and_move();
 			
-			if(timer_switch_state <= 0){
-				fsm.change("patrol");
-			}
-			
 		
 		}
 		
  })
-  
-	.add("chase", {
-		enter: function() {
-			target_point = obj_player.x;
-			
-		},
-		step: function() {
-			
-			//if dead switch to dead state
-			if(hp <= 0){
-				fsm.change("dead");
-			}
-			
-			hsp = sign(target_point - x) * _speed;
-		
-			//move and collide functions
-			collide_and_move();
-			determine_facing();
-		
-		}
-		
- })
- 
  
  	.add("shoot", {
 		enter: function() {
@@ -133,17 +95,11 @@ fsm
 				sprite_index = spr_boss_gunslinger_fire;
 				image_index = 0;
 			}
-			
-			if sprite_index == spr_boss_gunslinger_fire and animation_end() {
-				fsm.change("patrol");
-			}
 		
 			hsp = lerp(hsp, 0, .15);
 			if abs(hsp) <= 0.01 hsp = 0;
-			//collision and move
 			collide_and_move();
 			facing = sign (obj_player.x - x);
-			//determine_facing();
 		}
 		
  })

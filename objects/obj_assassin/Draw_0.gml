@@ -14,7 +14,7 @@ if global.toggle_debug {
 	// Draw the line to the player if within vision range
 	if (point_distance(x, y, obj_player.x, obj_player.y - 22) <= vision_range) {
 	    draw_set_color(c_yellow);
-	    draw_line(x, y + vision_offset_y, obj_player.x, obj_player.y);
+	    draw_line(x, y + vision_offset_y, obj_player.x, obj_player.y - 22);
 	}
 
 	// Reset color

@@ -68,7 +68,7 @@ fsm.add("aggro", {
 		if !detect_player() fsm.change("idle");
         
         // Attack every 2 seconds
-        if (timer_attack <= 0) {
+        if (timer_attack <= 0 and obj_player. fsm.get_current_state() != "injured") {
             var bullet = instance_create_layer(x, y - 22, "Instances", obj_bullet);
             bullet.direction = point_direction(x, y - 22, obj_player.x, obj_player.y - 22);
             bullet.speed = 7;
@@ -83,6 +83,7 @@ fsm.add("aggro", {
         if abs(hsp) <= 0.01 hsp = 0;
         collide_and_move();
     }
+	
 })
 
 // Modify "idle" state to detect player and switch to "aggro"

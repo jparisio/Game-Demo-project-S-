@@ -9,4 +9,11 @@ hit_enemy = function(){
 	}
 }
 
+hit_player = function(){
+	if (other.fsm.get_current_state() != "injured" and other.hp > 0){
+		other.fsm.change("injured");
+		instance_destroy(self);
+	}
+}
+
 

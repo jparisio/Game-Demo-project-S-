@@ -1,4 +1,4 @@
-hit_enemy();
+if creator == noone hit_enemy();
 
 
 

@@ -201,6 +201,7 @@
     {"name":"spr_neon_sign2","order":10,"path":"sprites/spr_neon_sign2/spr_neon_sign2.yy",},
     {"name":"spr_semi_solid_wall","order":7,"path":"sprites/spr_semi_solid_wall/spr_semi_solid_wall.yy",},
     {"name":"spr_katana_spin","order":12,"path":"sprites/spr_katana_spin/spr_katana_spin.yy",},
+    {"name":"Sprite193","order":10,"path":"sprites/Sprite193/Sprite193.yy",},
     {"name":"snd_dash","order":4,"path":"sounds/snd_dash/snd_dash.yy",},
     {"name":"spr_run","order":14,"path":"sprites/spr_run/spr_run.yy",},
     {"name":"spr_jump_dust3","order":3,"path":"sprites/spr_jump_dust3/spr_jump_dust3.yy",},

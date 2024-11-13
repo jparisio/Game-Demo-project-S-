@@ -12,26 +12,16 @@ starting_y = y;
 //timers
 timer_max = 60 * 2;
 timer_switch_state = timer_max;
-timer_attack_max = 60 * 1;
+timer_attack_max = 20 * 1;
 timer_attack = timer_attack_max;
 
 //dir to move in
 move_dir = random_range(-1, 1)	
 
 //raycast
-vision_range = 150;  // How far the vision reaches
+vision_range = 250;  // How far the vision reaches
 vision_angle = 20;   // Field of vision angle (in degrees)
 vision_offset_y = -30;  // Offset the triangle from the enemy’s position
-
-//patrol points
-//patrol_points = [x + 100, x - 100];
-//target_point = choose(patrol_points[0], patrol_points[1]);
-
-//collision rectangle
-rec_min_x = 0;
-rec_min_y = 0;
-rec_max_x = 0;
-rec_max_y = 0;
 
 //stunned
 stunned = false;
@@ -42,33 +32,82 @@ slide = 9;
 slide_hsp = 0;
 	
 	
-//states	
+// Add to the Create Event
+detection_delay = 60; // delay before switching to aggro
+timer_detect = detection_delay;
+//indicator_shown = false; // to show detection indicator once
+
+// Function to check if player is in range and visible
+function detect_player() {
+    if (point_distance(x, y, obj_player.x, obj_player.y) <= vision_range) {
+        // Line-of-sight check
+        if (!collision_line(x, y + vision_offset_y, obj_player.x, obj_player.y - 22, obj_wall_parent, true, true)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 fsm = new SnowState("idle")
 
-fsm
-	.add("idle", {
-		enter: function() {
-			sprite_index = spr_assassin_idle;
-			image_index = 0;
+// Add "aggro" state
+fsm.add("aggro", {
+    enter: function() {
+        sprite_index = spr_boss_gunslinger_aim;
+        image_index = 0;
+        timer_attack = timer_attack_max; // Reset attack timer
+        //indicator_shown = true; // Show indicator once
+    },
+    step: function() {
+        // Check if enemy is dead
+        if (hp <= 0) {
+            fsm.change("dead");
+            return;
+        }
+		
+		if !detect_player() fsm.change("idle");
+        
+        // Attack every 2 seconds
+        if (timer_attack <= 0) {
+            var bullet = instance_create_layer(x, y - 22, "Instances", obj_bullet);
+            bullet.direction = point_direction(x, y - 22, obj_player.x, obj_player.y - 22);
+            bullet.speed = 7;
+			bullet.creator = self;
+            timer_attack = timer_attack_max; // Reset attack timer
+        } else {
+            timer_attack--;
+        }
 
-			
-		},
-		step: function() {
-			if(hp <= 0){
-				fsm.change("dead");
-			}
-			
-			
-			hsp = lerp(hsp, 0, .15);
-			if abs(hsp) <= 0.01 hsp = 0;
-			
-			//collision and move
-			collide_and_move();
-			
-		
-		}
-		
- })
+        // Reset horizontal speed and collision
+        hsp = lerp(hsp, 0, .15);
+        if abs(hsp) <= 0.01 hsp = 0;
+        collide_and_move();
+    }
+})
+
+// Modify "idle" state to detect player and switch to "aggro"
+fsm.add("idle", {
+    enter: function() {
+        sprite_index = spr_assassin_idle;
+        image_index = 0;
+    },
+    step: function() {
+        if (hp <= 0) {
+            fsm.change("dead");
+            return;
+        }
+        
+        // If player is detected, start delay before switching to aggro
+        if (detect_player()) {
+			fsm.change("aggro");
+        }
+
+        hsp = lerp(hsp, 0, .15);
+        if abs(hsp) <= 0.01 hsp = 0;
+        collide_and_move();
+    }
+})
+
  
  	.add("shoot", {
 		enter: function() {

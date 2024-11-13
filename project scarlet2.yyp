@@ -425,6 +425,7 @@
     {"id":{"name":"input_is_analogue","path":"scripts/input_is_analogue/input_is_analogue.yy",},},
     {"id":{"name":"spr_semi_solid_wall","path":"sprites/spr_semi_solid_wall/spr_semi_solid_wall.yy",},},
     {"id":{"name":"spr_katana_spin","path":"sprites/spr_katana_spin/spr_katana_spin.yy",},},
+    {"id":{"name":"Sprite193","path":"sprites/Sprite193/Sprite193.yy",},},
     {"id":{"name":"snd_dash","path":"sounds/snd_dash/snd_dash.yy",},},
     {"id":{"name":"input_check_double_released","path":"scripts/input_check_double_released/input_check_double_released.yy",},},
     {"id":{"name":"spr_run","path":"sprites/spr_run/spr_run.yy",},},

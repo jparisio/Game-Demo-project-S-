@@ -13,6 +13,7 @@ mouse_hovering = false;
 hover_radius = 40;
 
 active = false;
+indicator =  instance_create_layer(x, y - 20, "Instances", obj_grapple_indicator);
 
 // Define the FSM structure
 fsm = new SnowState("inactive");
@@ -39,6 +40,7 @@ fsm
 			//show_debug_message("should be adding to list here")
             image_index = 1; // Show the active image
 			ds_list_add(obj_player.grapple_target_list, self);
+			indicator.alpha = 1;
 			
         },
         step: function() {
@@ -55,7 +57,11 @@ fsm
 				}
                 
             }
-        }
+        },
+		
+		leave: function(){
+			indicator.alpha = 0;
+		}
     });
 
 	

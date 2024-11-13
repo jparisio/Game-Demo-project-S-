@@ -21,3 +21,8 @@ if (active && follow != noone && follow.object_index == obj_chainsaw) {
     follow.active = true;
 }
 
+
+
+//indicator 
+indicator.draw_x = x;
+indicator.draw_y = y - 20;

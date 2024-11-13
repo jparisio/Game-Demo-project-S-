@@ -67,6 +67,12 @@ fsm
 		
 			step: function(){
 				
+			},
+			
+			leave: function(){
+				instance_create_layer(x, y, "Player", obj_player);
+				instance_create_layer(x, y, "Cursor", obj_cursor_controller);
+				instance_create_layer(x, y, "UI", obj_player_gui);
 			}
 	});
 	

@@ -1038,9 +1038,14 @@ fsm
 		return false;
 	})
 	
-	fsm.add_transition("shoot_to_idle", "shoot", "idle", function()  {
-		return 1;
-	})
+	fsm.add_transition("shoot_to_idle", "shoot", "idle", function() {
+	    return on_ground(self); 
+	});
+
+	fsm.add_transition("shoot_to_jump", "shoot", "jump", function() {
+	    return !on_ground(self);
+	});
+
 
 
 	fsm.add_transition("to_dash", ["idle", "run", "jump"], "dash", function()  {

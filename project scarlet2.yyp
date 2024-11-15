@@ -65,6 +65,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"explosions","folderPath":"folders/Objects/effects/explosions.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"slashes","folderPath":"folders/Objects/effects/slashes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"enemies","folderPath":"folders/Objects/enemies.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"assassin","folderPath":"folders/Objects/enemies/assassin.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bosses","folderPath":"folders/Objects/enemies/bosses.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gunslinger","folderPath":"folders/Objects/enemies/bosses/gunslinger.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"slime","folderPath":"folders/Objects/enemies/slime.yy",},
@@ -150,7 +151,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Docs","folderPath":"folders/TweenGMX/Docs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/TweenGMX/User.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Curves","folderPath":"folders/TweenGMX/User/Curves.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"assassin","folderPath":"folders/Objects/enemies/assassin.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},

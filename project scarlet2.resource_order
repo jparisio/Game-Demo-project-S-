@@ -18,6 +18,7 @@
     {"name":"explosions","order":4,"path":"folders/Objects/effects/explosions.yy",},
     {"name":"slashes","order":3,"path":"folders/Objects/effects/slashes.yy",},
     {"name":"enemies","order":3,"path":"folders/Objects/enemies.yy",},
+    {"name":"assassin","order":8,"path":"folders/Objects/enemies/assassin.yy",},
     {"name":"bosses","order":5,"path":"folders/Objects/enemies/bosses.yy",},
     {"name":"gunslinger","order":9,"path":"folders/Objects/enemies/bosses/gunslinger.yy",},
     {"name":"slime","order":6,"path":"folders/Objects/enemies/slime.yy",},
@@ -81,7 +82,6 @@
     {"name":"Tilesets","order":14,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
     {"name":"TweenGMX","order":16,"path":"folders/TweenGMX.yy",},
-    {"name":"assassin","order":8,"path":"folders/Objects/enemies/assassin.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_sound_gain_controller","order":2,"path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},

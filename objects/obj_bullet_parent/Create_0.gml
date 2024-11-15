@@ -10,8 +10,8 @@ hit_enemy = function(){
 }
 
 hit_player = function(){
-	if (other.fsm.get_current_state() != "injured" and other.hp > 0){
-		other.fsm.change("injured");
+	if (obj_player.fsm.get_current_state() != "injured" and obj_player.hp > 0){
+		obj_player.fsm.change("injured");
 		instance_destroy(self);
 	}
 }

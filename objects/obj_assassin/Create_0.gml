@@ -30,6 +30,7 @@ _ended = false;
 
 slide = 9;
 slide_hsp = 0;
+gun = noone;
 	
 	
 // Add to the Create Event
@@ -53,7 +54,8 @@ fsm = new SnowState("idle")
 // Add "aggro" state
 fsm.add("aggro", {
     enter: function() {
-        sprite_index = spr_boss_gunslinger_aim;
+        sprite_index = spr_assassin_shoot;
+		gun = instance_create_layer(x, y - 20, "Instances", obj_assassin_gun);
         image_index = 0;
         timer_attack = timer_attack_max; // Reset attack timer
         //indicator_shown = true; // Show indicator once
@@ -82,7 +84,12 @@ fsm.add("aggro", {
         hsp = lerp(hsp, 0, .15);
         if abs(hsp) <= 0.01 hsp = 0;
         collide_and_move();
-    }
+    },
+	
+	leave: function(){
+		
+		instance_destroy(gun);
+	}
 	
 })
 

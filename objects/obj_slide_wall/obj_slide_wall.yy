@@ -27,7 +27,7 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
-  "solid": false,
+  "solid": true,
   "spriteId": {
     "name": "spr_slide_wall",
     "path": "sprites/spr_slide_wall/spr_slide_wall.yy",

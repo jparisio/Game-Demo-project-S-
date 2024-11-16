@@ -9,5 +9,5 @@ audio_play_sound(snd_bullet_shell, 7, 0);
 
 alarm[0] = -1;
 
-bounced = false;
+bounced = true;
 destructable = false;

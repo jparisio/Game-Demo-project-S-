@@ -39,7 +39,7 @@ grapple_momentum_modifier = 0;
 tween = 0;
 chainsaw_fly = false;
 //----------------------------------------------------------GUN------------------------------------------------------//
-default_bullet = new Bullet(15, obj_bullet);
+default_bullet = new Bullet(15, obj_ricochet_bullet);
 gun = new Gun(default_bullet, 5);
 shoot_direction = 0;
 

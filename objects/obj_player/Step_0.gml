@@ -40,7 +40,7 @@ fsm.trigger("to_attack");
 fsm.trigger("to_shoot");
 fsm.trigger("shoot_to_idle");
 fsm.trigger("shoot_to_jump");
-//fsm.trigger("to_dash");
+fsm.trigger("to_dash");
 fsm.trigger("to_grapple");
 fsm.trigger("to_dialogue");
 fsm.trigger("to_cut_dialogue");
@@ -50,6 +50,7 @@ fsm.trigger("wall_slide_to_wall_jump");
 fsm.trigger("wall_slide_to_jump");
 fsm.trigger("wall_slide_to_idle");
 fsm.trigger("wall_jump_to_jump");
+//fsm.trigger("grap_enemy_to_wall_slide");
 
 //-------------------------------------------------other stuff------------------------------------------------------------------//
 //check if on ground or not

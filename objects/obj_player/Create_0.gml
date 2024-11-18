@@ -39,7 +39,7 @@ grapple_momentum_modifier = 0;
 tween = 0;
 chainsaw_fly = false;
 //----------------------------------------------------------GUN------------------------------------------------------//
-default_bullet = new Bullet(15, obj_ricochet_bullet);
+default_bullet = new Bullet(15, obj_bullet);
 gun = new Gun(default_bullet, 5);
 shoot_direction = 0;
 
@@ -1048,7 +1048,7 @@ fsm
 
 
 
-	fsm.add_transition("to_dash", ["idle", "run", "jump"], "dash", function()  {
+	fsm.add_transition("to_dash", ["idle", "run"], "dash", function()  {
 		return dash and can_dash
 	})
 	
@@ -1088,6 +1088,11 @@ fsm
 	fsm.add_transition("wall_jump_to_jump", "wall jump", "jump", function() {
 	    return wall_jump_frames <= 0
 	});
+	
+	
+	//fsm.add_transition("grap_enemy_to_wall_slide", "grapple enemy", "wall slide", function() {
+	//    return place_meeting(x + sign(facing), y, obj_slide_wall)
+	//});
 
 
 

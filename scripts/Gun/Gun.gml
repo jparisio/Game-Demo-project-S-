@@ -31,6 +31,14 @@ function Gun(_bullet, _max_ammo) constructor {
             bullets[i] = bullet;
         }
     };
+	
+	empty_gun = function() {
+        bullets = [];
+		bullet_index = 0;
+        for (var i = 0; i < array_size; i++) {
+            bullets[i] = -1;
+        }
+    };
 
     // Function to return the current bullet array
     get_bullets = function() {

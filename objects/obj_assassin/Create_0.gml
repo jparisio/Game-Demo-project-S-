@@ -19,7 +19,7 @@ timer_attack = timer_attack_max;
 move_dir = random_range(-1, 1)	
 
 //raycast
-vision_range = 250;  // How far the vision reaches
+//vision_range = 250;  // How far the vision reaches
 vision_angle = 20;   // Field of vision angle (in degrees)
 vision_offset_y = -30;  // Offset the triangle from the enemy’s position
 

@@ -71,7 +71,7 @@ fsm.add("aggro", {
         
         // Attack every 2 seconds
         if (timer_attack <= 0 and obj_player. fsm.get_current_state() != "injured") {
-            var bullet = instance_create_layer(x, y - 22, "Instances", obj_bullet);
+            var bullet = instance_create_layer(x, y - 22, "Instances", obj_enemy_bullet);
             bullet.direction = point_direction(x, y - 22, obj_player.x, obj_player.y - 22);
             bullet.speed = 7;
 			bullet.creator = self;
@@ -136,7 +136,7 @@ fsm.add("idle", {
 			if stunned fsm.change("stunned");
 			
 			if 	sprite_index == spr_boss_gunslinger_aim and animation_end() {
-				var bullet = instance_create_layer(x, y - sprite_height/4, "Instances", obj_bullet);
+				var bullet = instance_create_layer(x, y - sprite_height/4, "Instances", obj_bullet122);
 				bullet.direction = point_direction(x, y - sprite_height/4, obj_player.x, obj_player. y - 22);
 				bullet.speed = 7;
 				sprite_index = spr_boss_gunslinger_fire;

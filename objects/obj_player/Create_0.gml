@@ -778,7 +778,11 @@ fsm
 					
 				}
 				
-			}
+			},
+		
+		leave: function(){
+			audio_stop_sound(snd_grapple_rope);
+		}
 	})
 	
 	.add("grapple hang", {

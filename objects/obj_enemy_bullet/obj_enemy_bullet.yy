@@ -1,11 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_movement_bullet",
+  "name": "obj_enemy_bullet",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -33,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_shotgun_bullet",
-    "path": "sprites/spr_shotgun_bullet/spr_shotgun_bullet.yy",
+    "name": "spr_bullet",
+    "path": "sprites/spr_bullet/spr_bullet.yy",
   },
   "spriteMaskId": null,
   "visible": true,

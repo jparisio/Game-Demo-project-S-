@@ -357,12 +357,12 @@ fsm
 			get_input_and_move();
 			determine_facing();
 			
-			//increase app_walksp when moving against momemtum to have extra control
-			if ((hsp >= 0 and right - left == -1) || (hsp <= 0 and right - left == 1)){
-				approach_walksp = 0.25;
-			} else {
-				approach_walksp = 0.15;
-			}
+			////increase app_walksp when moving against momemtum to have extra control
+			//if ((hsp >= 0 and right - left == -1) || (hsp <= 0 and right - left == 1)){
+			//	approach_walksp = 0.25;
+			//} else {
+			//	approach_walksp = 0.15;
+			//}
 			
 			
 			

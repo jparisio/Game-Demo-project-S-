@@ -32,7 +32,7 @@ global.app_ratio_x = 1;
 //room restart state capture
 global.initial_player_state = [];
 global.initial_enemy_states = [];
-global.initial_window_states = [];
+global.initial_wall_states = [];
 global.initial_item_states = [];
 
 

@@ -4,7 +4,7 @@ function capture_initial_room_states() {
 	// Clear previous states
 	global.initial_player_state = [];
 	global.initial_enemy_states = [];
-	global.initial_window_states = [];
+	global.initial_wall_states = [];
 	global.initial_item_states = [];
     // Capture player states
     var player = instance_find(obj_player, 0); // one player
@@ -42,14 +42,17 @@ function capture_initial_room_states() {
     }
 	
 	//capture window states
-	var window_count = instance_number(obj_glass_window);
-	for (var i = 0; i < window_count; i++) {
-	    var window = instance_find(obj_glass_window, i);
-	    var window_state = {
-			_mask: window.mask_index,
-			_id: window.id
+	var wall_count = instance_number(obj_wall_parent);
+	for (var i = 0; i < wall_count; i++) {
+	    var wall = instance_find(obj_wall_parent, i);
+	    var wall_state = {
+			_mask: wall.mask_index,
+			_sprite_index: wall.sprite_index,
+			_id: wall.id,
+			_x: wall.x,
+			_y: wall.y
 	    };
-	    array_push(global.initial_window_states, window_state);
+	    array_push(global.initial_wall_states, wall_state);
 	}
 	
 	//capture items in room 
@@ -112,11 +115,14 @@ function reset_room_states() {
 	});
 
 	// Restore windows
-	array_foreach(global.initial_window_states, function(window_state) {
-	    if (instance_exists(window_state._id)) {
-	        var window = window_state._id;
-	        window.mask_index = window_state._mask;
-	        window.image_index = 0;
+	array_foreach(global.initial_wall_states, function(wall_state) {
+	    if (instance_exists(wall_state._id)) {
+	        var wall = wall_state._id;
+	        wall.mask_index = wall_state._mask;
+	        wall.image_index = 0;
+			wall.sprite_index = wall_state._sprite_index;
+			wall.x = wall_state._x;
+			wall.y = wall_state._y;
 	    }
 	});
 	 

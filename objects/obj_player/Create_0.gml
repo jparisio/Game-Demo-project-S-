@@ -336,7 +336,8 @@ fsm
 			can_jump = false;
 			
 			//make air accel slower
-			approach_walksp = 0.25;
+			approach_walksp = 0.15;
+			//if abs(hsp) > 1 approach_walksp = 0.25 else approach_walksp = 0.12;
 			
 			//dont play this if last state was a wall jump
 			if(fsm.get_previous_state() != "wall jump") audio_play_sound(snd_jump, 0, false, .05);
@@ -355,6 +356,23 @@ fsm
 			//move
 			get_input_and_move();
 			determine_facing();
+			
+			//increase app_walksp when moving against momemtum to have extra control
+			if ((hsp >= 0 and right - left == -1) || (hsp <= 0 and right - left == 1)){
+				approach_walksp = 0.25;
+			} else {
+				approach_walksp = 0.15;
+			}
+			
+			
+			
+			//create trail effect
+			if vsp < 0 {
+				var _trail = instance_create_layer(x, y, "Player", obj_trail_effect);
+				_trail.sprite_index = sprite_index;
+				_trail.image_index = image_index;
+				_trail.image_xscale = facing;
+			}
 			
 
 			//change animations

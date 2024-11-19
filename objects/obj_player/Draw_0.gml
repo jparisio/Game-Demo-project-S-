@@ -23,3 +23,7 @@ if (!instance_exists(obj_hurtbox) and be_invulnerable) {
 //draw_text(x, y - 40, string(jump));
 
 //draw_circle(bbox_right + 32, bbox_bottom - 10, 1, false);
+
+draw_set_color(c_white)
+
+draw_text(x, y, string(approach_walksp));

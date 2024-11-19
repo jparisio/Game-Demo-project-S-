@@ -10,9 +10,7 @@ function Bullet(__speed, _type) constructor {
 	
     // Method to handle firing the bullet
     shoot = function(_x, _y, _direction) {
-        var bullet_instance = instance_create_layer(_x, _y, "Instances", type);
-        bullet_instance.speed = _speed;
-        bullet_instance.direction = _direction;
+        instance_create_layer(_x, _y, "Instances", type, {speed: _speed, direction: _direction, image_angle: _direction});
     };
 
 }

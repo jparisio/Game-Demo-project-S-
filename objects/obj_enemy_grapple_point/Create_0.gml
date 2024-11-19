@@ -25,6 +25,7 @@ fsm
 	
 	.add("dead", {
 		enter: function(){
+			create_sparks(x, y);
 			image_index = 1;
 			remove_grapple_target(self_grapple);
 			instance_destroy(self_grapple);

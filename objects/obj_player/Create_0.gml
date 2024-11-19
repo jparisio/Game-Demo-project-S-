@@ -816,6 +816,7 @@ fsm
 				//set enemy id attached to the grapple to dead state by making hp = 0
 				grapple_target.follow.hp = 0;
 				create_shake();
+			
 				
 				//gain a dash
 				can_dash = true;

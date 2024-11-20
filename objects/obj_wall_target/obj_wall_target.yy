@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_cam_bounds",
-    "path": "sprites/spr_cam_bounds/spr_cam_bounds.yy",
+    "name": "spr_explosive_door",
+    "path": "sprites/spr_explosive_door/spr_explosive_door.yy",
   },
   "spriteMaskId": null,
   "visible": true,

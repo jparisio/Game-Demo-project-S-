@@ -818,6 +818,7 @@
     {"id":{"name":"snd_grapple_throw","path":"sounds/snd_grapple_throw/snd_grapple_throw.yy",},},
     {"id":{"name":"__scribble_effects_maps_initialize","path":"scripts/__scribble_effects_maps_initialize/__scribble_effects_maps_initialize.yy",},},
     {"id":{"name":"spr_idle_to_run","path":"sprites/spr_idle_to_run/spr_idle_to_run.yy",},},
+    {"id":{"name":"spr_explosive_door","path":"sprites/spr_explosive_door/spr_explosive_door.yy",},},
     {"id":{"name":"__input_source_relinquish","path":"scripts/__input_source_relinquish/__input_source_relinquish.yy",},},
     {"id":{"name":"spr_light2","path":"sprites/spr_light2/spr_light2.yy",},},
     {"id":{"name":"input_virtual_destroy_all","path":"scripts/input_virtual_destroy_all/input_virtual_destroy_all.yy",},},

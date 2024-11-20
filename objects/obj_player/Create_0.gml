@@ -752,6 +752,12 @@ fsm
 				x += hsp;
 				y += vsp;
 				
+				//ensure enemy cant move when being grappled to
+				if (grapple_target.grapple_type == "grapple enemy"){
+					grapple_target.follow.hsp = 0;
+					grapple_target.follow.vsp = 0;
+				}
+				
 				//here check for the spot your ending up at make sure its not in a wall
 				//Check if the player has reached the grapple point
 			    if (grapple_target_dist <= grapple_speed) {

@@ -56,6 +56,7 @@ fsm.add("aggro", {
     enter: function() {
         sprite_index = spr_assassin_shoot;
 		gun = instance_create_layer(x, y - 20, "Instances", obj_assassin_gun);
+		gun. creator = self;
         image_index = 0;
         timer_attack = timer_attack_max; // Reset attack timer
         //indicator_shown = true; // Show indicator once

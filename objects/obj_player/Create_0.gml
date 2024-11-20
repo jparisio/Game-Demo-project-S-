@@ -701,7 +701,12 @@ fsm
 			//var _arm = instance_create_layer(x -3 * facing, y - 28, "Instances", obj_grapple_arm)
 			//_arm.image_xscale = facing;
 			//_arm.direction = point_direction(_arm.x, _arm.y, grapple_target.x, grapple_target.y);
-			
+			//ensure enemy cant move when being grappled to
+			if (grapple_target.grapple_type == "grapple enemy"){
+				grapple_target.follow.hsp = 0;
+				grapple_target.follow.vsp = 0;
+				grapple_target.follow.grv = 0;
+			}
 
 	        // Calculate the katana's speed (triple the grapple speed)
 	        var katana_speed = grapple_speed * 3;
@@ -718,10 +723,7 @@ fsm
 	    },
 
 	    step: function() {
-			if (grapple_target.grapple_type == "grapple enemy"){
-				grapple_target.follow.hsp = 0;
-				grapple_target.follow.vsp = 0;
-			}
+
 	        // Check if the katana has reached the grapple point
 	        if (point_distance(katana.x, katana.y, grapple_target.x, grapple_target.y) < katana.speed) {
 			    katana.x = grapple_target.x;
@@ -752,11 +754,6 @@ fsm
 				x += hsp;
 				y += vsp;
 				
-				//ensure enemy cant move when being grappled to
-				if (grapple_target.grapple_type == "grapple enemy"){
-					grapple_target.follow.hsp = 0;
-					grapple_target.follow.vsp = 0;
-				}
 				
 				//here check for the spot your ending up at make sure its not in a wall
 				//Check if the player has reached the grapple point

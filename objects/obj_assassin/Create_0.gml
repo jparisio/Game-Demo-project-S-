@@ -49,7 +49,7 @@ function detect_player() {
     return false;
 }
 
-fsm = new SnowState("idle")
+fsm = new SnowState("stunned")
 
 // Add "aggro" state
 fsm.add("aggro", {
@@ -168,6 +168,10 @@ fsm.add("idle", {
 			
 			//movement
 			collide_and_move();
+		},
+		leave: function(){
+			
+			grv = .27;
 		}
 		
  })

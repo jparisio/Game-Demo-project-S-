@@ -10,7 +10,6 @@
     {"name":"inst_1D060909_1_1_1_2_2","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_652A2E0A_1_1_1_2_2","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_D91FED0_1_2_2","path":"rooms/Room2/Room2.yy",},
-    {"name":"inst_23FF304C_2","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_2A7A4537","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_13401EB8","path":"rooms/Room2/Room2.yy",},
     {"name":"inst_49AC994","path":"rooms/Room2/Room2.yy",},
@@ -39,7 +38,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_652A2E0A_1_1_1_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player_light","path":"objects/obj_player_light/obj_player_light.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":-21.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_23FF304C_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall_surface_controller","path":"objects/obj_wall_surface_controller/obj_wall_surface_controller.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":107.0,"y":-21.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5F4CC6EE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pickup_bullet","path":"objects/obj_pickup_bullet/obj_pickup_bullet.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":192.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"UI","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},

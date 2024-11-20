@@ -10,7 +10,6 @@
     {"name":"inst_1D060909_1_1_1_2_2_1","path":"rooms/Room6/Room6.yy",},
     {"name":"inst_652A2E0A_1_1_1_2_2_1","path":"rooms/Room6/Room6.yy",},
     {"name":"inst_D91FED0_1_2_2_2","path":"rooms/Room6/Room6.yy",},
-    {"name":"inst_23FF304C_2_2","path":"rooms/Room6/Room6.yy",},
     {"name":"inst_16FA030B","path":"rooms/Room6/Room6.yy",},
     {"name":"inst_4EA06ABB","path":"rooms/Room6/Room6.yy",},
     {"name":"inst_717451A0","path":"rooms/Room6/Room6.yy",},
@@ -35,7 +34,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_652A2E0A_1_1_1_2_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player_light","path":"objects/obj_player_light/obj_player_light.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":-21.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_23FF304C_2_2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_wall_surface_controller","path":"objects/obj_wall_surface_controller/obj_wall_surface_controller.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":107.0,"y":-21.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4BA0AB0F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pickup_bullet","path":"objects/obj_pickup_bullet/obj_pickup_bullet.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":262.0,"y":90.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3222A3EB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_exit","path":"objects/obj_exit/obj_exit.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":565.0,"y":192.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},

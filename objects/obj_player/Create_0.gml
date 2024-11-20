@@ -718,6 +718,10 @@ fsm
 	    },
 
 	    step: function() {
+			if (grapple_target.grapple_type == "grapple enemy"){
+				grapple_target.follow.hsp = 0;
+				grapple_target.follow.vsp = 0;
+			}
 	        // Check if the katana has reached the grapple point
 	        if (point_distance(katana.x, katana.y, grapple_target.x, grapple_target.y) < katana.speed) {
 			    katana.x = grapple_target.x;

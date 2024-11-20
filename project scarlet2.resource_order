@@ -455,6 +455,7 @@
     {"name":"spr_grenade_hitbox","order":4,"path":"sprites/spr_grenade_hitbox/spr_grenade_hitbox.yy",},
     {"name":"acEaseOut","order":14,"path":"animcurves/acEaseOut/acEaseOut.yy",},
     {"name":"acBackInOut","order":1,"path":"animcurves/acBackInOut/acBackInOut.yy",},
+    {"name":"Room13","order":21,"path":"rooms/Room13/Room13.yy",},
     {"name":"spr_dead","order":4,"path":"sprites/spr_dead/spr_dead.yy",},
     {"name":"__shdBulbHSVValueToAlpha","order":6,"path":"shaders/__shdBulbHSVValueToAlpha/__shdBulbHSVValueToAlpha.yy",},
     {"name":"spr_laser_hitbox","order":6,"path":"sprites/spr_laser_hitbox/spr_laser_hitbox.yy",},

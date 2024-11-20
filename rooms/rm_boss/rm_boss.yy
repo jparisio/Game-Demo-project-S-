@@ -23,7 +23,6 @@
     {"name":"inst_2456DA2B","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_3166A642","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_3BFFC454","path":"rooms/rm_boss/rm_boss.yy",},
-    {"name":"inst_7FF3A92C","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_2A152AB8","path":"rooms/rm_boss/rm_boss.yy",},
     {"name":"inst_3EEDDC29","path":"rooms/rm_boss/rm_boss.yy",},
   ],
@@ -57,7 +56,6 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Player","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_45CF2DC0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_boss_gunslinger","path":"objects/obj_boss_gunslinger/obj_boss_gunslinger.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1056.0,"y":288.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_19D8035C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_temp_camera_anchor","path":"objects/obj_temp_camera_anchor/obj_temp_camera_anchor.yy",},"properties":[],"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"x":832.0,"y":288.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7FF3A92C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_assassin","path":"objects/obj_assassin/obj_assassin.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":536.0,"y":286.35767,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Back_walls","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3166A642","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_back_wall","path":"objects/obj_back_wall/obj_back_wall.yy",},"properties":[],"rotation":0.0,"scaleX":16.828125,"scaleY":1.0,"x":280.00143,"y":220.0,},

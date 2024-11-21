@@ -936,6 +936,8 @@ fsm
 	        //input_enabled = false;  // Disable input
 			create_shake();
 			audio_play_sound(snd_player_hit, 30, 0, 35);
+			//destroy grapple rope
+			if instance_exists(katana) instance_destroy(katana);
 	    },
 	    step: function() {
 	        //make it an anim or something or wait a few frames

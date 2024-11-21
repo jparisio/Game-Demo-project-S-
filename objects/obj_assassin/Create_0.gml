@@ -49,7 +49,7 @@ function detect_player() {
     return false;
 }
 
-fsm = new SnowState("stunned")
+fsm = new SnowState("idle")
 
 // Add "aggro" state
 fsm.add("aggro", {

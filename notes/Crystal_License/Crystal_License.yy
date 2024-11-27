@@ -1,9 +1,11 @@
 {
-  "resourceType": "GMNotes",
-  "resourceVersion": "1.1",
-  "name": "Crystal_License",
-  "parent": {
-    "name": "License",
-    "path": "folders/KazanGames/CrystalLightingEngine/License.yy",
+  "$GMNotes":"",
+  "%Name":"Crystal_License",
+  "name":"Crystal_License",
+  "parent":{
+    "name":"License",
+    "path":"folders/KazanGames/CrystalLightingEngine/License.yy",
   },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
 }

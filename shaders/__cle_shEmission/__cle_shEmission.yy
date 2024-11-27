@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "__cle_shEmission",
-  "parent": {
-    "name": "Materials",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Shaders/Render/Materials.yy",
+  "$GMShader":"",
+  "%Name":"__cle_shEmission",
+  "name":"__cle_shEmission",
+  "parent":{
+    "name":"Materials",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Shaders/Render/Materials.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

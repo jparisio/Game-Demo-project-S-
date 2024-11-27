@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__cle_Utils",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Essential",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Essential.yy",
+  "$GMScript":"v1",
+  "%Name":"__cle_Utils",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__cle_Utils",
+  "parent":{
+    "name":"Essential",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Essential.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

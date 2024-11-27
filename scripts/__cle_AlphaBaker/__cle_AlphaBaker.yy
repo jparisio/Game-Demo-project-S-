@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__cle_AlphaBaker",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "AlphaBaker",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Modules/AlphaBaker.yy",
+  "$GMScript":"v1",
+  "%Name":"__cle_AlphaBaker",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__cle_AlphaBaker",
+  "parent":{
+    "name":"AlphaBaker",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Modules/AlphaBaker.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

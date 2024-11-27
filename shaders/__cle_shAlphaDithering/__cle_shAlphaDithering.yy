@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "__cle_shAlphaDithering",
-  "parent": {
-    "name": "Misc",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Shaders/Misc.yy",
+  "$GMShader":"",
+  "%Name":"__cle_shAlphaDithering",
+  "name":"__cle_shAlphaDithering",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Shaders/Misc.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

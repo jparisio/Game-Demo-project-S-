@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "__cle_shDebugShadow",
-  "parent": {
-    "name": "Resources",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Modules/Debug/Resources.yy",
+  "$GMShader":"",
+  "%Name":"__cle_shDebugShadow",
+  "name":"__cle_shDebugShadow",
+  "parent":{
+    "name":"Resources",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Modules/Debug/Resources.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "__cle_shDeferredRender",
-  "parent": {
-    "name": "Combine",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Shaders/Render/Combine.yy",
+  "$GMShader":"",
+  "%Name":"__cle_shDeferredRender",
+  "name":"__cle_shDeferredRender",
+  "parent":{
+    "name":"Combine",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Shaders/Render/Combine.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

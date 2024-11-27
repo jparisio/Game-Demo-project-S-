@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "__cle_shShapeLightBRDF",
-  "parent": {
-    "name": "BRDF",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Shaders/Lighting/BRDF.yy",
+  "$GMShader":"",
+  "%Name":"__cle_shShapeLightBRDF",
+  "name":"__cle_shShapeLightBRDF",
+  "parent":{
+    "name":"BRDF",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Shaders/Lighting/BRDF.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

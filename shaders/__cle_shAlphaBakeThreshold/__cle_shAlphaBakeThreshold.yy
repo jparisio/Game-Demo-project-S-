@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "__cle_shAlphaBakeThreshold",
-  "parent": {
-    "name": "AlphaBaker",
-    "path": "folders/KazanGames/CrystalLightingEngine/Core/Modules/AlphaBaker.yy",
+  "$GMShader":"",
+  "%Name":"__cle_shAlphaBakeThreshold",
+  "name":"__cle_shAlphaBakeThreshold",
+  "parent":{
+    "name":"AlphaBaker",
+    "path":"folders/KazanGames/CrystalLightingEngine/Core/Modules/AlphaBaker.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

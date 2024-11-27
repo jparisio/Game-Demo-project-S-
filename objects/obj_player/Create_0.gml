@@ -821,7 +821,7 @@ fsm
 				grapple_cooldown = grapple_cooldown_max;
 				audio_stop_sound(snd_grapple_rope);
 				audio_play_sound(snd_injured, 13, 0, 20, 0.1, 1);
-				audio_play_sound(snd_unsheath, 12, 0, 40, 0.1, 1);
+				audio_play_sound(snd_unsheath, 12, 0, 15, 0.1, 1);
 				//audio_play_sound(snd_old_dash, 10, 0, 3, 0, 2);
 				instance_destroy(katana);
 				//set enemy id attached to the grapple to dead state by making hp = 0

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "ChangeSprite",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "cutscenes",
-    "path": "folders/Scripts/cutscenes.yy",
+  "$GMScript":"v1",
+  "%Name":"ChangeSprite",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ChangeSprite",
+  "parent":{
+    "name":"cutscenes",
+    "path":"folders/Scripts/cutscenes.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

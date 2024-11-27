@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Bullet",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "gun",
-    "path": "folders/Scripts/gun.yy",
+  "$GMScript":"v1",
+  "%Name":"Bullet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Bullet",
+  "parent":{
+    "name":"gun",
+    "path":"folders/Scripts/gun.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

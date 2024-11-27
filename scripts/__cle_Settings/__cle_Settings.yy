@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__cle_Settings",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "CrystalLightingEngine",
-    "path": "folders/KazanGames/CrystalLightingEngine.yy",
+  "$GMScript":"v1",
+  "%Name":"__cle_Settings",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__cle_Settings",
+  "parent":{
+    "name":"CrystalLightingEngine",
+    "path":"folders/KazanGames/CrystalLightingEngine.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,9 +1,8 @@
 {
-  "resourceType": "GMAnimCurve",
-  "resourceVersion": "1.2",
-  "name": "acBounceInOut",
-  "channels": [
-    {"resourceType":"GMAnimCurveChannel","resourceVersion":"1.0","name":"curve1","colour":4290799884,"points":[
+  "$GMAnimCurve":"",
+  "%Name":"acBounceInOut",
+  "channels":[
+    {"$GMAnimCurveChannel":"","%Name":"curve1","colour":4290799884,"name":"curve1","points":[
         {"th0":-0.125,"th1":0.012134433,"tv0":0.0,"tv1":0.013477117,"x":0.0,"y":0.0,},
         {"th0":-0.013478845,"th1":0.022009194,"tv0":0.013137221,"tv1":0.047039628,"x":0.050000012,"y":0.0,},
         {"th0":-0.026324183,"th1":0.03942752,"tv0":0.04413119,"tv1":0.106338024,"x":0.13749999,"y":0.0013477206,},
@@ -13,11 +12,14 @@
         {"th0":-0.03942752,"th1":0.026324183,"tv0":-0.106338024,"tv1":-0.04413119,"x":0.8625,"y":0.9986523,},
         {"th0":-0.022009194,"th1":0.013478845,"tv0":-0.047039628,"tv1":-0.013137221,"x":0.95,"y":1.0,},
         {"th0":-0.012134433,"th1":0.125,"tv0":-0.013477117,"tv1":0.0,"x":1.0,"y":1.0,},
-      ],"visible":true,},
+      ],"resourceType":"GMAnimCurveChannel","resourceVersion":"2.0","visible":true,},
   ],
-  "function": 2,
-  "parent": {
-    "name": "Easing Curves",
-    "path": "folders/Easing Curves.yy",
+  "function":2,
+  "name":"acBounceInOut",
+  "parent":{
+    "name":"Easing Curves",
+    "path":"folders/Easing Curves.yy",
   },
+  "resourceType":"GMAnimCurve",
+  "resourceVersion":"2.0",
 }

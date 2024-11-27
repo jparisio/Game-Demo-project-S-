@@ -1,0 +1,6 @@
+renderer.Destroy();
+
+
+
+
+

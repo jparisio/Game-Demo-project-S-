@@ -7,7 +7,7 @@ function on_ground(_inst){
 	
 	var _one_way = instance_place(_inst.x, _inst.y + max(1, _inst.vsp), obj_one_way_plat);
 	if _one_way != noone {
-	if _inst.bbox_bottom < _one_way.bbox_bottom && _inst.vsp >= 0 && !keyboard_check(vk_down)
+	if _inst.bbox_bottom < _one_way.bbox_bottom && _inst.vsp >= 0
 		{
 			return true;
 		}

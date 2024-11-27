@@ -1,0 +1,1 @@
+type = CRYSTAL_LIGHT.POINT;

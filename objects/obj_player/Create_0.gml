@@ -185,7 +185,7 @@ collide_and_move = function(){
 	//one way
 	var _one_way = instance_place(x, y + max(1, vsp), obj_one_way_plat);
 	if _one_way != noone {
-	if bbox_bottom < _one_way.bbox_bottom && vsp > 0 && !down
+	if bbox_bottom < _one_way.bbox_bottom && vsp > 0
 		{
 		//stop moving or snap player to other.bbox_top eg.
 		  y = _one_way.bbox_top - (bbox_bottom - y)

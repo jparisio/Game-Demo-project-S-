@@ -1,1 +1,0 @@
-renderer.SetAmbientColor(ambience);

@@ -79,7 +79,6 @@
     {"name":"weapons","order":9,"path":"folders/Sprites/weapons.yy",},
     {"name":"Tilesets","order":14,"path":"folders/Tilesets.yy",},
     {"name":"Timelines","order":15,"path":"folders/Timelines.yy",},
-    {"name":"TweenGMX","order":16,"path":"folders/TweenGMX.yy",},
     {"name":"KazanGames","order":21,"path":"folders/KazanGames.yy",},
     {"name":"CrystalLightingEngine","order":1,"path":"folders/KazanGames/CrystalLightingEngine.yy",},
     {"name":"Assets","order":1,"path":"folders/KazanGames/CrystalLightingEngine/Assets.yy",},

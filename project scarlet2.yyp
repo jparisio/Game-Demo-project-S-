@@ -775,6 +775,7 @@
     {"id":{"name":"input_y","path":"scripts/input_y/input_y.yy",},},
     {"id":{"name":"MoveAction","path":"scripts/MoveAction/MoveAction.yy",},},
     {"id":{"name":"on_ground","path":"scripts/on_ground/on_ground.yy",},},
+    {"id":{"name":"particles","path":"scripts/particles/particles.yy",},},
     {"id":{"name":"PlayAnim","path":"scripts/PlayAnim/PlayAnim.yy",},},
     {"id":{"name":"remove_grapple_target","path":"scripts/remove_grapple_target/remove_grapple_target.yy",},},
     {"id":{"name":"room_restart_functions","path":"scripts/room_restart_functions/room_restart_functions.yy",},},

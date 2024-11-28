@@ -46,3 +46,5 @@ global.screen_shake_magnitude = 30;
 
 
 global.toggle_debug = false;
+
+

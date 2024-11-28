@@ -342,6 +342,7 @@
     {"name":"hit_pause","order":15,"path":"scripts/hit_pause/hit_pause.yy",},
     {"name":"MoveAction","order":1,"path":"scripts/MoveAction/MoveAction.yy",},
     {"name":"on_ground","order":9,"path":"scripts/on_ground/on_ground.yy",},
+    {"name":"particles","order":18,"path":"scripts/particles/particles.yy",},
     {"name":"PlayAnim","order":4,"path":"scripts/PlayAnim/PlayAnim.yy",},
     {"name":"remove_grapple_target","order":11,"path":"scripts/remove_grapple_target/remove_grapple_target.yy",},
     {"name":"room_restart_functions","order":12,"path":"scripts/room_restart_functions/room_restart_functions.yy",},

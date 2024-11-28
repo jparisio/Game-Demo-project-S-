@@ -14,7 +14,6 @@ with (obj_blood){
     draw_sprite_ext(spr_blood, _image_index, x, y , image_xscale, image_yscale, image_angle, global.blood_colour, 1)
 }
 
-// Draw surface or sprite here
 surface_reset_target();  
 gpu_pop_state();         
 

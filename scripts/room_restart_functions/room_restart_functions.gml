@@ -42,9 +42,9 @@ function capture_initial_room_states() {
     }
 	
 	//capture window states
-	var wall_count = instance_number(obj_glass_window);
+	var wall_count = instance_number(obj_wall_parent);
 	for (var i = 0; i < wall_count; i++) {
-	    var wall = instance_find(obj_glass_window, i);
+	    var wall = instance_find(obj_wall_parent, i);
 	    var wall_state = {
 			_mask: wall.mask_index,
 			_sprite_index: wall.sprite_index,

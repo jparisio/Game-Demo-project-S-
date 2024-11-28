@@ -20,7 +20,7 @@ mouse_look = function() {
 	var angle = point_direction(screen_center_x, screen_center_y, mouse_screen_x, mouse_screen_y);
 	var threshold = 90;
 	var max_offset = 2; 
-	show_debug_message(distance)
+	//show_debug_message(distance)
 
 	// Calculate offset based on distance, clamped to max_offset
 	var offset_amount = min(max((distance - threshold) / 100, 0), max_offset);

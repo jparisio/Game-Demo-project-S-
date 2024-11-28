@@ -120,11 +120,11 @@ walking_on = snd_walk2;
 
 //--------------------------------------------lighting-----------------------------------------------------------//
 
-//shadow = new Crystal_Shadow(id, CRYSTAL_SHADOW.DYNAMIC);
-//shadow.AddMesh(new Crystal_ShadowMesh().FromSpriteRect(sprite_index));
-//shadow.Apply();
+material = new Crystal_Material(id);
+material.normalSprite = spr_player_normal;
+material.Apply();
 
-//movement
+//--------------------------------------------MOVE FUNCS-----------------------------------------------------------//
 get_input_and_move = function() {
 	
 	//input verbs
@@ -215,7 +215,7 @@ determine_facing = function(){
 	
 	
 	
-//states
+//-----------------------------------------------states-------------------------------------------------------------//
 fsm = new SnowState("idle")
 
 fsm
@@ -224,18 +224,21 @@ fsm
 			//normal return to idle
 			sprite_index = player_character.setSprite("idle");
 			image_index = 0;
+			material.normalSprite = spr_player_normal;
 			
 			//return after run or dash
 			var prev_state = fsm.get_previous_state();
 			if (prev_state == "run" || prev_state == "dash" || prev_state == "grapple enemy" || prev_state == "jump") {
 				sprite_index = player_character.setSprite("rtoi");
 				image_index = 0;
+				material.normalSprite = spr_rtoi_normal;
 			}
 			
 			//return after jump !TODO: this is a temp landing animation
 			if(fsm.get_previous_state() == "jump"){
 				sprite_index = player_character.setSprite("rtoi");
 				image_index = 0;
+				material.normalSprite = spr_rtoi_normal;
 			}
 			//for move cap stuff
 			approach_walksp = approach_walksp_max;
@@ -247,6 +250,7 @@ fsm
 			if(player_character.getSpriteState() == "rtoi") and animation_end(){
 				sprite_index = player_character.setSprite("idle");
 				image_index = 0;
+				material.normalSprite = spr_player_normal;
 			}
 			
 			//movement
@@ -263,12 +267,14 @@ fsm
 		enter: function(){
 			sprite_index = player_character.setSprite("run");
 			image_index = 0;
+			material.normalSprite = spr_player_run_normal;
 			coyote_time = coyote_time_max;
 			
 			//run to idle
 			if(fsm.get_previous_state() == "idle"){
 				sprite_index = player_character.setSprite("itor");
 				image_index = 0;
+				material.normalSprite = spr_itor_normal;
 			}
 			
 			//pick up from dash frame in the run cycle
@@ -296,6 +302,7 @@ fsm
 			if(sprite_index ==  player_character.setSprite("itor")) and animation_end(){
 				sprite_index = player_character.setSprite("run");
 				image_index = 0;
+				material.normalSprite = spr_player_run_normal;
 			}
 			
 			//move

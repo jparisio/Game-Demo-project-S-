@@ -1,3 +1,3 @@
 //image_alpha -= 0.04
-TweenEasyFade(image_alpha, 0, 0, 4, EaseInSine)
+image_alpha = lerp(image_alpha, 0, .2);
 if image_alpha <= 0 instance_destroy();

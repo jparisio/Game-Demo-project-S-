@@ -46,10 +46,11 @@
       ],"layers":[],"name":"Enemies","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Cursor","depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Cursor","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":25,"SerialiseWidth":27,"TileCompressedData":[
-          -409,-2147483648,1,9,-10,10,1,11,-4,-2147483648,1,27,-10,-2147483648,1,12,-10,13,1,14,-4,-2147483648,
-          1,27,-10,-2147483648,1,6,-10,5,1,7,-4,-2147483648,1,27,-10,-2147483648,-11,5,1,7,-4,-2147483648,1,27,
-          -10,-2147483648,-11,5,1,7,-4,-2147483648,1,27,-10,-2147483648,1,6,-10,5,1,7,-4,-2147483648,1,27,-10,
-          -2147483648,1,2,-10,4,1,3,-4,-2147483648,1,27,-10,-2147483648,-17,34,-60,-2147483648,
+          -399,-2147483648,1,26,-9,-2147483648,1,9,-10,10,2,11,31,-3,-2147483648,2,0,27,-9,-2147483648,1,12,-10,
+          13,2,14,31,-3,-2147483648,2,0,27,-9,-2147483648,1,6,-10,5,2,7,31,-3,-2147483648,2,0,27,-9,-2147483648,
+          -11,5,2,7,29,-3,-2147483648,2,0,27,-9,-2147483648,-11,5,1,7,-4,-2147483648,2,0,27,-9,-2147483648,1,6,
+          -10,5,1,7,-4,-2147483648,2,0,27,-9,-2147483648,1,2,-10,4,1,3,-4,-2147483648,2,0,27,-9,-2147483648,-17,
+          34,1,29,-59,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"hotel_background","path":"tilesets/hotel_background/hotel_background.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"Walls","depth":700,"effectEnabled":true,"effectType":null,"gridX":24,"gridY":24,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_4F866EFD_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4F866EFD_1","objectId":{"name":"obj_room_start_point","path":"objects/obj_room_start_point/obj_room_start_point.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":528.0,},

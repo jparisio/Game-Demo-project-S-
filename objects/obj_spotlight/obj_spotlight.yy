@@ -1,19 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_24_wall",
+  "%Name":"obj_spotlight",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_24_wall",
+  "name":"obj_spotlight",
   "overriddenProperties":[],
   "parent":{
-    "name":"walls",
-    "path":"folders/Objects/environment/walls.yy",
+    "name":"Lights",
+    "path":"folders/Objects/lighting/Crystal Lighting/Lights.yy",
   },
   "parentObjectId":{
-    "name":"obj_wall_parent",
-    "path":"objects/obj_wall_parent/obj_wall_parent.yy",
+    "name":"__cle_objSpotLight",
+    "path":"objects/__cle_objSpotLight/__cle_objSpotLight.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -31,11 +31,8 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
-  "spriteId":{
-    "name":"spr_24_wall",
-    "path":"sprites/spr_24_wall/spr_24_wall.yy",
-  },
+  "solid":false,
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

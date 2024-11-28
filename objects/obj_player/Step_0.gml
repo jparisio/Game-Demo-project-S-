@@ -96,6 +96,10 @@ if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
 
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
+//lighting
+//shadow.x = x;
+//shadow.y = y - 22;
+
 //var _bullets = gun.get_bullets()
 //show_debug_message(vsp);
 //show_debug_message(hsp);

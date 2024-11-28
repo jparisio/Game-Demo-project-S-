@@ -118,6 +118,12 @@ talking = false
 sound_frame_counter = 0;
 walking_on = snd_walk2;
 
+//--------------------------------------------lighting-----------------------------------------------------------//
+
+//shadow = new Crystal_Shadow(id, CRYSTAL_SHADOW.DYNAMIC);
+//shadow.AddMesh(new Crystal_ShadowMesh().FromSpriteRect(sprite_index));
+//shadow.Apply();
+
 //movement
 get_input_and_move = function() {
 	

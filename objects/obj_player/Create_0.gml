@@ -1044,7 +1044,7 @@ fsm
 	    return false;
 	})
 	
-	fsm.add_transition("to_wall_slide", "jump", "wall slide", function() {
+	fsm.add_transition("to_wall_slide", ["jump", "wall jump"], "wall slide", function() {
 	    return (place_meeting(x + sign(facing), y, obj_slide_wall) and vsp >= 0)
 	})
 	
@@ -1104,7 +1104,7 @@ fsm
 	})
 	
 	fsm.add_transition("wall_slide_to_wall_jump", "wall slide", "wall jump", function() {
-    return input_check_pressed("jump");
+		return input_check_pressed("jump");
 	});
 
 	fsm.add_transition("wall_slide_to_jump", "wall slide", "jump", function() {

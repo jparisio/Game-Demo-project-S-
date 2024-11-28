@@ -48,12 +48,17 @@ fsm
 		
 	.add("transition", {
 		enter: function() {
+			if (reset) {
+				reset_room_states();
+			} else if (next_room && room != room_last) {
+				room_goto_next();
+			}
 			timer = 15;
 		},
 		step: function() {
 			timer--;		
 			if timer <= 0 fsm.change("final");
-		}
+		},
 		
  })
  
@@ -61,11 +66,7 @@ fsm
 		enter: function() {
 			//make squares approach 0 now
 			square_size = 0;
-			if (reset) {
-				    reset_room_states();
-				} else if (next_room && room != room_last) {
-				    room_goto_next();
-			}
+			
 		},
 		step: function() {
 			if (all_squares_done()){

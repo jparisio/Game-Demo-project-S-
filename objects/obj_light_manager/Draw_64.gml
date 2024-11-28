@@ -1,1 +1,1 @@
-crystal_debug_show(true, id, renderer);
+if global.toggle_debug crystal_debug_show(true, id, renderer);

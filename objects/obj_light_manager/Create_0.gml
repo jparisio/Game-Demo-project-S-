@@ -16,8 +16,8 @@ application_surface_draw_enable(false); // disable automatic drawing of applicat
 
 // Create the normal map generator effect
 normalsEffect = new Crystal_LayerFXNormalFromLuminance();
-// Create the material layer and apply the normals effect (send it to the material layer)
 bgMatNormals = new Crystal_MaterialLayer(layer_get_depth("Tiles_1")-1, CRYSTAL_PASS.NORMALS, normalsEffect, true);
 bgMatNormals.AddLayers(layer_get_id("Tiles_1"), layer_get_id("Tiles_1")); // range 1
-// Apply the material layer
 bgMatNormals.Apply();
+
+renderer.SetAmbientIntensity(0.15);

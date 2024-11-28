@@ -1,5 +1,5 @@
 //draw gui
-draw_set_color(c_black)
+draw_set_color(c_black);
 for (var i = 0; i < array_length(transition_squares); i++) {
     var square = transition_squares[i];
     

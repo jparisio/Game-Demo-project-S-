@@ -42,9 +42,9 @@ function capture_initial_room_states() {
     }
 	
 	//capture window states
-	var wall_count = instance_number(obj_wall_parent);
+	var wall_count = instance_number(obj_glass_window);
 	for (var i = 0; i < wall_count; i++) {
-	    var wall = instance_find(obj_wall_parent, i);
+	    var wall = instance_find(obj_glass_window, i);
 	    var wall_state = {
 			_mask: wall.mask_index,
 			_sprite_index: wall.sprite_index,
@@ -158,7 +158,7 @@ function reset_room_states() {
 	obj_camera.follow = obj_player;
 	obj_camera.fsm.change("follow");
 	obj_camera.x = obj_player.x;
-	obj_camera.y = obj_player.y;
+	obj_camera.y = obj_player.y - 22;
 }
 
 

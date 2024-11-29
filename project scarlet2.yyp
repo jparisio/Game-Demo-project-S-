@@ -529,7 +529,6 @@
     {"id":{"name":"__snowstate_config","path":"scripts/__snowstate_config/__snowstate_config.yy",},},
     {"id":{"name":"AnimcurveTween","path":"scripts/AnimcurveTween/AnimcurveTween.yy",},},
     {"id":{"name":"Anims","path":"scripts/Anims/Anims.yy",},},
-    {"id":{"name":"apply_normals","path":"scripts/apply_normals/apply_normals.yy",},},
     {"id":{"name":"Approach","path":"scripts/Approach/Approach.yy",},},
     {"id":{"name":"bktGlitch_inline","path":"scripts/bktGlitch_inline/bktGlitch_inline.yy",},},
     {"id":{"name":"bktGlitch","path":"scripts/bktGlitch/bktGlitch.yy",},},

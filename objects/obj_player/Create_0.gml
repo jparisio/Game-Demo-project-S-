@@ -1085,7 +1085,6 @@ fsm
 	});
 
 
-
 	fsm.add_transition("to_dash", ["idle", "run"], "dash", function()  {
 		return dash and can_dash
 	})

@@ -325,7 +325,6 @@
     {"name":"__scribble_tick","order":14,"path":"scripts/__scribble_tick/__scribble_tick.yy",},
     {"name":"AnimcurveTween","order":8,"path":"scripts/AnimcurveTween/AnimcurveTween.yy",},
     {"name":"Anims","order":5,"path":"scripts/Anims/Anims.yy",},
-    {"name":"apply_normals","order":19,"path":"scripts/apply_normals/apply_normals.yy",},
     {"name":"Approach","order":6,"path":"scripts/Approach/Approach.yy",},
     {"name":"bktGlitch_inline","order":1,"path":"scripts/bktGlitch_inline/bktGlitch_inline.yy",},
     {"name":"blood_sprayer","order":3,"path":"scripts/blood_sprayer/blood_sprayer.yy",},

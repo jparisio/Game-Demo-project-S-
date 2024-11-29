@@ -2,6 +2,7 @@ pause_toggle = 0;
 reload_room = 0;
 loaded_room = 0;
 next_room = 0;
+new_game = 0;
 
 fsm = new SnowState("main menu")
 
@@ -69,6 +70,7 @@ fsm
 				if instance_exists(obj_cursor_controller) instance_destroy(obj_cursor_controller);
 				if instance_exists(obj_player_gui) instance_destroy(obj_player_gui);
 				if instance_exists(obj_bullet_ui) instance_destroy(obj_bullet_ui);
+				new_game = false;
 			},
 		
 			step: function(){
@@ -88,7 +90,7 @@ fsm
 		enter: function() {
 			loaded_room = load_game_data();
 			var new_room = asset_get_index(loaded_room.room);
-			room_goto(new_room);
+			if new_game  room_goto(Room01); else room_goto(new_room);
 		},
 		step: function() {
 			fsm.change("play");

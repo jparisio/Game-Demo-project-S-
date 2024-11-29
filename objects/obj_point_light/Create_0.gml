@@ -1,6 +1,6 @@
 type = CRYSTAL_LIGHT.POINT;
 color = c_orange;
-radius = 64;
+radius = 100;
 intensity = 0.5;
 levels = 256;
 normalDistance = 50;

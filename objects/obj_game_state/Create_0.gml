@@ -77,8 +77,8 @@ fsm
 			
 			leave: function(){
 				instance_create_layer(x, y, "Player", obj_player);
-				instance_create_layer(x, y, "Cursor", obj_cursor_controller);
-				instance_create_layer(x, y, "UI", obj_player_gui);
+				//instance_create_layer(x, y, "Cursor", obj_cursor_controller);
+				//instance_create_layer(x, y, "UI", obj_player_gui);
 				//instance_create_layer(x, y, "UI", obj_room_test);
 				//instance_create_layer(x, y, "Lighting", obj_light_manager);
 			}

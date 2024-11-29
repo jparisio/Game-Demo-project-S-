@@ -109,7 +109,7 @@ material.x = x;
 material.y = y;
 material.normalSpriteSubimg = image_index;
 material.xScale = facing;
-
+material.depth = depth - 1;
 
 
 

@@ -15,6 +15,7 @@ if (!instance_exists(obj_hurtbox) and be_invulnerable) {
         shader_reset();
    }
 
+//draw_set_color(c_white)
 
 //if grapple_target != noone {
 //	draw_line(x, y - sprite_height / 2, grapple_target.x, grapple_target.y);

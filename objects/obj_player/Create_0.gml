@@ -122,7 +122,12 @@ walking_on = snd_walk2;
 
 material = new Crystal_Material(id);
 material.normalSprite = spr_ghost_idle_normal;
+material.depth = depth - 1;
 material.Apply();
+
+//--------------------------------------------create the player ui--------------------------------------------//
+instance_create_layer(x, y, "Cursor", obj_cursor_controller);
+instance_create_layer(x, y, "UI", obj_player_gui);
 
 //--------------------------------------------MOVE FUNCS-----------------------------------------------------------//
 get_input_and_move = function() {
@@ -373,12 +378,11 @@ fsm
 			
 			
 			//create trail effect
-			if vsp < 0 {
-				var _trail = instance_create_layer(x, y, "Player", obj_trail_effect);
-				_trail.sprite_index = sprite_index;
-				_trail.image_index = image_index;
-				_trail.image_xscale = facing;
-			}
+			part_system_depth(global.part_sys, depth + 1);
+			part_type_scale(global.player_trail, facing, 1);
+			part_type_sprite(global.player_trail, sprite_index, false, false, false);
+			part_type_subimage(global.player_trail, image_index);
+			part_particles_create(global.part_sys, x, y, global.player_trail, 1);
 			
 
 			//change animations
@@ -482,6 +486,11 @@ fsm
 			vsp = -3;
 			collide_and_move();
 			determine_facing();
+			part_system_depth(global.part_sys, depth + 1);
+			part_type_scale(global.player_trail, facing, 1);
+			part_type_sprite(global.player_trail, sprite_index, false, false, false);
+			part_type_subimage(global.player_trail, image_index);
+			part_particles_create(global.part_sys, x, y, global.player_trail, 1);
 		}
 })
 

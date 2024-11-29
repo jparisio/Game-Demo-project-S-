@@ -97,14 +97,21 @@ if instance_place(x, y, obj_respawner) and fsm.get_current_state() != "injured"{
 cutscene_instance = instance_place(x, y, obj_cutscene);
 
 
-//normals
+//normals seemingly not working
+var _sprite = sprite_get_name(sprite_index); 
+_sprite = string_concat(_sprite, "_normal");
+var normal_sprite = asset_get_index(_sprite)   
+//show_debug_message(_sprite);
+if material.normalSprite != normal_sprite {
+	material.normalSprite = normal_sprite
+}
 material.x = x;
 material.y = y;
 material.normalSpriteSubimg = image_index;
 material.xScale = facing;
 
-//show_debug_message(material.x);
-//show_debug_message(material.xScale);
+
+
 
 //var _bullets = gun.get_bullets()
 //show_debug_message(vsp);

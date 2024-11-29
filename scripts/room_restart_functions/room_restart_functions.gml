@@ -67,6 +67,8 @@ function capture_initial_room_states() {
         };
         array_push(global.initial_item_states, item_state);
     }
+	//save the game contents
+	if room != Room0 save_game();
 }
 
 

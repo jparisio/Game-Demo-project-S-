@@ -1,5 +1,7 @@
 pause_toggle = 0;
 reload_room = 0;
+loaded_room = 0;
+next_room = 0;
 
 fsm = new SnowState("main menu")
 
@@ -76,8 +78,19 @@ fsm
 				//instance_create_layer(x, y, "UI", obj_room_test);
 				//instance_create_layer(x, y, "Lighting", obj_light_manager);
 			}
+	})
+	
+	.add("load game", {
+		enter: function() {
+			loaded_room = load_game_data();
+			var new_room = asset_get_index(loaded_room.room);
+			room_goto(new_room);
+		},
+		step: function() {
+			fsm.change("play");
+		}
 	});
 	
 	
 	//set window to full screen 
-	window_set_fullscreen(true);
+	//window_set_fullscreen(true);

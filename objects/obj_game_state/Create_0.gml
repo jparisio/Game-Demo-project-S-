@@ -65,6 +65,10 @@ fsm
 		
 			enter: function(){
 				//instance_create_layer(x, y, "Instances", obj_menu_parent);
+				if instance_exists(obj_player) instance_destroy(obj_player);
+				if instance_exists(obj_cursor_controller) instance_destroy(obj_cursor_controller);
+				if instance_exists(obj_player_gui) instance_destroy(obj_player_gui);
+				if instance_exists(obj_bullet_ui) instance_destroy(obj_bullet_ui);
 			},
 		
 			step: function(){

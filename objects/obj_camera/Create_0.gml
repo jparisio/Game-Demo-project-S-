@@ -55,14 +55,16 @@ fsm
 		},
 		
 		step: function() {
-				
+				if follow == noone fsm.change("static");
 				//lerp camera towards follow 
-				x += (follow.x - x) / 15;
-				y += (follow.y - 30 - y) / 15;
-				if(variable_instance_exists(follow, "vsp") && follow.vsp > 0)  {
-	                var look_ahead_offset = min(follow.vsp * 30, 100); // Cap the offset to prevent too much look-ahead
-	                target_y += look_ahead_offset; 
-	            }
+				if follow != noone {
+					x += (follow.x - x) / 15;
+					y += (follow.y - 30 - y) / 15;
+					if(variable_instance_exists(follow, "vsp") && follow.vsp > 0)  {
+		                var look_ahead_offset = min(follow.vsp * 30, 100); // Cap the offset to prevent too much look-ahead
+		                target_y += look_ahead_offset; 
+		            }
+				}
 
 				// Move the camera offset depending on if the player is facing left or right
 				if (follow == obj_player) {

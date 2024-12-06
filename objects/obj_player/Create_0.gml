@@ -950,7 +950,7 @@ fsm
 	        //invincible = true;  // Make the player invincible for a short time
 	        //input_enabled = false;  // Disable input
 			create_shake();
-			audio_play_sound(snd_player_hit, 30, 0, 35);
+			audio_play_sound(snd_player_hit, 30, 0, 1);
 			//destroy grapple rope
 			if instance_exists(katana) instance_destroy(katana);
 	    },

@@ -1,7 +1,7 @@
 type = CRYSTAL_LIGHT.POINT;
-color = #fffdc3;
-radius = 140;
-intensity = 0.5;
+color = c_yellow;
+radius = 5;
+intensity = 0.2;
 levels = 256;
 normalDistance = 50;
 specular = 5;

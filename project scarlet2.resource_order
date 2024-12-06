@@ -254,6 +254,7 @@
     {"name":"obj_slide_dust","order":3,"path":"objects/obj_slide_dust/obj_slide_dust.yy",},
     {"name":"obj_slide_wall","order":6,"path":"objects/obj_slide_wall/obj_slide_wall.yy",},
     {"name":"obj_sound_gain_controller","order":2,"path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},
+    {"name":"obj_spark_light","order":2,"path":"objects/obj_spark_light/obj_spark_light.yy",},
     {"name":"obj_sparks","order":11,"path":"objects/obj_sparks/obj_sparks.yy",},
     {"name":"obj_temp_camera_anchor","order":5,"path":"objects/obj_temp_camera_anchor/obj_temp_camera_anchor.yy",},
     {"name":"obj_temp_wall","order":3,"path":"objects/obj_temp_wall/obj_temp_wall.yy",},

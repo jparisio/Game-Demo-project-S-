@@ -348,6 +348,7 @@
     {"id":{"name":"obj_slide_dust","path":"objects/obj_slide_dust/obj_slide_dust.yy",},},
     {"id":{"name":"obj_slide_wall","path":"objects/obj_slide_wall/obj_slide_wall.yy",},},
     {"id":{"name":"obj_sound_gain_controller","path":"objects/obj_sound_gain_controller/obj_sound_gain_controller.yy",},},
+    {"id":{"name":"obj_spark_light","path":"objects/obj_spark_light/obj_spark_light.yy",},},
     {"id":{"name":"obj_sparks","path":"objects/obj_sparks/obj_sparks.yy",},},
     {"id":{"name":"obj_spotlight","path":"objects/obj_spotlight/obj_spotlight.yy",},},
     {"id":{"name":"obj_temp_camera_anchor","path":"objects/obj_temp_camera_anchor/obj_temp_camera_anchor.yy",},},

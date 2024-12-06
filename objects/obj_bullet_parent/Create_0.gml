@@ -5,6 +5,8 @@ max_speed = 30;
 hit_enemy = function(){
 	if (other.fsm.get_current_state() != "stunned" and other.hp > 0 and other.object_index != obj_enemy_grapple_point){
 		other.fsm.change("stunned");
+		//create_shake("small");
+		//part_particles_create(global.part_sys, x, y, global.hit_burst, 20);
 		instance_destroy(self);
 	}
 }

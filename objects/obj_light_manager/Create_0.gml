@@ -5,7 +5,8 @@ renderer.SetHDREnable(true);
 renderer.SetMaterialsEnable(true);
 renderer.SetLightsHDREnable(true);
 renderer.SetLightsBlendmode(1);
-
+//ambienece
+renderer.SetAmbientIntensity(0.15);
 // Enable depth buffer and alpha test
 gpu_set_zwriteenable(true);
 gpu_set_ztestenable(true);
@@ -16,8 +17,11 @@ application_surface_draw_enable(false); // disable automatic drawing of applicat
 
 // Create the normal map generator effect
 normalsEffect = new Crystal_LayerFXNormalFromLuminance();
-bgMatNormals = new Crystal_MaterialLayer(layer_get_depth("Tiles_2")-1, CRYSTAL_PASS.NORMALS, normalsEffect, true);
+normalsEffect.strengthX = 1;
+normalsEffect.strengthY = 1;
+bgMatNormals = new Crystal_MaterialLayer(layer_get_depth("Tiles_2")-1, CRYSTAL_PASS.NORMALS, normalsEffect , true);
 bgMatNormals.AddLayers(layer_get_id("Tiles_2"), layer_get_id("Tiles_2")); // range 1
 bgMatNormals.Apply();
 
-renderer.SetAmbientIntensity(0.15);
+
+

@@ -6,7 +6,10 @@
   ],
   "managed":true,
   "name":"obj_spotlight",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"__cle_objSpotLight","path":"objects/__cle_objSpotLight/__cle_objSpotLight.yy",},"propertyId":{"name":"angle","path":"objects/__cle_objSpotLight/__cle_objSpotLight.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"270",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"__cle_objSpotLight","path":"objects/__cle_objSpotLight/__cle_objSpotLight.yy",},"propertyId":{"name":"radius","path":"objects/__cle_objSpotLight/__cle_objSpotLight.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"160",},
+  ],
   "parent":{
     "name":"Lights",
     "path":"folders/Objects/lighting/Crystal Lighting/Lights.yy",

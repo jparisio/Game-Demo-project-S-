@@ -1,1 +1,0 @@
-bgMatNormals.depth = layer_get_depth("Tiles_2") - 1;

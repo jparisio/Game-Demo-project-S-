@@ -6,7 +6,7 @@ renderer.SetMaterialsEnable(true);
 renderer.SetLightsHDREnable(true);
 renderer.SetLightsBlendmode(1);
 //ambienece
-renderer.SetAmbientIntensity(0.38);
+renderer.SetAmbientIntensity(0.2);
 // Enable depth buffer and alpha test
 gpu_set_zwriteenable(true);
 gpu_set_ztestenable(true);

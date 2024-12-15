@@ -19,7 +19,7 @@
   "height":144,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"02ae35b1-8352-40dd-891d-1df18c2baea1","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"02ae35b1-8352-40dd-891d-1df18c2baea1","opacity":49.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"02ae35b1-8352-40dd-891d-1df18c2baea1","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"02ae35b1-8352-40dd-891d-1df18c2baea1","opacity":23.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"7994372d-7a62-45f3-91bb-cf6e5b0760d5","blendMode":0,"displayName":"default","isLocked":false,"name":"7994372d-7a62-45f3-91bb-cf6e5b0760d5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_hotel_tileset",

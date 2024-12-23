@@ -2,6 +2,8 @@ event_inherited();
 
 create_shells = true;
 
+lifespan = 8;
+
 move_frames = 9;
 
 create_shake();

@@ -5,14 +5,24 @@ if speed != 0 move_dir = sign(speed);
 
 if create_shells{
 	
-	create_shells = false 
-	//shotgun so create a bunch of bullets in direction 
-	repeat(10){
-		var _bullet = instance_create_layer(x, y, "Instances", obj_shotgun_effect);
-		with(_bullet){
-			speed = random_range(5, 18);
-			direction = other.direction + random_range(15, -15)
-		}
+	
+	//create_shells = false 
+	////shotgun so create a bunch of bullets in direction 
+	//repeat(10){
+	//	var _bullet = instance_create_layer(x, y, "Instances", obj_shotgun_effect);
+	//	with(_bullet){
+	//		speed = random_range(5, 18);
+	//		direction = other.direction + random_range(15, -15)
+	//	}
+	//}
+	create_shells = false;
+	repeat(20){
+		var _rand_min = random_range(direction - 50, direction);
+		var _rand_max = random_range(direction, direction + 50);
+		part_type_color3(global.hit_burst, c_orange, c_white, c_yellow);
+		part_type_direction(global.hit_burst, _rand_min, _rand_max, 0, 0);
+		part_type_orientation(global.hit_burst, 0,  0, 0, 0, true);
+		part_particles_create(global.part_sys, x, y, global.hit_burst, 1);
 	}
 	
 }
@@ -28,3 +38,7 @@ if (move_frames >= 0){
 	    vsp = lengthdir_y(_speed, opposite_dir);
 	}
 }
+
+
+lifespan--;
+if lifespan <= 0 instance_destroy();

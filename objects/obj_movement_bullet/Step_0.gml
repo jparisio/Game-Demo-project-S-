@@ -4,8 +4,14 @@ if speed != 0 move_dir = sign(speed);
 
 
 if create_shells{
-	
-	
+	repeat(10){
+		create_shells = false;
+		var _bullet = instance_create_layer(x, y, "Instances", obj_bullet);
+		with(_bullet){
+			speed = random_range(5, 18);
+			direction = other.direction + random_range(15, -15)
+		}
+	}
 	//create_shells = false 
 	////shotgun so create a bunch of bullets in direction 
 	//repeat(10){
@@ -15,15 +21,15 @@ if create_shells{
 	//		direction = other.direction + random_range(15, -15)
 	//	}
 	//}
-	create_shells = false;
-	repeat(20){
-		var _rand_min = random_range(direction - 50, direction);
-		var _rand_max = random_range(direction, direction + 50);
-		part_type_color3(global.hit_burst, c_orange, c_white, c_yellow);
-		part_type_direction(global.hit_burst, _rand_min, _rand_max, 0, 0);
-		part_type_orientation(global.hit_burst, 0,  0, 0, 0, true);
-		part_particles_create(global.part_sys, x, y, global.hit_burst, 1);
-	}
+	//create_shells = false;
+	//repeat(20){
+	//	var _rand_min = random_range(direction - 30, direction);
+	//	var _rand_max = random_range(direction, direction + 30);
+	//	//part_type_color3(global.shotgun_blast, c_orange, c_white, c_yellow);
+	//	part_type_direction(global.shotgun_blast, _rand_min, _rand_max, 0, 0);
+	//	part_type_orientation(global.shotgun_blast, 0,  0, 0, 0, true);
+	//	part_particles_create(global.part_sys, x, y, global.shotgun_blast, 1);
+	//}
 	
 }
 

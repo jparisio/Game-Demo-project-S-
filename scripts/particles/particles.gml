@@ -66,4 +66,13 @@ part_type_direction(global.hit_circle, 0, 360, 0, 0);
 part_type_speed(global.hit_circle, .3, 1, -0.1, 0);
 
 
-
+global.shotgun_blast = part_type_create();
+part_type_shape(global.shotgun_blast, pt_shape_disk);
+part_type_size(global.shotgun_blast, 2.4, 2.4, -.12, 0);
+part_type_scale(global.shotgun_blast, .24, .24);
+part_type_size_y(global.shotgun_blast, .05, .05, 0, 0);
+part_type_color3(global.shotgun_blast, c_yellow, c_orange, c_white);
+part_type_alpha3(global.shotgun_blast, 1, 1, 1);
+part_type_blend(global.shotgun_blast, false);
+//part_type_life(global.shotgun_blast, 19, 19);
+part_type_speed(global.shotgun_blast, 2, 6, -0.1, 0);

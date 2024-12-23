@@ -31,15 +31,39 @@ part_type_speed(global.player_trail, 0, 0, 0, 0);
 part_type_gravity(global.player_trail, 0, 0);
 
 
+
+global.death_part = part_type_create();
+part_type_shape(global.death_part, pt_shape_disk);
+part_type_size(global.death_part, .08, .08, -.001, 0);
+part_type_scale(global.death_part, .24, .24);
+part_type_color3(global.death_part, c_white, c_white, c_white);
+part_type_speed(global.death_part, .2, .4, -0.01, 0);
+part_type_life(global.death_part, 180, 180);
+part_type_direction(global.death_part, 0, 360, 0, 0);
+part_type_alpha3(global.death_part, 1, 1, 0);
+
 global.hit_burst = part_type_create();
 part_type_shape(global.hit_burst, pt_shape_disk);
-part_type_size(global.hit_burst, 0.2, 0.5, 0, 0);
-part_type_scale(global.hit_burst, .2, .2);
-part_type_direction(global.hit_burst, 0, 360, 0, 0)
+part_type_size(global.hit_burst, 1.2, 1.2, -.06, 0);
+part_type_scale(global.hit_burst, .24, .24);
+part_type_size_y(global.hit_burst, .1, .1, 0, 0);
 part_type_color3(global.hit_burst, c_white, c_white, c_white);
-part_type_alpha3(global.hit_burst, 1, 1, 0);
-part_type_blend(global.hit_burst, 0);
-part_type_life(global.hit_burst, 30, 60);
-part_type_speed(global.hit_burst, 1, 3, 0.1, 0);
-part_type_gravity(global.hit_burst, 0.1, 270);
+part_type_alpha3(global.hit_burst, 1, 1, 1);
+part_type_blend(global.hit_burst, true);
+part_type_life(global.hit_burst, 19, 19);
+part_type_speed(global.hit_burst, 1, 4, -0.1, 0);
+part_type_death(global.hit_burst, 1, global.death_part);
+
+global.hit_circle = part_type_create();
+part_type_shape(global.hit_circle, pt_shape_disk);
+part_type_size(global.hit_circle, 1, 1.2, -.06, 0);
+part_type_scale(global.hit_circle, .2, .2);
+part_type_color3(global.hit_circle, c_white, c_white, c_white);
+part_type_alpha3(global.hit_circle, 1, 1, 1);
+part_type_blend(global.hit_circle, true);
+part_type_life(global.hit_circle, 40, 40);
+part_type_direction(global.hit_circle, 0, 360, 0, 0);
+part_type_speed(global.hit_circle, .3, 1, -0.1, 0);
+
+
 

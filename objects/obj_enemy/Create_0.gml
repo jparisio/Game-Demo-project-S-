@@ -52,4 +52,4 @@ hp = 0;
 hsp = 0;
 vsp = 0;
 grv = .27;
-facing = 1;
+//facing = 1;

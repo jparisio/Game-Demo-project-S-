@@ -937,6 +937,7 @@
     {"id":{"name":"snd_rain","path":"sounds/snd_rain/snd_rain.yy",},},
     {"id":{"name":"snd_reload_item","path":"sounds/snd_reload_item/snd_reload_item.yy",},},
     {"id":{"name":"snd_reload","path":"sounds/snd_reload/snd_reload.yy",},},
+    {"id":{"name":"snd_ricochet","path":"sounds/snd_ricochet/snd_ricochet.yy",},},
     {"id":{"name":"snd_rocket_startup","path":"sounds/snd_rocket_startup/snd_rocket_startup.yy",},},
     {"id":{"name":"snd_rocket","path":"sounds/snd_rocket/snd_rocket.yy",},},
     {"id":{"name":"snd_shotgun_bullet","path":"sounds/snd_shotgun_bullet/snd_shotgun_bullet.yy",},},

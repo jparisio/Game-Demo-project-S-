@@ -4,23 +4,15 @@ if speed != 0 move_dir = sign(speed);
 
 
 if create_shells{
+	create_shells = false 
+	//shotgun so create a bunch of bullets in direction 
 	repeat(10){
-		create_shells = false;
-		var _bullet = instance_create_layer(x, y, "Instances", obj_bullet);
+		var _bullet = instance_create_layer(x, y, "Instances", obj_shotgun_effect);
 		with(_bullet){
 			speed = random_range(5, 18);
 			direction = other.direction + random_range(15, -15)
 		}
 	}
-	//create_shells = false 
-	////shotgun so create a bunch of bullets in direction 
-	//repeat(10){
-	//	var _bullet = instance_create_layer(x, y, "Instances", obj_shotgun_effect);
-	//	with(_bullet){
-	//		speed = random_range(5, 18);
-	//		direction = other.direction + random_range(15, -15)
-	//	}
-	//}
 	//create_shells = false;
 	//repeat(20){
 	//	var _rand_min = random_range(direction - 30, direction);
@@ -46,5 +38,5 @@ if (move_frames >= 0){
 }
 
 
-lifespan--;
-if lifespan <= 0 instance_destroy();
+//lifespan--;
+//if lifespan <= 0 instance_destroy();

@@ -1,6 +1,6 @@
-//create_sparks(x, y);
+create_sparks(x, y);
 
-//instance_destroy();
+instance_destroy();
 
 
 

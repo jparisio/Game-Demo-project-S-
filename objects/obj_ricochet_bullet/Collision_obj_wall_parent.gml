@@ -3,6 +3,7 @@ if bounced {
 	bounced = false;
 	speed = 16;
 	alarm[0] = 3;
+	audio_play_sound(snd_ricochet, 5, 0, 1, .6);
 	
 	//create particles 
 	var opposite_direction = direction;

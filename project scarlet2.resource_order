@@ -480,6 +480,7 @@
     {"name":"snd_player_hit","order":7,"path":"sounds/snd_player_hit/snd_player_hit.yy",},
     {"name":"snd_reload_item","order":4,"path":"sounds/snd_reload_item/snd_reload_item.yy",},
     {"name":"snd_reload","order":2,"path":"sounds/snd_reload/snd_reload.yy",},
+    {"name":"snd_ricochet","order":8,"path":"sounds/snd_ricochet/snd_ricochet.yy",},
     {"name":"snd_rocket_startup","order":3,"path":"sounds/snd_rocket_startup/snd_rocket_startup.yy",},
     {"name":"snd_rocket","order":4,"path":"sounds/snd_rocket/snd_rocket.yy",},
     {"name":"snd_shotgun_bullet","order":5,"path":"sounds/snd_shotgun_bullet/snd_shotgun_bullet.yy",},

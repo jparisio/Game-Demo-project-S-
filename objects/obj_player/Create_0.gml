@@ -461,6 +461,7 @@ fsm
 			//cap the vsp on the wall
 			vsp = min(vsp, 3.8);
 			get_input_and_move();
+			determine_facing();
 		}, 
 		
 		leave: function() {
@@ -477,7 +478,7 @@ fsm
 			wall_jump_frames = wall_jump_frames_max;
 			grv = global_grv;
 			wall_jump_hsp = wall_jump_hsp_max * - facing
-			//wall_jump_hsp_max *= -facing
+			facing = sign(wall_jump_hsp);
 		},
 		
 		step: function(){

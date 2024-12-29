@@ -394,7 +394,8 @@ fsm
 			
 			//variable jump but dont cap after a grapple slash 
 			//show_debug_message(fsm.get_previous_state())
-			if(!input_check("jump") and fsm.get_previous_state() != "grapple enemy") vsp = max(vsp, -2);
+			var prev = fsm.get_previous_state();
+			if(!input_check("jump") and  prev != "grapple enemy" and prev != "shoot") vsp = max(vsp, -2);
 			
 			//half grav at peak of jump 
 			if(vsp >= -0.4 and vsp <= 0.4){
@@ -923,6 +924,10 @@ fsm
 			step: function(){
 				get_input_and_move();
 				facing = (shoot_direction >= -90 && shoot_direction <= 90) ? 1 : -1;
+			},
+			
+			leave: function(){
+
 			}
 	})
 	

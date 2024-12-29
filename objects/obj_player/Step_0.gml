@@ -115,6 +115,7 @@ material.depth = depth - 1;
 
 //var _bullets = gun.get_bullets()
 //show_debug_message(vsp);
+//show_debug_message(fsm.get_current_state());
 //show_debug_message(hsp);
 
 //if mouse_check_button_pressed(mb_right) create_sparks(1, 1);

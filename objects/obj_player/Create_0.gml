@@ -99,6 +99,7 @@ wall_jump_frames_max = 9;
 wall_jump_frames = wall_jump_frames_max ;
 wall_jump_hsp = 0;
 wall_jump_hsp_max = 4;
+wall_slide_side = 0;
 
 //-------------------------------------------------health and damage------------------------------------------//
 hp = 50;
@@ -450,6 +451,8 @@ fsm
 			sprite_index = player_character.setSprite("wslide");
 			//approach_walksp = 0.04;
 			audio_play_sound(snd_wall_slide, 0, 1);
+			//store the side of wall sliding on 
+			wall_slide_side = facing;
 		},
 		
 		step: function(){
@@ -478,7 +481,7 @@ fsm
 			image_index = 0;
 			wall_jump_frames = wall_jump_frames_max;
 			grv = global_grv;
-			wall_jump_hsp = wall_jump_hsp_max * - facing
+			wall_jump_hsp = wall_jump_hsp_max * -wall_slide_side;
 			facing = sign(wall_jump_hsp);
 		},
 		

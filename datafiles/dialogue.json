@@ -1,41 +1,42 @@
 {
-    "test": [
-        "hello",
-        "helloooooo",
-        "is anyone gonna [shake_screen][c_red][snd_shake]ANSWER[c_red]",
-        "this is a [wave][rainbow]test[/rainbow][/wave] and im trying to see things[ended]"
-    ],
-    "test2": [
-        "oh shit",
-        "sprayed blood all over there",
-        "[switch, obj_shop][shake_screen]HEY",
-        "you got [c_red][shake]blood[/shake] [c_white]all over my [shake_screen]SHOP",
-        "YOU GOTTA CLEAN THIS. [shake_screen]NOW",
-        "[switch, obj_player]my bad, ill get on that sir...",
-        "or maam...",
-        "[shake]sorry[/shake][ended]"
-    ],
-    "katana":[
-        "This is a demo",
-        "testing out the dialogue system",
-        "Long strings seem to work and everything looks fluid",
-        "heres the finish[ended]"
-    ],
-    "gunslinger":[
-        "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger][snd_suspense]hm?",
-        "[cam, obj_temp_camera_anchor]he...",
-        "[c_red][shake_screen][shake][snd_shake][wave] HA HA HA HA [c_red][snd_shake][shake_screen]HA",
-        "you actually came all this way...",
-        "I have waited [delay,400]soooooooo[delay,700][shake_screen][c_red] LONG[delay,700][c_white] for this moment",
-        "[wave][shake]ahhhhh[/wave]",
-        "finally.",
-        "[cam, obj_player][switch, obj_player]enough.",
-        "get on it with it[cam, obj_temp_camera_anchor][boss][ended]"
-    ], 
-    "dead":[
-        "ugh",
-        "[shake_screen][shake][snd_shake]ARGGHHHH"
-    ]
+  "test": [
+    "hello",
+    "helloooooo",
+    "is anyone gonna [shake_screen][c_red][snd_shake]ANSWER[c_red]",
+    "this is a [wave][rainbow]test[/rainbow][/wave] and im trying to see things[ended]"
+  ],
+  "test2": [
+    "oh shit",
+    "sprayed blood all over there",
+    "[switch, obj_shop][shake_screen]HEY",
+    "you got [c_red][shake]blood[/shake] [c_white]all over my [shake_screen]SHOP",
+    "YOU GOTTA CLEAN THIS. [shake_screen]NOW",
+    "[switch, obj_player]my bad, ill get on that sir...",
+    "or maam...",
+    "[shake]sorry[/shake][ended]"
+  ],
+  "katana": [
+    "This is a demo",
+    "testing out the dialogue system",
+    "Long strings seem to work and everything looks fluid",
+    "heres the finish[ended]"
+  ],
+  "gunslinger": [
+    "[switch, obj_boss_gunslinger][cam, obj_boss_gunslinger][snd_suspense]hm?",
+    "[cam, obj_temp_camera_anchor]he...",
+    "[c_red][shake_screen][shake][snd_shake][wave] HA HA HA HA [c_red][snd_shake][shake_screen]HA",
+    "you actually came all this way...",
+    "I have waited [delay,400]soooooooo[delay,700][shake_screen][c_red] LONG[delay,700][c_white] for this moment",
+    "[wave][shake]ahhhhh[/wave]",
+    "finally.",
+    "[cam, obj_player][switch, obj_player]enough.",
+    "get on it with it[cam, obj_temp_camera_anchor][boss][ended]"
+  ],
+  "dead": ["ugh", "[shake_screen][shake][snd_shake]ARGGHHHH"],
+  "tutorial": [
+    "shoot enemies to incapacitate them",
+    "once theyre incapacitated you can [rainbow]GRAPPLE TO THEM[/rainbow]",
+    "thisll launch you in their direction for a crisp finishing [shake_screen][c_red][snd_shake]BLOW[c_red]",
+    "if you fuck up at all in a level hit R to restart[ended]"
+  ]
 }
-
-

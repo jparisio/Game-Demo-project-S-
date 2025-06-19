@@ -6,9 +6,9 @@ if image_alpha < 0 instance_destroy();
 
 if input_check_pressed("action") instance_destroy();
 
-
 //wave up and down
 y += sin(sin_wave * .05) * .1;
+x = create_above.x
 //rotate left and right
 image_angle += cos(sin_wave * .05) * .1;
 sin_wave++;

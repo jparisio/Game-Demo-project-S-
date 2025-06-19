@@ -13,3 +13,5 @@ if global.toggle_debug {
 	draw_line(center_x, cam_y, center_x, cam_y + cam_height);
 
 }
+
+

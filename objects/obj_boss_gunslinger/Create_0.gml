@@ -76,10 +76,10 @@ fsm
 				instance_destroy(obj_cone_light);
 				audio_play_sound(snd_spotlight, 10, 0, 1, 0, 0.9)
 				for(var i = 650; i <= 1050; i++){
-					instance_create_layer(i, 280, "Lighting", obj_light)
+					//instance_create_layer(i, 280, "Lighting", obj_light)
 					i+= 100;
 				}
-				var floor_light = instance_create_layer(830, 300, "Lighting", obj_light)
+				//var floor_light = instance_create_layer(830, 300, "Lighting", obj_light)
 				floor_light.sprite = spr_floor_light;
 				audio_play_sound(snd_temp_song, 10, 1, 0.5);
 				fsm.change("steady");
@@ -89,7 +89,7 @@ fsm
 				obj_player.facing = sign( x - obj_player.x);
 				if(!spotlight){
 					spotlight = true;
-					instance_create_layer(1054, 162, "Lighting", obj_cone_light);
+					//instance_create_layer(1054, 162, "Lighting", obj_cone_light);
 					audio_play_sound(snd_spotlight, 10, 0, 1, 0, 0.9)
 				}
 			}

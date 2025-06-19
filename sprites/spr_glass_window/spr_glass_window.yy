@@ -20,7 +20,7 @@
   "height":24,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"ba778707-e721-47fe-a78f-6560c215695e","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"ba778707-e721-47fe-a78f-6560c215695e","opacity":68.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"ba778707-e721-47fe-a78f-6560c215695e","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"ba778707-e721-47fe-a78f-6560c215695e","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"9dea9839-6ba4-484e-932a-679ac311fb08","blendMode":0,"displayName":"default","isLocked":false,"name":"9dea9839-6ba4-484e-932a-679ac311fb08","opacity":17.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_glass_window",

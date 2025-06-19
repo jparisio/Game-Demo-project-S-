@@ -14,4 +14,3 @@ if global.toggle_debug {
 
 }
 
-

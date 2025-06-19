@@ -9,7 +9,6 @@ if (follow == obj_player) mouse_look();
 var _x = x - global.cam_width * global.x_offset;
 var _y = y - global.cam_height * global.y_offset;
 
-
 //clamp to room boundaries
 _x = clamp(_x, 0, room_width - global.cam_width);
 _y = clamp(_y, 0, room_height - global.cam_height);

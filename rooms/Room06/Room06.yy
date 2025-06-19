@@ -53,8 +53,8 @@
           16,43,44,45,43,44,44,45,43,44,45,16,35,36,36,37,35,-4,36,1,37,-6,-2147483648,1,49,-9,4,6,16,43,44,44,
           45,43,-4,44,1,45,-9,-2147483648,8,11,12,12,13,11,12,13,16,-6,4,4,5,6,6,48,-9,-2147483648,8,19,20,20,
           21,19,20,21,16,-19,-2147483648,8,27,28,28,29,27,28,29,16,-19,-2147483648,8,35,36,36,37,35,36,37,16,-19,
-          -2147483648,8,43,44,44,45,43,44,45,16,-19,-2147483648,1,49,-6,4,1,16,-5,4,-21,-2147483648,1,16,-26,-2147483648,
-          1,16,-26,-2147483648,1,16,
+          -2147483648,8,43,44,44,45,43,44,45,16,-19,-2147483648,1,49,-6,4,1,16,-4,4,1,48,-21,-2147483648,1,16,
+          -26,-2147483648,1,16,-26,-2147483648,1,16,
         ],"TileDataFormat":1,},"tilesetId":{"name":"hotel_background","path":"tilesets/hotel_background/hotel_background.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"Walls","depth":800,"effectEnabled":true,"effectType":null,"gridX":24,"gridY":24,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_16FA030B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_16FA030B","objectId":{"name":"obj_24_wall","path":"objects/obj_24_wall/obj_24_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":5.0,"scaleY":1.0,"x":0.0,"y":288.0,},

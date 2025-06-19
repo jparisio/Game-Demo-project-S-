@@ -35,8 +35,10 @@
   "dead": ["ugh", "[shake_screen][shake][snd_shake]ARGGHHHH"],
   "tutorial": [
     "shoot enemies to incapacitate them",
-    "once theyre incapacitated you can [rainbow]GRAPPLE TO THEM[/rainbow]",
-    "thisll launch you in their direction for a crisp finishing [shake_screen][c_red][snd_shake]BLOW[c_red]",
+    "once theyre incapacitated you can [rainbow]GRAPPLE TO THEM[/rainbow] when in range",
+    "this will launch you in their direction for a crisp finishing [shake_screen][c_red][snd_shake]BLOW[c_red]",
+    "distance equals momentum equals [shake_screen][wave][snd_shake]SPEED[/wave]",
+    "you get [rainbow]FIVE[/rainbow] bullets.",
     "if you fuck up at all in a level hit R to restart[ended]"
   ]
 }

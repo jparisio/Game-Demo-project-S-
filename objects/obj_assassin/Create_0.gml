@@ -185,10 +185,11 @@ fsm.add("idle", {
 			//sound
 			audio_play_sound(snd_crunch2, 1, 0, .1, 0, 1.2);
 			audio_play_sound(snd_old_dash, 2, 0, 3, 0, 2);
-			//shake
-			create_shake();
+			
 			//hit pause
 			hit_pause(20)
+			//shake
+			create_shake();
 			
 			slide_hsp = (obj_player.pushback * 3) * sign(obj_player.facing);
 			

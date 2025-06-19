@@ -40,5 +40,11 @@
     "distance equals momentum equals [shake_screen][wave][snd_shake]SPEED[/wave]",
     "you get [rainbow]FIVE[/rainbow] bullets.",
     "if you fuck up at all in a level hit R to restart[ended]"
+  ],
+  "demo_end": [
+    "thats the end of the demo!",
+    "if you liked it please share with your friends!",
+    "if youd like me to finish the game and make it look pretty like [wave][rainbow]THIS SCENE[/rainbow][/wave]...",
+    "Let me know and ill pick it pack up :)[ended]"
   ]
 }

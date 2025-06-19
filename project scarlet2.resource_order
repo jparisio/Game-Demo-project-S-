@@ -290,6 +290,7 @@
     {"name":"Room14","order":22,"path":"rooms/Room14/Room14.yy",},
     {"name":"Room15","order":23,"path":"rooms/Room15/Room15.yy",},
     {"name":"Room16","order":25,"path":"rooms/Room16/Room16.yy",},
+    {"name":"Room17","order":26,"path":"rooms/Room17/Room17.yy",},
     {"name":"__cle_DebugUI","order":1,"path":"scripts/__cle_DebugUI/__cle_DebugUI.yy",},
     {"name":"__cle_MacrosEnums","order":1,"path":"scripts/__cle_MacrosEnums/__cle_MacrosEnums.yy",},
     {"name":"__cle_Material","order":2,"path":"scripts/__cle_Material/__cle_Material.yy",},

@@ -57,13 +57,26 @@ fsm
 		step: function() {
 				if follow == noone fsm.change("static");
 				//lerp camera towards follow 
-				if follow != noone {
+				var cam_x = camera_get_view_x(view_camera[0]);
+				var cam_y = camera_get_view_y(view_camera[0]);
+				var cam_width = camera_get_view_width(view_camera[0]);
+				var cam_height = camera_get_view_height(view_camera[0]);
+				var center_x = cam_x + (cam_width / 2);
+				//deadzone top
+				var deadzone_top = cam_y + 200;
+				//deadzone bot
+				var deadzone_bottom = cam_y + cam_height;
+						
+				
+				if (follow != noone) {
 					x += (follow.x - x) / 15;
-					y += (follow.y - 30 - y) / 15;
-					if(variable_instance_exists(follow, "vsp") && follow.vsp > 0)  {
-		                var look_ahead_offset = min(follow.vsp * 30, 100); // Cap the offset to prevent too much look-ahead
-		                target_y += look_ahead_offset; 
-		            }
+					//if(follow.y < deadzone_top || follow.y > deadzone_bottom){
+						y += (follow.y - 30 - y) / 15;
+					//} 
+					//if(variable_instance_exists(follow, "vsp") && follow.vsp > 0)  {
+		            //    var look_ahead_offset = min(follow.vsp * 30, 100); // Cap the offset to prevent too much look-ahead
+		            //    target_y += look_ahead_offset; 
+		            //}
 				}
 
 				// Move the camera offset depending on if the player is facing left or right

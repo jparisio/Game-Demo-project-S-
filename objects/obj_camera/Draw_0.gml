@@ -11,6 +11,10 @@ if global.toggle_debug {
 	var center_x = cam_x + (cam_width / 2);
 	// Draw the line from the top to the bottom of the camera view
 	draw_line(center_x, cam_y, center_x, cam_y + cam_height);
+	//deadzone 1
+	draw_circle(center_x, cam_y + 200, 10, false);
+	//deadzone 2
+	draw_circle(center_x, cam_y + cam_height, 10, false);
 
 }
 
